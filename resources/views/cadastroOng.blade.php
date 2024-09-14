@@ -75,7 +75,7 @@
                 <option>TO</option>
             </select>
 
-            <input class="button" type="button" value="Próximo">
+            <input class="button" type="submit" value="Próximo">
         </form>
     </div>
 

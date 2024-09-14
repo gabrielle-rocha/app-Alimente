@@ -40,7 +40,7 @@
             <label for="">Confirmar Senha:</label>
             <input type="text" placeholder="Repita a senha">
 
-            <input class="Button" type="button" value="Próximo">
+            <input class="Button" type="submit" value="Próximo">
         </form>
     </div>
 
