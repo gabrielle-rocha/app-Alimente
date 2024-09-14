@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 100vh;
+    background-color: #fdfcfcc5;
+}
+
+.grad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100vh;
+    background: linear-gradient(to bottom, #c5f3b5, #bddef8);
+}
+
+.grad img {
+    width: 80%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.h-100{
+    height: 100%;
+}
+
+.m-2{
+    margin: 12px;
+}
+
+.p-4{
+    padding: 24px;
+}
+
+.formulario {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border: 1.5px solid #dfd7d7;
+    border-radius: 10px;
+
+    & .imgPerfil{
+        border: 3px solid #87a5bd;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        position: relative;
+        box-shadow: 2px 3px 11px #00000060;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    & .imgPerfil img{
+        object-fit: cover;
+    }
+
+    & .imgPerfil i{
+        position: absolute;
+        margin: 0 auto;
+        font-size: 95px;
+        color: #89adc9;
+    }
+
+    & #img-field{
+        position: absolute;
+        margin: 0 ;
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+        cursor: pointer;
+    }
+}

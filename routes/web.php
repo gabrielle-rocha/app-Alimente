@@ -15,12 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
 
 Route::get('/splash', function () {
     return view('splash');
 });
 
 Route::get('/cadastroOng', function () {
-    return view('CadastroOng');
+    return view('cadastroOng');
+});
+
+Route::get('/configPerfilOng', function () {
+    return view('configPerfilOng');
 });
