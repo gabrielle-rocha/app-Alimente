@@ -21,6 +21,6 @@ Route::get('/splash', function () {
     return view('splash');
 });
 
-Route::get('/exemplo', function () {
-    return view('exemplo');
+Route::get('/cadastroOng', function () {
+    return view('CadastroOng');
 });

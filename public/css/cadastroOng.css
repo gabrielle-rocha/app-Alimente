@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 100vh;
+    background-color: #fdfcfcc5;
+    overflow: hidden; 
+}
+
+.grad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100vh;
+    background: linear-gradient(to bottom, #c5f3b5, #bddef8);
+}
+
+.grad img {
+    width: 80%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.formulario {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border: 1.5px solid #dfd7d7;
+    border-radius: 10px;
+    overflow-y: auto; /* Permite rolagem no formulário somente se necessário */
+    max-height: 100%; /* Garante que o formulário não exceda a altura da tela */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+form input, form select {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+form input::placeholder {
+    color: #aaa;
+}
+
+form .button {
+    background: linear-gradient(to right, rgba(88,169,195,1) 0%, rgb(127, 223, 164) 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form .button:hover {
+    background: linear-gradient(90deg, rgb(127, 223, 164) 0%, rgba(88,169,195,1) 100%);
+}
+
+.formulario::-webkit-scrollbar {
+    width: 20px; /* Largura da barra de rolagem */
+    cursor: pointer;
+}
+
+.formulario::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor do fundo da barra de rolagem */
+    border-radius: 10px; /* Borda arredondada para a pista */
+}
+
+.formulario::-webkit-scrollbar-thumb {
+    background-color: #58a9c3; /* Cor da "thumb" (indicador da rolagem) */
+    border-radius: 10px; /* Borda arredondada para a "thumb" */
+    border: 2px solid #f1f1f1; /* Adiciona um contorno em volta do indicador */
+    cursor: pointer;
+}
+
+.formulario::-webkit-scrollbar-thumb:hover {
+    background-color: #357f94; /* Cor da "thumb" quando o mouse passa por cima */
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .grad, .container {
+        width: 100%;
+    }
+
+    .grad {
+        height: 40vh;
+    }
+
+    .grad img {
+        max-width: 250px;
+    }
+
+    .container {
+        height: 60vh;
+        padding: 10px;
+    }
+
+    .formulario {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    form h3 {
+        font-size: 1.2em;
+    }
+
+    form input, form select {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .formulario {
+        max-height: 80%; /* Limita o tamanho do formulário em telas menores */
+    }
+
+    form input, form select, form .button {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}
