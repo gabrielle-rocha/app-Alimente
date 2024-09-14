@@ -1,0 +1,90 @@
+* {
+    font-family: 'Quicksand';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, #cedce7, #b2e6a1);
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.gif {
+    flex-grow: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gif img {
+    max-width: 600px; 
+    height: auto;
+    margin-bottom: 50px;
+}
+
+.empresa {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+   
+}
+
+.empresa h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.719);
+    cursor: pointer;
+}
+
+.logo img {
+    max-width: 200px; 
+    height: auto;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .gif img {
+        max-width: 200px; /* Diminui ainda mais o GIF em telas menores */
+    }
+
+    .empresa {
+        padding: 5px; /* Reduz o padding em telas menores */
+    }
+
+    .empresa h3 {
+        font-size: 1.05rem; /* Ajusta o tamanho do texto em telas menores */
+    }
+
+    .logo img {
+        max-width: 120px; /* Reduz o tamanho do logo para telas menores */
+    }
+}
+
+
+/*celular*/
+@media (max-width: 480px) {
+    .gif img {
+        max-width: 185px; /* GIF menor pro celular */
+    }
+
+    .empresa h3 {
+        font-size: 1.06rem; /* deixa o texto menor pro celular */
+    }
+
+    .logo img {
+        max-width: 120px; /* deixa a Logo menor pro celular */
+    }
+}
