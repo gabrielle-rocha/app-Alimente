@@ -28,12 +28,19 @@
         <div class="formulario">
             <form method="POST" action="{{ route('welcome') }}">
                 <h3>Perfil</h3>
+
                 <label for="">Adicione uma foto:</label>
                 <div class="imgPerfil box">
                     <img src="" alt="" id="img-preview" class="w-100 h-100">
                     <i class="bi bi-person-fill-add"></i>
                     <input id="img-field" type="file">
                 </div>
+
+                <label for="">Nome de usuário:</label>
+                <input type="text" placeholder="Ex: amigos_do_bem.07">
+
+                <label for="">Bio:</label>
+                <textarea name="" id="" placeholder=""></textarea>
             </form>
         </div>
     </div>

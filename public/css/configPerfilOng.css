@@ -69,6 +69,9 @@ body {
     padding: 20px;
     border: 1.5px solid #dfd7d7;
     border-radius: 10px;
+    display: flex; /* Adicione flexbox */
+    flex-direction: column;
+   
 
     & .imgPerfil{
         border: 3px solid #87a5bd;
@@ -79,6 +82,12 @@ body {
         box-shadow: 2px 3px 11px #00000060;
         overflow: hidden;
         cursor: pointer;
+        margin: 0 auto; /* Centraliza horizontalmente a imagem de perfil */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+         margin-bottom: 10px ;
     }
 
     & .imgPerfil img{
@@ -100,4 +109,47 @@ body {
         opacity: 0;
         cursor: pointer;
     }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+form input{
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+form input::placeholder {
+    color: #aaa;
+}
+
+form .button {
+    background: linear-gradient(to right, rgba(88,169,195,1) 0%, rgb(127, 223, 164) 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form .button:hover {
+    background: linear-gradient(90deg, rgb(127, 223, 164) 0%, rgba(88,169,195,1) 100%);
 }
