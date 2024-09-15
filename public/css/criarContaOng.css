@@ -46,22 +46,6 @@ body {
     cursor: pointer;
 }
 
-.w-100{
-    width: 100%;
-}
-
-.h-100{
-    height: 100%;
-}
-
-.m-2{
-    margin: 12px;
-}
-
-.p-4{
-    padding: 24px;
-}
-
 .formulario {
     width: 100%;
     max-width: 400px;
@@ -71,49 +55,11 @@ body {
     border-radius: 10px;
     display: flex; 
     flex-direction: column;
-   
-
-    & .imgPerfil{
-        border: 3px solid #87a5bd;
-        width: 150px;
-        height: 150px;
-        border-radius: 100%;
-        position: relative;
-        box-shadow: 2px 3px 11px #00000060;
-        overflow: hidden;
-        cursor: pointer;
-        margin: 0 auto; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 5px;
-         margin-bottom: 10px ;
-    }
-
-    & .imgPerfil img{
-        object-fit: cover;
-    }
-
-    & .imgPerfil i{
-        position: absolute;
-        margin: 0 auto;
-        font-size: 95px;
-        color: #89adc9;
-    }
-
-    & #img-field{
-        position: absolute;
-        margin: 0 ;
-        width: 100px;
-        height: 100px;
-        opacity: 0;
-        cursor: pointer;
-    }
 }
-
 form {
     display: flex;
     flex-direction: column;
+    
 }
 
 form h3 {
@@ -152,16 +98,4 @@ form .button {
 
 form .button:hover {
     background: linear-gradient(90deg, rgb(127, 223, 164) 0%, rgba(88,169,195,1) 100%);
-}
-
-form textarea {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-    resize: none; /* Impede o redimensionamento */
-    overflow-y: auto; /* Adiciona rolagem vertical, se necessário */
-    box-sizing: border-box;
 }
