@@ -36,12 +36,12 @@
             <input type="text" placeholder="CNPJ" required>
 
             <label for="endereco">Endereço: </label>
-            <input type="text" id="endereco" placeholder="Endereço" required>
+            <input type="text" id="endereco" placeholder="Rua" required>
             <input type="number" id="numero" placeholder="Número">
             <input type="text" id="complemento" placeholder="Complemento">
             <input type="text" id="bairro" placeholder="Bairro">
             <input type="text" id="cidade" placeholder="Cidade">
-            <input type="text" id="cep" placeholder="Cep" required onblur="buscarCep()">
+            <input type="text" id="cep" placeholder="Preencher automáticamente com o cep" required onblur="buscarCep()">
 
             <select id="estado">
                 <option value="0">Estado</option>
