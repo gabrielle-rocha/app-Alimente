@@ -26,7 +26,7 @@
 
     <div class="container">
         <div class="formulario">
-            <form method="POST" action="{{ route('welcome') }}">
+            <form>
                 <h3>Perfil</h3>
 
                 <label for="">Adicione uma foto:</label>
@@ -37,10 +37,12 @@
                 </div>
 
                 <label for="">Nome de usuário:</label>
-                <input type="text" placeholder="Ex: amigos_do_bem.07">
+                <input type="text" placeholder="Ex: amigos_do_bem.07" required>
 
                 <label for="">Bio:</label>
-                <textarea name="" id="" placeholder=""></textarea>
+                <textarea name="" id="" placeholder="Ex: objetivo, data de fundação, número de auxiliados e etc..."></textarea>
+
+                <input class="button" type="submit" value="Próximo">
             </form>
         </div>
     </div>

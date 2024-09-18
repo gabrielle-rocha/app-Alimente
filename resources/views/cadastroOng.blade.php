@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro | Alimente</title>
-<!--js-->
-<script src="/js/script.js"></script>
 
 <!--css-->
 <link rel="stylesheet" href="/css/cadastroOng.css">
@@ -32,20 +30,20 @@
             <h3>Preencha os Campos:</h3>
 
             <label for="">Nome da instituição: </label>
-            <input type="text" placeholder="Ex: Amigos do bem">
+            <input type="text" placeholder="Ex: Amigos do bem" required>
 
             <label for="">Registro: </label>
-            <input type="text" placeholder="CNPJ">
+            <input type="text" placeholder="CNPJ" required>
 
-            <label for="">Endereço: </label>
-            <input type="text" placeholder="Endereço">
-            <input type="number" placeholder="Número">
-            <input type="text" placeholder="Complemento">
-            <input type="text" placeholder="Bairro">
-            <input type="text" placeholder="Cidade">
-            <input type="text" placeholder="Cep">
+            <label for="endereco">Endereço: </label>
+            <input type="text" id="endereco" placeholder="Rua" required>
+            <input type="number" id="numero" placeholder="Número">
+            <input type="text" id="complemento" placeholder="Complemento">
+            <input type="text" id="bairro" placeholder="Bairro">
+            <input type="text" id="cidade" placeholder="Cidade">
+            <input type="text" id="cep" placeholder="Preencher automáticamente com o cep" required onblur="buscarCep()">
 
-            <select>
+            <select id="estado">
                 <option value="0">Estado</option>
                 <option>AC</option>
                 <option>AL</option>
@@ -75,10 +73,13 @@
                 <option>TO</option>
             </select>
 
-            <input class="button" type="button" value="Próximo">
+            <input class="button" type="submit" value="Próximo">
         </form>
     </div>
 
     </div>
+
+    <!--js-->
+<script src="/js/cadastroOng.js"></script>
 </body>
 </html>

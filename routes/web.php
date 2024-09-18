@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -22,10 +23,19 @@ Route::get('/splash', function () {
     return view('splash');
 });
 
+/*Ong*/
 Route::get('/cadastroOng', function () {
     return view('cadastroOng');
 });
 
 Route::get('/configPerfilOng', function () {
     return view('configPerfilOng');
+});
+
+Route::get('/criarContaOng', function () {
+    return view('criarContaOng');
+});
+
+Route::get('/analiseOng', function () {
+    return view('analiseOng');
 });
