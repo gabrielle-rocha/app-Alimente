@@ -44,7 +44,7 @@ body {
     max-width: 400px;
     background-color: white;
     padding: 20px;
-    border: 1.5px solid #dfd7d7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow-y: auto; /* Permite rolagem no formulário somente se necessário */
     max-height: 100%; /* Garante que o formulário não exceda a altura da tela */
@@ -71,7 +71,7 @@ form input, form select {
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 form input::placeholder {
