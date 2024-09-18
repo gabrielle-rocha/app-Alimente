@@ -70,7 +70,7 @@
         </div>
     </div>
     <div class="right-section">
-        <img src="img/logo.png" alt="Alimente - Gerando Solidariedade">
+        <img src="img/alimentelogo.png" alt="Alimente - Gerando Solidariedade">
     </div>
 </body>
 </html>

@@ -48,7 +48,7 @@
 <body>
     <div class="left-section">
         <div class="login-card">
-            <h3 class="text-center">Login</h3>
+            <h3 class="text-center">Criar Conta</h3>
             <form method="POST" action="{{ route('welcome') }}">
                 @csrf
                 <div class="mb-3">
@@ -57,20 +57,15 @@
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Senha:</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Criar senha" required>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Confirmar senha" required>
                 </div>
-                <div class="mb-3">
-                    <a href="#" class="forgot-password">Esqueci minha senha</a>
-                </div>
-                <button type="submit" class="btn login-btn w-100">Login</button>
-                <div class="mt-3 text-center">
-                    <a href="cadastro" class="text-muted">Não tenho cadastro</a>
-                </div>
+                <button type="submit" class="btn login-btn w-100">Cadastrar</button>
             </form>
         </div>
     </div>
     <div class="right-section">
-        <img src="img/logo.png" alt="Alimente - Gerando Solidariedade">
+        <img src="img/alimentelogo.png" alt="Alimente - Gerando Solidariedade">
     </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Cadastro-doador</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -48,24 +48,26 @@
 <body>
     <div class="left-section">
         <div class="login-card">
-            <h3 class="text-center">Login</h3>
-            <form method="POST" action="{{ route('welcome') }}">
+            <h3 class="text-center">Cadastro</h3>
+            <form method="POST" action="{{ route('cadastro') }}">
                 @csrf
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="seuemail@gmail.com" required>
+                    <label for="name" class="form-label">Nome:</label>
+                    <input type="name" class="form-control" id="name" name="name" placeholder="Seu nome vai aqui" required>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Senha:</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
+                    <label for="adress" class="form-label">Endereço:</label>
+                    <input type="adress" class="form-control" id="adress" name="adress" placeholder="Endereço" required>
+                    <input type="adress" class="form-control" id="adress" name="adress" placeholder="Número" required>
+                    <input type="adress" class="form-control" id="adress" name="adress" placeholder="Complemento">
+                    <input type="adress" class="form-control" id="adress" name="adress" placeholder="Bairro" required>
+                    <input type="adress" class="form-control" id="adress" name="adress" placeholder="Cidade" required>
+                    <input type="adress" class="form-control" id="adress" name="adress" placeholder="CEP" required>
+                    <input type="adress" class="form-control" id="adress" name="adress" placeholder="Estado" required>
                 </div>
-                <div class="mb-3">
-                    <a href="#" class="forgot-password">Esqueci minha senha</a>
-                </div>
-                <button type="submit" class="btn login-btn w-100">Login</button>
-                <div class="mt-3 text-center">
-                    <a href="cadastro" class="text-muted">Não tenho cadastro</a>
-                </div>
+                <form action="criarperfil.blade.php">
+               <input type="submit" class="btn login-btn w-100" value="Próximo" />
+               </form>
             </form>
         </div>
     </div>

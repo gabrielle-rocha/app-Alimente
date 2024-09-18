@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -37,4 +38,20 @@ Route::get('/criarContaOng', function () {
 
 Route::get('/analiseOng', function () {
     return view('analiseOng');
+});
+
+Route::get('/criarperfildoador', function () {
+    return view('criarperfildoador');
+});
+
+Route::get('/logindoador', function () {
+    return view('logindoador');
+});
+
+Route::get('/criarcontadoador', function () {
+    return view('criarcontadoador');
+});
+
+Route::get('/cadastrodoador', function () {
+    return view('cadastrodoador');
 });
