@@ -98,7 +98,7 @@
 <body>
     <div class="left-section">
         <div class="login-card">
-            <h3 class="text-center">Cadastro</h3>
+            <h3 class="text-center">Preencha os Campos:</h3>
             <form method="POST">
                 @csrf
                 <div class="mb-3">
