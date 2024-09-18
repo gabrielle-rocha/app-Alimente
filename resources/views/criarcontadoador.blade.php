@@ -27,6 +27,7 @@
             margin: 0;
             display: flex;
             flex-direction: row;
+            background-color: #fdfcfcc5;
         }
         .left-section, .right-section {
             width: 50%;
@@ -40,6 +41,8 @@
         }
         .right-section {
             background: linear-gradient(to bottom, #c5f3b5, #bddef8);
+            border-top-left-radius: 15%;
+            border-bottom-left-radius: 15%;
         }
 
         form label {
@@ -96,7 +99,7 @@
     <div class="left-section">
         <div class="login-card">
             <h3 class="text-center">Criar Conta</h3>
-            <form method="POST" action="{{ route('welcome') }}">
+            <form method="GET" action="/criarperfildoador">
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>
@@ -109,7 +112,7 @@
                     <label for="password" class="form-label">Confirmar Senha:</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Repita a senha" required>
                 </div>
-                <button type="submit" class="btn login-btn w-100">Cadastrar</button>
+                <a href="/criarperfildoador" class="btn login-btn w-100">Próximo</a>
             </form>
         </div>
     </div>

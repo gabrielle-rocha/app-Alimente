@@ -29,7 +29,7 @@
     <div class="container">
 
     <div class="formulario">
-        <form action="">
+        <form method="GET" action="/configPerfilOng">
             <h3>Criar Conta</h3>
             <label for="">Email:</label>
             <input type="text" placeholder="Ex:juanpf12@gmail.com">
@@ -40,7 +40,7 @@
             <label for="">Confirmar Senha:</label>
             <input type="text" placeholder="Repita a senha">
 
-            <input class="button" type="submit" value="Próximo">
+            <a class="button" href="/configPerfilOng">Próximo</a>
         </form>
     </div>
 

@@ -29,6 +29,7 @@
             display: flex;
             flex-direction: row;
             height: 100vh;
+            background-color: #fdfcfcc5;
         }
         .left-section, .right-section {
             width: 50%;
@@ -45,6 +46,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border-top-left-radius: 15%;
+            border-bottom-left-radius: 15%;
         }
         .right-section img {
             max-width: 80%;
@@ -142,7 +145,7 @@
 </head>
 <body>
     <div class="left-section">
-        <div class="profile-card">
+        <div class="profile-card" method="GET" action="/">
             <h3>Perfil</h3>
             <label for="user" class="form-label">Adicione uma foto:</label>
             <div class="imgPerfil box">
@@ -166,7 +169,7 @@
                 <img src="img/roupas.png" alt="Causa 3">
                 <img src="img/comida.png" alt="Causa 4">
             </div>
-            <button type="submit" class="btn btn-next">Próximo</button>
+            <a href="/" class="btn btn-next">Concluir</a> 
         </div>
     </div>
     <div class="right-section">

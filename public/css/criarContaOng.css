@@ -21,6 +21,8 @@ body {
     width: 50%;
     height: 100vh;
     background: linear-gradient(to bottom, #c5f3b5, #bddef8);
+    border-top-right-radius: 15%;
+    border-bottom-right-radius: 15%;
 }
 
 .grad img {
@@ -60,6 +62,12 @@ form {
     display: flex;
     flex-direction: column;
     
+}
+
+form a{
+    text-decoration: none;
+    color: white;
+    text-align: center;
 }
 
 form h3 {

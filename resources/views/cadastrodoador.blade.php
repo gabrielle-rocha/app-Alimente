@@ -25,6 +25,7 @@
             margin: 0;
             display: flex;
             flex-direction: row;
+            background-color: #fdfcfcc5;
         }
         .left-section, .right-section {
             width: 50%;
@@ -38,15 +39,19 @@
         }
         .right-section {
             background: linear-gradient(to bottom, #c5f3b5, #bddef8);
+            border-top-left-radius: 15%;
+            border-bottom-left-radius: 15%;
         }
 
          h3 {
             text-align: center;
             font-weight: 600;
-            font-size: 1.5em;
+            font-size: 1.3em;
         }
 
         .login-card {
+            margin-top: 30px;
+            margin-bottom: 30px;
             padding: 1rem;
             background-color: white;
             border-radius: 10px;
@@ -58,7 +63,7 @@
             background: linear-gradient(to right, rgba(88,169,195,1) 0%, rgb(127, 223, 164) 100%);
             color: white;
             border: none;
-            padding: 15px;
+            padding: 12px;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
@@ -79,7 +84,7 @@
         }
 
        form input, form select {
-            margin-bottom: 9px;
+            margin-bottom: 8px;
             padding: 10px;
             border-radius: 6px;
             border: 1px solid #ccc;
@@ -99,20 +104,20 @@
     <div class="left-section">
         <div class="login-card">
             <h3 class="text-center">Preencha os Campos:</h3>
-            <form method="POST">
+            <form  action="/criarcontadoador" method="get">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Nome:</label>
-                    <input type="name" class="form-control" id="name" name="name" placeholder="Seu nome vai aqui" required>
+                    <input type="name" class="form-control" id="name" name="name" placeholder="Seu nome vai aqui" >
                 </div>
                 <div class="mb-3">
                     <label for="adress" class="form-label">Endereço:</label>
-                    <input type="adress" class="form-control" id="endereco" name="adress" placeholder="Rua" required>
-                    <input type="adress" class="form-control" id="numero" name="adress" placeholder="Número" required>
+                    <input type="adress" class="form-control" id="cep" name="adress" placeholder="Preencher automáticamente com o cep" onblur=buscarCep() >
+                    <input type="adress" class="form-control" id="endereco" name="adress" placeholder="Rua" >
+                    <input type="adress" class="form-control" id="numero" name="adress" placeholder="Número" >
                     <input type="adress" class="form-control" id="complemento" name="adress" placeholder="Complemento">
-                    <input type="adress" class="form-control" id="bairro" name="adress" placeholder="Bairro" required>
-                    <input type="adress" class="form-control" id="cidade" name="adress" placeholder="Cidade" required>
-                    <input type="adress" class="form-control" id="cep" name="adress" placeholder="Preencher automáticamente com o cep" onblur=buscarCep() required>
+                    <input type="adress" class="form-control" id="bairro" name="adress" placeholder="Bairro" >
+                    <input type="adress" class="form-control" id="cidade" name="adress" placeholder="Cidade" >
                    
                     <select id="estado">
                         <option value="0">Estado</option>
@@ -143,10 +148,12 @@
                         <option>SE</option>
                         <option>TO</option>
                     </select>
+                    <a href="/cadastroOng">Quero cadastrar minha Ong</a>
                 </div>
-                <form action="criarperfil.blade.php">
-               <input type="submit" class="btn login-btn w-100" value="Próximo" />
-               </form>
+                
+               
+                <a href="/criarcontadoador" class="btn login-btn w-100">Próximo</a>
+
             </form>
         </div>
     </div>

@@ -26,7 +26,7 @@
 
     <div class="container">
         <div class="formulario">
-            <form>
+            <form method="GET" action="/">
                 <h3>Perfil</h3>
 
                 <label for="">Adicione uma foto:</label>
@@ -42,7 +42,7 @@
                 <label for="">Bio:</label>
                 <textarea name="" id="" placeholder="Ex: objetivo, data de fundação, número de auxiliados e etc..."></textarea>
 
-                <input class="button" type="submit" value="Próximo">
+                <a href="/" class="button">Concluir</a>
             </form>
         </div>
     </div>

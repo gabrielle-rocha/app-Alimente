@@ -26,6 +26,7 @@
             margin: 0;
             display: flex;
             flex-direction: row;
+            background-color: #fdfcfcc5;
         }
         .left-section, .right-section {
             width: 50%;
@@ -39,6 +40,8 @@
         }
         .right-section {
             background: linear-gradient(to bottom, #c5f3b5, #bddef8);
+            border-top-left-radius: 15%;
+            border-bottom-left-radius: 15%;
         }
         .login-card {
             padding: 2rem;
@@ -97,7 +100,7 @@
     <div class="left-section">
         <div class="login-card">
             <h3 class="text-center">Login</h3>
-            <form method="POST" action="{{ route('welcome') }}">
+            <form>
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>
@@ -112,7 +115,7 @@
                 </div>
                 <button type="submit" class="btn login-btn w-100">Login</button>
                 <div class="mt-3 text-center">
-                    <a href="cadastro" class="text-muted">Não possuo cadastro</a>
+                    <a href="/cadastrodoador" class="text-muted">Não possuo cadastro</a>
                 </div>
             </form>
         </div>

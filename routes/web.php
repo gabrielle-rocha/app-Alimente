@@ -13,12 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
-
 Route::get('/splash', function () {
     return view('splash');
 });
@@ -44,7 +38,7 @@ Route::get('/criarperfildoador', function () {
     return view('criarperfildoador');
 });
 
-Route::get('/logindoador', function () {
+Route::get('/', function () {
     return view('logindoador');
 });
 
