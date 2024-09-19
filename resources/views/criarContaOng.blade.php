@@ -35,10 +35,10 @@
             <input type="text" placeholder="Ex:juanpf12@gmail.com">
 
             <label for="">Senha:</label>
-            <input type="text" placeholder="Crie uma senha">
+            <input type="password" placeholder="Crie uma senha">
 
             <label for="">Confirmar Senha:</label>
-            <input type="text" placeholder="Repita a senha">
+            <input type="password" placeholder="Repita a senha">
 
             <a class="button" href="/configPerfilOng">Próximo</a>
         </form>

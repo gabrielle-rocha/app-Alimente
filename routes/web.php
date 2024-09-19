@@ -49,3 +49,7 @@ Route::get('/criarcontadoador', function () {
 Route::get('/cadastrodoador', function () {
     return view('cadastrodoador');
 });
+
+Route::get('/autenticacao', function () {
+    return view('autenticacao');
+});
