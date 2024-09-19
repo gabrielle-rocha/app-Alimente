@@ -53,3 +53,7 @@ Route::get('/cadastrodoador', function () {
 Route::get('/autenticacao', function () {
     return view('autenticacao');
 });
+
+Route::get('/feedOng', function () {
+    return view('feedOng');
+});
