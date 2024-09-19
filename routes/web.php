@@ -13,12 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
-
 Route::get('/splash', function () {
     return view('splash');
 });
@@ -44,7 +38,7 @@ Route::get('/criarperfildoador', function () {
     return view('criarperfildoador');
 });
 
-Route::get('/logindoador', function () {
+Route::get('/', function () {
     return view('logindoador');
 });
 
@@ -54,4 +48,12 @@ Route::get('/criarcontadoador', function () {
 
 Route::get('/cadastrodoador', function () {
     return view('cadastrodoador');
+});
+
+Route::get('/autenticacao', function () {
+    return view('autenticacao');
+});
+
+Route::get('/feedOng', function () {
+    return view('feedOng');
 });

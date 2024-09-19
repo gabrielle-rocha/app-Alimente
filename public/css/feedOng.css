@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav {
+    width: 300px;
+    height: 100vh;
+    background-color: #fcfcfcc2;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    justify-content: flex-start;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.034); 
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    margin-top: 10px;
+}
+
+.logo {
+    background: linear-gradient(to right, #c5f3b5, #9ac9ee);
+    height: 100px;
+    text-align: center;
+}
+
+.logo img {
+    margin-top: 15px;
+    width: 260px;
+    padding: 5px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    padding-top: 10px;
+    display: flex;
+    align-items: start;
+    font-size: 20px;
+    
+    transition: background-color 0.3s ease;
+}
+
+.nav a:hover {
+    background-color: #eeebeb9f;
+}
+
+.nav a i {
+    margin-right: 15px;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.perfil {
+    margin-top: auto; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #e0e0e0b7;
+    border: none;
+    position: relative;
+}
+
+.perfil .foto i {
+    font-size: 30px;
+    color: #333;
+}
+
+.perfil .nomeOng {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.perfil .maisOpcoes i {
+    font-size: 20px;
+    color: #333;
+}
+

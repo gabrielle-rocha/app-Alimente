@@ -26,7 +26,7 @@
     <div class="container">
 
     <div class="formulario">
-        <form action="">
+        <form method="GET" action="/criarContaOng">
             <h3>Preencha os Campos:</h3>
 
             <label for="">Nome da instituição: </label>
@@ -36,12 +36,13 @@
             <input type="text" placeholder="CNPJ" required>
 
             <label for="endereco">Endereço: </label>
+            <input type="text" id="cep" placeholder="Preencher automáticamente com o cep" required onblur="buscarCep()">
             <input type="text" id="endereco" placeholder="Rua" required>
             <input type="number" id="numero" placeholder="Número">
             <input type="text" id="complemento" placeholder="Complemento">
             <input type="text" id="bairro" placeholder="Bairro">
             <input type="text" id="cidade" placeholder="Cidade">
-            <input type="text" id="cep" placeholder="Preencher automáticamente com o cep" required onblur="buscarCep()">
+            
 
             <select id="estado">
                 <option value="0">Estado</option>
@@ -73,7 +74,7 @@
                 <option>TO</option>
             </select>
 
-            <input class="button" type="submit" value="Próximo">
+            <a href="/criarContaOng" class="button">Próximo</a>
         </form>
     </div>
 

@@ -22,6 +22,8 @@ body {
     width: 50%;
     height: 100vh;
     background: linear-gradient(to bottom, #c5f3b5, #bddef8);
+    border-top-right-radius: 15%;
+    border-bottom-right-radius: 15%;
 }
 
 .grad img {
@@ -44,7 +46,7 @@ body {
     max-width: 400px;
     background-color: white;
     padding: 20px;
-    border: 1.5px solid #dfd7d7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow-y: auto; /* Permite rolagem no formulário somente se necessário */
     max-height: 100%; /* Garante que o formulário não exceda a altura da tela */
@@ -71,11 +73,17 @@ form input, form select {
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 form input::placeholder {
     color: #aaa;
+}
+
+form a{
+    text-decoration: none;
+    color: white;
+    text-align: center;
 }
 
 form .button {

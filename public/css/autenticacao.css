@@ -1,69 +1,38 @@
 * {
+    font-family: 'Quicksand';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Quicksand', sans-serif;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    height: 100vh;
-    background-color: #fdfcfcc5;
-}
-
-.grad {
+    background: linear-gradient(to right, #cedce7, #b2e6a1);
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 100vh;
-    background: linear-gradient(to bottom, #c5f3b5, #bddef8);
-    border-top-right-radius: 15%;
-    border-bottom-right-radius: 15%;
-}
-
-.grad img {
-    width: 80%;
-    max-width: 80%;
-    margin-bottom: 20px;
+    margin: 0;
 }
 
 .container {
-    width: 50%;
+    width: 40%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
 }
-
-.box{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.formulario {
+form{
     width: 100%;
-    max-width: 400px;
+    max-width: 800px;
     background-color: white;
-    padding: 20px;
+    padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     display: flex; 
     flex-direction: column;
 }
-form {
-    display: flex;
-    flex-direction: column;
-    
-}
-
 form a{
     text-decoration: none;
     color: white;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,18 +29,18 @@
     <div class="container">
 
     <div class="formulario">
-        <form action="">
+        <form method="GET" action="/configPerfilOng">
             <h3>Criar Conta</h3>
             <label for="">Email:</label>
             <input type="text" placeholder="Ex:juanpf12@gmail.com">
 
             <label for="">Senha:</label>
-            <input type="text" placeholder="Crie uma senha">
+            <input type="password" placeholder="Crie uma senha">
 
             <label for="">Confirmar Senha:</label>
-            <input type="text" placeholder="Repita a senha">
+            <input type="password" placeholder="Repita a senha">
 
-            <input class="button" type="submit" value="Próximo">
+            <a class="button" href="/configPerfilOng">Próximo</a>
         </form>
     </div>
 
