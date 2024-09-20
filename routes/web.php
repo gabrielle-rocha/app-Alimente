@@ -57,3 +57,5 @@ Route::get('/autenticacao', function () {
 Route::get('/feedOng', function () {
     return view('feedOng');
 });
+
+Route::get('/doador','App/http/');
