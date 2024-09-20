@@ -164,10 +164,10 @@
                 <textarea id="bio" class="form-control" placeholder="Ex: Doador à 2 anos; Foco em doação de Roupas." required></textarea>
             </div>
             <div class="causes-section">
-                <img src="img/pets.png" alt="Causa 1">
-                <img src="img/doenças.png" alt="Causa 2">
-                <img src="img/roupas.png" alt="Causa 3">
-                <img src="img/comida.png" alt="Causa 4">
+                <img src="/img/pets.png" alt="Causa 1">
+                <img src="/img/doenças.png" alt="Causa 2">
+                <img src="/img/roupas.png" alt="Causa 3">
+                <img src="/img/comida.png" alt="Causa 4">
             </div>
             <a href="/" class="btn btn-next">Concluir</a> 
         </div>
