@@ -35,6 +35,7 @@ body {
     background: linear-gradient(to right, #c5f3b5, #9ac9ee);
     height: 100px;
     text-align: center;
+    border: none;
 }
 
 .logo img {
@@ -66,7 +67,7 @@ body {
 }
 
 .perfil {
-    margin-top: auto; 
+    margin-top: 90%; 
     display: flex;
     justify-content: space-between;
     align-items: center;
