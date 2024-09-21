@@ -26,7 +26,7 @@
         <a href="#"><i class="bi bi-house-door-fill"></i> Página Inicial</a>
         <a href="#"><i class="bi bi-plus-circle-fill"></i> Nova Publicação</a>
         <a href="#"><i class="bi bi-clipboard-data-fill"></i> Prestar Contas</a>
-        </div>
+        
 
         <div class="perfil">
 
@@ -39,8 +39,53 @@
             <div class="maisOpcoes">
             <i class="bi bi-three-dots-vertical"></i>
             </div>
-        </div>
+        </div><!--perfil-->
 
-    </div>
+        </div><!--nav-->
+
+        <div class="container-feed">
+
+        <div class="perfil-postagem">
+
+            <div class="foto-postagem">
+            <i class="bi bi-person-circle"></i>
+            </div>
+
+            <div class="nomeOng-postagem">Ong_Exemplo__</div>
+
+            <div class="maisOpcoes-postagem">
+            <i class="bi bi-three-dots-vertical"></i>
+            </div>
+        </div><!--perfil-->
+
+        <div class="postagem">
+
+        <div class="foto-anexo">
+                <img src="/img/exemplo.jpg" alt="">
+            </div>
+
+            <div class="icons">
+                <div class="curtida"></div>
+                <div class="comentarios-icon"></div>
+            </div>
+
+            <div class="descricao-postagem">
+                <div class="nomeOng-postagem">Ong_Exemplo__</div>
+                <div class="descricao-text">Hoje recebemos carregamento de cestas básicas.</div>
+            </div>
+
+            <div class="comentarios">
+                <p>Adicionar um comentário...</p>
+            </div>
+
+            <div class="momento-postagem">
+                <p>Postado há 21 horas</p>
+            </div>
+
+        </div><!--postagem-->
+            
+        </div><!--container-feed-->
+
+    
 </body>
 </html>
