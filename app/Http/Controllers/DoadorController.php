@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\DoadorModel;
 
 class DoadorController extends Controller
 {
@@ -14,7 +15,29 @@ class DoadorController extends Controller
      */
     public function index()
     {
-        //
+        $doadores = DoadorModel::all();
+
+        foreach($doadores as $d){
+            echo $d->idDoador;
+            echo $d->nomeDoador;
+            echo $d->emailDoador;
+            echo $d->senhaDoador;
+            echo $d->fotoDoador;
+            echo $d->quantidadeDoacoes;
+            echo $d->quantidadeOngsSeguidas;
+            echo $d->quantidadeCurtidasDoador;
+            echo $d->enderecoDoador;
+            echo $d->numeroDoador;
+            echo $d->complementoDoador;
+            echo $d->cepDoador;
+            echo $d->bairroDoador;
+            echo $d->cidadeDoador;
+            echo $d->estadoDoador;
+            echo $d->causasPreferidasDoador;
+            echo $d->dataCadastroDoador;
+            echo $d->informacoesPagamento;
+            echo $d->denunciasRealizadasDoador;
+        }
     }
 
     /**

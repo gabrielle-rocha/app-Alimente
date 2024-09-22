@@ -58,4 +58,4 @@ Route::get('/feedOng', function () {
     return view('feedOng');
 });
 
-//Route::get('/doador','App/http/');
+Route::get('/doador','App\http\Controllers\DoadorController@index');
