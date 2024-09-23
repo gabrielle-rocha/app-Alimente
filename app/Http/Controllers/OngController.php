@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\DoadorModel;
+use App\Models\OngModel;
 
-class DoadorController extends Controller
+class OngController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,28 +15,18 @@ class DoadorController extends Controller
      */
     public function index()
     {
-        $doadores = DoadorModel::all();
+       $ongs = OngModel::all();
 
-        foreach($doadores as $d){
-            echo $d->idDoador;
-            echo $d->nomeDoador;
-            echo $d->emailDoador;
-            echo $d->senhaDoador;
-            echo $d->fotoDoador;
-            echo $d->quantidadeDoacoes;
-            echo $d->quantidadeOngsSeguidas;
-            echo $d->quantidadeCurtidasDoador;
-            echo $d->enderecoDoador;
-            echo $d->numeroDoador;
-            echo $d->complementoDoador;
-            echo $d->cepDoador;
-            echo $d->bairroDoador;
-            echo $d->cidadeDoador;
-            echo $d->estadoDoador;
-            echo $d->causasPreferidasDoador;
-            echo $d->dataCadastroDoador;
-            echo $d->denunciasRealizadasDoador;
-        }
+       foreach($ongs as $o){
+        echo $o->idOng;
+        echo $o->nomeOng;
+        echo $o->cnpjOng;
+        echo $o->emailOng;
+        echo $o->nomeResponsavelOng;
+        echo $o->senhaOng;
+        echo $o->fotoOng;
+        echo $o->nomeUsuarioOng;
+       }
     }
 
     /**

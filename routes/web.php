@@ -59,3 +59,5 @@ Route::get('/feedOng', function () {
 });
 
 Route::get('/doador','App\http\Controllers\DoadorController@index');
+
+Route::get('/ong','App\http\Controllers\OngController@index');
