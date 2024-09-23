@@ -42,7 +42,7 @@
                 <label for="">Bio:</label>
                 <textarea name="" id="" placeholder="Ex: objetivo, data de fundação, número de auxiliados e etc..."></textarea>
 
-                <a href="/" class="button">Concluir</a>
+                <a href="/analiseOng" class="button">Concluir</a>
             </form>
         </div>
     </div>
