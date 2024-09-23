@@ -17,6 +17,24 @@ Route::get('/splash', function () {
     return view('splash');
 });
 
+/*login-geral*/
+Route::get('/', function () {
+    return view('logindoador');
+});
+
+/*doador*/
+Route::get('/criarperfildoador', function () {
+    return view('criarperfildoador');
+});
+
+Route::get('/criarcontadoador', function () {
+    return view('criarcontadoador');
+});
+
+Route::get('/cadastrodoador', function () {
+    return view('cadastrodoador');
+});
+
 /*Ong*/
 Route::get('/cadastroOng', function () {
     return view('cadastroOng');
@@ -34,22 +52,6 @@ Route::get('/analiseOng', function () {
     return view('analiseOng');
 });
 
-Route::get('/criarperfildoador', function () {
-    return view('criarperfildoador');
-});
-
-Route::get('/', function () {
-    return view('logindoador');
-});
-
-Route::get('/criarcontadoador', function () {
-    return view('criarcontadoador');
-});
-
-Route::get('/cadastrodoador', function () {
-    return view('cadastrodoador');
-});
-
 Route::get('/autenticacao', function () {
     return view('autenticacao');
 });
@@ -58,6 +60,7 @@ Route::get('/feedOng', function () {
     return view('feedOng');
 });
 
+/*banco*/
 Route::get('/doador','App\http\Controllers\DoadorController@index');
 
 Route::get('/ong','App\http\Controllers\OngController@index');
