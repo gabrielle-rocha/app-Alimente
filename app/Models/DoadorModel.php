@@ -10,4 +10,7 @@ class DoadorModel extends Model
     use HasFactory;
 
     protected $table = "doador";
+
+    public $timestamps = false;
+    protected $fillable=['doador'];
 }

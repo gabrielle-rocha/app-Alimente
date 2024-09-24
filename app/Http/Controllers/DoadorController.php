@@ -42,6 +42,13 @@ class DoadorController extends Controller
     public function exibirDoadores(){
         $doadores = DoadorModel::all();
 
+        //$doadores = DoadorModel::where('idDoador',1)->get();
+
+        //$doadores = DoadorModel::where('idDoador', '<=', 2)->get();
+
+        //$doadores = DoadorModel::where('idDoador', '>=', 1)->orderBy('nomeDoador', 'asc')->get();
+
+        //$doadores = DoadorModel::where('nomeDoador', 'paulo')->get();
         return view('doadoresView', compact('doadores'));
     }
 
@@ -63,7 +70,12 @@ class DoadorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $doador = new DoadorModel();
+
+        $doador->nomeDoador = $request->txNomeDoador; 
+        $doador->save();
+
+        return redirect()->action('App\http\Controllers\DoadorController@exibirDoadores');
     }
 
     /**
@@ -108,6 +120,7 @@ class DoadorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $doadores = DoadorModel::where('idDoador', $id)->delete();
+        return redirect()->action('App\http\Controllers\DoadorController@exibirDoadores');
     }
 }
