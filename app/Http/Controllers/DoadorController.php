@@ -39,6 +39,12 @@ class DoadorController extends Controller
         }
     }
 
+    public function exibirDoadores(){
+        $doadores = DoadorModel::all();
+
+        return view('doadoresView', compact('doadores'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -64,3 +64,5 @@ Route::get('/feedOng', function () {
 Route::get('/doador','App\http\Controllers\DoadorController@index');
 
 Route::get('/ong','App\http\Controllers\OngController@index');
+
+Route::get('/doadores-view', 'App\http\Controllers\DoadorController@exibirDoadores');
