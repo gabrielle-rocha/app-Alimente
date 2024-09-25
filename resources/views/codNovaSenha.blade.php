@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alteração | Alimente</title>
+    <title>Recuperar | Alimente</title>
 
     <link rel="stylesheet" href="/css/autenticacao.css">
 
@@ -19,15 +19,14 @@
     <div class="container">
 
     <form action="">
-    <h3>Alteração de Senha</h3>
+    <h3>Recuperação de senha</h3>
 
-        <label for="">Nova senha:</label>
-        <input type="password" placeholder="Nova senha" requered>
-
-        <label for="">Confirmar senha:</label>
-        <input type="password" placeholder="Confirmar senha" requered>
-
-        <input class="button" type="submit" value="Concluir">
+    <label for="">Digite um email:</label>
+    <input type="text">
+    
+    <label for="">Código de confirmação:</label>
+    <input type="text">
+    <a href="/autenticacao" class="button">Próximo</a>
     </form>
 
     </div>

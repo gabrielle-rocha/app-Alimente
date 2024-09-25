@@ -54,6 +54,10 @@ Route::get('/autenticacao', function () {
     return view('autenticacao');
 });
 
+Route::get('/cod', function () {
+    return view('codNovaSenha');
+});
+
 Route::get('/feedOng', function () {
     return view('feedOng');
 });
