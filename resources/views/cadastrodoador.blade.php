@@ -104,22 +104,22 @@
     <div class="left-section">
         <div class="login-card">
             <h3 class="text-center">Preencha os Campos:</h3>
-            <form  action="/criarcontadoador" method="get">
+            <form  action="/cadastrodoador" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label for="name" class="form-label">Nome:</label>
-                    <input type="name" class="form-control" id="name" name="name" placeholder="Seu nome vai aqui" >
+                    <label class="form-label">Nome:</label>
+                    <input type="text" class="form-control" name="nomeDoador" id="nomeDoador" placeholder="Seu nome vai aqui" >
                 </div>
                 <div class="mb-3">
-                    <label for="adress" class="form-label">Endereço:</label>
-                    <input type="adress" class="form-control" id="cep" name="adress" placeholder="Preencher automáticamente com o cep" onblur=buscarCep() >
-                    <input type="adress" class="form-control" id="endereco" name="adress" placeholder="Rua" >
-                    <input type="adress" class="form-control" id="numero" name="adress" placeholder="Número" >
-                    <input type="adress" class="form-control" id="complemento" name="adress" placeholder="Complemento">
-                    <input type="adress" class="form-control" id="bairro" name="adress" placeholder="Bairro" >
-                    <input type="adress" class="form-control" id="cidade" name="adress" placeholder="Cidade" >
+                    <label class="form-label">Endereço:</label>
+                    <input type="adress" class="form-control" name="cepDoador" id="cepDoador" placeholder="Preencher automáticamente com o cep" onblur=buscarCep()>
+                    <input type="adress" class="form-control" name="enderecoDoador" id="enderecoDoador" placeholder="Rua" >
+                    <input type="adress" class="form-control" name="numeroDoador" id="numeroDoador" placeholder="Número" >
+                    <input type="adress" class="form-control" name="complementoDoador" id="complementoDoador" placeholder="Complemento">
+                    <input type="adress" class="form-control" name="bairroDoador" id="bairroDoador" placeholder="Bairro" >
+                    <input type="adress" class="form-control" name="cidadeDoador" id="cidadeDoador" placeholder="Cidade" >
                    
-                    <select id="estado">
+                    <select name="estadoDoador" id="estadoDoador">
                         <option value="0">Estado</option>
                         <option>AC</option>
                         <option>AL</option>
@@ -150,9 +150,8 @@
                     </select>
                     <a href="/cadastroOng">Quero cadastrar minha Ong</a>
                 </div>
-                
                
-                <a href="/criarcontadoador" class="btn login-btn w-100">Próximo</a>
+                <button type="submit" class="btn login-btn w-100">Próximo</button>
 
             </form>
         </div>

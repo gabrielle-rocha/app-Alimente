@@ -1,5 +1,5 @@
 function buscarCep() {
-    var cep = document.getElementById('cep').value.replace(/\D/g, '');
+    var cep = document.getElementById('cepDoador').value.replace(/\D/g, '');
     if (cep !== "") {
         var validacep = /^[0-9]{8}$/;
         if(validacep.test(cep)) {
@@ -7,10 +7,10 @@ function buscarCep() {
                 .then(response => response.json())
                 .then(dados => {
                     if (!("erro" in dados)) {
-                        document.getElementById('endereco').value = dados.logradouro;
-                        document.getElementById('bairro').value = dados.bairro;
-                        document.getElementById('cidade').value = dados.localidade;
-                        document.getElementById('estado').value = dados.uf;
+                        document.getElementById('enderecoDoador').value = dados.logradouro;
+                        document.getElementById('bairroDoador').value = dados.bairro;
+                        document.getElementById('cidadeDoador').value = dados.localidade;
+                        document.getElementById('estadoDoador').value = dados.uf;
                     } else {
                         alert("CEP não encontrado.");
                     }

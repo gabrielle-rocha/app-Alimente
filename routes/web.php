@@ -27,13 +27,11 @@ Route::get('/criarperfildoador', function () {
     return view('criarperfildoador');
 });
 
-Route::get('/criarcontadoador', function () {
-    return view('criarcontadoador');
-});
+Route::get('/criarcontadoador', 'App\http\Controllers\DoadorController@create2');
+Route::post('/criarcontadoador', 'App\http\Controllers\DoadorController@store2');
 
-Route::get('/cadastrodoador', function () {
-    return view('cadastrodoador');
-});
+Route::get('/cadastrodoador', 'App\http\Controllers\DoadorController@create');
+Route::post('/cadastrodoador', 'App\http\Controllers\DoadorController@store');
 
 /*Ong*/
 Route::get('/cadastroOng', function () {
@@ -70,3 +68,5 @@ Route::get('/doadores-view', 'App\http\Controllers\DoadorController@exibirDoador
 Route::get('/doadores-view/{id}', 'App\http\Controllers\DoadorController@destroy');
 
 Route::post('doador/inserir', 'App\http\Controllers\DoadorController@store');
+
+?>
