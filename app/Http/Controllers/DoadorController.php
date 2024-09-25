@@ -92,6 +92,7 @@ class DoadorController extends Controller
     {
         $doador = new DoadorModel();
 
+        
         $doador->emailDoador = $request->emailDoador;
         $doador->senhaDoador = $request->senhaDoador;
         $doador->save();
