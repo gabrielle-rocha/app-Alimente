@@ -76,3 +76,30 @@ form .button {
 form .button:hover {
     background: linear-gradient(90deg, rgb(127, 223, 164) 0%, rgba(88,169,195,1) 100%);
 }
+
+.code-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.code {
+    width: 70px;
+    height: 50px;
+    font-size: 1.5em;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+p {
+    color: rgb(111, 139, 231);
+    font-weight: 400;
+    cursor: pointer;
+    width: 70px;
+    text-align: center;
+}

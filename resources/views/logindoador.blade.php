@@ -58,6 +58,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
+            border: none;
         }
 
         form label {

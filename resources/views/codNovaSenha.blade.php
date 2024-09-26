@@ -25,10 +25,34 @@
     <input type="text">
     
     <label for="">Código de confirmação:</label>
-    <input type="text">
+            <div class="code-inputs">
+                <input type="text" maxlength="1" class="code" autofocus>
+                <input type="text" maxlength="1" class="code">
+                <input type="text" maxlength="1" class="code">
+                <input type="text" maxlength="1" class="code">
+            </div>
+
+    <p>Reenviar</p>
     <a href="/autenticacao" class="button">Próximo</a>
     </form>
 
     </div>
+
+    <script>
+        const inputs = document.querySelectorAll('.code');
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (input.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && index > 0 && input.value === '') {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
