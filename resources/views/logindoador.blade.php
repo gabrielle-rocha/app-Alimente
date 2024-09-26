@@ -109,7 +109,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Senha:</label>
-                    <input type="password" class="form-control" id="password" placeholder="Digite sua senha senha" name="password" required>
+                    <input type="password" class="form-control" id="password" placeholder="Digite sua senha" name="password" required>
                 </div>
                 <div class="mb-3">
                     <a href="/cod" class="forgot-password">Esqueci minha senha</a>

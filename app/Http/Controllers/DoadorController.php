@@ -78,17 +78,20 @@ class DoadorController extends Controller
         $doador = new DoadorModel();
 
         $doador->nomeDoador = $request->nomeDoador; 
+        $doador->emailDoador = $request->emailDoador;
+        $doador->senhaDoador = $request->senhaDoador;
         $doador->cepDoador = $request->cepDoador; 
         $doador->enderecoDoador = $request->enderecoDoador; 
         $doador->complementoDoador = $request->complementoDoador; 
         $doador->bairroDoador = $request->bairroDoador; 
         $doador->cidadeDoador = $request->cidadeDoador; 
+        $doador->estadoDoador = $request->estadoDoador;
         $doador->save();
 
-        return view('/criarcontadoador');
+        return view('/criarperfildoador');
     }
 
-    public function store2(Request $request)
+    /*public function store2(Request $request)
     {
         $doador = new DoadorModel();
 
@@ -98,7 +101,7 @@ class DoadorController extends Controller
         $doador->save();
 
         return view('/criarperfildoador');
-    }
+    }*/
 
     /**
      * Display the specified resource.

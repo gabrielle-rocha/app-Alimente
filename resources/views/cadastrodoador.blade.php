@@ -41,6 +41,7 @@
             background: linear-gradient(to bottom, #c5f3b5, #bddef8);
             border-top-left-radius: 15%;
             border-bottom-left-radius: 15%;
+            margin-left: 20px;
         }
 
          h3 {
@@ -57,7 +58,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 400px;
+            max-width: 515px;
         }
         .login-btn {
             background: linear-gradient(to right, rgba(88,169,195,1) 0%, rgb(127, 223, 164) 100%);
@@ -103,22 +104,60 @@
 <body>
     <div class="left-section">
         <div class="login-card">
-            <h3 class="text-center">Preencha os Campos:</h3>
+            <h3 class="text-center mb-4">Preencha os Campos:</h3>
             <form  action="/cadastrodoador" method="POST">
+                <div class="row">
                 @csrf
-                <div class="mb-3">
+                <div class="col-4 mb-3">
                     <label class="form-label">Nome:</label>
-                    <input type="text" class="form-control" name="nomeDoador" id="nomeDoador" placeholder="Seu nome vai aqui" >
+                    <input type="text" class="form-control" name="nomeDoador" id="nomeDoador" placeholder="Digite seu nome" >
+                </div>
+
+                <div class="col-4 mb-3">
+                    <label class="form-label">email:</label>
+                    <input type="email" class="form-control" name="emailDoador" id="emailDoador" placeholder="Insira um email" >
+                </div>
+
+                <div class="col-4 mb-3">
+                    <label class="form-label">Senha:</label>
+                    <input type="password" class="form-control" name="senhaDoador" id="senhaDoador" placeholder="Crie uma senha" >
+                </div>
+
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Endereço:</label>
-                    <input type="adress" class="form-control" name="cepDoador" id="cepDoador" placeholder="Preencher automáticamente com o cep" onblur=buscarCep()>
-                    <input type="adress" class="form-control" name="enderecoDoador" id="enderecoDoador" placeholder="Rua" >
-                    <input type="adress" class="form-control" name="numeroDoador" id="numeroDoador" placeholder="Número" >
-                    <input type="adress" class="form-control" name="complementoDoador" id="complementoDoador" placeholder="Complemento">
-                    <input type="adress" class="form-control" name="bairroDoador" id="bairroDoador" placeholder="Bairro" >
-                    <input type="adress" class="form-control" name="cidadeDoador" id="cidadeDoador" placeholder="Cidade" >
-                   
+                    <div class="row">
+
+                        <div class="col-4">
+                        <input type="adress" class="form-control" name="cepDoador" id="cepDoador" placeholder="Cep" onblur=buscarCep()>
+                        </div>
+
+                        <div class="col-4">
+                        <input type="adress" class="form-control" name="enderecoDoador" id="enderecoDoador" placeholder="Rua" >
+                        </div>
+
+                        <div class="col-4">
+                        <input type="adress" class="form-control" name="numeroDoador" id="numeroDoador" placeholder="Número" >
+                        </div>
+
+                    </div>
+
+                    
+                    <div class="row">
+                        <div class="col-4">
+                        <input type="adress" class="form-control" name="complementoDoador" id="complementoDoador" placeholder="Complemento">
+                        </div>
+                    
+                        <div class="col-4">
+                        <input type="adress" class="form-control" name="bairroDoador" id="bairroDoador" placeholder="Bairro">
+                        </div>
+
+                        <div class="col-4">
+                        <input type="adress" class="form-control" name="cidadeDoador" id="cidadeDoador" placeholder="Cidade" >
+                        </div>
+
+                        </div>
+                                  
                     <select name="estadoDoador" id="estadoDoador">
                         <option value="0">Estado</option>
                         <option>AC</option>
@@ -149,8 +188,7 @@
                         <option>TO</option>
                     </select>
                     <a href="/cadastroOng">Quero cadastrar minha Ong</a>
-                </div>
-               
+                    </div>  
                 <button type="submit" class="btn login-btn w-100">Próximo</button>
 
             </form>

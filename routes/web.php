@@ -73,4 +73,8 @@ Route::get('/doadores-view/{id}', 'App\http\Controllers\DoadorController@destroy
 
 Route::post('doador/inserir', 'App\http\Controllers\DoadorController@store');
 
+/*adm*/
+Route::get('/adm', function () {
+    return view('loginAdm');
+});
 ?>
