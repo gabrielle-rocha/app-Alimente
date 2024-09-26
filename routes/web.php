@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OngController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +83,14 @@ Route::get('/doadores-view', 'App\http\Controllers\DoadorController@exibirDoador
 Route::get('/doadores-view/{id}', 'App\http\Controllers\DoadorController@destroy');
 
 Route::post('doador/inserir', 'App\http\Controllers\DoadorController@store');
+
+// Rotas para OngController
+Route::resource('ongs', OngController::class);
+
+// Rota para upload de imagem
+
+Route::resource('ongs', OngController::class);
+Route::post('/upload-imagem', [ImageController::class, 'store'])->name('uploadImagem1');
 
 /*adm*/
 Route::get('/adm', function () {

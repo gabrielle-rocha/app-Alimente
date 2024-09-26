@@ -26,24 +26,26 @@
 
     <div class="container">
         <div class="formulario">
-            <form method="GET" action="/">
-                <h3>Perfil</h3>
 
-                <label for="">Adicione uma foto:</label>
-                <div class="imgPerfil box">
-                    <img src="" alt="" id="img-preview" class="w-100 h-100">
-                    <i class="bi bi-person-fill-add"></i>
-                    <input id="img-field" type="file">
-                </div>
+        <form method="POST" action="{{ route('uploadImagem1') }}" enctype="multipart/form-data">
+    @csrf
+    <h3>Perfil</h3>
+    <label for="">Adicione uma foto:</label>
+    <div class="imgPerfil box">
+        <img src="" alt="Pré-visualização" id="img-preview" class="w-100 h-100">>
+        <i class="bi bi-person-fill-add"></i>
+        <input id="img-field" type="file" name="file" accept="image/*" required>
+    </div>
 
-                <label for="">Nome de usuário:</label>
-                <input type="text" placeholder="Ex: amigos_do_bem.07" required>
+    <label for="username">Nome de usuário:</label>
+    <input type="text" name="username" placeholder="Ex: amigos_do_bem.07" required>
 
-                <label for="">Bio:</label>
-                <textarea name="" id="" placeholder="Ex: objetivo, data de fundação, número de auxiliados e etc..."></textarea>
+    <label for="bio">Bio:</label>
+    <textarea name="bio" id="bio" placeholder="Ex: objetivo, data de fundação, número de auxiliados e etc..." required></textarea>
 
-                <a href="/analiseOng" class="button">Concluir</a>
-            </form>
+    <button type="submit" class="button">Concluir</button>
+</form>
+
         </div>
     </div>
 
