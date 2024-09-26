@@ -62,6 +62,15 @@ Route::get('/feedOng', function () {
     return view('feedOng');
 });
 
+Route::get('/feed2doador', function () {
+    return view('feed2doador');
+});
+
+Route::get('/editarperfildoador', function () {
+    return view('editarperfildoador');
+});
+
+
 /*banco*/
 Route::get('/doador','App\http\Controllers\DoadorController@index');
 
