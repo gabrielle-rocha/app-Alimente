@@ -163,14 +163,36 @@
                 <label for="bio" class="form-label">Adicione uma bio:</label>
                 <textarea id="bio" class="form-control" placeholder="Ex: Doador à 2 anos; Foco em doação de Roupas." required></textarea>
             </div>
-            <div class="causes-section">
-                <img src="/img/pets.png" alt="Causa 1">
-                <img src="/img/doenças.png" alt="Causa 2">
-                <img src="/img/roupas.png" alt="Causa 3">
-                <img src="/img/comida.png" alt="Causa 4">
-            </div>
+
+            <div class="radio-buttons">
+        <label>
+            <input type="checkbox" name="opcao" value="1" required>
+            <img src="img/pets.png" alt="Imagem 1">
+        </label>
+        
+        <label>
+            <input type="checkbox" name="opcao" value="2" required>
+            <img src="img/doenças.png" alt="Imagem 2">
+        </label>
+        
+        <label>
+            <input type="checkbox" name="opcao" value="3" required>
+            <img src="img/roupas.png" alt="Imagem 3">
+        </label>
+
+        <label>
+            <input type="checkbox" name="opcao" value="3" required>
+            <img src="img/comida.png" alt="Imagem 3">
+        </label>
+    </div>
+
+
             <a href="/" class="btn btn-next">Concluir</a> 
         </div>
+
+
+
+        
     </div>
     <div class="right-section">
         <img src="/img/alimente.png" alt="Alimente - Gerando Solidariedade">
