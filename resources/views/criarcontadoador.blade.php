@@ -99,20 +99,20 @@
     <div class="left-section">
         <div class="login-card">
             <h3 class="text-center">Criar Conta</h3>
-            <form method="GET" action="/criarperfildoador">
+            <form action="/criarcontadoador" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="seuemail@gmail.com" required>
+                    <input type="email" class="form-control" name="emailDoador" id="emailDoador" placeholder="seuemail@gmail.com" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Senha:</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Crie uma senha" required>
+                    <input type="password" class="form-control" name="senhaDoador" id="senhaDoador" placeholder="Crie uma senha" required>
 
                     <label for="password" class="form-label">Confirmar Senha:</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Repita a senha" required>
+                    <input type="password" class="form-control" name="senhaDoador" id="senhaDoador" placeholder="Repita a senha" required>
                 </div>
-                <a href="/criarperfildoador" class="btn login-btn w-100">Próximo</a>
+                <button type="submit" class="btn login-btn w-100">Próximo</button>
             </form>
         </div>
     </div>

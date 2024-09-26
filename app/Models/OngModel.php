@@ -5,12 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DoadorModel extends Model
+class OngModel extends Model
 {
     use HasFactory;
 
-    protected $table = "doador";
-
-    public $timestamps = false;
-    protected $fillable=['doador'];
+    protected $table = "ong";
 }

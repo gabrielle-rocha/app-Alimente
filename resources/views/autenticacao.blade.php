@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autenticação | Alimente</title>
+    <title>Alteração | Alimente</title>
 
     <link rel="stylesheet" href="/css/autenticacao.css">
 
@@ -20,9 +20,6 @@
 
     <form action="">
     <h3>Alteração de Senha</h3>
-
-        <label for="">Senha antiga:</label>
-        <input type="password" placeholder="Senha antiga" requered>
 
         <label for="">Nova senha:</label>
         <input type="password" placeholder="Nova senha" requered>

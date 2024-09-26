@@ -31,7 +31,7 @@
             <h3>Análise</h3>
             <p>Aguarde enquanto aprovamos a veracidade da instituição para a segurança de nossos doadores.</p>
 
-            <input class="button" type="submit" value="Próximo">
+            <a href="/" class="button">Pronto!</a>
         </form>
     </div>
 
