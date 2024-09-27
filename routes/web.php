@@ -19,12 +19,12 @@ Route::get('/splash', function () {
     return view('splash');
 });
 
-Route::get('/telaInicio', function () {
+Route::get('/', function () {
     return view('telaInicio');
 });
 
 /*login-geral*/
-Route::get('/', function () {
+Route::get('/logindoador', function () {
     return view('logindoador');
 });
 
