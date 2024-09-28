@@ -153,13 +153,13 @@
     <div class="left-section">
         <div class="profile-card">
             <h3>Perfil</h3>
-            <form action="{{ url('/criarperfildoador/' . $id) }}" method="POST" enctype="multipart/form-data">
+            <form action="" method="POST" enctype="">
             @csrf
             <label for="user" class="form-label">Adicione uma foto:</label>
             <div class="imgPerfil box">
                     <img src="" alt="" id="img-preview" class="w-100 h-100">
                     <i class="bi bi-person-fill-add"></i>
-                    <input id="img-field" type="file" name="fotoDoador" id="fotoDoador">
+                    <input id="img-field" type="file" name="fotoDoador" accept="image/*">
                 </div>
 
             <div class="mb-3">

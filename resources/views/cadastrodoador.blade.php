@@ -105,7 +105,7 @@
     <div class="left-section">
         <div class="login-card">
             <h3 class="text-center mb-4">Preencha os Campos:</h3>
-            <form  action="/cadastrodoador" method="POST">
+            <form  action="" method="POST">
                 <div class="row">
                 @csrf
                 <div class="col-4 mb-3">
