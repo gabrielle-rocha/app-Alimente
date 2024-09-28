@@ -33,7 +33,7 @@ class DoadorController extends Controller
         $doador = Doador::create([
             'nomeDoador' => $request->nomeDoador,
             'emailDoador' => $request->emailDoador,
-            'senhaDoador' => bcrypt($request->senhaDoador), // Senha criptografada
+            'senhaDoador' => ($request->senhaDoador), // Senha criptografada
             'cepDoador' => $request->cepDoador,
             'enderecoDoador' => $request->enderecoDoador,
             'numeroDoador' => $request->numeroDoador,

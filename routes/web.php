@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OngController;
 use App\Http\Controllers\DoadorController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ImageController;
 
 
@@ -26,9 +27,9 @@ Route::get('/', function () {
 });
 
 /*login-geral*/
-Route::get('/logindoador', function () {
-    return view('logindoador');
-});
+Route::get('/logindoador', [LoginController::class, 'showLoginForm'])->name('logindoador');
+Route::post('/logindoador', [LoginController::class, 'logindoador']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 /*recuperação de senha*/
 Route::get('/cod', function () {
@@ -47,11 +48,6 @@ Route::get('/criarperfildoador', [DoadorController::class, 'showCreateProfile'])
 
 // Rota para armazenar o perfil do doador
 Route::post('/criarperfildoador', [DoadorController::class, 'storeProfile'])->name('doador.storeProfile');
-
-use App\Http\Controllers\Auth\LoginController; // Ajuste conforme necessário
-
-Route::get('/logindoador', [LoginController::class, 'showLoginForm'])->name('logindoador');
-
 
 Route::get('/feed2doador', function () {
     return view('feed2doador');

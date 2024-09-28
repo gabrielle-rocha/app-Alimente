@@ -34,4 +34,5 @@ class Doador extends Model
         'nomeUsuarioDoador', // Novo campo
         'biografiaDoador'    // Novo campo
     ];
+
 }

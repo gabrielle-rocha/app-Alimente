@@ -101,7 +101,7 @@
     <div class="left-section">
         <div class="login-card">
             <h3 class="text-center">Login</h3>
-            <form>
+            <form action="{{ route('logindoador') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>
