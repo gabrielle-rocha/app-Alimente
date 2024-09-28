@@ -153,7 +153,17 @@
     <div class="left-section">
         <div class="profile-card">
             <h3>Perfil</h3>
-            <form action="" method="POST" enctype="">
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+            <form action="{{ route('doador.storeProfile') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <label for="user" class="form-label">Adicione uma foto:</label>
             <div class="imgPerfil box">

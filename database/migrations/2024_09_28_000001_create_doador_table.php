@@ -11,9 +11,11 @@ class CreateDoadorTable extends Migration
         Schema::create('doador', function (Blueprint $table) {
             $table->id('idDoador');
             $table->string('nomeDoador', 100);
-            $table->string('emailDoador', 255);
+            $table->string('emailDoador', 255)->unique();
             $table->string('senhaDoador', 255);
             $table->string('fotoDoador', 255)->nullable();
+            $table->string('nomeUsuarioDoador', 100)->nullable(); // Nome de usuário
+            $table->text('biografiaDoador')->nullable(); // Biografia
             $table->integer('quantidadeDoacoes')->default(0);
             $table->integer('quantidadeOngsSeguidas')->default(0);
             $table->integer('quantidadeCurtidasDoador')->default(0);
@@ -25,7 +27,7 @@ class CreateDoadorTable extends Migration
             $table->string('cidadeDoador', 100)->nullable();
             $table->string('estadoDoador', 50)->nullable();
             $table->text('causasPreferidasDoador')->nullable();
-            $table->date('dataCadastroDoador')->nullable();
+            $table->date('dataCadastroDoador')-> now();
             $table->integer('denunciasRealizadasDoador')->default(0);
             $table->timestamps();
         });

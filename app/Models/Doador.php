@@ -30,6 +30,8 @@ class Doador extends Model
         'estadoDoador',
         'causasPreferidasDoador',
         'dataCadastroDoador',
-        'denunciasRealizadasDoador'
+        'denunciasRealizadasDoador',
+        'nomeUsuarioDoador', // Novo campo
+        'biografiaDoador'    // Novo campo
     ];
 }

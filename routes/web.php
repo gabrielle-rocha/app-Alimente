@@ -36,16 +36,22 @@ Route::get('/cod', function () {
 });
 
 /*doador*/
-Route::get('/criarperfildoador/{id}', [DoadorController::class, 'createProfile'])->name('criar.perfil');
-Route::post('/criarperfildoador/{id}', [DoadorController::class, 'createProfile'])->name('criar.perfil');
+// Rota para mostrar o formulário de cadastro do doador
+Route::get('/cadastrodoador', [DoadorController::class, 'create'])->name('doador.create');
 
+// Rota para armazenar os dados do doador
+Route::post('/cadastrodoador', [DoadorController::class, 'store'])->name('doador.store');
 
-Route::get('/cadastrodoador', 'App\Http\Controllers\DoadorController@create');
-Route::post('/cadastrodoador', 'App\Http\Controllers\DoadorController@store');
+// Rota para mostrar o formulário de criação de perfil do doador
+Route::get('/criarperfildoador', [DoadorController::class, 'showCreateProfile'])->name('doador.createProfile');
 
+// Rota para armazenar o perfil do doador
+Route::post('/criarperfildoador', [DoadorController::class, 'storeProfile'])->name('doador.storeProfile');
 
-Route::get('/cadastrodoador', 'App\Http\Controllers\DoadorController@create');
-Route::post('/cadastrodoador', 'App\Http\Controllers\DoadorController@store');
+use App\Http\Controllers\Auth\LoginController; // Ajuste conforme necessário
+
+Route::get('/logindoador', [LoginController::class, 'showLoginForm'])->name('logindoador');
+
 
 Route::get('/feed2doador', function () {
     return view('feed2doador');
