@@ -89,6 +89,11 @@
             width: 50px;
             height: 50px;
         }
+        
+        .causes-section input{
+            cursor: pointer;
+        }
+
         .btn-next {
             background: linear-gradient(to right, rgba(88,169,195,1) 0%, rgb(127, 223, 164) 100%);
             color: white;
@@ -97,6 +102,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
+            border: none;
         }
         .btn-next:hover {
         background: linear-gradient(90deg, rgb(127, 223, 164) 0%, rgba(88,169,195,1) 100%);
@@ -145,58 +151,60 @@
 </head>
 <body>
     <div class="left-section">
-        <div class="profile-card" method="GET" action="/">
+        <div class="profile-card">
             <h3>Perfil</h3>
+            <form action="{{ url('/criarperfildoador/' . $id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <label for="user" class="form-label">Adicione uma foto:</label>
             <div class="imgPerfil box">
                     <img src="" alt="" id="img-preview" class="w-100 h-100">
                     <i class="bi bi-person-fill-add"></i>
-                    <input id="img-field" type="file">
+                    <input id="img-field" type="file" name="fotoDoador" id="fotoDoador">
                 </div>
 
             <div class="mb-3">
                 <label for="user" class="form-label">Nome de usuário:</label>
-                <input type="text" class="form-control" placeholder="Ex: voce_02" required>
+                <input type="text" class="form-control" name="nomeUsuarioDoador" id="nomeUsuarioDoador" placeholder="Ex: voce_02" required>
             </div>
 
             <div class="mb-3">
                 <label for="bio" class="form-label">Adicione uma bio:</label>
-                <textarea id="bio" class="form-control" placeholder="Ex: Doador à 2 anos; Foco em doação de Roupas." required></textarea>
+                <textarea id="bio" class="form-control" name="biografiaDoador" id="biografiaDoador" placeholder="Ex: Doador à 2 anos; Foco em doação de Roupas." required></textarea>
             </div>
 
-            <div class="radio-buttons">
+            <div class="causes-section">
         <label>
-            <input type="checkbox" name="opcao" value="1" required>
-            <img src="img/pets.png" alt="Imagem 1">
+            <input type="checkbox" name="causas[]" value="1" >
+            <img src="/img/pets.png" alt="Causas Animais">
         </label>
         
         <label>
-            <input type="checkbox" name="opcao" value="2" required>
-            <img src="img/doenças.png" alt="Imagem 2">
+            <input type="checkbox" name="causas[]" value="2" >
+            <img src="/img/doenças.png" alt="Causas Médicas">
         </label>
         
         <label>
-            <input type="checkbox" name="opcao" value="3" required>
-            <img src="img/roupas.png" alt="Imagem 3">
+            <input type="checkbox" name="causas[]" value="3" >
+            <img src="/img/roupas.png" alt="Causas Materiais">
         </label>
 
         <label>
-            <input type="checkbox" name="opcao" value="3" required>
-            <img src="img/comida.png" alt="Imagem 3">
+            <input type="checkbox" name="causas[]" value="4" >
+            <img src="/img/comida.png" alt="Causas Alimentares">
         </label>
     </div>
 
-
-            <a href="/" class="btn btn-next">Concluir</a> 
+        <button type="submit" class="btn btn-next">Concluir</button>
+            </form>
         </div>
 
-
-
-        
     </div>
     <div class="right-section">
         <img src="/img/alimente.png" alt="Alimente - Gerando Solidariedade">
         <img src="/img/slogan-alimente-cinza.png" alt="Alimente - Gerando Solidariedade">
     </div>
+
+    <!--js-->
+    <script src="/js/configPerfilOng.js"></script>
 </body>
 </html>

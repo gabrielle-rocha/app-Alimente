@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OngController;
+use App\Http\Controllers\DoadorController;
 use App\Http\Controllers\ImageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,16 +26,30 @@ Route::get('/', function () {
     return view('logindoador');
 });
 
-/*doador*/
-Route::get('/criarperfildoador', function () {
-    return view('criarperfildoador');
+/*recuperação de senha*/
+Route::get('/cod', function () {
+    return view('codNovaSenha');
 });
 
-Route::get('/criarcontadoador', 'App\http\Controllers\DoadorController@create2');
-Route::post('/criarcontadoador', 'App\http\Controllers\DoadorController@store2');
+/*doador*/
+Route::get('/criarperfildoador/{id}', [DoadorController::class, 'createProfile'])->name('criar.perfil');
+Route::post('/criarperfildoador/{id}', [DoadorController::class, 'createProfile'])->name('criar.perfil');
 
-Route::get('/cadastrodoador', 'App\http\Controllers\DoadorController@create');
-Route::post('/cadastrodoador', 'App\http\Controllers\DoadorController@store');
+
+Route::get('/cadastrodoador', 'App\Http\Controllers\DoadorController@create');
+Route::post('/cadastrodoador', 'App\Http\Controllers\DoadorController@store');
+
+
+Route::get('/cadastrodoador', 'App\Http\Controllers\DoadorController@create');
+Route::post('/cadastrodoador', 'App\Http\Controllers\DoadorController@store');
+
+Route::get('/feed2doador', function () {
+    return view('feed2doador');
+});
+
+Route::get('/editarperfildoador', function () {
+    return view('editarperfildoador');
+});
 
 /*Ong*/
 Route::get('/cadastroOng', function () {
@@ -52,24 +68,8 @@ Route::get('/analiseOng', function () {
     return view('analiseOng');
 });
 
-Route::get('/autenticacao', function () {
-    return view('autenticacao');
-});
-
-Route::get('/cod', function () {
-    return view('codNovaSenha');
-});
-
 Route::get('/feedOng', function () {
     return view('feedOng');
-});
-
-Route::get('/feed2doador', function () {
-    return view('feed2doador');
-});
-
-Route::get('/editarperfildoador', function () {
-    return view('editarperfildoador');
 });
 
 

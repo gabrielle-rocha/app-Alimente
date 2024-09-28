@@ -10,4 +10,7 @@ class OngModel extends Model
     use HasFactory;
 
     protected $table = "ong";
+
+    public $timestamps = false;
+    protected $fillable=['ong'];
 }

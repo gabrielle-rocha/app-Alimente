@@ -18,7 +18,7 @@ class DoadorController extends Controller
         $doadores = DoadorModel::all();
 
         foreach($doadores as $d){
-            echo $d->idDoador;
+            /*echo $d->idDoador;
             echo $d->nomeDoador;
             echo $d->emailDoador;
             echo $d->senhaDoador;
@@ -35,7 +35,7 @@ class DoadorController extends Controller
             echo $d->estadoDoador;
             echo $d->causasPreferidasDoador;
             echo $d->dataCadastroDoador;
-            echo $d->denunciasRealizadasDoador;
+            echo $d->denunciasRealizadasDoador;*/
         }
     }
 
@@ -49,7 +49,7 @@ class DoadorController extends Controller
         //$doadores = DoadorModel::where('idDoador', '>=', 1)->orderBy('nomeDoador', 'asc')->get();
 
         //$doadores = DoadorModel::where('nomeDoador', 'paulo')->get();
-        return view('doadoresView', compact('doadores'));
+        //return view('doadoresView', compact('doadores'));
     }
 
     /**
@@ -60,11 +60,6 @@ class DoadorController extends Controller
     public function create()
     {
         return view('/cadastrodoador');
-    }
-
-    public function create2()
-    {
-        return view('/criarcontadoador');
     }
 
     /**
@@ -88,20 +83,18 @@ class DoadorController extends Controller
         $doador->estadoDoador = $request->estadoDoador;
         $doador->save();
 
-        return view('/criarperfildoador');
+        if ($request->has('causas') && is_array($request->causas)) {
+            foreach ($request->causas as $causa) {
+                // Cria uma nova entrada na tabela causasdoador
+                $causaDoador = new CausaDoadorModel();
+                $causaDoador->idDoador = $doador->idDoador; // Relaciona ao doador recém-criado
+                $causaDoador->causa = $causa; // Define a causa
+                $causaDoador->save(); // Salva no banco de dados
+            }
+        }
+
+        return redirect()->route('criar.perfil', ['id' => $doador->idDoador]);
     }
-
-    /*public function store2(Request $request)
-    {
-        $doador = new DoadorModel();
-
-        
-        $doador->emailDoador = $request->emailDoador;
-        $doador->senhaDoador = $request->senhaDoador;
-        $doador->save();
-
-        return view('/criarperfildoador');
-    }*/
 
     /**
      * Display the specified resource.
@@ -109,6 +102,48 @@ class DoadorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function createProfile($id)
+    {
+
+         // Busca o doador pelo ID
+    $doador = DoadorModel::find($id);
+
+    // Verifica se o doador existe
+    if (!$doador) {
+        return redirect()->back()->with('error', 'Doador não encontrado.');
+    }
+
+        // Passa o ID do doador para a view do perfil
+        return view('criarperfildoador', ['doador' => $doador, 'id' => $id]);
+    }
+
+    public function storeProfile(Request $request, $id)
+    {
+        $doador = DoadorModel::find($id); // Use $id para encontrar o doador
+        
+        if ($doador) {
+            // Atualiza os dados do doador com as informações do perfil
+            $doador->nomeUsuarioDoador = $request->nomeUsuarioDoador; 
+            $doador->biografiaDoador = $request->biografiaDoador; 
+            $doador->fotoDoador = $request->fotoDoador; // Certifique-se de que está tratando upload de arquivo corretamente
+            $doador->save();
+    
+            // Se houver causas, salve-as na tabela separada
+            if ($request->has('causas') && is_array($request->causas)) {
+                foreach ($request->causas as $causa) {
+                    $causaDoador = new CausaDoadorModel();
+                    $causaDoador->idDoador = $doador->idDoador;
+                    $causaDoador->causa = $causa;
+                    $causaDoador->save();
+                }
+            }
+        }
+    
+        return redirect()->route('/'); // Redireciona para a página principal ou para outra rota
+    }
+    
+
     public function show($id)
     {
         //

@@ -13,4 +13,10 @@ class DoadorModel extends Model
 
     public $timestamps = false;
     protected $fillable=['doador'];
+
+    protected $primaryKey = 'idDoador';
+
+    // Outras configurações, se necessário
+    public $incrementing = true; // Define se a chave é auto-incrementada
+    protected $keyType = 'int';
 }
