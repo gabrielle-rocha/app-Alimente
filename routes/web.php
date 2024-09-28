@@ -21,8 +21,12 @@ Route::get('/splash', function () {
     return view('splash');
 });
 
-/*login-geral*/
 Route::get('/', function () {
+    return view('telaInicio');
+});
+
+/*login-geral*/
+Route::get('/logindoador', function () {
     return view('logindoador');
 });
 
