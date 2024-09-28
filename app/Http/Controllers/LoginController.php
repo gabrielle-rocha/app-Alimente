@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Doador;
 use App\Models\Ong;
-use Illuminate\Support\Facades;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -32,22 +32,16 @@ class LoginController extends Controller
 
         // Lógica para verificar a senha e logar o doador ou a ONG
         if ($doador && $doador->senhaDoador === $credentials['password']) {
-            // Loga o doador
-            Auth::login($doador);
-
-            // Redireciona o doador para o dashboard
-            return redirect()->route('/feed2doador');
+            Auth::login($doador); // Login do doador
+            return view('/feed2doador');
         } elseif ($ong && $ong->senhaOng === $credentials['password']) {
-            // Loga a ONG
-            Auth::login($ong);
-
-            // Redireciona a ONG para o dashboard
-            return redirect()->route('dashboardong');
+            Auth::login($ong); // Login da ONG
+            return view('feedOng');
         }
 
         // Se as credenciais forem inválidas, retorna um erro
         return back()->withErrors([
-            'email' => 'Credenciais inválidas',
+            'login' => 'Credenciais inválidas.',
         ])->withInput();
     }
 
