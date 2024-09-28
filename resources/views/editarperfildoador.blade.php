@@ -29,13 +29,15 @@
 
         /* Estilos da barra lateral */
         .sidebar {
-            width: 20%;
+            width:30%;
             background: linear-gradient(to bottom right, #c6ddf5, #d7efcb);
             padding: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            align-items: flex-start;
+            justify-content: space-between;
         }
+        
 
         .sidebar h1 {
             font-size: 32px;
@@ -85,8 +87,8 @@
 
         /* Estilos da área principal */
         .main-content {
-            flex-grow: 3;
-            padding: 20px;
+            flex-grow: 1;
+            padding: 50px;
             background-color: #fff;
             max-width: 100%;
             display: flex;
@@ -97,7 +99,7 @@
 
         .profile-card {
             width: 100%;
-            padding: 20px;
+            padding: 50px;
             text-align: center;
         }
 
