@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OngController;
+use App\Http\Controllers\DoadorController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ImageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,59 +22,60 @@ Route::get('/splash', function () {
     return view('splash');
 });
 
-/*login-geral*/
 Route::get('/', function () {
-    return view('logindoador');
+    return view('telaInicio');
 });
 
-/*doador*/
-Route::get('/criarperfildoador', function () {
-    return view('criarperfildoador');
-});
+/*login-geral*/
+Route::get('/logindoador', [LoginController::class, 'showLoginForm'])->name('logindoador');
 
-Route::get('/criarcontadoador', 'App\http\Controllers\DoadorController@create2');
-Route::post('/criarcontadoador', 'App\http\Controllers\DoadorController@store2');
+// Rota para processar o login do doador
+Route::post('/logindoador', [LoginController::class, 'logindoador'])->name('logindoador.post');
 
-Route::get('/cadastrodoador', 'App\http\Controllers\DoadorController@create');
-Route::post('/cadastrodoador', 'App\http\Controllers\DoadorController@store');
+// Rota para logout
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-/*Ong*/
-Route::get('/cadastroOng', function () {
-    return view('cadastroOng');
-});
-
-Route::get('/configPerfilOng', function () {
-    return view('configPerfilOng');
-});
-
-Route::get('/criarContaOng', function () {
-    return view('criarContaOng');
-});
-
-Route::get('/analiseOng', function () {
-    return view('analiseOng');
-});
-
-Route::get('/autenticacao', function () {
-    return view('autenticacao');
-});
-
+/*recuperação de senha*/
 Route::get('/cod', function () {
     return view('codNovaSenha');
 });
 
-Route::get('/feedOng', function () {
-    return view('feedOng');
-});
+/*doador*/
+// Rota para mostrar o formulário de cadastro do doador
+Route::get('/cadastrodoador', [DoadorController::class, 'create'])->name('doador.create');
 
-Route::get('/feed2doador', function () {
+// Rota para armazenar os dados do doador
+Route::post('/cadastrodoador', [DoadorController::class, 'store'])->name('doador.store');
+
+// Rota para mostrar o formulário de criação de perfil do doador
+Route::get('/criarperfildoador', [DoadorController::class, 'showCreateProfile'])->name('doador.createProfile');
+
+// Rota para armazenar o perfil do doador
+Route::post('/criarperfildoador', [DoadorController::class, 'storeProfile'])->name('doador.storeProfile');
+
+Route::get('/feed2doador', function() {
     return view('feed2doador');
-});
+})->name('feed2doador');
 
 Route::get('/editarperfildoador', function () {
     return view('editarperfildoador');
 });
 
+/*Ong*/
+Route::get('/cadastroOng', [OngController::class, 'showFirstStep'])->name('ong.cadastro');
+Route::post('/cadastroOng', [OngController::class, 'storeFirstStep'])->name('ong.store.first');
+
+// Adicione a rota para o segundo formulário, se necessário
+Route::get('/configPerfilOng', [OngController::class, 'showProfileConfig'])->name('ong.config.perfil');
+Route::post('/configPerfilOng', [OngController::class, 'storeProfileConfig'])->name('ong.store.perfil');
+
+Route::get('/analiseOng', function () {
+    return view('analiseOng');
+});
+
+Route::get('/feedOng', function () {
+    return view('feedOng');
+});
 
 /*banco*/
 Route::get('/doador','App\http\Controllers\DoadorController@index');
@@ -82,4 +88,8 @@ Route::get('/doadores-view/{id}', 'App\http\Controllers\DoadorController@destroy
 
 Route::post('doador/inserir', 'App\http\Controllers\DoadorController@store');
 
+/*adm*/
+Route::get('/adm', function () {
+    return view('loginAdm');
+});
 ?>
