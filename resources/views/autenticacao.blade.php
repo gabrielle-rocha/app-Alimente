@@ -18,17 +18,19 @@
 <body>
     <div class="container">
 
-    <form action="">
+    <form action="" method="POST">
+    @csrf
     <h3>Alteração de Senha</h3>
 
-        <label for="">Nova senha:</label>
-        <input type="password" placeholder="Nova senha" requered>
+        <label for="password">Nova senha:</label>
+        <input type="password" name="password" placeholder="Nova senha" requered>
 
-        <label for="">Confirmar senha:</label>
-        <input type="password" placeholder="Confirmar senha" requered>
+        <label for="password_confirmation">Confirmar senha:</label>
+        <input type="password" name="password_confirmation" placeholder="Confirmar senha" requered>
 
         <input class="button" type="submit" value="Concluir">
     </form>
+
 
     </div>
 </body>

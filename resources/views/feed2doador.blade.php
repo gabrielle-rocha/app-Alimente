@@ -24,7 +24,7 @@
 
         /* Sidebar */
         .sidebar {
-            width: 250px;
+            width:20%;
             background: linear-gradient(to bottom right, #c6ddf5, #d7efcb);
             padding: 20px;
             display: flex;
@@ -32,11 +32,9 @@
             align-items: flex-start;
             justify-content: space-between;
         }
-
-        .sidebar .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #4a705d;
+        
+        .sidebar .imagem{
+            width: 100%;
         }
 
         .sidebar a {
@@ -53,7 +51,7 @@
         }
 
         .sidebar .menu {
-            margin-top: 30px;
+            margin-top: 30%;
         }
 
         .sidebar .profile {
@@ -78,7 +76,7 @@
 
         /* Notifications area */
         .notifications {
-            width: 300px;
+            width: 20%;
             background-color: #f9f9f9;
             padding: 20px;
             border-left: 1px solid #ddd;
@@ -108,7 +106,7 @@
         }
 
         .notification-text {
-            font-size: 14px;
+            font-size: 100%;
         }
 
         .btn-ver {
@@ -118,11 +116,31 @@
             border-radius: 5px;
             text-decoration: none;
         }
+    /* Barra de rolagem*/
+    .post-container::-webkit-scrollbar{
+    width: 10px; 
+    cursor:pointer;
+    }
+    .post-container::-webkit-scrollbar-track{
+    background: black;
+    border-radius: 10px;
+    }
 
-        /* Post styling */
+    .post-container::-webkit-scrollbar-thumb{
+    background-color:black;
+    border-radius: 10px;
+    border: 2px, solid #f1f1f1;
+    cursor: pointer;
+    }
+
+    .post-container::-webkit-scrollbar-thumb:hover{
+    background-color: black;
+    }
+     /* Post styling */
         .post-container {
+            overflow: hidden ;
             width: 100%;
-            max-width: 600px;
+            max-width: 90%;
             background-color: white;
             border: 1px solid #ddd;
             border-radius: 10px;
@@ -130,13 +148,11 @@
             padding: 15px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-
         .post-header {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
         }
-
         .post-header img {
             width: 40px;
             height: 40px;
@@ -145,20 +161,9 @@
         }
 
         .post-header h4 {
-            font-size: 16px;
+            font-size: 100%;
             margin-right: 5px;
         }
-
-        .post-header .verified {
-            width: 15px;
-            height: 15px;
-        }
-
-        .post-header p {
-            color: #666;
-            font-size: 12px;
-        }
-
         .post-body img {
             width: 100%;
             border-radius: 10px;
@@ -166,12 +171,12 @@
         }
 
         .post-caption {
-            font-size: 14px;
+            font-size: 100%;
             margin-bottom: 10px;
         }
 
         .post-comments {
-            font-size: 12px;
+            font-size: 100%;
             color: #888;
             margin-bottom: 10px;
         }
@@ -181,7 +186,7 @@
             border: none;
             border-top: 1px solid #ddd;
             padding: 10px;
-            font-size: 12px;
+            font-size: 100%;
             color: #888;
         }
 
@@ -195,7 +200,7 @@
         }
 
         .post-footer {
-            font-size: 12px;
+            font-size: 100%;
             color: #888;
             margin-top: 10px;
         }
@@ -224,8 +229,10 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <div>
-                <div class="logo">
-                <img src="img/alimente.png" alt="Logo">
+                <div class="imagem">
+                    <h1>
+                      <img src="img/feedoador.png" alt="imagem">
+                 </h1>
                 </div>
                 <div class="menu">
                     <a href="feed2doador"> <i class="fas fa-home"></i> Página inicial</a>
@@ -253,13 +260,12 @@
                 <!-- Header -->
                 <div class="post-header">
                     <img src="img/user.png" alt="Cão_Sem_Dono">
-                    <h4>Cão_Sem_Dono</h4>
-                    <img class="verified" src="https://via.placeholder.com/15" alt="Verificado">
+                    <h2>Cão_Sem_Dono</h2>
                 </div>
 
                 <!-- Body (Image and Caption) -->
                 <div class="post-body">
-                    <img src="https://via.placeholder.com/400x200" alt="Post image">
+                    <img src="img/feeddoador.jpg" alt="Post image">
                     <p class="post-caption">A seca está castigando todos, os mais prejudicados são os animais.</p>
                     <p class="post-caption"><strong>Cão_Sem_Dono</strong> Venha ajudar nossos animais :)</p>
                 </div>
@@ -283,13 +289,19 @@
 
         <!-- Notifications -->
         <div class="notifications">
-            <h2>Sugestões para você</h2>
+            <h1>Sugestões para você</h1>
             <div class="notification">
                 <div class="notification-info">
                     <img src="img/user.png" alt="Notification">
                     <div class="notification-text">Cão_Sem_Dono Fez uma nova publicação.</div>
                 </div>
-        </div>
+
+        </div><br>
+        <div class="notification">
+                <div class="notification-info">
+                    <img src="img/user.png" alt="Notification">
+                    <div class="notification-text">Mente_do_palhaco pediu para seguir você.</div>
+                </div>
     </div>
 
     <script src="/js/feed2doador.js"></script>

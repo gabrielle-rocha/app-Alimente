@@ -2,150 +2,96 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Doador;
 use Illuminate\Http\Request;
-use App\Models\DoadorModel;
 
 class DoadorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $doadores = DoadorModel::all();
-
-        foreach($doadores as $d){
-            echo $d->idDoador;
-            echo $d->nomeDoador;
-            echo $d->emailDoador;
-            echo $d->senhaDoador;
-            echo $d->fotoDoador;
-            echo $d->quantidadeDoacoes;
-            echo $d->quantidadeOngsSeguidas;
-            echo $d->quantidadeCurtidasDoador;
-            echo $d->enderecoDoador;
-            echo $d->numeroDoador;
-            echo $d->complementoDoador;
-            echo $d->cepDoador;
-            echo $d->bairroDoador;
-            echo $d->cidadeDoador;
-            echo $d->estadoDoador;
-            echo $d->causasPreferidasDoador;
-            echo $d->dataCadastroDoador;
-            echo $d->denunciasRealizadasDoador;
-        }
-    }
-
-    public function exibirDoadores(){
-        $doadores = DoadorModel::all();
-
-        //$doadores = DoadorModel::where('idDoador',1)->get();
-
-        //$doadores = DoadorModel::where('idDoador', '<=', 2)->get();
-
-        //$doadores = DoadorModel::where('idDoador', '>=', 1)->orderBy('nomeDoador', 'asc')->get();
-
-        //$doadores = DoadorModel::where('nomeDoador', 'paulo')->get();
-        return view('doadoresView', compact('doadores'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('/cadastrodoador');
+        return view('cadastrodoador'); // Altere para o nome correto da view
     }
 
-    public function create2()
-    {
-        return view('/criarcontadoador');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    // Método para armazenar os dados do doador (formulário 1)
     public function store(Request $request)
     {
-        $doador = new DoadorModel();
+        // Validação dos dados recebidos
+        $request->validate([
+            'nomeDoador' => 'required|string|max:100',
+            'emailDoador' => 'required|email|max:255|unique:doador,emailDoador',
+            'senhaDoador' => 'required|string|min:8',
+            'cepDoador' => 'nullable|string|max:10',
+            'enderecoDoador' => 'nullable|string|max:255',
+            'numeroDoador' => 'nullable|string|max:50',
+            'complementoDoador' => 'nullable|string|max:255',
+            'bairroDoador' => 'nullable|string|max:100',
+            'cidadeDoador' => 'nullable|string|max:100',
+            'estadoDoador' => 'nullable|string|max:50',
+        ]);
 
-        $doador->nomeDoador = $request->nomeDoador; 
-        $doador->emailDoador = $request->emailDoador;
-        $doador->senhaDoador = $request->senhaDoador;
-        $doador->cepDoador = $request->cepDoador; 
-        $doador->enderecoDoador = $request->enderecoDoador; 
-        $doador->complementoDoador = $request->complementoDoador; 
-        $doador->bairroDoador = $request->bairroDoador; 
-        $doador->cidadeDoador = $request->cidadeDoador; 
-        $doador->estadoDoador = $request->estadoDoador;
-        $doador->save();
+        // Criação do doador
+        $doador = Doador::create([
+            'nomeDoador' => $request->nomeDoador,
+            'emailDoador' => $request->emailDoador,
+            'senhaDoador' => ($request->senhaDoador), // Senha criptografada
+            'cepDoador' => $request->cepDoador,
+            'enderecoDoador' => $request->enderecoDoador,
+            'numeroDoador' => $request->numeroDoador,
+            'complementoDoador' => $request->complementoDoador,
+            'bairroDoador' => $request->bairroDoador,
+            'cidadeDoador' => $request->cidadeDoador,
+            'estadoDoador' => $request->estadoDoador,
+            'dataCadastroDoador' => now(), // Preencher a data de cadastro automaticamente
+        ]);
 
-        return view('/criarperfildoador');
+        // Armazenar o ID do doador na sessão
+        $request->session()->put('doador_id', $doador->idDoador);
+
+        // Redirecionar para o próximo formulário
+        return redirect()->route('doador.createProfile');
     }
 
-    /*public function store2(Request $request)
+    // Método para mostrar o formulário de criação do perfil do doador (formulário 2)
+    public function showCreateProfile()
     {
-        $doador = new DoadorModel();
-
-        
-        $doador->emailDoador = $request->emailDoador;
-        $doador->senhaDoador = $request->senhaDoador;
-        $doador->save();
-
-        return view('/criarperfildoador');
-    }*/
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return view('criarperfildoador'); // Altere para o nome correto da view
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    // Método para concluir o cadastro do doador
+    public function storeProfile(Request $request)
     {
-        //
-    }
+        // Validação dos dados do perfil
+        $request->validate([
+            'fotoDoador' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'nomeUsuarioDoador' => 'required|string|max:100',
+            'biografiaDoador' => 'required|string|max:255',
+            'causas' => 'nullable|array',
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        // Lógica para armazenar a foto do doador se houver
+        $path = null;
+        if ($request->hasFile('fotoDoador')) {
+            $path = $request->file('fotoDoador')->store('fotos_doador', 'public');
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $doadores = DoadorModel::where('idDoador', $id)->delete();
-        return redirect()->action('App\http\Controllers\DoadorController@exibirDoadores');
+        // Recupera o ID do doador da sessão
+        $doadorId = $request->session()->get('doador_id');
+        $doador = Doador::find($doadorId);
+
+        // Verifica se o doador foi encontrado
+        if (!$doador) {
+            return redirect()->route('doador.create')->withErrors(['error' => 'Doador não encontrado.']);
+        }
+
+        // Atualiza os dados do doador com o perfil
+        $doador->update([
+            'fotoDoador' => $path,
+            'nomeUsuarioDoador' => $request->nomeUsuarioDoador,
+            'biografiaDoador' => $request->biografiaDoador,
+            // Adicione outros campos conforme necessário
+        ]);
+
+        // Redireciona para uma página de sucesso ou onde você quiser
+        return view('/logindoador'); // Altere para a rota de sucesso ou onde quiser redirecionar
     }
 }

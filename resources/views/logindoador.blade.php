@@ -101,7 +101,16 @@
     <div class="left-section">
         <div class="login-card">
             <h3 class="text-center">Login</h3>
-            <form>
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+            <form action="{{ route('logindoador') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>

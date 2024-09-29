@@ -18,22 +18,25 @@
 <body>
     <div class="container">
 
-    <form action="">
+    <form action="" method="POST">
+    @csrf
     <h3>Recuperação de senha</h3>
 
-    <label for="">Digite um email:</label>
-    <input type="text">
-    
-    <label for="">Código de confirmação:</label>
+    <label for="email">Digite um email:</label>
+    <input type="email" name="email">
+    <button type="submit" class="enviar">Enviar</button>
+
+    @csrf
+    <label for="code">Código de confirmação:</label>
             <div class="code-inputs">
-                <input type="text" maxlength="1" class="code" autofocus>
-                <input type="text" maxlength="1" class="code">
-                <input type="text" maxlength="1" class="code">
-                <input type="text" maxlength="1" class="code">
+                <input type="text" maxlength="1" class="code" autofocus name="code[]">
+                <input type="text" maxlength="1" class="code" name="code[]">
+                <input type="text" maxlength="1" class="code" name="code[]">
+                <input type="text" maxlength="1" class="code" name="code[]">
             </div>
 
-    <p>Reenviar</p>
-    <a href="/autenticacao" class="button">Próximo</a>
+            <button class="button" type="submit">Verificar</button>
+
     </form>
 
     </div>

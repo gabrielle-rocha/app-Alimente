@@ -105,9 +105,19 @@
     <div class="left-section">
         <div class="login-card">
             <h3 class="text-center mb-4">Preencha os Campos:</h3>
-            <form  action="/cadastrodoador" method="POST">
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+            <form action="{{ route('doador.store') }}" method="POST">
+            @csrf
                 <div class="row">
-                @csrf
                 <div class="col-4 mb-3">
                     <label class="form-label">Nome:</label>
                     <input type="text" class="form-control" name="nomeDoador" id="nomeDoador" placeholder="Digite seu nome" >
@@ -145,15 +155,15 @@
                     
                     <div class="row">
                         <div class="col-4">
-                        <input type="adress" class="form-control" name="complementoDoador" id="complementoDoador" placeholder="Complemento">
+                        <input type="text" class="form-control" name="complementoDoador" id="complementoDoador" placeholder="Complemento">
                         </div>
                     
                         <div class="col-4">
-                        <input type="adress" class="form-control" name="bairroDoador" id="bairroDoador" placeholder="Bairro">
+                        <input type="text" class="form-control" name="bairroDoador" id="bairroDoador" placeholder="Bairro">
                         </div>
 
                         <div class="col-4">
-                        <input type="adress" class="form-control" name="cidadeDoador" id="cidadeDoador" placeholder="Cidade" >
+                        <input type="text" class="form-control" name="cidadeDoador" id="cidadeDoador" placeholder="Cidade" >
                         </div>
 
                         </div>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador | Alimente</title>
+
+    <link rel="stylesheet" href="/css/adm.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!--icon-->
+    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!--Fonte-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand" rel="stylesheet">
+</head>
+<body>
+
+<div class="sidebar">
+    <header>
+        <img src="/img/fotoAdm.png" alt="">
+    </header>
+
+    <ul>
+        <li>
+            <a href="">
+            <i class="bi bi-columns-gap"></i>
+            Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="">
+            <i class="bi bi-person"></i>
+            Doadores
+            </a>
+        </li>
+
+        <li>
+            <a href="">
+            <i class="bi bi-people"></i>
+            Ongs
+            </a>
+        </li>
+
+        <li>
+            <a href="">
+            <i class="bi bi-person-gear"></i>
+            Perfil
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="feed-dash">
+    <div class="dashboard">
+        <!-- Cards row -->
+        <div class="row cards-row">
+            <div class="card-dash"><i class="bi bi-arrow-up-circle-fill"></i><h4>Doadores</h4><h3 class="corDoador">{{$doador}}</h3></div>
+            <div class="card-dash"><i class="bi bi-arrow-down-circle-fill"></i><h4>Ongs</h4><h3 class="corOng">{{$ong}}</h3></div>
+            <div class="card-dash"><i class="bi bi-currency-dollar"></i><h4>Doações</h4><h3>0</h3></div>
+        </div>
+
+        <!-- Graphics row -->
+        <div class="row graphics-row">
+            <div class="graphic-doador"><h5 class="center">Doadores na plataforma</h5><canvas id="myChart2" width="400" height="250"></canvas></div>
+            <div class="graphic-ong"><h5 class="center">Ongs na plataforma</h5><canvas id="myChart" width="400" height="250"></canvas></div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/chart.js" ></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

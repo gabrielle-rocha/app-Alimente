@@ -26,22 +26,30 @@
 
     <div class="container">
         <div class="formulario">
-
-        <form method="POST" action="{{ route('uploadImagem1') }}" enctype="multipart/form-data">
-    @csrf
+        
+    
     <h3>Perfil</h3>
+
+    @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <form action="{{ route('ong.store.perfil') }}" method="POST" enctype="multipart/form-data">
+    @csrf
     <label for="">Adicione uma foto:</label>
     <div class="imgPerfil box">
-        <img src="" alt="Pré-visualização" id="img-preview" class="w-100 h-100">>
+        <img src="" id="img-preview" class="w-100 h-100">
         <i class="bi bi-person-fill-add"></i>
-        <input id="img-field" type="file" name="file" accept="image/*" required>
+        <input id="img-field" type="file" name="fotoOng" required>
     </div>
 
     <label for="username">Nome de usuário:</label>
-    <input type="text" name="username" placeholder="Ex: amigos_do_bem.07" required>
+    <input type="text" name="nomeUsuarioOng" placeholder="Ex: amigos_do_bem.07" required>
 
     <label for="bio">Bio:</label>
-    <textarea name="bio" id="bio" placeholder="Ex: objetivo, data de fundação, número de auxiliados e etc..." required></textarea>
+    <textarea name="biografiaOng" id="bio" placeholder="Ex: objetivo, data de fundação, número de auxiliados e etc..." required></textarea>
 
     <button type="submit" class="button">Concluir</button>
 </form>

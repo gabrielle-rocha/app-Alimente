@@ -6,7 +6,7 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #c5f3b5, #bddef8);
+    background-color: rgba(0, 0, 0, 0.616);
     min-height: 100vh; 
     display: flex;
     flex-direction: column;

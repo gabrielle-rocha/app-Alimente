@@ -42,14 +42,14 @@ body {
 }
 
 .formulario {
-    width: 100%;
-    max-width: 400px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 1rem;
     background-color: white;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    overflow-y: auto; /* Permite rolagem no formulário somente se necessário */
-    max-height: 100%; /* Garante que o formulário não exceda a altura da tela */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 520px;
 }
 
 form {
@@ -68,10 +68,10 @@ form label {
     font-weight: 600;
 }
 
-form input, form select {
-    margin-bottom: 10px;
+form select{
+    margin-bottom: 8px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 6px;
     border: 1px solid #ccc;
     font-size: 1rem;
 }

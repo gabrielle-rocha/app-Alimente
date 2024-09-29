@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recuperar | Alimente</title>
+    <title>Administrador | Alimente</title>
 
     <link rel="stylesheet" href="/css/loginAdm.css">
 
@@ -18,7 +18,7 @@
     <body>
             <div class="container">
             <form action="">
-                <h3>Admin</h3>
+                <h3>Olá, Administrador!</h3>
                 <label for="">Email:</label>
                 <input type="email">
 
@@ -27,11 +27,7 @@
 
                 <input type="submit" class="button" value="Entrar">
 
-                <div class="empresa">
-                    <div class="logo">
-                        <img src="/img/alimente.png" alt="">   
-                        </div>
-                </div>
+                
             </form>
         </div>
     </body>
