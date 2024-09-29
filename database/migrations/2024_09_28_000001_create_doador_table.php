@@ -27,7 +27,7 @@ class CreateDoadorTable extends Migration
             $table->string('cidadeDoador', 100)->nullable();
             $table->string('estadoDoador', 50)->nullable();
             $table->text('causasPreferidasDoador')->nullable();
-            $table->date('dataCadastroDoador')-> now();
+            $table->date('dataCadastroDoador')->nullable();
             $table->integer('denunciasRealizadasDoador')->default(0);
             $table->timestamps();
         });
