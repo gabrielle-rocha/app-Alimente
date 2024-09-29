@@ -26,6 +26,15 @@ Route::get('/', function () {
     return view('telaInicio');
 });
 
+Route::get('/feedOng', function () {
+    return view('feedOng');
+});
+Route::get('/prestarContaOng', function () {
+    return view('prestarContaOng');
+});
+Route::get('/publicacaoOng', function () {
+    return view('publicacaoOng');
+});
 /*login-geral*/
 Route::get('/logindoador', [LoginController::class, 'showLoginForm'])->name('logindoador');
 
