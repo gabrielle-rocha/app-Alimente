@@ -67,7 +67,12 @@ Route::get('/cod', function () {
 Route::get('/feedOng', function () {
     return view('feedOng');
 });
-
+Route::get('/prestarContaOng', function () {
+    return view('prestarContaOng');
+});
+Route::get('/publicacaoOng', function () {
+    return view('publicacaoOng');
+});
 Route::get('/feed2doador', function () {
     return view('feed2doador');
 });
