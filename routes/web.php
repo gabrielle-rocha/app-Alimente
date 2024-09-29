@@ -5,7 +5,7 @@ use App\Http\Controllers\OngController;
 use App\Http\Controllers\DoadorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ImageController;
-
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,7 +89,8 @@ Route::get('/doadores-view/{id}', 'App\http\Controllers\DoadorController@destroy
 Route::post('doador/inserir', 'App\http\Controllers\DoadorController@store');
 
 /*adm*/
-Route::get('/adm', function () {
+Route::get('/admLogin', function () {
     return view('loginAdm');
 });
-?>
+
+Route::get('/adm', [DashboardController::class, 'index']);

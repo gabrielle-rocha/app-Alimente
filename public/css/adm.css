@@ -1,0 +1,141 @@
+body {
+    font-family: 'Quicksand';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.616);
+}
+
+.sidebar header {
+    line-height: 70px;
+    background: rgba(63, 61, 61, 0.432);
+    user-select: none;
+    align-items: center;
+    text-align: center;
+}
+
+.sidebar header img{
+    height: 100px;
+    width: 200px;
+    aspect-ratio: 4/3;
+    object-fit: contain;
+    
+}
+
+.sidebar ul a {
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+ul li:hover a {
+    background-color: rgba(107, 103, 103, 0.342);
+}
+
+ul li {
+    list-style: none;
+}
+
+.sidebar ul a i {
+    margin-right: 10px;
+}
+
+.sidebar i {
+    font-size: 30px;
+}
+
+.sidebar ul {
+    margin-top: 5px;
+}
+
+/* Dashboard */
+.feed-dash {
+    margin-left: 300px;
+    padding: 20px;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Cards Row */
+.cards-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.card-dash {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 20px;
+    flex: 1;
+    box-shadow: 0 4px 8px rgba(46, 46, 46, 0.39);
+}
+.card-dash .corDoador{
+    color: rgb(68, 196, 56);
+    
+}
+.card-dash .corOng{
+    color: rgb(63, 135, 243);
+}
+.card-dash i h4 h3{
+text-align: center;
+}
+
+.card-dash i{
+    font-size: 50px;
+    
+}
+
+/* Graphics Row */
+.graphics-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.center{
+    text-align: center;
+    margin: 10px;
+}
+
+.graphic-ong, .graphic-doador {
+    box-shadow: 0 4px 8px rgba(46, 46, 46, 0.39);
+    height: 330px;
+    border-radius: 8px;
+    flex: 1;
+    margin: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .feed-dash {
+        margin-left: 0;
+    }
+    
+    .cards-row, .graphics-row {
+        flex-direction: column;
+    }
+}
