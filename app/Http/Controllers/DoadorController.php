@@ -13,6 +13,12 @@ class DoadorController extends Controller
         return view('doadoresView', compact('doadores'));
     }
 
+    public function destroy($id){
+        $doador = Doador::find($id);
+        $doador->delete();
+        return redirect()->route('admin.doadores');
+    }
+
     public function create()
     {
         return view('cadastrodoador'); // Altere para o nome correto da view

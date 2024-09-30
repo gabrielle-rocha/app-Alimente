@@ -44,19 +44,13 @@
             Ongs
             </a>
 
-        <li>
-            <a href="">
-            <i class="bi bi-person-gear"></i>
-            Perfil
-            </a>
-        </li>
     </ul>
 </div>
 
 <div class="feed-dash">
     <div class="row center ong-header">
         <div class="col-6"><h2>ONGs</h2></div>
-        <div class="col-6"><span>0 ONGs cadastradas</span></div>
+        <div class="col-6"><span>{{$ongs->count()}} ONGs cadastradas</span></div>
     </div>
 
     <div class="nav-pesquisa ong-search">
@@ -82,20 +76,23 @@
         <tbody>
             @foreach($ongs as $ong)
             <tr>
-                <td><i class="bi bi-person-circle"></i></td>
+                <td><i class="bi bi-people"></i></td>
                 <td>#{{$ong->idOng}}</td>
                 <td>{{$ong->nomeOng}}</td>                    
                 <td>{{$ong->emailOng}}</td>
                 <td>{{$ong->nomeUsuarioOng}}</td>
                 <td><a class="edit"><i class="bi bi-pencil-square"></i></a>
-                    <a class="delete"><i class="bi bi-trash3-fill"></i></a>
-                </td>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{$ong->idOng}}">       
+                    <i class="bi bi-trash3-fill"></i>              
+                    </a>
+                    @include('ongs.delete', ['ong' => $ong])
+                
             </tr>
             @endforeach
         </tbody>
     </table>
 </div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

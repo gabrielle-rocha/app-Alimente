@@ -10,6 +10,13 @@ class OngController extends Controller
         $ongs = Ong::all();
         return view('ongsView', compact('ongs'));
     }
+
+    public function destroy($id){
+        $ong = Ong::find($id);
+        $ong->delete();
+        return redirect()->route('admin.ongs');
+    }
+
     // Método para exibir o primeiro passo do cadastro da ONG
     public function showFirstStep()
     {

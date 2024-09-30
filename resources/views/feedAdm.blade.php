@@ -45,12 +45,6 @@
             Ongs
             </a>
 
-        <li>
-            <a href="">
-            <i class="bi bi-person-gear"></i>
-            Perfil
-            </a>
-        </li>
     </ul>
 </div>
 

@@ -6,8 +6,7 @@
     <title>Administrador | Alimente</title>
 
     <link rel="stylesheet" href="/css/adm.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <!--icon-->
     <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -45,19 +44,13 @@
             </a>
         </li>
 
-        <li>
-            <a href="">
-            <i class="bi bi-person-gear"></i>
-            Perfil
-            </a>
-        </li>
     </ul>
 </div>
 
     <div class="feed-dash">
         <div class="row center">
             <div class="col-6"><h2>Doadores</h2></div>
-            <div class="col-6"> <span>0 doadores cadastrados</span></div>
+            <div class="col-6"> <span>{{$doadores->count()}} doadores cadastrados</span></div>
         </div>
 
        <div class="nav-pesquisa">
@@ -83,19 +76,23 @@
         <tbody>
             @foreach($doadores as $doador)
                     <tr>
-                    <td><i class="bi bi-person-circle"></i></td>
+                    <td><i class="bi bi-person"></i></td>
                     <td>#{{$doador->idDoador}}</td>
                     <td>{{$doador->nomeDoador}}</td>                    
                     <td>{{$doador->emailDoador}}</td>
                     <td>{{$doador->nomeUsuarioDoador}}</td>
                     <td><a><i class="bi bi-pencil-square"></i></a>
-                      <a><i class="bi bi-trash3-fill"></i></a></td>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{$doador->idDoador}}">       
+                    <i class="bi bi-trash3-fill"></i>              
+                    </a>
+                    @include('doadores.delete', ['doador' => $doador])
+                      
                   </tr>
             @endforeach
         </tbody>
        </table>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

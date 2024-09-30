@@ -55,6 +55,8 @@ Route::post('/loginAdm', [LoginController::class, 'loginAdmin'])->name('admin.lo
 Route::get('/adm', [DashboardController::class, 'index'])->name('admin.dashboard');
 Route::get('/adm/doadores', [DoadorController::class, 'index'])->name('admin.doadores');
 Route::get('/adm/ongs', [OngController::class, 'index'])->name('admin.ongs');
+Route::delete('/adm/doadores/delete{id}', [DoadorController::class, 'destroy'])->name('admin.doadores.delete');
+Route::delete('/adm/ongs/delete{id}', [OngController::class, 'destroy'])->name('admin.ongs.delete');
 
 /*recuperação de senha*/
 Route::get('/cod', function () {
