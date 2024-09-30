@@ -6,6 +6,23 @@ use Illuminate\Http\Request;
 
 class OngController extends Controller
 {
+    public function index() {
+        $search = request('search');
+        $ongs = $search ? Ong::where('nomeOng', 'like', '%'.$search.'%')->get() : Ong::all();
+        return view('ongsView', ['ongs' => $ongs, 'search' => $search]);
+    }
+
+    public function search(Request $request) {
+        $search = $request->input('query');
+        $ongs = Ong::where('nomeOng', 'like', '%'.$search.'%')->get();
+        return response()->json($ongs);
+    }
+    public function destroy($id){
+        $ong = Ong::find($id);
+        $ong->delete();
+        return redirect()->route('admin.ongs');
+    }
+
     // Método para exibir o primeiro passo do cadastro da ONG
     public function showFirstStep()
     {

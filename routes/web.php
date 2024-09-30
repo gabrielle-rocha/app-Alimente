@@ -44,6 +44,22 @@ Route::post('/logindoador', [LoginController::class, 'logindoador'])->name('logi
 // Rota para logout
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+//login doador
+// Rota para exibir o formulário de login do administrador
+Route::get('/loginAdm', [LoginController::class, 'showAdminLoginForm'])->name('admin.login.form');
+
+// Rota para processar o login do administrador
+Route::post('/loginAdm', [LoginController::class, 'loginAdmin'])->name('admin.login');
+
+// Rota para a dashboard do administrador
+Route::get('/adm', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('/adm/doadores', [DoadorController::class, 'index'])->name('admin.doadores');
+Route::get('/adm/ongs', [OngController::class, 'index'])->name('admin.ongs');
+Route::delete('/adm/doadores/delete{id}', [DoadorController::class, 'destroy'])->name('admin.doadores.delete');
+Route::delete('/adm/ongs/delete{id}', [OngController::class, 'destroy'])->name('admin.ongs.delete');
+Route::get('/doadores/search', [DoadorController::class, 'search'])->name('doadores.search');
+Route::get('/ongs/search', [OngController::class, 'search'])->name('ongs.search');
+
 /*recuperação de senha*/
 Route::get('/cod', function () {
     return view('codNovaSenha');
@@ -91,15 +107,7 @@ Route::get('/doador','App\http\Controllers\DoadorController@index');
 
 Route::get('/ong','App\http\Controllers\OngController@index');
 
-Route::get('/doadores-view', 'App\http\Controllers\DoadorController@exibirDoadores');
-
-Route::get('/doadores-view/{id}', 'App\http\Controllers\DoadorController@destroy');
-
-Route::post('doador/inserir', 'App\http\Controllers\DoadorController@store');
-
-/*adm*/
-Route::get('/admLogin', function () {
-    return view('loginAdm');
+Route::get('/ongs-view', function() {
+    return view('ongsView');
 });
 
-Route::get('/adm', [DashboardController::class, 'index']);

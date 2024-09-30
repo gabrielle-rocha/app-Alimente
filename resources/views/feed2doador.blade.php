@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post - Alimente</title>
+    <title>Doador - Alimente</title>
+    <!--icon-->
+    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
+
+    <!--Fonte-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand" rel="stylesheet">
     <style>
         
         * {
@@ -13,8 +20,11 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Quicksand';
             background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         .container {
@@ -71,7 +81,7 @@
         .main-content {
             flex-grow: 1;
             background-color: #fff;
-            padding: 20px;
+            padding: 15px;
         }
 
         /* Notifications area */
@@ -116,48 +126,49 @@
             border-radius: 5px;
             text-decoration: none;
         }
-    /* Barra de rolagem*/
-    .post-container::-webkit-scrollbar{
+    /* Barra de rolagem */
+.post-container::-webkit-scrollbar {
     width: 10px; 
-    cursor:pointer;
-    }
-    .post-container::-webkit-scrollbar-track{
-    background: black;
-    border-radius: 10px;
-    }
-
-    .post-container::-webkit-scrollbar-thumb{
-    background-color:black;
-    border-radius: 10px;
-    border: 2px, solid #f1f1f1;
     cursor: pointer;
-    }
+}
 
-    .post-container::-webkit-scrollbar-thumb:hover{
+.post-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.post-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+    border: 2px solid #f1f1f1; /* Corrigido para usar um espaço em vez de vírgula */
+    cursor: pointer;
+}
+
+.post-container::-webkit-scrollbar-thumb:hover {
     background-color: black;
-    }
-     /* Post styling */
-        .post-container {
-            overflow: hidden ;
-            width: 100%;
-            max-width: 90%;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            margin: 20px auto;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+}
+
+/* Post styling */
+.post-container {
+    overflow: auto; /* Mudei para auto para mostrar a barra de rolagem apenas quando necessário */
+    width: 100%;
+    max-width: 100%;
+    max-height: 600px; /* Defina uma altura máxima para o container, se necessário */
+    background-color: white;
+    padding: 15px;
+    
+}
+
         .post-header {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+           
         }
         .post-header img {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 5px;
         }
 
         .post-header h4 {
@@ -165,9 +176,14 @@
             margin-right: 5px;
         }
         .post-body img {
-            width: 100%;
+            width:  100%;
+            height: 500px;
             border-radius: 10px;
-            margin: 10px 0;
+            margin: 5px 0;
+        }
+
+        .post-body{
+            align-items: center;
         }
 
         .post-caption {

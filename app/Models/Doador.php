@@ -36,7 +36,6 @@ class Doador extends Model implements AuthenticatableContract
         'biografiaDoador'    // Novo campo
     ];
 
-
     // Define que o campo senhaDoador é a senha
     protected $hidden = [
         'senhaDoador', // Isso esconde a senha de retornos de queries

@@ -26,32 +26,25 @@
 
     <ul>
         <li>
-            <a href="/adm">
+        <a href="{{ route('admin.dashboard') }}">
             <i class="bi bi-columns-gap"></i>
             Dashboard
             </a>
         </li>
 
         <li>
-            <a href="">
+            <a href="{{ route('admin.doadores') }}">
             <i class="bi bi-person"></i>
             Doadores
             </a>
         </li>
 
         <li>
-            <a href="">
+            <a href="{{route('admin.ongs')}}">
             <i class="bi bi-people"></i>
             Ongs
             </a>
-        </li>
 
-        <li>
-            <a href="">
-            <i class="bi bi-person-gear"></i>
-            Perfil
-            </a>
-        </li>
     </ul>
 </div>
 
