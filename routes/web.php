@@ -53,7 +53,8 @@ Route::post('/loginAdm', [LoginController::class, 'loginAdmin'])->name('admin.lo
 
 // Rota para a dashboard do administrador
 Route::get('/adm', [DashboardController::class, 'index'])->name('admin.dashboard');
-
+Route::get('/adm/doadores', [DoadorController::class, 'index'])->name('admin.doadores');
+Route::get('/adm/ongs', [OngController::class, 'index'])->name('admin.ongs');
 
 /*recuperação de senha*/
 Route::get('/cod', function () {
@@ -101,10 +102,6 @@ Route::get('/feedOng', function () {
 Route::get('/doador','App\http\Controllers\DoadorController@index');
 
 Route::get('/ong','App\http\Controllers\OngController@index');
-
-Route::get('/doadores-view', function() {
-    return view('doadoresView');
-});
 
 Route::get('/ongs-view', function() {
     return view('ongsView');

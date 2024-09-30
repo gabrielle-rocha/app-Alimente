@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class DoadorController extends Controller
 {
+
+    public function index(){
+        $doadores = Doador::all();
+        return view('doadoresView', compact('doadores'));
+    }
+
     public function create()
     {
         return view('cadastrodoador'); // Altere para o nome correto da view

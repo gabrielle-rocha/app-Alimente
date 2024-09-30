@@ -24,22 +24,22 @@
     </header>
 
     <ul>
-        <li>
-            <a href="/adm">
+    <li>
+            <a href="{{ route('admin.dashboard') }}">
             <i class="bi bi-columns-gap"></i>
             Dashboard
             </a>
         </li>
 
         <li>
-            <a href="/doadores-view">
+            <a href="{{ route('admin.doadores') }}">
             <i class="bi bi-person"></i>
             Doadores
             </a>
         </li>
 
         <li>
-            <a href="/ongs-view">
+            <a href="{{route('admin.ongs')}}">
             <i class="bi bi-people"></i>
             Ongs
             </a>
@@ -81,33 +81,17 @@
                   </tr>
         </thead>
         <tbody>
+            @foreach($doadores as $doador)
                     <tr>
                     <td><i class="bi bi-person-circle"></i></td>
-                    <td>#123</td>
-                    <td>Maria</td>                    
-                    <td>maria@gmail.com</td>
-                    <td>mary_linda</td>
+                    <td>#{{$doador->idDoador}}</td>
+                    <td>{{$doador->nomeDoador}}</td>                    
+                    <td>{{$doador->emailDoador}}</td>
+                    <td>{{$doador->nomeUsuarioDoador}}</td>
                     <td><a><i class="bi bi-pencil-square"></i></a>
                       <a><i class="bi bi-trash3-fill"></i></a></td>
                   </tr>
-                  <tr>
-                    <td><i class="bi bi-person-circle"></i></td>
-                    <td>#123</td>
-                    <td>Maria</td>                    
-                    <td>maria@gmail.com</td>
-                    <td>mary_linda</td>
-                    <td><a><i class="bi bi-pencil-square"></i></a>
-                      <a><i class="bi bi-trash3-fill"></i></a></td>
-                  </tr>
-                  <tr>
-                    <td><i class="bi bi-person-circle"></i></td>
-                    <td>#123</td>
-                    <td>Maria</td>                    
-                    <td>maria@gmail.com</td>
-                    <td>mary_linda</td>
-                    <td><a><i class="bi bi-pencil-square"></i></a>
-                      <a><i class="bi bi-trash3-fill"></i></a></td>
-                  </tr>
+            @endforeach
         </tbody>
        </table>
     </div>

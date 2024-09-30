@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class OngController extends Controller
 {
+    public function index() {
+        $ongs = Ong::all();
+        return view('ongsView', compact('ongs'));
+    }
     // Método para exibir o primeiro passo do cadastro da ONG
     public function showFirstStep()
     {
