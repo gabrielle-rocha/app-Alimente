@@ -60,10 +60,6 @@ Route::delete('/adm/ongs/delete{id}', [OngController::class, 'destroy'])->name('
 Route::get('/doadores/search', [DoadorController::class, 'search'])->name('doadores.search');
 Route::get('/ongs/search', [OngController::class, 'search'])->name('ongs.search');
 
-/*recuperação de senha*/
-Route::get('/cod', function () {
-    return view('codNovaSenha');
-});
 
 /*doador*/
 // Rota para mostrar o formulário de cadastro do doador
@@ -109,5 +105,18 @@ Route::get('/ong','App\http\Controllers\OngController@index');
 
 Route::get('/ongs-view', function() {
     return view('ongsView');
+});
+
+/*recuperação de senha*/
+Route::get('/cod', function () {
+    return view('cod');
+});
+
+Route::get('/codNovaSenha', function () {
+    return view('codNovaSenha');
+});
+
+Route::get('/auth', function () {
+    return view('autenticacao');
 });
 

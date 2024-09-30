@@ -26,36 +26,9 @@
     <input type="email" name="email">
     <button type="submit" class="enviar">Enviar</button>
 
-    @csrf
-    <label for="code">Código de confirmação:</label>
-            <div class="code-inputs">
-                <input type="text" maxlength="1" class="code" autofocus name="code[]">
-                <input type="text" maxlength="1" class="code" name="code[]">
-                <input type="text" maxlength="1" class="code" name="code[]">
-                <input type="text" maxlength="1" class="code" name="code[]">
-            </div>
-
-            <button class="button" type="submit">Verificar</button>
-
     </form>
 
     </div>
 
-    <script>
-        const inputs = document.querySelectorAll('.code');
-        inputs.forEach((input, index) => {
-            input.addEventListener('input', (e) => {
-                if (input.value.length === 1 && index < inputs.length - 1) {
-                    inputs[index + 1].focus();
-                }
-            });
-
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'Backspace' && index > 0 && input.value === '') {
-                    inputs[index - 1].focus();
-                }
-            });
-        });
-    </script>
 </body>
 </html>

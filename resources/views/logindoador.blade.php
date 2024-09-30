@@ -121,7 +121,7 @@
                     <input type="password" class="form-control" id="password" placeholder="Digite sua senha" name="password" required>
                 </div>
                 <div class="mb-3">
-                    <a href="/cod" class="forgot-password">Esqueci minha senha</a>
+                    <a href="/codNovaSenha" class="forgot-password">Esqueci minha senha</a>
                 </div>
                 <button type="submit" class="btn login-btn w-100">Login</button>
                 <div class="mt-3 text-center">
