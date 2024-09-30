@@ -33,7 +33,7 @@
         </li>
 
         <li>
-            <a href="">
+            <a href="/doadores-view">
             <i class="bi bi-person"></i>
             Doadores
             </a>

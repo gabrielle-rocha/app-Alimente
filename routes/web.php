@@ -91,11 +91,9 @@ Route::get('/doador','App\http\Controllers\DoadorController@index');
 
 Route::get('/ong','App\http\Controllers\OngController@index');
 
-Route::get('/doadores-view', 'App\http\Controllers\DoadorController@exibirDoadores');
-
-Route::get('/doadores-view/{id}', 'App\http\Controllers\DoadorController@destroy');
-
-Route::post('doador/inserir', 'App\http\Controllers\DoadorController@store');
+Route::get('/doadores-view', function() {
+    return view('doadoresView');
+});
 
 /*adm*/
 Route::get('/admLogin', function () {
