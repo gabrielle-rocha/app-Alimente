@@ -11,6 +11,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
+
         $doadores = Doador::all()->count();
         $ong = Ong::all()->count();
 

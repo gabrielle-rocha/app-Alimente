@@ -17,13 +17,24 @@
 </head>
     <body>
             <div class="container">
-            <form action="">
+            @if ($errors->any())
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <form method="POST" action="{{ route('admin.login') }}">
+        @csrf
                 <h3>Olá, Administrador!</h3>
                 <label for="">Email:</label>
-                <input type="email">
+                <input type="email" name="email" id="email">
 
                 <label for="">Senha:</label>
-                <input type="password" name="" id="">
+                <input type="password" name="password" id="password">
 
                 <input type="submit" class="button" value="Entrar">
 

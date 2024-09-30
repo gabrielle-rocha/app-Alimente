@@ -270,6 +270,127 @@ td {
     font-size: 1.2rem;
     color: rgba(0, 0, 0, 0.7);
 }
+/* Seção de ONGs */
+.ong-section {
+    margin-top: 20px;
+}
+
+.ong-header h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(74, 110, 163); /* Azul para ONGs */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.ong-header .row span {
+    font-size: 18px;
+    color: rgb(86, 112, 142);
+}
+
+/* Input de Pesquisa da Seção de ONGs */
+.ong-search .input-field {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.ong-search input[type="search"] {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px;
+    border: 2px solid rgba(91, 91, 92, 0.5); /* Azul claro */
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.ong-search input[type="search"]:focus {
+    border-color: rgb(74, 110, 163);
+}
+
+.ong-search i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: rgba(70, 71, 73, 0.7);
+}
+
+/* Tabela de ONGs */
+.ong-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.ong-table thead {
+    background-color: rgb(74, 110, 163); /* Azul para a seção de ONGs */
+    color: white;
+    text-align: left;
+    text-align: center;
+}
+
+.ong-table thead th {
+    padding: 12px 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.ong-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.ong-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.ong-table tbody tr:hover {
+    background-color: rgba(195, 196, 195, 0.1); /* Leve destaque em azul */
+}
+
+.ong-table td {
+    padding: 12px 15px;
+}
+
+/* Ícones de Editar e Deletar */
+.ong-table td a {
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.ong-table td a i {
+    margin-right: 5px;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.ong-table td i{
+    font-size: 3rem;
+}
+
+/* Efeito de Hover nos Ícones */
+.ong-table td a:hover {
+    color: rgb(63, 135, 243);
+}
+
+.ong-table td a:hover i {
+    transform: scale(1.2);
+    color: rgb(63, 135, 243);
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -286,6 +407,17 @@ td {
     }
 
     .nav-pesquisa .input-field {
+        max-width: 100%;
+    }
+    .ong-section {
+        margin-left: 0;
+    }
+
+    .ong-table {
+        font-size: 14px;
+    }
+
+    .ong-search .input-field {
         max-width: 100%;
     }
 }

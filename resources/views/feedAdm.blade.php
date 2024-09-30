@@ -40,7 +40,7 @@
         </li>
 
         <li>
-            <a href="">
+            <a href="/ongs-view">
             <i class="bi bi-people"></i>
             Ongs
             </a>
