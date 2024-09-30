@@ -69,6 +69,30 @@ ul li {
 .feed-dash {
     margin-left: 300px;
     padding: 20px;
+    height: 100vh; /* Defina a altura conforme necessário */
+    overflow-y: auto; /* Ativa a barra de rolagem vertical */
+    scrollbar-width: thin; /* Para navegadores Firefox */
+    scrollbar-color: #888 #f1f1f1; /* Para navegadores Firefox */
+}
+
+/* Estilo para navegadores baseados em Webkit (Chrome, Safari) */
+.feed-dash::-webkit-scrollbar {
+    width: 12px;
+}
+
+.feed-dash::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor do fundo da barra de rolagem */
+    border-radius: 50px; /* Cantos arredondados */
+}
+
+.feed-dash::-webkit-scrollbar-thumb {
+    background-color: #888; /* Cor da barra de rolagem */
+    border-radius: 50px; /* Cantos arredondados */
+    border: 3px solid #f1f1f1; /* Cria um espaço em volta da barra */
+}
+
+.feed-dash::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Cor ao passar o mouse */
 }
 
 .dashboard {
@@ -165,32 +189,24 @@ td i{
 }
 td a i {
     margin-right: 5px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 /* Efeito de Hover nos links e ícones */
-td a:hover {
-    color: rgb(68, 196, 56);
-}
 
-td a:hover i {
-    transform: scale(1.2);
-    color: rgba(159, 165, 159, 0.418);
-}
 
 .bi-pencil-square {
     color: #007bff;
 }
 
-.bi-trash3-fill {
+.bi bi-person-fill-slash {
     color: #dc3545;
 }
 
 /* Efeito de Hover nos Ícones Individuais */
-td a.edit:hover i {
-    color: #007bff;
-}
+
+
 
 td a.delete:hover i {
     color: #dc3545;
@@ -205,12 +221,6 @@ table {
     border-radius: 8px;
     overflow: hidden;
     background-color: #ffffff;
-    text-align: center;
-}
-
-thead {
-    background-color: rgb(53, 143, 45);
-    color: white;
     text-align: center;
 }
 
@@ -332,11 +342,15 @@ td {
     text-align: center;
 }
 
-.ong-table thead {
-    background-color: rgb(74, 110, 163); /* Azul para a seção de ONGs */
+.ongs-table thead {
+    background-color: rgb(55, 115, 206); /* Azul para ONGs */
     color: white;
-    text-align: left;
-    text-align: center;
+}
+
+/* Estilo específico para a tabela de Doadores */
+#doadores-table thead {
+    background-color: rgb(54, 155, 45); /* Verde para Doadores */
+    color: white;
 }
 
 .ong-table thead th {

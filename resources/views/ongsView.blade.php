@@ -33,13 +33,13 @@
     <div class="nav-pesquisa ong-search">
         <form action="">
             <div class="input-field">
-                <input placeholder="Pesquisar..." id="search-ong" type="search">
+                <input placeholder="Pesquisar..." id="search-ong" class="search-ong" type="search">
                 <i class="bi bi-search"></i>
             </div>
         </form>
     </div>
 
-    <table id="ongs-table">
+    <table id="ongs-table" class="ongs-table">
         <thead>
         <tr>
             <th></th>
@@ -59,9 +59,9 @@
                 <td>{{$ong->emailOng}}</td>
                 <td>{{$ong->nomeUsuarioOng}}</td>
                 <td>
-                    <a class="edit"><i class="bi bi-pencil-square"></i></a>
+                    <a class="edit"><i class="bi bi-check-circle-fill"></i></a>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{$ong->idOng}}">       
-                        <i class="bi bi-trash3-fill"></i>              
+                    <i class="bi bi-ban"></i>             
                     </a>
                     @include('ongs.delete', ['ong' => $ong])
                 </td>
