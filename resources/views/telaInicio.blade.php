@@ -146,6 +146,14 @@
         .start-button a{
             color:white;
             text-decoration:none;
+            
+            color: white;
+            width: 50%;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
         }
     </style>
 </head>

@@ -123,7 +123,7 @@ text-align: center;
 
 .graphic-ong, .graphic-doador {
     box-shadow: 0 4px 8px rgba(46, 46, 46, 0.39);
-    height: 330px;
+    height: auto;
     border-radius: 8px;
     flex: 1;
     margin: 20px;

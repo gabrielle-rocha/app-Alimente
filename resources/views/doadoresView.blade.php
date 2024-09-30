@@ -53,46 +53,92 @@
             <div class="col-6"> <span>{{$doadores->count()}} doadores cadastrados</span></div>
         </div>
 
-       <div class="nav-pesquisa">
-        <form action="">
-            <div class="input-field">
-                <input placeholder="Pesquisar..." id="search" type="search">
-                <i class="bi bi-search"></i>
-            </div>
-        </form>
-       </div>
+        <div class="nav-pesquisa">
+    <form action="" method="GET">
+        <div class="input-field">
+            <input placeholder="Pesquisar..." id="search" name="search" type="search">
+            <i class="bi bi-search"></i>
+        </div>
+    </form>
+</div>
 
-       <table>
-        <thead>
+
+
+<table id="doadores-table">
+    <thead>
         <tr>
-                    <th></th>
-                    <th>Id</th>  
-                    <th>Doador</th>
-                      <th>Email</th>
-                      <th>Nome de Usuário</th>
-                      <th></th>
-                  </tr>
-        </thead>
-        <tbody>
-            @foreach($doadores as $doador)
-                    <tr>
-                    <td><i class="bi bi-person"></i></td>
-                    <td>#{{$doador->idDoador}}</td>
-                    <td>{{$doador->nomeDoador}}</td>                    
-                    <td>{{$doador->emailDoador}}</td>
-                    <td>{{$doador->nomeUsuarioDoador}}</td>
-                    <td><a><i class="bi bi-pencil-square"></i></a>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{$doador->idDoador}}">       
-                    <i class="bi bi-trash3-fill"></i>              
+            <th></th>
+            <th>Id</th>  
+            <th>Doador</th>
+            <th>Email</th>
+            <th>Nome de Usuário</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($doadores as $doador)
+            <tr>
+                <td><i class="bi bi-person"></i></td>
+                <td>#{{$doador->idDoador}}</td>
+                <td>{{$doador->nomeDoador}}</td>                    
+                <td>{{$doador->emailDoador}}</td>
+                <td>{{$doador->nomeUsuarioDoador}}</td>
+                <td>
+                    <a><i class="bi bi-pencil-square"></i></a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{$doador->idDoador}}">
+                        <i class="bi bi-trash3-fill"></i>
                     </a>
                     @include('doadores.delete', ['doador' => $doador])
-                      
-                  </tr>
-            @endforeach
-        </tbody>
-       </table>
-    </div>
+                </td>
+            </tr>
+        @endforeach
+        @if(count($doadores) == 0 && $search)
+            <tr><td colspan="6">Não foi possível encontrar nenhum doador com o nome '{{$search}}'!</td></tr>
+        @elseif(count($doadores) == 0)
+            <tr><td colspan="6">Doador não encontrado</td></tr>
+        @endif
+    </tbody>
+</table>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#search').on('keyup', function() {
+            let query = $(this).val();
+
+            $.ajax({
+                url: "{{ route('doadores.search') }}",
+                method: "GET",
+                data: { query: query },
+                success: function(data) {
+                    let tbody = '';
+                    if(data.length) {
+                        data.forEach(function(doador) {
+                            tbody += `<tr>
+                                <td><i class="bi bi-person"></i></td>
+                                <td>#${doador.idDoador}</td>
+                                <td>${doador.nomeDoador}</td>
+                                <td>${doador.emailDoador}</td>
+                                <td>${doador.nomeUsuarioDoador}</td>
+                                <td>
+                                    <a><i class="bi bi-pencil-square"></i></a>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal${doador.idDoador}">       
+                                    <i class="bi bi-trash3-fill"></i>              
+                                    </a>
+                                    @include('doadores.delete', ['doador' => 'doador'])
+                                </td>
+                            </tr>`;
+                        });
+                    } else {
+                        tbody = '<tr><td colspan="6">Nenhum doador encontrado.</td></tr>';
+                    }
+                    $('#doadores-table tbody').html(tbody);
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

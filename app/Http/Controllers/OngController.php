@@ -7,10 +7,16 @@ use Illuminate\Http\Request;
 class OngController extends Controller
 {
     public function index() {
-        $ongs = Ong::all();
-        return view('ongsView', compact('ongs'));
+        $search = request('search');
+        $ongs = $search ? Ong::where('nomeOng', 'like', '%'.$search.'%')->get() : Ong::all();
+        return view('ongsView', ['ongs' => $ongs, 'search' => $search]);
     }
 
+    public function search(Request $request) {
+        $search = $request->input('query');
+        $ongs = Ong::where('nomeOng', 'like', '%'.$search.'%')->get();
+        return response()->json($ongs);
+    }
     public function destroy($id){
         $ong = Ong::find($id);
         $ong->delete();

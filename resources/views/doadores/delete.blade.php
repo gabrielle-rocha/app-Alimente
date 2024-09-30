@@ -1,4 +1,5 @@
 <!-- doadores/delete.blade.php -->
+@foreach($doadores as $doador)
 <div class="modal fade" id="deleteModal{{$doador->idDoador}}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -20,3 +21,4 @@
         </div>
     </div>
 </div>
+@endforeach

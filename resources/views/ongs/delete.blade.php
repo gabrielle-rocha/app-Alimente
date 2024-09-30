@@ -1,4 +1,5 @@
 <!-- ongs/delete.blade.php -->
+@foreach($ongs as $ong)
 <div class="modal fade" id="deleteModal{{$ong->idOng}}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -20,3 +21,4 @@
         </div>
     </div>
 </div>
+@endforeach

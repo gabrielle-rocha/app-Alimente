@@ -8,9 +8,16 @@ use Illuminate\Http\Request;
 class DoadorController extends Controller
 {
 
-    public function index(){
-        $doadores = Doador::all();
-        return view('doadoresView', compact('doadores'));
+    public function index() {
+        $search = request('search');
+        $doadores = $search ? Doador::where('nomeDoador', 'like', '%'.$search.'%')->get() : Doador::all();
+        return view('doadoresView', ['doadores' => $doadores, 'search' => $search]);
+    }
+
+    public function search(Request $request) {
+        $search = $request->input('query');
+        $doadores = Doador::where('nomeDoador', 'like', '%'.$search.'%')->get();
+        return response()->json($doadores);
     }
 
     public function destroy($id){
