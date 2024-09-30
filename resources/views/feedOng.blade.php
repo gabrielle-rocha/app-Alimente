@@ -483,7 +483,49 @@
 }
 
 
-    </style>
+    
+@media only screen and (max-width: 1200px) {
+    .nav {
+        width: 250px; /* Reduz a largura da barra lateral em telas menores */
+    }
+    .feed {
+        width: 75%; /* Aumenta a área de conteúdo em telas médias */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .nav {
+        width: 200px; /* Reduz ainda mais a largura da barra lateral em telas menores */
+    }
+    .feed {
+        width: 100%; /* O conteúdo ocupa toda a tela em dispositivos móveis */
+        padding: 15px;
+    }
+    .nav a {
+        font-size: 16px; /* Reduz o tamanho do texto da navegação em telas menores */
+    }
+    .logo img {
+        width: 70%; /* Ajusta a imagem da logo em dispositivos móveis */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .nav {
+        width: 100%; /* Transforma a barra lateral em uma barra superior em telas muito pequenas */
+        height: auto;
+        flex-direction: row; /* Transforma a navegação em horizontal */
+    }
+    .feed {
+        width: 100%;
+        padding: 10px; /* Ajusta o espaçamento para telas pequenas */
+    }
+    .nav a {
+        padding: 10px;
+        font-size: 14px; /* Diminui ainda mais o texto da navegação em telas pequenas */
+    }
+}
+
+</style>
 </head>
 <body>
     
