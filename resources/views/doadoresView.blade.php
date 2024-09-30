@@ -84,9 +84,8 @@
                 <td>{{$doador->emailDoador}}</td>
                 <td>{{$doador->nomeUsuarioDoador}}</td>
                 <td>
-                    <a><i class="bi bi-pencil-square"></i></a>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{$doador->idDoador}}">
-                        <i class="bi bi-trash3-fill"></i>
+                    <i class="bi bi-person-fill-slash"></i>
                     </a>
                     @include('doadores.delete', ['doador' => $doador])
                 </td>
@@ -122,7 +121,6 @@
                                 <td>${doador.emailDoador}</td>
                                 <td>${doador.nomeUsuarioDoador}</td>
                                 <td>
-                                    <a><i class="bi bi-pencil-square"></i></a>
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal${doador.idDoador}">       
                                     <i class="bi bi-trash3-fill"></i>              
                                     </a>
