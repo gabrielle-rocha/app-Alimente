@@ -307,7 +307,41 @@
     }
 }
 
-    </style>
+    
+@media (max-width: 768px) {
+    .nav {
+        width: 100%; /* Tornando a largura da navegação responsiva */
+        height: auto; /* Ajustando altura para caber em diferentes tamanhos de tela */
+    }
+
+    .container {
+        padding: 10px; /* Reduzindo o padding para telas pequenas */
+    }
+
+    /* Ajustes em imagens */
+    img {
+        max-width: 100%; /* Imagens ajustam ao tamanho do container */
+        height: auto;
+    }
+
+    /* Outras seções do site */
+    .section {
+        padding: 20px; /* Melhor espaçamento em telas pequenas */
+    }
+
+    /* Texto responsivo */
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.2em; /* Ajusta os tamanhos dos títulos para telas pequenas */
+    }
+
+    /* Botões */
+    button {
+        width: 100%; /* Botões responsivos */
+        padding: 15px; /* Ajuste de padding */
+    }
+}
+
+</style>
 </head>
 <body>
     <!--NAV-->
@@ -387,4 +421,4 @@
     });
 </script>
 </body>
-</html>
+</html> 
