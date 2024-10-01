@@ -305,7 +305,37 @@ label {
     }
 }
 
-    </style>
+    
+@media (max-width: 768px) {
+    .nav {
+        width: 100%;
+        height: auto;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.2em;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+</style>
 </head>
 <body>
     
