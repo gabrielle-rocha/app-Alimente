@@ -17,16 +17,15 @@
 </head>
 <body>
     <div class="container">
-
-    <form action="" method="POST">
+    <form action="{{ route('password.reset') }}" method="POST">
     @csrf
     <h3>Recuperação de senha</h3>
 
     <label for="email">Digite um email:</label>
-    <input type="email" name="email">
+    <input type="email" name="email" required>
     <button type="submit" class="enviar">Enviar</button>
+</form>
 
-    </form>
 
     </div>
 

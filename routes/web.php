@@ -6,6 +6,7 @@ use App\Http\Controllers\DoadorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PasswordResetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,16 +108,10 @@ Route::get('/ongs-view', function() {
     return view('ongsView');
 });
 
-/*recuperação de senha*/
-Route::get('/cod', function () {
-    return view('cod');
-});
-
-Route::get('/codNovaSenha', function () {
-    return view('codNovaSenha');
-});
-
-Route::get('/auth', function () {
-    return view('autenticacao');
-});
-
+/* Recuperação de senha */
+Route::get('/password-reset', [PasswordResetController::class, 'showEmailForm'])->name('password.reset');
+Route::post('/password-reset', [PasswordResetController::class, 'sendResetCode']);
+Route::get('/password-reset/code', [PasswordResetController::class, 'showCodeForm'])->name('password.reset.code');
+Route::post('/password-reset/code', [PasswordResetController::class, 'verifyCode']);
+Route::get('/password-reset/change', [PasswordResetController::class, 'showChangePasswordForm'])->name('password.reset.change');
+Route::post('/password-reset/change', [PasswordResetController::class, 'changePassword']);

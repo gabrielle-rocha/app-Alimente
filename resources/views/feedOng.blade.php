@@ -114,8 +114,9 @@
 
 /*---------------------------------------------------------------- FEED------------------------------------------------------------------------------*/
 .feed {
-    width: 100%; /* Continua ocupando 70% da largura */
-    height: calc(100vh - 20px); /* Altura total da tela menos o padding */
+    width: 80%; /* Continua ocupando 70% da largura */
+    height: calc(100vh - 40px); /* Altura total da tela menos o padding */
+    padding: 20px;
     box-sizing: border-box;
     overflow-y: auto; /* Permite rolagem vertical */
     background-color: #ffffff;
@@ -125,8 +126,8 @@
 .post {
     background-color: #fff;
     padding: 20px; /* Diminuir o padding se necessário */
-    margin: 15px auto; /* Margin superior/inferior e centraliza horizontalmente */
-    width: 80%; 
+    margin: 20px auto; /* Margin superior/inferior e centraliza horizontalmente */
+    width: 75%; 
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -263,8 +264,8 @@
 /*---------------------------------------------------------------- NOTIFICAÇÕES------------------------------------------------------------------------------*/
 .notifications {
     background-color: #fff; /
-    padding: 10px; 
-    
+    padding: 60px; 
+    margin: 20px auto; /* Centraliza as notificações */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -272,7 +273,7 @@
     display: flex;                
     justify-content: space-between; 
     align-items: center;         
-    margin-bottom: 10px; /* Espaço abaixo do cabeçalho */
+    margin-bottom: 15px; /* Espaço abaixo do cabeçalho */
     font-size: 24px;             
     font-weight: bold;           
     width: 100%;              
@@ -297,7 +298,6 @@
 .notifications-title {
     font-size: 40px; /* Tamanho do texto do título */
     color: #333;
-    
 }
 
 .notifications .notification-item {
@@ -772,6 +772,8 @@
         });
     });
 </script>
+
+      
 <!---------------------------------------------------ESPAÇO PARA AS NOTIFICAÇÕES -------------------------------------------------------------------------------->
 <div class="notifications">
     <div class="notification-header">
@@ -794,6 +796,7 @@
     </div>
     <!-- Outras notificações -->
 </div>
+
 
 </body>
 </html>
