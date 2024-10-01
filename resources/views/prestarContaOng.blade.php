@@ -30,7 +30,7 @@
         .nav {
             width: 300px;
             height: 100vh;
-            background: linear-gradient(to bottom, #95a5b8, #7f8c8d);
+            background: rgb(103, 134, 167);
             position: fixed;
             display: flex;
             flex-direction: column;
@@ -120,24 +120,24 @@
 .prestação-de-contas {
     background-color: #fff;
     padding: 20px; /* Diminua o padding se necessário */
-    margin: 20px auto; /* Margin superior/inferior e centraliza horizontalmente */
-    width: 75%; /* Ajuste a largura conforme necessário (por exemplo, 80%) */
+    margin: 10px auto; /* Margin superior/inferior e centraliza horizontalmente */
+    width: 80%; /* Ajuste a largura conforme necessário (por exemplo, 80%) */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height:95%;
-    
+    height:90%;
+    margin-top: 40px;
 }
 
 .prestacao-de-contas h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
  
 }
 
 
 .balanco, .demonstracao, .receitas-despesas {
   margin-bottom: 20px;
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: 20px;
 }
 
@@ -147,7 +147,7 @@ label {
 
 .upload-icon {
   cursor: pointer;
-  font-size: 24px;
+  font-size: 20px;
   margin-left: 10px;
 }
 
@@ -155,18 +155,20 @@ label {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  margin-top: 120px;
+  margin-top: 1 0px;
   border-radius: 5px;
+  
 }
 .foto-upload {
     background-color: #ddd;
     width: 180px;
-    height: 180px;
+    height: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     border-radius: 5px;
+    margin: 5px;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adicione transições para efeito suave */
 }
 
@@ -180,8 +182,8 @@ label {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 120px;
-  
+  margin-top: 25px;
+  cursor: pointer;
 }
 .cancelar, .adicionar {
   padding: 10px 20px;
@@ -191,12 +193,22 @@ label {
   align-items: center; /* Centraliza verticalmente no flexbox */
   text-align: center; /* Centraliza horizontalmente */
   font-weight: bold;
-
+  cursor: pointer;
 }
 
 .cancelar {
     background-color: white;
   
+}
+
+.cancelar:hover {
+    background-color: white;
+    transform: scale(1.02); /* Aumenta levemente a imagem ao passar o mouse */
+}
+
+.adicionar:hover {
+    background-color: white;
+    transform: scale(1.02); /* Aumenta levemente a imagem ao passar o mouse */
 }
 
 .adicionar {
@@ -210,22 +222,26 @@ label {
     width: 35%;
     text-align: center;
     padding: 20px;
-    background-color: #f9f9f9; /* Cor de fundo suave */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    margin-top: 20px; /* Espaço em cima */
+    background-color: #ffff; /* Cor de fundo suave */
+    
+    height: 100%;
+    align-items: center; 
 }
 
 .informacoes-ong img {
     width: 150px;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 6px;
+    object-fit: contain;
+    mix-blend-mod: color-burn;
+    aspect-ratio: 4/3;
     /*border-radius: 50%;  Imagem redonda */
     /*border: 3px solid #95a5b8;  Bordas verdes */
 }
 
 .nome p {
-    margin-top: -20px;
-    font-size: 25px;
+    margin-top: 10px;
+    font-size: 20px;
     text-align: center;
     font-weight: bold; /* Negrito para o nome */
     color: #333; /* Cor do texto */
@@ -237,19 +253,22 @@ label {
     background-color: #fff; /* Fundo branco para o texto */
     padding: 10px; /* Espaço interno */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    margin: 10px 0; /* Margem em cima e embaixo */
-    font-size: 22px;
+    margin: 20px 20px; /* Margem em cima e embaixo */
+    font-size: 15px;
+    width: 90%;
+    align-items: center; 
+    text-align: center;
 }
 
 .informacoes-ong h3 {
     text-align: center;
-    margin-top: 20px; /* Ajusta a margem superior */
-    font-size: 25px;
+    margin-top: 10px; /* Ajusta a margem superior */
+    
     color: black; /* Cor verde para destaque */
-    margin-top: 90px
+
 }
 .itens p{
-  margin-top: 70px;
+  margin-top: 48.1px;
   font-size: 25px;
   text-align: left;
 }
@@ -265,6 +284,7 @@ label {
     height: auto; /* Mantém a proporção */
     transition: transform 0.3s; /* Efeito suave ao passar o mouse */
 }
+
 
 
 .doacoes-frequentes img:hover {
@@ -326,7 +346,7 @@ label {
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-size: 1.2em;
+        font-size: 1rem;
     }
 
     button {

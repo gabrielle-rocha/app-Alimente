@@ -20,7 +20,7 @@
 <body>
     <!--gradiente-->
     <div class="grad">
-        <img src="/img/alimente.png" alt="">
+        <img src="/img/alimentebranco.png" alt="">
         <img src="/img/slogan-alimente-cinza.png" alt="">
     </div>
 

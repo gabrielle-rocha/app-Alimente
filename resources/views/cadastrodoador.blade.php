@@ -38,7 +38,7 @@
             background-color: #fdfcfcc5;
         }
         .right-section {
-            background: linear-gradient(to bottom, #c5f3b5, #bddef8);
+            background-color: rgba(46, 139, 87, 1);
             border-top-left-radius: 15%;
             border-bottom-left-radius: 15%;
             margin-left: 20px;
@@ -61,7 +61,7 @@
             max-width: 515px;
         }
         .login-btn {
-            background: linear-gradient(to right, rgba(88,169,195,1) 0%, rgb(127, 223, 164) 100%);
+            background: rgba(46, 139, 87, 1);
             color: white;
             border: none;
             padding: 12px;
@@ -71,7 +71,7 @@
         }
 
         .login-btn:hover {
-            background: linear-gradient(90deg, rgb(127, 223, 164) 0%, rgba(88,169,195,1) 100%);
+            background: rgba(46, 139, 87, 0.6);
             color: white;
         }
 
@@ -205,7 +205,7 @@
         </div>
     </div>
     <div class="right-section">
-    <img src="/img/alimente.png" alt="">
+    <img src="/img/alimentebranco.png" alt="">
     <img src="/img/slogan-alimente-cinza.png" alt="">
     </div>
     <!--js-->

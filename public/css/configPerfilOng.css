@@ -20,7 +20,7 @@ body {
     align-items: center;
     width: 50%;
     height: 100vh;
-    background: linear-gradient(to bottom, #c5f3b5, #bddef8);
+    background: rgb(103, 134, 167);
     border-top-right-radius: 15%;
     border-bottom-right-radius: 15%;
 }
@@ -76,12 +76,11 @@ body {
    
 
     & .imgPerfil{
-        border: 3px solid #87a5bd;
+        border: 3px solid rgb(103, 134, 167);
         width: 150px;
         height: 150px;
         border-radius: 100%;
         position: relative;
-        box-shadow: 2px 3px 11px #00000060;
         overflow: hidden;
         cursor: pointer;
         margin: 0 auto; 
@@ -100,7 +99,7 @@ body {
         position: absolute;
         margin: 0 auto;
         font-size: 95px;
-        color: #89adc9;
+        color: rgb(103, 134, 167);
     }
 
     & #img-field{
@@ -148,7 +147,7 @@ form a{
 }
 
 form .button {
-    background: linear-gradient(to right, rgba(88,169,195,1) 0%, rgb(127, 223, 164) 100%);
+    background: rgb(103, 134, 167);
     color: white;
     border: none;
     padding: 15px;
@@ -159,7 +158,7 @@ form .button {
 }
 
 form .button:hover {
-    background: linear-gradient(90deg, rgb(127, 223, 164) 0%, rgba(88,169,195,1) 100%);
+    background: rgba(103, 134, 167, 0.623);
 }
 
 form textarea {

@@ -24,18 +24,18 @@
         body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
-/*---------------------------------------------------------------- NAV------------------------------------------------------------------------------*/
+
+        /* Navbar */
         .nav {
             width: 300px;
             height: 100vh;
-            background: linear-gradient(to bottom, #95a5b8, #7f8c8d);
+            background: rgb(103, 134, 167);
             position: fixed;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.034); 
+            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.034);
         }
 
         .logo {
@@ -52,7 +52,7 @@
 
         .nav a {
             text-decoration: none;
-            color: white;
+            color:white;
             padding: 18px;
             display: flex;
             align-items: center;
@@ -61,8 +61,8 @@
         }
 
         .nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Efeito hover mais leve */
-            transform: translateX(5px); /* Leve movimento ao passar o mouse */
+          background-color: rgba(255, 255, 255, 0.2); /* Efeito hover mais leve */
+          transform: translateX(5px); /* Leve movimento ao passar o mouse */
         }
 
         .nav a i {
@@ -78,20 +78,14 @@
             padding: 10px 20px;
             border: none;
         }
-        .perfil a:hover {
-            background-color: transparent; /* Remova o fundo cinza */
-            
-        }
-
-
         .perfil .foto i {
             font-size: 30px;
-            color: white;
+            color:white;
         }
 
         .perfil .nomeOng {
             font-size: 16px;
-            color: white;
+            color:white;
         }
 
         .perfil .maisOpcoes i {
@@ -99,433 +93,291 @@
             color: white;
         }
 
+
+        /* Container principal */
         .container {
             display: flex;
             margin-left: 300px;
         }
+
         .container .notifications {
-        width: 35%; /* Ajuste a largura das notificações */
-        padding:30px;
+            width: 35%;
+            padding: 30px;
         }
 
         .container .feed {
-            width: 80%; /* Aumente a largura do feed */
+            width: 80%;
         }
 
-/*---------------------------------------------------------------- FEED------------------------------------------------------------------------------*/
-.feed {
-    width: 80%; /* Continua ocupando 70% da largura */
-    height: calc(100vh - 40px); /* Altura total da tela menos o padding */
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto; /* Permite rolagem vertical */
-    background-color: #ffffff;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-}
-.post {
-    background-color: #fff;
-    padding: 20px; /* Diminuir o padding se necessário */
-    margin: 20px auto; /* Margin superior/inferior e centraliza horizontalmente */
-    width: 75%; 
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.post img {
-    width: 100%; 
-    height: 500px; /
-    object-fit: cover; /* Ajusta a imagem para preencher o espaço mantendo a proporção */
-    border-radius: 8px; 
-    margin-bottom: 10px;
-}
-
-
-/* Estilização da barra de rolagem */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/*publicação*/
-.post .post-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+        /* Feed */
+        .feed {
+            height: calc(100vh - 40px);
+            padding: 20px;
+            background-color: #ffffff;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
         }
-.post .post-header img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
 
-.post .post-header span {
-    font-weight: bold;
-    font-size: 16px;
-}
+        .post {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            width: 75%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-.post p {
-    font-size: 16px;
-    margin: 10px 0;
-}
-        
-/*organiza os botões */
-.post-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-                
-.like-button,
-.comment-button {
-    background: none;
-    border: none;
-    color: #007bff;
-    font-size: 16px;
-    cursor: pointer;
-}
+        .post img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
 
-.comment-section {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-}
+        /* Estilização da barra de rolagem */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
-.comment-input {
-     width: 100%;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-right: 5px;
-}
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
 
-.submit-comment {
-    background: none;
-    border: none;
-    color: #007bff;
-    cursor: pointer;
-    font-size: 20px; /* Tamanho do ícone */
-}
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
 
-.comments-list {
-    margin-top: 10px;
-    padding: 10px;
-    border-top: 1px solid #ddd;
-}
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
 
-.comment-item {
-    margin-bottom: 10px;
-}
+        /* Publicação */
+        .post .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
 
-.comment-item strong {
-    font-weight: bold;
-    color: #333;
-}
+        .post .post-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
 
-.comment-item p {
-    margin: 5px 0 0 0;
-    font-size: 14px;
-}
+        .post .post-header span {
+            font-weight: bold;
+            font-size: 16px;
+        }
 
+        .post p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
 
-.interaction-section {
-    display: flex;
-    align-items: center;
-    margin-top: 10px; /* Espaçamento acima da seção */
-}
+        /* Ações da publicação */
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
 
-.interaction-section button {
-    background: none;
-    border: none;
-    color: black; 
-    cursor: pointer;
-    font-size: 18px; 
-    margin-right: 15px; /* Espaçamento entre os botões */
-}
+        .like-button,
+        .comment-button {
+            background: none;
+            border: none;
+            color: #007bff;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-.interaction-section button i {
-    margin-right: 5px; /* Espaçamento entre o ícone e o texto */
-}
+        .comment-section {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
 
-/*---------------------------------------------------------------- NOTIFICAÇÕES------------------------------------------------------------------------------*/
-.notifications {
-    background-color: #fff; /
-    padding: 60px; 
-    margin: 20px auto; /* Centraliza as notificações */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.notification-header {
-    display: flex;                
-    justify-content: space-between; 
-    align-items: center;         
-    margin-bottom: 15px; /* Espaço abaixo do cabeçalho */
-    font-size: 24px;             
-    font-weight: bold;           
-    width: 100%;              
-    color: black; 
-    padding: 20px;               
-}
+        .comment-input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
 
+        .submit-comment {
+            background: none;
+            border: none;
+            color: #007bff;
+            cursor: pointer;
+            font-size: 20px;
+        }
 
-.notification-icon {
-    font-size: 24px; /* Tamanho do ícone */
-    color: #333; /* Cor do ícone */
-    margin-left: 10px;/* Espaço entre o título e o ícone */
-}
+        .comments-list {
+            margin-top: 10px;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
 
+        .comment-item {
+            margin-bottom: 10px;
+        }
 
-.notification-header i {
-    margin-right: 10px; /* Espaço entre o ícone e o texto */
-    font-size: 24px; /* Tamanho do ícone */
-}
+        .comment-item strong {
+            font-weight: bold;
+            color: #333;
+        }
 
+        .comment-item p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+        }
 
-.notifications-title {
-    font-size: 40px; /* Tamanho do texto do título */
-    color: #333;
-}
+        .interaction-section {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
 
-.notifications .notification-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
+        .interaction-section button {
+            background: none;
+            border: none;
+            color: black;
+            cursor: pointer;
+            font-size: 18px;
+            margin-right: 15px;
+        }
 
-.notifications .notification-item img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
+        .interaction-section button i {
+            margin-right: 5px;
+        }
 
-.notifications .notification-item span {
-    font-size: 14px;
- }
+        /* Notificações */
+        .notifications {
+            background-color: #fff;
+            padding: 30px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-.notifications .notification-item button {
-    background: linear-gradient(to right, #c5f3b5, #9ac9ee);
-    border: none;
-    padding: 5px 10px;
-    border-radius: 8px;
-    cursor: pointer;
-}
+        .notification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            width: 100%;
+            color: black;
+            padding: 20px;
+        }
 
-/*---------------------------------------------------------------- RESPONSIVIDADE------------------------------------------------------------------------------*/
+        .notification-icon {
+            font-size: 24px;
+            color: #333;
+            margin-left: 10px;
+        }
 
+        .notification-header i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
 
-@media (max-width: 1200px) {
-    /* Ajusta o container principal */
-    .container {
-        flex-direction: column; /* Muda o layout para coluna */
-        margin-left: 0; /* Remove o deslocamento lateral */
-    }
+        .notifications-title {
+            font-size: 40px;
+            color: #333;
+        }
 
-    /* Ajusta a barra lateral para ocupar a tela inteira */
-    .nav {
-        width: 100%;
-        height: auto;
-        flex-direction: row; /* Muda a barra lateral para ser horizontal */
-        justify-content: space-around;
-    }
+        .notifications .notification-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
 
-    /* Ajusta o logo para caber no novo layout */
-    .logo img {
-        width: 50%; /* Reduz o tamanho da logo */
-    }
+        .notifications .notification-item i{
+            color: gray;
+            font-size: 40px;
+            margin-right: 10px;
+        }
 
-    /* Ajusta os links de navegação */
-    .nav a {
-        font-size: 18px;
-        padding: 10px;
-    }
+        .notifications .notification-item span {
+            font-size: 14px;
+        }
 
-    /* Ajusta o feed para ocupar 100% da largura */
-    .feed {
-        width: 100%;
-    }
+        .notifications .notification-item button {
+            background: rgb(103, 134, 167);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-    /* Oculta as notificações em telas pequenas */
-    .notifications {
-        display: none;
-    }
+        /* Responsividade */
+        @media (max-width: 1200px) {
+            .container {
+                flex-direction: column;
+                margin-left: 0;
+            }
 
-    /* Ajusta o tamanho das postagens */
-    .post {
-        width: 90%; /* Diminui a largura das postagens */
-    }
+            .nav {
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                justify-content: space-around;
+            }
 
-    /* Ajusta o tamanho das imagens nas postagens */
-    .post img {
-        height: 300px; /* Diminui a altura das imagens */
-    }
+            .logo img {
+                width: 50%;
+            }
 
-    /* Ajusta a seção de perfil */
-    .perfil {
-        flex-direction: column;
-        align-items: center;
-    }
+            .nav a {
+                font-size: 18px;
+                padding: 10px;
+            }
 
-    .perfil .nomeOng {
-        font-size: 14px;
-        text-align: center;
-    }
+            .feed {
+                width: 100%;
+            }
 
-    .perfil .foto i {
-        font-size: 24px;
-    }
-}
+            .notifications {
+                display: none;
+            }
 
-@media (max-width: 768px) {
-    /* Ajusta a barra lateral em telas menores */
-    .nav {
-        flex-direction: column;
-        height: auto;
-        width: 100%;
-        padding: 10px;
-    }
+            .post {
+                width: 90%;
+            }
 
-    /* Ajusta os links na barra lateral */
-    .nav a {
-        font-size: 16px;
-    }
+            .post img {
+                height: 300px;
+            }
 
-    /* Reduz o tamanho do feed e das postagens */
-    .feed {
-        padding: 10px;
-    }
+            .perfil {
+                flex-direction: column;
+                align-items: center;
+            }
 
-    .post {
-        width: 100%;
-        padding: 10px;
-    }
+            .perfil .nomeOng {
+                font-size: 14px;
+                text-align: center;
+            }
 
-    /* Ajusta o layout da seção de interação */
-    .interaction-section {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+            .perfil .foto i {
+                font-size: 24px;
+            }
 
-    .interaction-section button {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-    /* Ajusta o formulário de comentários */
-    .comment-section {
-        flex-direction: column;
-    }
-
-    .comment-input {
-        width: 100%;
-    }
-}
-
-@media (max-width: 576px) {
-    /* Ajusta a barra lateral para telas muito pequenas */
-    .nav {
-        flex-direction: column;
-        height: auto;
-        width: 100%;
-    }
-
-    /* Ajusta os links na barra lateral */
-    .nav a {
-        font-size: 14px;
-    }
-
-    /* Ajusta o tamanho do feed */
-    .feed {
-        padding: 5px;
-    }
-
-    /* Ajusta o tamanho das postagens */
-    .post {
-        width: 100%;
-        padding: 5px;
-    }
-
-    /* Reduz o tamanho da imagem nas postagens */
-    .post img {
-        height: 200px;
-    }
-
-    /* Ajusta a área de perfil */
-    .perfil {
-        font-size: 12px;
-        align-items: flex-start;
-    }
-
-    .perfil .nomeOng {
-        font-size: 12px;
-    }
-
-    /* Ajusta a seção de interação */
-    .interaction-section button {
-        font-size: 14px;
-    }
-}
-
-
-    
-@media only screen and (max-width: 1200px) {
-    .nav {
-        width: 250px; /* Reduz a largura da barra lateral em telas menores */
-    }
-    .feed {
-        width: 75%; /* Aumenta a área de conteúdo em telas médias */
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .nav {
-        width: 200px; /* Reduz ainda mais a largura da barra lateral em telas menores */
-    }
-    .feed {
-        width: 100%; /* O conteúdo ocupa toda a tela em dispositivos móveis */
-        padding: 15px;
-    }
-    .nav a {
-        font-size: 16px; /* Reduz o tamanho do texto da navegação em telas menores */
-    }
-    .logo img {
-        width: 70%; /* Ajusta a imagem da logo em dispositivos móveis */
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    .nav {
-        width: 100%; /* Transforma a barra lateral em uma barra superior em telas muito pequenas */
-        height: auto;
-        flex-direction: row; /* Transforma a navegação em horizontal */
-    }
-    .feed {
-        width: 100%;
-        padding: 10px; /* Ajusta o espaçamento para telas pequenas */
-    }
-    .nav a {
-        padding: 10px;
-        font-size: 14px; /* Diminui ainda mais o texto da navegação em telas pequenas */
-    }
-}
-
-</style>
+            .perfil .maisOpcoes i {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
     
@@ -543,7 +395,7 @@
 
         <div class="perfil">
             <div class="foto">
-                <i class="bi bi-person-circle"></i>
+           <i class="bi bi-person-circle"></i>
             </div>
             <a  href="#" class="nomeOng">Amigos_do_Bem</a>
             <div class="maisOpcoes">
@@ -710,10 +562,6 @@
 </div>
 </div>
 
-
-
-
-
  <!-- PUBLICAÇÃO 5-->
 <div class="post">
     <div class="post-header">
@@ -783,14 +631,14 @@
 
     <!-- notificação 1 -->
     <div class="notification-item">
-        <img src="/img/user1.png" alt="User Image">
+    <i class="bi bi-person-circle"></i>
         <span>Cão_Sem_Dono fez uma nova publicação.</span>
         <button>Ver</button>
     </div>
 
      <!-- notificação 2 -->
     <div class="notification-item">
-        <img src="/img/user2.png" alt="User Image">
+    <i class="bi bi-person-circle"></i>
         <span>Gabrielle_09 fez uma doação no método pix.</span>
         <button>Ver</button>
     </div>

@@ -21,7 +21,7 @@ body {
     align-items: center;
     width: 50%;
     height: 100vh;
-    background: linear-gradient(to bottom, #c5f3b5, #bddef8);
+    background: rgb(103, 134, 167);
     border-top-right-radius: 15%;
     border-bottom-right-radius: 15%;
 }
@@ -87,7 +87,7 @@ form a{
 }
 
 form .button {
-    background: linear-gradient(to right, rgba(88,169,195,1) 0%, rgb(127, 223, 164) 100%);
+    background: rgb(103, 134, 167);
     color: white;
     border: none;
     padding: 15px;
@@ -97,7 +97,7 @@ form .button {
 }
 
 form .button:hover {
-    background: linear-gradient(90deg, rgb(127, 223, 164) 0%, rgba(88,169,195,1) 100%);
+    background: rgba(103, 134, 167, 0.623);
 }
 
 .formulario::-webkit-scrollbar {

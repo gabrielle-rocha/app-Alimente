@@ -42,7 +42,7 @@
             background-color: #fdfcfcc5;
         }
         .right-section {
-            background: linear-gradient(to bottom, #c5f3b5, #bddef8);
+            background-color: rgba(46, 139, 87, 1);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -95,7 +95,7 @@
         }
 
         .btn-next {
-            background: linear-gradient(to right, rgba(88,169,195,1) 0%, rgb(127, 223, 164) 100%);
+            background: rgba(46, 139, 87, 1);
             color: white;
             width: 100%;
             padding: 15px;
@@ -105,18 +105,18 @@
             border: none;
         }
         .btn-next:hover {
-        background: linear-gradient(90deg, rgb(127, 223, 164) 0%, rgba(88,169,195,1) 100%);
-        color: white;
+            background: rgba(46, 139, 87, 0.6);
+            color: white;
         }
 
        
     .imgPerfil{
-        border: 3px solid #87a5bd;
+        border: 3px solid rgba(0, 100, 0, 1);
         width: 130px;
         height: 130px;
         border-radius: 100%;
         position: relative;
-        box-shadow: 2px 3px 11px #00000060;
+        box-shadow: 2px 3px 11px #0000;
         overflow: hidden;
         cursor: pointer;
         margin: 0 auto; 
@@ -135,7 +135,7 @@
         position: absolute;
         margin: 0 auto;
         font-size: 90px;
-        color: #89adc9;
+        color: rgba(0, 100, 0, 1);
     }
 
     & #img-field{
@@ -210,7 +210,7 @@
 
     </div>
     <div class="right-section">
-        <img src="/img/alimente.png" alt="Alimente - Gerando Solidariedade">
+        <img src="/img/alimentebranco.png" alt="Alimente - Gerando Solidariedade">
         <img src="/img/slogan-alimente-cinza.png" alt="Alimente - Gerando Solidariedade">
     </div>
 
