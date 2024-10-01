@@ -15,6 +15,8 @@
     <div class="container">
         <form action="{{ route('password.reset.change') }}" method="POST">
             @csrf
+
+            <h2>{{$code}}</h2>
             <h3>Alteração de Senha</h3>
             <label for="password">Nova senha:</label>
             <input type="password" name="password" placeholder="Nova senha" required>

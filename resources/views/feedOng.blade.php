@@ -397,7 +397,7 @@
             <div class="foto">
            <i class="bi bi-person-circle"></i>
             </div>
-            <a  href="#" class="nomeOng">Amigos_do_Bem</a>
+            <a  href="editarperfilong" class="nomeOng">Amigos_do_Bem</a>
             <div class="maisOpcoes">
                 <i class="bi bi-three-dots-vertical"></i>
             </div>

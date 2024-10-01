@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doador - Alimente</title>
+    <title>Ong - Alimente</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!--icon-->
     <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
@@ -36,7 +36,7 @@
        .nav {
             width: 300px;
             height: 100vh;
-            background:rgba(46, 139, 87, 1);
+            background: rgb(103, 134, 167);
             position: fixed;
             display: flex;
             flex-direction: column;
@@ -131,7 +131,7 @@
         }
 
         .menu li a:hover {
-            background-color: rgba(46, 139, 87, 0.74);
+            color:gray ;
         }
 
         .user-menu {
@@ -226,7 +226,7 @@
 
         .edit-profile button {
             padding: 12px 20px;
-            background: rgba(46, 139, 87, 1);
+            background: rgba(86, 112, 142);
             border: none;
             color: #fff;
             border-radius: 4px;
@@ -236,7 +236,7 @@
         }
 
         .edit-profile button:hover {
-            background-color: rgba(46, 139, 87, 0.74);
+            background-color: gray;
         }
 
         .causes {
@@ -284,16 +284,16 @@
         </div>
         
         <div class="options">
-            <a href="/feed2doador"><i class="bi bi-house-door-fill"></i> Página Inicial</a>
-            <a href="#" id="pesquisa"><i class="bi bi-search"></i></i>Pesquisar</a>
-            <a href="#"><i class="bi bi-geo-alt-fill"></i></i> Buscar</a>
+            <a href="/feedOng"><i class="bi bi-house-door-fill"></i> Página Inicial</a>
+            <a href="/publicacaoOng"><i class="bi bi-plus-circle-fill"></i> Nova Publicação</a>
+            <a href="/prestarContaOng"><i class="bi bi-clipboard-data-fill"></i> Prestar Contas</a>
         </div>
 
         <div class="perfil">
             <div class="foto">
            <i class="bi bi-person-circle"></i>
             </div>
-            <a  href="editarperfildoador" class="nomeOng">Doador_01</a>
+            <a  href="editarperfilong" class="nomeOng">Amigos_do_Bem</a>
             <div class="maisOpcoes">
                 <i class="bi bi-three-dots-vertical"></i>
             </div>
@@ -305,11 +305,11 @@
         <div class="flex-container">
             <div class="profile-card">
                 <img src="img/user.png" alt="Avatar">
-                <h2>Doador_01</h2>
-                <p>4 Ong's seguidas | 5 Doações realizadas</p>
-                <p>Procuro ajudar causas familiares<br>SP/ZL<br>Casado</p>
+                <h2>Amigos_do_Bem</h2>
+                <p>4 seguidores | 5 Publicações</p>
+                <p>Ong para arrecadação de alimentos<br>SP/ZL<br>
                 
-                <h3>Causas Preferidas</h3>
+                <h3>Feed</h3>
                 <div class="causes">
                     <div class="cause"></div>
                     <div class="cause"></div>
@@ -321,13 +321,13 @@
                 <h3>Editar Informações</h3>
                 <form>
                     <label for="name">Nome</label>
-                    <input type="text" id="name" value="Doador 1">
+                    <input type="text" id="name" value="Amigos_do_Bem">
 
                     <label for="username">Nome de usuário</label>
-                    <input type="text" id="username" value="Doador_01">
+                    <input type="text" id="username" value="Amigos_do_Bem">
 
                     <label for="bio">Bio</label>
-                    <textarea id="bio" rows="3">Procuro ajudar causas familiares</textarea>
+                    <textarea id="bio" rows="3">Ong para arrecadação de alimentos - SP/ZL</textarea>
 
                     <button type="submit">Editar</button>
                 </form>

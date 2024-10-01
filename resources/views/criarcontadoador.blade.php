@@ -117,7 +117,7 @@
         </div>
     </div>
     <div class="right-section">
-        <img src="/img/alimente.png" alt="">
+    <img src="/img/logo-alimente-branco.png" alt="">
         <img src="/img/slogan-alimente-cinza.png" alt="">
     </div>
 </body>

@@ -172,7 +172,7 @@
             <img src="img/luvas.jpg" alt="Gloves Icon" class="gloves">
             <p class="quote">"Você não viveu hoje até que tenha feito algo para alguém que nunca poderá te retribuir."</p> 
             <p class="quote-author">- John Bunyan</p>
-            <button class="start-button"><a href="/logindoador" class="text-muted">Iniciar</a></button>
+            <button class="start-button"><a href="/logindoador">Iniciar</a></button>
         </div>
     </div>
 </body>

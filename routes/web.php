@@ -83,6 +83,10 @@ Route::get('/editarperfildoador', function () {
     return view('editarperfildoador');
 });
 
+Route::get('/editarperfilong', function () {
+    return view('editarperfilong');
+});
+
 /*Ong*/
 Route::get('/cadastroOng', [OngController::class, 'showFirstStep'])->name('ong.cadastro');
 Route::post('/cadastroOng', [OngController::class, 'storeFirstStep'])->name('ong.store.first');

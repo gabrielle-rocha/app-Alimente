@@ -63,7 +63,9 @@ class PasswordResetController extends Controller
         return back()->withErrors(['code' => 'O código inserido está incorreto.']);
     }
 
-    return redirect()->route('password.reset.change')->with('success', 'Código verificado com sucesso. Por favor, redefina sua senha.');
+    echo '$inputCode';
+
+   // return redirect()->route('password.reset.change')->with('success', 'Código verificado com sucesso. Por favor, redefina sua senha.');
 }
 
 
