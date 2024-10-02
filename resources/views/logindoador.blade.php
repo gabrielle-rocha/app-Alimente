@@ -39,7 +39,7 @@
             background-color: #fdfcfcc5;
         }
         .right-section {
-            background: linear-gradient(to bottom, #c5f3b5, #bddef8);
+            background: linear-gradient(to bottom, rgba(75, 216, 75, 0.5), rgba(54, 102, 235, 0.5));
             border-top-left-radius: 15%;
             border-bottom-left-radius: 15%;
         }
