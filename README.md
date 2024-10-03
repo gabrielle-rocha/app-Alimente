@@ -6,9 +6,9 @@
     
 ## Linguagens Utilizadas:
     . JavaScrit
-    . java 
+    . Mysql
     . css 
-    . Phython 
+    . html
     . laravel versão 9
     
 ## Comandos de acesso ao projeto:
@@ -23,7 +23,7 @@
     . novo terminal
     . php artisan migrate 
     . mysql
-    . crie o banco 
+    . crie o banco (bdAlimente)
     . php artisan serve 
 
 ## Vídeo de como logar na plataforma e realizar um cadastro:
