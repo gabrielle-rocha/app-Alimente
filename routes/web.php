@@ -19,23 +19,10 @@ use App\Http\Controllers\PasswordResetController;
 |
 */
 
-Route::get('/splash', function () {
-    return view('splash');
-});
-
 Route::get('/', function () {
     return view('telaInicio');
 });
 
-Route::get('/feedOng', function () {
-    return view('feedOng');
-});
-Route::get('/prestarContaOng', function () {
-    return view('prestarContaOng');
-});
-Route::get('/publicacaoOng', function () {
-    return view('publicacaoOng');
-});
 /*login-geral*/
 Route::get('/logindoador', [LoginController::class, 'showLoginForm'])->name('logindoador');
 
@@ -61,8 +48,7 @@ Route::delete('/adm/ongs/delete{id}', [OngController::class, 'destroy'])->name('
 Route::get('/doadores/search', [DoadorController::class, 'search'])->name('doadores.search');
 Route::get('/ongs/search', [OngController::class, 'search'])->name('ongs.search');
 
-
-/*doador*/
+/*doador cadastro*/
 // Rota para mostrar o formulário de cadastro do doador
 Route::get('/cadastrodoador', [DoadorController::class, 'create'])->name('doador.create');
 
@@ -75,19 +61,8 @@ Route::get('/criarperfildoador', [DoadorController::class, 'showCreateProfile'])
 // Rota para armazenar o perfil do doador
 Route::post('/criarperfildoador', [DoadorController::class, 'storeProfile'])->name('doador.storeProfile');
 
-Route::get('/feed2doador', function() {
-    return view('feed2doador');
-})->name('feed2doador');
 
-Route::get('/editarperfildoador', function () {
-    return view('editarperfildoador');
-});
-
-Route::get('/editarperfilong', function () {
-    return view('editarperfilong');
-});
-
-/*Ong*/
+/*Ong cadastro*/
 Route::get('/cadastroOng', [OngController::class, 'showFirstStep'])->name('ong.cadastro');
 Route::post('/cadastroOng', [OngController::class, 'storeFirstStep'])->name('ong.store.first');
 
@@ -97,10 +72,6 @@ Route::post('/configPerfilOng', [OngController::class, 'storeProfileConfig'])->n
 
 Route::get('/analiseOng', function () {
     return view('analiseOng');
-});
-
-Route::get('/feedOng', function () {
-    return view('feedOng');
 });
 
 /*banco*/
@@ -119,3 +90,8 @@ Route::get('/password-reset/code', [PasswordResetController::class, 'showCodeFor
 Route::post('/password-reset/code', [PasswordResetController::class, 'verifyCode']);
 Route::get('/password-reset/change', [PasswordResetController::class, 'showChangePasswordForm'])->name('password.reset.change');
 Route::post('/password-reset/change', [PasswordResetController::class, 'changePassword']);
+
+/*feed doador*/ 
+Route::get('/feedDoador', function() {
+    return view('feedDoador');
+});

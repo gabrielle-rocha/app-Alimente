@@ -36,7 +36,7 @@ class LoginController extends Controller
 
         if ($doador && $doador->senhaDoador === $credentials['password']) {
             Auth::login($doador); // Login do doador
-            return view('/feed2doador');
+            return view('/feedDoador');
         } elseif ($ong && $ong->senhaOng === $credentials['password']) {
             Auth::login($ong); // Login da ONG
             return view('feedOng');
