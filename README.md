@@ -5,11 +5,11 @@
     O intuito é acabar com a fome. Por isso, criamos a plataforma alimente, onde iremos fornecer todos os recursos para agir no combate contra a fome juntamente com parcerias que irão contribuir nesta causa com doações. 
     
 ## Linguagens Utilizadas:
-    . JavaScrit
-    . Mysql
-    . css 
-    . html
-    . laravel versão 9
+    -  JavaScrit
+    -  Mysql
+    -  css 
+    -  html
+    -  laravel versão 9
     
 ## Comandos de acesso ao projeto:
     . abra o cmd(prompt de comando)
