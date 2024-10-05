@@ -16,6 +16,21 @@
                 
             });
         });
+
+        $(document).ready(function(){
+    $(".search a").click(function(e){
+        e.preventDefault();  // Impede a ação padrão do link
+        $(this).parent().toggleClass("expanded");  // Alterna a classe 'expanded'
+        $(this).siblings('input[type="search"]').focus();  // Foca no input quando ele aparece
+    });
+
+
+    $(".filter a").click(function(e){
+        e.preventDefault();  // Impede a ação padrão do link
+        $(this).parent().toggleClass("expanded");  // Alterna a classe 'expanded'
+    });
+});
+
     </script>
 
     <!--icon-->
@@ -42,8 +57,19 @@
                 </div>
 
                 <ul>
-                    <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                    <li><a href="#"><i class="fa-solid fa-filter"></i></a></li>
+                <li class="search">
+                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <input type="search" placeholder="Buscar...">
+                </li>
+                <li class="filter">
+                <a href="#"><i class="fa-solid fa-filter"></i></a>
+                <div class="filter-buttons">
+                    <button>Doenças</button>
+                    <button>Alimentação</button>
+                    <button>Vestimenta</button>
+                    <button>Animais</button>
+                </div>
+                </li>
                 </ul>
             </div>
         </div>
@@ -68,16 +94,62 @@
             </div>
 
             <div class="main_container">
-                <div class="item">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium maiores assumenda debitis, aliquam autem quibusdam veritatis saepe dolor suscipit. Pariatur recusandae incidunt nemo autem odio rerum magnam reiciendis facere expedita?
+    <div class="feed-container">
+        <div class="card-postagem">
+            <div class="top">
+                <div class="userDetails">
+                    <div class="profileImg">
+                        <img src="/img/exemplo-perfil.jpg" alt="" class="cover">
+                    </div>
+                    <h3>patinha_do_amor<br>
+                        <span>Ong</span>
+                    </h3>
                 </div>
-
-                <div class="item">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium maiores assumenda debitis, aliquam autem quibusdam veritatis saepe dolor suscipit. Pariatur recusandae incidunt nemo autem odio rerum magnam reiciendis facere expedita?
+                <div class="dot">
+                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </div>
             </div>
+            <div class="imgBg">
+                <img src="/img/exemplo.jpg" alt="" class="cover">
+            </div>
+            <div class="btns">
+                <div class="left">
+                    <img src="/img/coracao.png" alt="" class="heart" onclick="likeButton()">
+                    <img src="/img/comentario.webp" alt="">
+                    <img src="/img/dinheiro.png" alt="">
+                </div>
+            </div>
+            <h4 class="likes">300 curtidas</h4>
+            <h4 class="message">
+                <b>patinha_do_amor</b> URGENTE, RS! <span>#alimentos</span> <span>#animais</span>
+            </h4>
+            <h4 class="comments">Ver todos os 30 comentários</h4>
+            <div class="addComments">
+                <div class="userImg">
+                    <img src="/img/exemplo-perfil.jpg" alt="" class="cover">
+                </div>
+                <input type="text" class="text" placeholder="Adicionar um comentário...">
+            </div>
+            <div class="postTime">Há 5 horas</div>
+        </div>
     </div>
+</div>
+
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        function likeButton(){
+            let heart = document.querySelector('.heart');
+            let likes = document.querySelector('.likes');
+            if(heart.src.match("/img/coracao.png")){
+                heart.src = "/img/coracao-vermelho.png";
+                likes.innerHTML = "301 curtidas";
+            } else {
+                heart.src = "/img/coracao.png";
+                likes.innerHTML = "300 curtidas";
+            }
+        }
+    </script>
 </body>
 </html>

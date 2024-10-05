@@ -27,7 +27,7 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: #ffffff88;
+    background-color: #ffffffde;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -149,6 +149,7 @@ body {
     padding: 15px;
     transition: all 0.3s ease;
     overflow: hidden;
+    background: #ffffff;
 }
 
 .wrapper .main_container .item{
@@ -164,13 +165,13 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
 }
 
 .wrapper.collapse .main_container {
-    width: calc(100% - 70px);
-    margin-left: 70px;
+    width: calc(100% - 110px);
+    margin-left: 110px;
 }
 
 .wrapper .main_container {
-    width: calc(100% - 200px);
-    margin-left: 200px;
+    width: calc(100% - 320px);
+    margin-left: 320px;
     padding: 15px;
     transition: all 0.3s ease;
 }
@@ -187,3 +188,229 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
     display: none;
 }
 
+.wrapper .top_navbar .top_menu ul li.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper .top_navbar .top_menu ul li.search input[type="search"] {
+    width: 0;
+    height: 35px;
+    border: 1px solid #2e4ead;
+    border-radius: 5px;
+    padding: 0;
+    margin-left: 10px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    color: #2e4ead;
+    font-size: 14px;
+    outline: none;
+}
+
+.wrapper .top_navbar .top_menu ul li.search.expanded input[type="search"] {
+    width: 200px;
+    padding: 5px 10px;
+    opacity: 1;
+}
+
+.wrapper .top_navbar .top_menu ul li.search input[type="search"]::placeholder {
+    color: #2e4ead;
+}
+/* Estilo para o ícone de filtro e os botões */
+.wrapper .top_navbar .top_menu ul li.filter {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo dos botões de filtro */
+.wrapper .top_navbar .top_menu ul li.filter .filter-buttons {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    left: 40px; /* Posição inicial para que fiquem ao lado do ícone */
+    top: 50%; /* Centraliza os botões em relação ao ícone */
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s 0.5s ease, left 0.5s ease;
+    /* Transição suave de 0.5s para left e opacity */
+}
+
+.wrapper .top_navbar .top_menu ul li.filter.expanded .filter-buttons {
+    opacity: 1;
+    visibility: visible;
+    left: 60px; /* Move suavemente os botões para a direita */
+    transition: opacity 0.5s ease, visibility 0s 0s ease, left 0.5s ease;
+    /* Transição inversa com delay de 0s para visibility ao expandir */
+}
+
+.wrapper .top_navbar .top_menu ul li.filter .filter-buttons button {
+    background-color: #2e4ead;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.wrapper .top_navbar .top_menu ul li.filter .filter-buttons button:hover {
+    background-color: #4360b5;
+}
+
+/* Estilo adicional para manter o layout responsivo */
+.wrapper .top_navbar .top_menu ul li.filter.expanded {
+    padding-right: 370px; /* Garante que haja espaço para os botões */
+}
+
+/*feed*/
+.card-postagem{
+    position: relative;
+    width: 750px;
+    height:auto;
+    background: #fff;
+    box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
+    padding: 20px;
+}
+
+.card-postagem .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-postagem .top .userDetails{
+    display: flex;
+    align-items: center;
+}
+.card-postagem .top .profileImg{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 8px;
+    overflow: hidden;
+}
+
+.cover{
+   position: absolute;
+   top: 0;
+   right: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: center;
+    cursor: pointer;
+}
+.card-postagem .top .userDetails h3{
+    font-size: 18px;
+    color: #2d2d2e;
+    font-weight: 700;
+    line-height: 1rem;
+    cursor: pointer;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.card-postagem .top .userDetails span{
+    font-size: 0.95rem;
+    color: #3f3f419c;
+}
+
+.card-postagem .top .dot{
+    transform: scale(0.6);
+    cursor: pointer;
+    font-size: 42px;
+}
+
+.imgBg{
+    position: relative;
+    width: 100%;
+    height: 350px;
+    margin: 10px 0 15px;
+    border-radius: 30px;
+}
+
+.imgBg img{
+    border-radius: 10px;
+}
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btns img{
+    max-width: 30px;
+    cursor: pointer;
+}
+
+.btns .left img{
+    margin-left: 5px;
+} 
+
+.likes{
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #4d4d4f;
+}
+
+.message{
+    font-weight: 400;
+    margin-top: 5px;
+    color: #777;
+    line-height: 1.5rem;
+}
+
+.message b{
+    color: #262626;
+}
+
+.message span{
+    color: #1d92ff;
+    cursor: pointer;
+}
+
+.comments{
+    margin-top: 10px;
+    align-items: center;
+    color: #999;
+}
+
+.addComments{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.addComments .userImg img{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-right: 8px;
+}
+
+.addComments .text{
+    width: 100%;
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: 18px;
+    color: #262626;
+}
+
+.addComments .text::placeholder{
+    color: #777;
+}
+
+.postTime{
+    margin-top: 10px;
+    font-weight: 500;
+    color: #777;
+}
