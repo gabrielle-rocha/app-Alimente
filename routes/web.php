@@ -95,3 +95,7 @@ Route::post('/password-reset/change', [PasswordResetController::class, 'changePa
 Route::get('/feedDoador', function() {
     return view('feedDoador');
 });
+
+Route::get('/perfilDoador', function() {
+    return view('perfilDoador');
+});

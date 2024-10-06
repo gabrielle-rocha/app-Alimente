@@ -8,7 +8,6 @@
    <link rel="stylesheet" href="/css/doador.css">
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     
-    
     <script>
         $(document).ready(function(){
             $(".hamburguer").click(function(){
@@ -81,7 +80,7 @@
                         <span class="title">Início</span>
                     </a></li>
 
-                    <li><a href="#">
+                    <li><a href="/perfilDoador">
                     <span class="icon"><i class="fa-solid fa-user"></i></span>
                     <span class="title">Perfil</span>
                     </a></li>
@@ -119,7 +118,7 @@
                     <img src="/img/dinheiro.png" alt="">
                 </div>
             </div>
-            <h4 class="likes">300 curtidas</h4>
+            <h4 class="likes">0 curtidas</h4>
             <h4 class="message">
                 <b>patinha_do_amor</b> URGENTE, RS! <span>#alimentos</span> <span>#animais</span>
             </h4>
@@ -135,7 +134,52 @@
     </div>
 </div>
 
-    
+<div class="container-right">
+    <!-- Conteúdo da postagem ou outro tipo de conteúdo -->
+    <h2>Olá, Isabel</h2>
+    <h4>Quem vamos ajudar hoje?</h4>
+     
+    <div class="mini-card">
+        <div class="profile-image">
+            <img src="/img/exemplo-perfil.jpg" alt="Perfil">
+        </div>
+        <div class="info">
+            <h4>patinha_do_amor</h4>
+            <p>Recomendado</p>
+        </div>
+    </div>
+
+    <div class="mini-card">
+        <div class="profile-image">
+            <img src="/img/exemplo-perfil2.jpg" alt="Perfil">
+        </div>
+        <div class="info">
+            <h4>felicidade_animal</h4>
+            <p>Recomendado</p>
+        </div>
+</div>
+
+<div class="mini-card">
+        <div class="profile-image">
+            <img src="/img/exemplo-perfil3.jpg" alt="Perfil">
+        </div>
+        <div class="info">
+            <h4>auxiliando_maes_08</h4>
+            <p>Recomendado</p>
+        </div>
+</div>
+
+<div class="mini-card">
+        <div class="profile-image">
+            <img src="/img/exemplo-perfil4.jpg" alt="Perfil">
+        </div>
+        <div class="info">
+            <h4>onco_babys</h4>
+            <p>Recomendado</p>
+        </div>
+</div>
+
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
@@ -144,10 +188,10 @@
             let likes = document.querySelector('.likes');
             if(heart.src.match("/img/coracao.png")){
                 heart.src = "/img/coracao-vermelho.png";
-                likes.innerHTML = "301 curtidas";
+                likes.innerHTML = "1 curtidas";
             } else {
                 heart.src = "/img/coracao.png";
-                likes.innerHTML = "300 curtidas";
+                likes.innerHTML = "0 curtidas";
             }
         }
     </script>
