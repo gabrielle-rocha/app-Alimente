@@ -122,7 +122,7 @@
             <h4 class="message">
                 <b>patinha_do_amor</b> URGENTE, RS! <span>#alimentos</span> <span>#animais</span>
             </h4>
-            <h4 class="comments">Ver todos os 30 comentários</h4>
+            <h4 class="comments">Ver todos os 3 comentários</h4>
             <div class="addComments">
                 <div class="userImg">
                     <img src="/img/exemplo-perfil.jpg" alt="" class="cover">

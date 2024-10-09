@@ -27,7 +27,7 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: #ffffffde;
+    background-color: #ffffff;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -330,7 +330,7 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
 .imgBg{
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 400px;
     margin: 10px 0 15px;
     border-radius: 30px;
 }
@@ -439,11 +439,16 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
     align-items: center;
     padding: 10px;
     background-color: #fff;
-    
+    transition: transform 0.3s;
     width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     margin-top: 15px;
+}
+
+.mini-card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 /* Estilo da imagem de perfil redonda */
@@ -466,4 +471,86 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
     font-size: 12px;
     color: #777;
     margin-top: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .wrapper .top_navbar .top_menu .logo img {
+        width: 140px;
+        height: 50px;
+    }
+
+    .wrapper .sidebar {
+        width: 70px;
+    }
+
+    .wrapper .main_container {
+        width: calc(100% - 70px);
+        margin-left: 70px;
+    }
+
+    .wrapper.collapse .main_container {
+        width: calc(100% - 70px);
+        margin-left: 70px;
+    }
+
+    .wrapper .top_navbar .top_menu ul li a {
+        width: 25px;
+        height: 25px;
+    }
+
+    .card-postagem {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .imgBg {
+        height: 300px;
+    }
+
+    .wrapper .container-right {
+        display: none;
+    }
+
+    .wrapper .sidebar ul li a{
+        text-align: center;
+    }
+
+    .wrapper .sidebar ul li a span.icon{
+        margin: 0;
+    }
+    
+    .wrapper .sidebar ul li a span.title{
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+    .wrapper .top_navbar .top_menu .logo img {
+        width: 100px;
+        height: 25px;
+    }
+
+    .wrapper .main_container {
+        padding: 10px;
+    }
+
+    .wrapper .top_navbar .top_menu ul li a {
+        width: 20px;
+        height: 20px;
+    }
+
+    .card-postagem {
+        padding: 10px;
+    }
+
+    .imgBg {
+        height: 200px;
+    }
+
+    .wrapper.collapse .container-right {
+        display: none;
+    }
 }

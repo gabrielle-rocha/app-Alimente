@@ -167,7 +167,7 @@ body {
 /*perfi*/
 .wrapper .container{
     width: calc(100% - 200px);
-    margin-top: 35px;
+    margin-top: 75px;
     margin-left: 200px;
     padding: 15px;
     transition: all 0.3s ease;
@@ -181,7 +181,7 @@ body {
     flex: 1;
     margin-right: 10px;
     background-color: #ffffff;
-    box-shadow: rgba(0, 0, 0, 0.15) 2px 0px 0px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 4px;
     height: max-content;
     color: #2b2929;
     padding: 20px;
@@ -189,12 +189,12 @@ body {
 
 .profile-header{
     display: flex;
-    margin-left: 15px;
+    margin-left: 1px;
 }
 
 .profile-img{
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 10px;
     margin-right: 20px;
 }
@@ -210,17 +210,18 @@ body {
 }
 
 .profile-title{
-    font-size: 20px;
+    font-size: 10px;
     margin-bottom: 15px;
 }
 
 .profile-email{
-    font-size: 20px;
+    font-size: 15px;
     margin-top: 4px;
 }
 
 .menu{
-    margin: 0 10px;   
+    margin: 0 10px; 
+    margin-left: 3px;  
 }
 
 .menu-link{
@@ -228,13 +229,13 @@ body {
    text-decoration: none;
    color: #587196; 
    padding: 10px;
-   margin: 10px; 
    border-radius: 10px;
    font-size: 18px;
+   margin-top: 14px;
 }
 
 .menu-icon{
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 .menu-link:first-child{
@@ -257,6 +258,7 @@ body {
     margin-left: 10px;
     background-color: #fff;
     height: max-content;
+    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px;
 }
 
 .account-header{
@@ -283,7 +285,7 @@ body {
     height: 3em;
     cursor: pointer;
     border: 1px solid #768499;
-    border-radius: 2em;
+    border-radius: 5px;
     color: #4f5a6b;
     font-weight: bold;
     margin-right: 5px;
@@ -300,12 +302,92 @@ body {
     width: 6em;
     height: 3em;
     cursor: pointer;
-    border: 1px solid #768499;
-    border-radius: 2em;
-    color: #4f5a6b;
+    border: 1px solid #458ff6;
+    border-radius: 5px;
+    color: #fff;
     font-weight: bold;
-    margin-right: 5px;
-    background-color: #fff;
+    margin-left: 5px;
+    background-color: #536dfe;
     transition-duration: 0.3s;
     box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+.btn-save:hover{
+    background-color: #4053c9;
+}
+
+.account-edit{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.input-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.input-container label{
+    color: #494b4e;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.input-container input{
+    border: 1.5px solid #768499;
+    border-radius: 5px;
+    padding: 10px;
+    width: 170px;
+    color: #768499;
+}
+
+.input-container input:focus{
+    outline: none;
+    border: 1.5px solid #536dfe;
+}
+
+.input-container textarea{
+    display: block;
+    width: 100%;
+    height: 118px;
+    padding: 5px;
+    border: 1.5px solid #768499;
+    color: #768499;
+    border-radius: 5px;
+    resize: none;
+}
+
+.input-container textarea:focus{
+    outline: none;
+    border: 1.5px solid #536dfe;
+}
+
+/* Texto de aviso para exclusão de conta */
+.warning-text {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+/* Botão de excluir conta */
+.btn-excluir {
+    width: 8em;
+    height: 3em;
+    cursor: pointer;
+    border: 1px solid #ff4d4d;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #ff4d4d;
+    transition-duration: 0.3s;
+}
+
+.btn-excluir:hover {
+    background-color: #cc0000;
+}
+
+.account-settings{
+    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px;
 }
