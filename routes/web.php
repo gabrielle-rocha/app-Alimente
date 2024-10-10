@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PasswordResetController;
+use App\Http\Controllers\adminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +92,19 @@ Route::post('/password-reset/code', [PasswordResetController::class, 'verifyCode
 Route::get('/password-reset/change', [PasswordResetController::class, 'showChangePasswordForm'])->name('password.reset.change');
 Route::post('/password-reset/change', [PasswordResetController::class, 'changePassword']);
 
+/*Autorização do adm para ong */
+Route::get('/admin', [adminController::class, 'index'])->name('admin.index');
+Route::post('/admin', [adminController::class, 'store'])->name('admin.store');
+Route::post('/admin/authorize/{id}', [adminController::class, 'authorizeOng'])->name('admin.ongs.authorize');
+
+
+Route::get('/admin', function() {
+    return view('admin');
+});
+
+
+
+
 /*feed doador*/ 
 Route::get('/feedDoador', function() {
     return view('feedDoador');
@@ -99,3 +113,6 @@ Route::get('/feedDoador', function() {
 Route::get('/perfilDoador', function() {
     return view('perfilDoador');
 });
+
+
+
