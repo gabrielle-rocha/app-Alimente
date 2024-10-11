@@ -225,31 +225,39 @@ body {
 }
 
 .menu-link{
-   display: block;
-   text-decoration: none;
-   color: #587196; 
-   padding: 10px;
-   border-radius: 10px;
-   font-size: 18px;
-   margin-top: 14px;
+    display: block;
+    text-decoration: none;
+    color: #587196;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 14px;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .menu-icon{
     margin-right: 15px;
 }
 
-.menu-link:first-child{
-    color: #fff;
+.menu-link:first-child {
+    background-color: transparent; /* Remover o fundo azul por padrão */
+    color: #587196; /* Definir a cor do texto para o padrão */
+}
+.menu-link.active {
     background-color: #536dfe;
+    color: #fff;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.menu-link:hover{
+.menu-link:hover {
     background-color: #f3f5f9;
     color: #4f5a6b;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.menu-link:first-child:hover{
-    background-color: #536dfe;
+.menu-link:first-child.active {
+    background-color: #536dfe; /* Fundo azul ativo */
     color: #fff;
 }
 
@@ -391,3 +399,4 @@ body {
 .account-settings{
     box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px;
 }
+

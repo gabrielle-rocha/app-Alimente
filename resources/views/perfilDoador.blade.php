@@ -7,30 +7,49 @@
 
     <link rel="stylesheet" href="/css/doadorPerfil.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
     
     <script>
         $(document).ready(function(){
-            // Esconde a tela de Configurações inicialmente
-            $(".account-settings").hide();
+    // Esconde a tela de Configurações inicialmente
+    $(".account-settings").hide();
 
-            // Ao clicar em "Configurações", oculta a tela de conta e exibe as configurações
-            $("#configLink").click(function(event){
-                event.preventDefault(); // Previne o comportamento padrão do link
-                $(".account").hide(); // Esconde configurações de conta
-                $(".account-settings").show(); // Mostra as configurações
-            });
+    // Ao clicar em "Configurações", oculta a tela de conta e exibe as configurações
+    $("#configLink").click(function(event){
+        event.preventDefault(); // Previne o comportamento padrão do link
+        $(".account").hide(); // Esconde configurações de conta
+        $(".account-settings").show(); // Mostra as configurações
 
-            // Opção para retornar à tela de conta, se quiser adicionar
-            $(".btn-cancel").click(function(event){
-                event.preventDefault(); // Previne o comportamento padrão do botão
-                $(".account-settings").hide(); // Esconde configurações
-                $(".account").show(); // Mostra configurações de conta
-            });
+        // Atualiza o menu com a barra azul animada
+        $('.menu-link').removeClass('active');
+        $(this).addClass('active');
+    });
 
-            $(".hamburguer").click(function(){
-                $(".wrapper").toggleClass("collapse");
-            });
-        });
+    // Opção para retornar à tela de conta
+    $(".btn-cancel").click(function(event){
+        event.preventDefault(); // Previne o comportamento padrão do botão
+        $(".account-settings").hide(); // Esconde configurações
+        $(".account").show(); // Mostra configurações de conta
+    });
+
+    // Alternar a classe "active" para os links ao clicar
+    $(".menu-link").click(function(event){
+        event.preventDefault(); // Previne comportamento padrão do link
+        $(".menu-link").removeClass("active");
+        $(this).addClass("active");
+    });
+
+    // Remover o estilo azul do first-child quando for clicado em outra página
+    $("ul li a").click(function() {
+        $("ul li a:first-child").removeClass("active");
+    });
+
+    $(".hamburguer").click(function(){
+        $(".wrapper").toggleClass("collapse");
+    });
+});
+
+
     </script>
 
     <!--icon-->

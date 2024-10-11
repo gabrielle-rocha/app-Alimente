@@ -94,7 +94,7 @@
             </div>
 
                 <div class="main_container">
-
+                <h2 class="campanhas">Campanhas para você</h2>
                 <div class="slide-container swiper">
                 <div class="slide-content">
                     <div class="card-wrapper swiper-wrapper">
@@ -173,7 +173,8 @@
                     </div>
                     
 </div>
-               
+                <!--<div class="swiper-button-prev" style="margin-right: 80px;"></div>
+               <div class="swiper-button-next"></div>-->
                 <div class="swiper-pagination"></div>
             </div>
 
