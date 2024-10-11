@@ -144,12 +144,13 @@ body {
 
 .wrapper .main_container{
     width: calc(100% - 100px);
-    margin-top: 70px;
+    margin-top: 50px;
     margin-left: 100px;
     padding: 15px;
     transition: all 0.3s ease;
     overflow: hidden;
     background: #ffffff;
+    align-items: center;
 }
 
 .wrapper .main_container .item{
@@ -165,13 +166,13 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
 }
 
 .wrapper.collapse .main_container {
-    width: calc(100% - 100px);
-    margin-left: 100px;
+    width: calc(100% - 220px);
+    margin-left: 220px;
 }
 
 .wrapper .main_container {
-    width: calc(100% - 225px);
-    margin-left: 225px;
+    width: calc(100% - 340px);
+    margin-left: 100px;
     padding: 15px;
     transition: all 0.3s ease;
     align-items: center;
@@ -270,7 +271,8 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
 /*feed*/
 .card-postagem{
     position: relative;
-    width: 700px;
+    width: 450px;
+    margin-left: 250px;
     height:auto;
     background: #fff;
     box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
@@ -307,31 +309,31 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
     cursor: pointer;
 }
 .card-postagem .top .userDetails h3{
-    font-size: 18px;
+    font-size: 16px;
     color: #2d2d2e;
     font-weight: 700;
     line-height: 1rem;
     cursor: pointer;
-    margin-bottom: 15px;
+    margin-bottom: 13px;
     display: block;
 }
 
 .card-postagem .top .userDetails span{
-    font-size: 0.95rem;
+    font-size: 0.90rem;
     color: #3f3f419c;
 }
 
 .card-postagem .top .dot{
     transform: scale(0.6);
     cursor: pointer;
-    font-size: 42px;
+    font-size: 40px;
 }
 
 .imgBg{
     position: relative;
     width: 100%;
-    height: 400px;
-    margin: 10px 0 15px;
+    height: 300px;
+    margin: 10px 0 10px;
     border-radius: 30px;
 }
 
@@ -346,7 +348,7 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
 }
 
 .btns img{
-    max-width: 30px;
+    max-width: 25px;
     cursor: pointer;
 }
 
@@ -356,7 +358,7 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
 
 .likes{
     margin-top: 5px;
-    font-size: 1rem;
+    font-size: 0.90rem;
     color: #4d4d4f;
 }
 
@@ -402,7 +404,7 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
     border: none;
     outline: none;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     color: #262626;
 }
 
@@ -471,6 +473,152 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
     font-size: 12px;
     color: #777;
     margin-top: 5px;
+}
+
+/*slide de campanhas*/
+.card-image{
+    position: relative;
+    height: 100px;
+    width: 100px;
+  
+    padding: 3px;
+}
+
+.image-content,
+.card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+}
+
+.image-content{
+    row-gap: 5px;
+    position: relative;
+    padding: 25px 0;
+}
+
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #4070f4;
+    border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before,
+.overlay::after{
+    position: absolute;
+    content: '';
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: #4070f4;
+}
+
+.overlay::after{
+    border-radius: 0 25px 0 0;
+    background-color: #fff;
+}
+
+.slide-content{
+    overflow: hidden;
+    border-radius: 25px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+.card{
+    border-radius: 25px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Para ocupar todo o espaço disponível */
+    max-width: 600px; /* Para não exceder o tamanho esperado */
+    margin-bottom: 14px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background: #fff;   
+}
+
+.card-image .card-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+}
+
+.slide-container {
+    width: 100%;
+    max-width: 780px; /* Ajuste conforme necessário */
+    margin-right: 30px;
+    padding: 10px;
+    background-color: #fff;
+   
+}
+
+.name{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+.description{
+    font-size: 13px;
+    text-align: center;
+    color: #39393a;
+}
+
+.button{
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    padding: 8px 16px;
+    background-color: #4070f4;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover{
+background: #265df2;
+cursor: pointer;
+}
+
+.swiper-navBtn{
+    color: #6e93f7;
+    transition: color 0.3s ease;
+}
+
+.swiper-navBtn:hover{
+    color: #4070f4;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after{
+    font-size: 40px;
+}
+
+.swiper-button-next{
+    right: 0;
+}
+
+.swiper-button-prev{
+    left: 0;
+}
+
+.swiper-pagination.bullet{
+    background-color: #6e93f7;
+    opacity: 1;
+}
+
+.swiper-pagination.bullet-active{
+    background-color: #4070f4;
 }
 
 /* Responsividade */

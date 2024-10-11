@@ -6,6 +6,7 @@
     <title>Doador | Alimente</title>
 
    <link rel="stylesheet" href="/css/doador.css">
+   <link rel="stylesheet" href="/css/swiper-bundle.min.css">
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     
     <script>
@@ -92,8 +93,96 @@
                 </ul>
             </div>
 
-            <div class="main_container">
+                <div class="main_container">
+
+                <div class="slide-container swiper">
+                <div class="slide-content">
+                    <div class="card-wrapper swiper-wrapper">
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="overlay"></span>
+
+                                <div class="card-image">
+                                    <img src="/img/exemplo-perfil.jpg" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <h3 class="name">Campanha</h3>
+                                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi error similique dignissimos, eveniet dolorem harum itaque quam molestiae assumenda nam consequatur, repudiandae</p>
+
+                                <button class="button">Ver campanha</button>
+                            </div>
+
+                        </div>
+
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="overlay"></span>
+
+                                <div class="card-image">
+                                    <img src="/img/exemplo-perfil2.jpg" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <h3 class="name">Campanha</h3>
+                                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi error similique dignissimos, eveniet dolorem harum itaque quam molestiae assumenda nam consequatur, repudiandae</p>
+
+                                <button class="button">Ver campanha</button>
+                            </div>
+
+                        </div>
+
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="overlay"></span>
+
+                                <div class="card-image">
+                                    <img src="/img/exemplo-perfil3.jpg" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <h3 class="name">Campanha</h3>
+                                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi error similique dignissimos, eveniet dolorem harum itaque quam molestiae assumenda nam consequatur, repudiandae</p>
+
+                                <button class="button">Ver campanha</button>
+                            </div>
+
+                        </div>
+                        
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="overlay"></span>
+
+                                <div class="card-image">
+                                    <img src="/img/exemplo-perfil4.jpg" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <h3 class="name">Campanha</h3>
+                                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi error similique dignissimos, eveniet dolorem harum itaque quam molestiae assumenda nam consequatur, repudiandae</p>
+
+                                <button class="button">Ver campanha</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
+</div>
+               
+                <div class="swiper-pagination"></div>
+            </div>
+
+      
+
     <div class="feed-container">
+
+
+    
         <div class="card-postagem">
             <div class="top">
                 <div class="userDetails">
@@ -181,7 +270,41 @@
 
 </div>
 
+    <script src="/js/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".slide-content", {
+            slidesPerView: 3,
+            spaceBetween: 25,
+            loop: true,
+            centerSlide: 'true',
+            fade: 'true',
+            grabCursor: 'true',
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+            breakpoints:{
+                0: {
+                    slidesPerView: 1,
+                },
+                520: {
+                    slidesPerView: 2,
+                },
+                950: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+
     <script>
         function likeButton(){
             let heart = document.querySelector('.heart');
