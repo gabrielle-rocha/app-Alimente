@@ -175,22 +175,148 @@ body {
     align-items: center;
 }
 
-.campanhas{
-    max-height: 120px;
+.header-campanhas {
+    display: flex;
+    justify-content: space-between; /* Empurra o botão para a direita */
+    align-items: center; /* Alinha o título e o botão verticalmente */
+    margin-bottom: 10px; /* Espaçamento inferior entre o título/botão e o restante da página */
+}
+
+.header-campanhas h3 {
+    margin: 0; 
+    font-size: 25px;/* Remove margens extras do título */
+}
+
+.header-campanhas button {
+    background-color: #28a745; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda */
+    padding: 10px 15px; /* Tamanho do botão */
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; /* Para alinhar o ícone e o texto dentro do botão */
+    align-items: center;
+}
+
+.header-campanhas button i {
+    margin-right: 5px; /* Espaçamento entre o ícone e o texto */
+}
+
+.header-campanhas button:hover {
+    background-color: #218838; /* Cor ao passar o mouse */
+}
+
+.campanhas {
+    margin-top: 20px;
+    max-height: auto;
     border: 1px solid #ddd;
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden; /* Desativa a rolagem vertical */
+    padding: 0; /* Remove o padding */
+    scrollbar-width: thin; /* Para navegadores que suportam */
+    scrollbar-color: #888 #f1f1f1; /* Cor da scrollbar e do background da scrollbar */
 }
 
-.campanhas::-webkit-scrollbar{
-    width: 15px;
+/* Estiliza a scrollbar no Chrome, Edge, Safari */
+.campanhas::-webkit-scrollbar {
+    height: 10px; /* Altura da scrollbar */
 }
 
-.campanhas .item{
+.campanhas::-webkit-scrollbar-thumb {
+    background-color: #888; /* Cor do thumb (barra de rolagem) */
+    border-radius: 10px; /* Arredonda as pontas */
+}
+
+.campanhas::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Cor ao passar o mouse */
+}
+
+.campanhas::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor do fundo da scrollbar */
+}
+
+/* Itens dentro do container */
+.campanhas .card {
     min-width: 110px;
-    height: 110px;
-    line-height: 110px;
-    text-align: center;
-    background-color: #ddd;
+    width: 340px;
+    display: block;
+    height: 400px;
+    line-height: auto;
+    background: white;
     margin-right: 5px;
+    position: relative;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+    transition: 0.4s linear;
+}
+
+.card:hover{
+    box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
+}
+
+
+.card:hover .image img{
+    opacity: 0.6;
+    transform: scale(1.1);
+}
+
+.card .image{
+    background: transparent;
+    height: 330px;
+    overflow: hidden;
+}
+
+.image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.3s;
+}
+
+.card .content{
+    position: absolute;
+    bottom: 0px;
+    background: white;
+    width: 100%;
+    text-align: center;
+    padding: 20px 30px;
+}
+
+.content .title{
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+}
+
+.content .sub-title{
+    font-size: 18px;
+    font-weight: 500;
+    color: #3c64e7;
+    margin-bottom: 10px;
+}
+
+.bottom p{
+    color: #666666;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 1.8em;
+}
+
+.bottom button{
+   float: left; 
+   padding: 7px 15px;
+   font-size: 17px;
+   background: #37518a;
+   color: white;
+   font-weight: 500;
+   border: none;
+   margin: 10px 0;
+   cursor: pointer;
+   transition: 0.3s ease;
+}
+
+.bottom button:hover{
+    transform: scale(0.9);
+    background: #3390e6;
 }

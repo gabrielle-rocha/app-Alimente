@@ -79,21 +79,30 @@
             </div>
 
             <div class="main_container">
+
+            <div class="header-campanhas">
                 <h3>Suas Campanhas</h3>
+                <button><i class="fa fa-plus" aria-hidden="true"></i>Adicionar Uma Nova Campanha</button>
+            </div>
 
                 <div class="campanhas">
-                    <div class="item">1</div>
-                    <div class="item">2</div>
-                    <div class="item">3</div>
-                    <div class="item">4</div>
-                    <div class="item">5</div>
-                    <div class="item">6</div>
-                    <div class="item">1</div>
-                    <div class="item">2</div>
-                    <div class="item">3</div>
-                    <div class="item">4</div>
-                    <div class="item">5</div>
-                    <div class="item">6</div>
+                    <div class="card">
+                        <div class="image">
+                            <img src="/img/campanha exemplo.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="title">Campanha exemplo</div>
+                            <div class="sub-title">
+                                assunto da campanha
+                            </div>
+                            <div class="bottom">
+
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
+                                <button>Ver campanha</button>
+                            </div>
+                        
+                        </div>
+                    </div>
                 </div>
             </div>
 </body>
