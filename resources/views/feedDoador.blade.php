@@ -62,7 +62,7 @@
                     <input type="search" placeholder="Buscar...">
                 </li>
                 <li class="filter">
-                <a href="#"><i class="fa-solid fa-filter"></i></a>
+                <a href="#"><i class="fa-solid fa-hashtag"></i></a>
                 <div class="filter-buttons">
                     <button>Doenças</button>
                     <button>Alimentação</button>
@@ -181,8 +181,6 @@
       
 
     <div class="feed-container">
-
-
     
         <div class="card-postagem">
             <div class="top">
@@ -222,6 +220,51 @@
             <div class="postTime">Há 5 horas</div>
         </div>
     </div>
+</div>
+
+<!-- Modal para comentários -->
+<div id="commentModal" class="modal">
+  <div class="modal-content">
+    <!-- Botão de fechar dentro do modal -->
+    <span class="close" onclick="closeModal()">&times;</span>
+    
+    <div class="modal-left">
+      <img src="/img/exemplo.jpg" alt="Postagem" class="post-image">
+    </div>
+    
+    <div class="modal-right">
+      <h3>Comentários</h3>
+      <div class="comments-section">
+        <!-- Exemplo de comentário com opção de curtir e foto do usuário -->
+        <div class="comment">
+          <img src="/img/exemplo-perfil.jpg" alt="Foto de perfil" class="comment-profile-img">
+          <div class="comment-content">
+            <b>usuario_123:</b> Que legal essa postagem!
+            <div class="comment-actions">
+              <img src="/img/coracao.png" alt="Curtir" class="heart-comment" data-liked="false">
+              <span class="likes-count">0 curtidas</span>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <img src="/img/exemplo-perfil.jpg" alt="Foto de perfil" class="comment-profile-img">
+          <div class="comment-content">
+            <b>pet_lover:</b> Parabéns pela iniciativa!
+            <div class="comment-actions">
+              <img src="/img/coracao.png" alt="Curtir" class="heart-comment" data-liked="false">
+              <span class="likes-count">2 curtidas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Input de comentário do modal fixado no rodapé -->
+      <div class="addComments-modal">
+        <input type="text" class="text-modal" placeholder="Adicionar um comentário...">
+        <button type="button" class="send-btn">Enviar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container-right">
@@ -318,6 +361,43 @@
                 likes.innerHTML = "0 curtidas";
             }
         }
+    </script>
+
+    <script>
+        // Abre o modal ao clicar no ícone de comentário
+document.querySelector(".btns .left img[src='/img/comentario.webp']").addEventListener("click", function () {
+  document.getElementById("commentModal").style.display = "block";
+});
+
+// Fecha o modal
+function closeModal() {
+  document.getElementById("commentModal").style.display = "none";
+}
+
+// Fecha o modal ao clicar fora dele
+window.onclick = function (event) {
+  const modal = document.getElementById("commentModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+// Função para curtir um comentário (apenas uma vez por comentário)
+const heartIcons = document.querySelectorAll(".heart-comment");
+
+heartIcons.forEach(icon => {
+  icon.addEventListener("click", function () {
+    const isLiked = this.getAttribute('data-liked') === 'true';
+
+    if (!isLiked) {
+      let likesCount = this.nextElementSibling;
+      let currentLikes = parseInt(likesCount.textContent);
+      likesCount.textContent = (currentLikes + 1) + ' curtidas';
+      this.classList.add("liked");
+      this.setAttribute('data-liked', 'true'); // Marca o comentário como curtido
+    }
+  });
+});
     </script>
 </body>
 </html>

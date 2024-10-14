@@ -102,9 +102,6 @@ Route::get('/admin', function() {
     return view('admin');
 });
 
-
-
-
 /*feed doador*/ 
 Route::get('/feedDoador', function() {
     return view('feedDoador');
@@ -114,5 +111,8 @@ Route::get('/perfilDoador', function() {
     return view('perfilDoador');
 });
 
-
+/*feed ong*/
+Route::get('/feedOng', function() {
+    return view('feedOng');
+});
 

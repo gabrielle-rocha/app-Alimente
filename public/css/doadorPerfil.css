@@ -26,7 +26,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 1;
     background-color: #ffffffde;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
@@ -37,7 +37,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 70px;
-    background-color: #2e4ead;
+    background-color: #2e8b57;
     padding: 10px;
     border-top-right-radius: 20px;
     cursor: pointer;
@@ -46,7 +46,7 @@ body {
 .wrapper .top_navbar .hamburguer div {
     width: 30px;
     height: 4px;
-    background: #92a6e2;
+    background: #8fbc8f;
     margin: 5px 0;
     border-radius: 5px;
 }
@@ -56,12 +56,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 10px;
 }
 
 .wrapper .top_navbar .top_menu .logo img {
     width: 200px;
     height: 50px;
+    margin-top: 5px;
 }
 
 .wrapper .top_navbar .top_menu ul {
@@ -74,16 +75,16 @@ body {
     width: 35px;
     height: 35px;
     line-height: 35px;
-    border: 1px solid #2e4ead;
+    border: 1px solid #2e8b57;
     text-align: center;
     border-radius: 50%;
-    color: #2e4ead;
+    color: #2e8b57;
     transition: all 0.3s ease;
     margin-top: 5px;
 }
 
 .wrapper .top_navbar .top_menu ul li a:hover {
-    background: #4360b5;
+    background: #3cb371;
     color: #fff;
 }
 
@@ -91,7 +92,7 @@ body {
     position: fixed;
     top: 60px;
     left: 0px;
-    background: #2e4ead;
+    background: #2e8b57;
     width: 200px;
     height: 100%;
     transition: all 0.3s ease;
@@ -103,7 +104,7 @@ body {
     color: #fff;
     position: relative;
     margin-bottom: 1px;
-    color: #92a6e2;
+    color: #8fbc8f;
     list-style: none;
     text-decoration: none;
     white-space: nowrap;
@@ -115,7 +116,7 @@ body {
     top: 0;
     height: 100%;
     left: 0;
-    background: #92a6e2;
+    background: #8fbc8f;
     display: none;
 }
 
@@ -132,7 +133,7 @@ body {
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active
 {
-    background: #4360b5;
+    background: #3cb371;
     color: #ffff;
 }
 
@@ -197,6 +198,8 @@ body {
     height: 100px;
     border-radius: 10px;
     margin-right: 20px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .status{
@@ -207,6 +210,25 @@ body {
 .profile-img img{
     object-fit: cover;
     object-position: center;
+}
+
+#file{
+    display: none;
+}
+
+#uploadbtn{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    padding: 5px 7px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #fff;
+    background-color: #2e8b57;
+    margin-top: 80px;
+    justify-content: center;
+    transform: translateX(-190%);
+    align-items: center;
 }
 
 .profile-title{
@@ -227,7 +249,7 @@ body {
 .menu-link{
     display: block;
     text-decoration: none;
-    color: #587196;
+    color: #306346;
     padding: 10px;
     border-radius: 10px;
     font-size: 18px;
@@ -242,22 +264,22 @@ body {
 
 .menu-link:first-child {
     background-color: transparent; /* Remover o fundo azul por padrão */
-    color: #587196; /* Definir a cor do texto para o padrão */
+    color: #306346; /* Definir a cor do texto para o padrão */
 }
 .menu-link.active {
-    background-color: #536dfe;
+    background-color: #306346;
     color: #fff;
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .menu-link:hover {
     background-color: #f3f5f9;
-    color: #4f5a6b;
+    color: #4f6b51;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .menu-link:first-child.active {
-    background-color: #536dfe; /* Fundo azul ativo */
+    background-color: #306346; /* Fundo azul ativo */
     color: #fff;
 }
 
@@ -279,7 +301,7 @@ body {
 
 .account-tittle{
     font-size:25px;
-    color: #587196;
+    color: #589662;
     font-weight: 500;
     margin-left: 10px;
 }
@@ -292,7 +314,7 @@ body {
     width: 6em;
     height: 3em;
     cursor: pointer;
-    border: 1px solid #768499;
+    border: 1px solid #76997b;
     border-radius: 5px;
     color: #4f5a6b;
     font-weight: bold;
@@ -303,25 +325,25 @@ body {
 }
 
 .btn-cancel:hover{
-    background-color: #f1f5f9;
+    background-color: #f1f9f3;
 }
 
 .btn-save{
     width: 6em;
     height: 3em;
     cursor: pointer;
-    border: 1px solid #458ff6;
+    border: 1px solid #306346;
     border-radius: 5px;
     color: #fff;
     font-weight: bold;
     margin-left: 5px;
-    background-color: #536dfe;
+    background-color: #306346;
     transition-duration: 0.3s;
     box-shadow: rgba(0, 0, 0, 0.1);
 }
 
 .btn-save:hover{
-    background-color: #4053c9;
+    background-color: #37ac5a;
 }
 
 .account-edit{
@@ -344,16 +366,16 @@ body {
 }
 
 .input-container input{
-    border: 1.5px solid #768499;
+    border: 1.5px solid #769976;
     border-radius: 5px;
     padding: 10px;
     width: 170px;
-    color: #768499;
+    color: #76997f;
 }
 
 .input-container input:focus{
     outline: none;
-    border: 1.5px solid #536dfe;
+    border: 1.5px solid #306346;
 }
 
 .input-container textarea{
@@ -369,7 +391,7 @@ body {
 
 .input-container textarea:focus{
     outline: none;
-    border: 1.5px solid #536dfe;
+    border: 1.5px solid #306346;
 }
 
 /* Texto de aviso para exclusão de conta */
@@ -400,3 +422,49 @@ body {
     box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px;
 }
 
+/* Estilizando o modal */
+.modal {
+    display: none; /* O modal começa oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Certifique-se de que o modal esteja acima da navbar */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    z-index: 10000; /* Conteúdo do modal fica acima do fundo */
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#confirmLogout {
+    background-color: white; /* Cor para o botão "Sim" */
+    color: #306346;
+    border: 2px solid #306346;
+}
+
+#cancelLogout {
+    background-color: #306346; /* Cor para o botão "Não" */
+    color: white;
+}

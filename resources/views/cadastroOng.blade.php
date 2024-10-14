@@ -22,8 +22,7 @@
 <body>
     <!--gradiente-->
     <div class="grad">
-    <img src="/img/logo-alimente-branco.png" alt="">
-    <img src="/img/slogan-alimente-cinza.png" alt="">
+    <img src="/img/normal.png" alt="">
     </div>
 
     <div class="container">

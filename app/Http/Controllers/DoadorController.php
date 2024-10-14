@@ -28,7 +28,7 @@ class DoadorController extends Controller
 
     public function create()
     {
-        return view('cadastrodoador'); // Altere para o nome correto da view
+        return view('cadastrodoador'); 
     }
 
     // Método para armazenar os dados do doador (formulário 1)
@@ -39,13 +39,6 @@ class DoadorController extends Controller
             'nomeDoador' => 'required|string|max:100',
             'emailDoador' => 'required|email|max:255|unique:doador,emailDoador',
             'senhaDoador' => 'required|string|min:8',
-            'cepDoador' => 'nullable|string|max:10',
-            'enderecoDoador' => 'nullable|string|max:255',
-            'numeroDoador' => 'nullable|string|max:50',
-            'complementoDoador' => 'nullable|string|max:255',
-            'bairroDoador' => 'nullable|string|max:100',
-            'cidadeDoador' => 'nullable|string|max:100',
-            'estadoDoador' => 'nullable|string|max:50',
         ]);
 
         // Criação do doador
@@ -53,13 +46,6 @@ class DoadorController extends Controller
             'nomeDoador' => $request->nomeDoador,
             'emailDoador' => $request->emailDoador,
             'senhaDoador' => ($request->senhaDoador), // Senha criptografada
-            'cepDoador' => $request->cepDoador,
-            'enderecoDoador' => $request->enderecoDoador,
-            'numeroDoador' => $request->numeroDoador,
-            'complementoDoador' => $request->complementoDoador,
-            'bairroDoador' => $request->bairroDoador,
-            'cidadeDoador' => $request->cidadeDoador,
-            'estadoDoador' => $request->estadoDoador,
             'dataCadastroDoador' => now(), // Preencher a data de cadastro automaticamente
         ]);
 

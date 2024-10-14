@@ -42,7 +42,12 @@
             border-top-left-radius: 15%;
             border-bottom-left-radius: 15%;
             margin-left: 20px;
+            /*transition: transform 0.4s ease-in-out; /* Transição suave */
         }
+
+       /* .right-section.move-left {
+            transform: translateX(-60%); /* Move a seção para fora da tela 
+        }*/
 
          h3 {
             text-align: center;
@@ -58,7 +63,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 515px;
+            max-width: 400px;
         }
         .login-btn {
             background: rgba(46, 139, 87, 1);
@@ -90,6 +95,7 @@
             border-radius: 6px;
             border: 1px solid #ccc;
             font-size: 1rem;
+            width: 100%;
         }
 
         form select {
@@ -98,6 +104,8 @@
 
         .right-section img {
             max-width: 80%;
+            object-fit: cover;
+            object-position: center;
         }
     </style>
 </head>
@@ -106,109 +114,63 @@
         <div class="login-card">
             <h3 class="text-center mb-4">Preencha os Campos:</h3>
             @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             <form action="{{ route('doador.store') }}" method="POST">
             @csrf
                 <div class="row">
-                <div class="col-4 mb-3">
-                    <label class="form-label">Nome:</label>
-                    <input type="text" class="form-control" name="nomeDoador" id="nomeDoador" placeholder="Digite seu nome" >
-                </div>
-
-                <div class="col-4 mb-3">
-                    <label class="form-label">email:</label>
-                    <input type="email" class="form-control" name="emailDoador" id="emailDoador" placeholder="Insira um email" >
-                </div>
-
-                <div class="col-4 mb-3">
-                    <label class="form-label">Senha:</label>
-                    <input type="password" class="form-control" name="senhaDoador" id="senhaDoador" placeholder="Crie uma senha" >
-                </div>
-
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Endereço:</label>
-                    <div class="row">
-
-                        <div class="col-4">
-                        <input type="adress" class="form-control" name="cepDoador" id="cepDoador" placeholder="Cep" onblur=buscarCep()>
-                        </div>
-
-                        <div class="col-4">
-                        <input type="adress" class="form-control" name="enderecoDoador" id="enderecoDoador" placeholder="Rua" >
-                        </div>
-
-                        <div class="col-4">
-                        <input type="adress" class="form-control" name="numeroDoador" id="numeroDoador" placeholder="Número" >
-                        </div>
-
+                    <div class="col mb-3">
+                        <label class="form-label">Nome:</label>
+                        <input type="text" class="form-control" name="nomeDoador" id="nomeDoador" placeholder="Digite seu nome" >
                     </div>
+                </div>
 
-                    
-                    <div class="row">
-                        <div class="col-4">
-                        <input type="text" class="form-control" name="complementoDoador" id="complementoDoador" placeholder="Complemento">
-                        </div>
-                    
-                        <div class="col-4">
-                        <input type="text" class="form-control" name="bairroDoador" id="bairroDoador" placeholder="Bairro">
-                        </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label class="form-label">email:</label>
+                        <input type="email" class="form-control" name="emailDoador" id="emailDoador" placeholder="Insira um email" >
+                    </div>
+                </div>
 
-                        <div class="col-4">
-                        <input type="text" class="form-control" name="cidadeDoador" id="cidadeDoador" placeholder="Cidade" >
-                        </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label class="form-label">Senha:</label>
+                        <input type="password" class="form-control" name="senhaDoador" id="senhaDoador" placeholder="Crie uma senha" >
+                    </div>
+                </div>
 
-                        </div>
-                                  
-                    <select name="estadoDoador" id="estadoDoador">
-                        <option value="0">Estado</option>
-                        <option>AC</option>
-                        <option>AL</option>
-                        <option>AP</option>
-                        <option>AM</option>
-                        <option>BA</option>
-                        <option>CE</option>
-                        <option>ES</option>
-                        <option>GO</option>
-                        <option>MA</option>
-                        <option>MT</option>
-                        <option>MS</option>
-                        <option>MG</option>
-                        <option>PA</option>
-                        <option>PB</option>
-                        <option>PR</option>
-                        <option>PE</option>
-                        <option>PI</option>
-                        <option>RJ</option>
-                        <option>RN</option>
-                        <option>RS</option>
-                        <option>RO</option>
-                        <option>RR</option>
-                        <option>SC</option>
-                        <option>SP</option>
-                        <option>SE</option>
-                        <option>TO</option>
-                    </select>
-                    <a href="/cadastroOng">Quero cadastrar minha Ong</a>
-                    </div>  
+                <div class="mb-3">
+                    <a href="/cadastroOng" id="linkCadastrarOng">Quero cadastrar minha Ong</a>
+                </div>  
                 <button type="submit" class="btn login-btn w-100">Próximo</button>
-
             </form>
         </div>
     </div>
     <div class="right-section">
-    <img src="/img/logo-alimente-branco.png" alt="">
-    <img src="/img/slogan-alimente-cinza.png" alt="">
+        <img src="/img/normal.png" alt="">
     </div>
-    <!--js-->
-<script src="/js/cadastroDoador.js"></script>
+
+    <!-- JavaScript 
+    <script>
+        const linkCadastrarOng = document.querySelector('#linkCadastrarOng');
+        const rightSection = document.querySelector('.right-section');
+
+        linkCadastrarOng.addEventListener('click', function(e) {
+            e.preventDefault();
+            rightSection.classList.add('move-left');
+
+            // Aguarde a animação antes de redirecionar
+            setTimeout(() => {
+                window.location.href = '/cadastroOng'; // Redireciona para a página desejada
+            }, 100); // Tempo igual ao da animação (500ms)
+        });
+    </script>-->
 </body>
 </html>

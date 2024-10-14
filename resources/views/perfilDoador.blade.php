@@ -8,28 +8,31 @@
     <link rel="stylesheet" href="/css/doadorPerfil.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-    
     <script>
-        $(document).ready(function(){
+    $(document).ready(function(){
     // Esconde a tela de Configurações inicialmente
     $(".account-settings").hide();
 
-    // Ao clicar em "Configurações", oculta a tela de conta e exibe as configurações
-    $("#configLink").click(function(event){
+    // Exibe a seção de "Conta" e oculta a de "Configurações"
+    $("#accountLink").click(function(event){
         event.preventDefault(); // Previne o comportamento padrão do link
-        $(".account").hide(); // Esconde configurações de conta
-        $(".account-settings").show(); // Mostra as configurações
+        $(".account").show(); // Mostra a tela de conta
+        $(".account-settings").hide(); // Esconde a tela de configurações
 
         // Atualiza o menu com a barra azul animada
         $('.menu-link').removeClass('active');
         $(this).addClass('active');
     });
 
-    // Opção para retornar à tela de conta
-    $(".btn-cancel").click(function(event){
-        event.preventDefault(); // Previne o comportamento padrão do botão
-        $(".account-settings").hide(); // Esconde configurações
-        $(".account").show(); // Mostra configurações de conta
+    // Exibe a seção de "Configurações" e oculta a de "Conta"
+    $("#configLink").click(function(event){
+        event.preventDefault(); // Previne o comportamento padrão do link
+        $(".account").hide(); // Esconde a tela de conta
+        $(".account-settings").show(); // Mostra as configurações
+
+        // Atualiza o menu com a barra azul animada
+        $('.menu-link').removeClass('active');
+        $(this).addClass('active');
     });
 
     // Alternar a classe "active" para os links ao clicar
@@ -48,8 +51,6 @@
         $(".wrapper").toggleClass("collapse");
     });
 });
-
-
     </script>
 
     <!--icon-->
@@ -97,7 +98,11 @@
         <!-- Seção de Perfil -->
         <div class="profile">
             <div class="profile-header">
-                <img src="/img/perfil-exemplo.enc" alt="" class="profile-img">
+                <div class="user-img">
+                <img src="/img/perfil-exemplo.enc" id="photo" class="profile-img">
+                <input type="file" name="" id="file">
+                <label for="file" id="uploadbtn"><i class="fas fa-camera"></i></label>
+                </div>
                 <div class="profile-text-container">
                     <h1 class="profle-title">Isabel</h1>
                     <p class="profile-email">isabelenicavalcantedasilva@gmail.com</p>
@@ -106,17 +111,28 @@
             </div>
             
             <div class="menu">
-                <a href="" class="menu-link">
-                    <i class="fa-solid fa-circle-user menu-icon"></i> Conta
-                </a>
-                <a href="" id="configLink" class="menu-link">
-                    <i class="fa-solid fa-gear menu-icon"></i> Configurações
-                </a>
-                <a href="" class="menu-link">
-                    <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
-                </a>
-            </div>
+    <a href="#" class="menu-link" id="accountLink">
+        <i class="fa-solid fa-circle-user menu-icon"></i> Conta
+    </a>
+    <a href="#" id="configLink" class="menu-link">
+        <i class="fa-solid fa-gear menu-icon"></i> Configurações
+    </a>
+    <a href="#" class="menu-link" id="logoutLink">
+        <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
+    </a>
+</div>
+</div>
+
+<!-- Modal de Confirmação de Logout -->
+<div id="logoutModal" class="modal">
+    <div class="modal-content">
+        <p>Deseja mesmo sair da sessão?</p>
+        <div class="modal-buttons">
+            <button id="confirmLogout">Sim</button>
+            <button id="cancelLogout">Não</button>
         </div>
+    </div>
+</div>
 
         <!-- Tela de Configurações de Conta (visível inicialmente) -->
         <form class="account">
@@ -169,5 +185,7 @@
     </div>
 </div>
 
+<script src="/js/perfilDoador.js"></script>
+<script src="/js/logoutDoador.js"></script>
 </body>
 </html>
