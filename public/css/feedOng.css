@@ -210,12 +210,14 @@ body {
     margin-top: 20px;
     max-height: auto;
     border: 1px solid #ddd;
+    border-radius: 15px;
     display: flex;
     overflow-x: auto;
     overflow-y: hidden; /* Desativa a rolagem vertical */
     padding: 0; /* Remove o padding */
     scrollbar-width: thin; /* Para navegadores que suportam */
     scrollbar-color: #888 #f1f1f1; /* Cor da scrollbar e do background da scrollbar */
+    white-space: nowrap; /* Garante que os cards não quebrem para uma nova linha */
 }
 
 /* Estiliza a scrollbar no Chrome, Edge, Safari */
@@ -238,7 +240,8 @@ body {
 
 /* Itens dentro do container */
 .campanhas .card {
-    min-width: 110px;
+    min-width: 340px; /* Define a largura mínima para os cards */
+    flex-shrink: 0; /* Impede que os cards diminuam de tamanho */
     width: 340px;
     display: block;
     height: 400px;
@@ -248,15 +251,12 @@ body {
     position: relative;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
     transition: 0.4s linear;
+    overflow: hidden; /* Garante que o conteúdo que ultrapassa o card seja escondido */
+    box-sizing: border-box; /* Inclui padding e borda dentro da largura */
 }
 
-.card:hover{
-    box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
-}
-
-
-.card:hover .image img{
-    opacity: 0.6;
+.card.active .image img{
+    opacity: 0.5;
     transform: scale(1.1);
 }
 
@@ -301,6 +301,14 @@ body {
     font-size: 16px;
     text-align: justify;
     line-height: 1.8em;
+    word-wrap: break-word; /* Permite a quebra de linha para palavras longas */
+    word-break: break-word; /* Garante que as palavras grandes também quebrem */
+    overflow-wrap: break-word; /* Garante que o conteúdo não "estoure" */
+    max-width: 100%; /* Garante que o parágrafo não ultrapasse a largura do card */
+    box-sizing: border-box;
+    overflow: hidden; /* Oculta qualquer parte do texto que ultrapasse o limite do card */
+    white-space: normal; /* Garante que o texto quebre em várias linhas */
+    text-overflow: ellipsis; /* Trunca o texto se for muito longo */
 }
 
 .bottom button{
@@ -317,6 +325,10 @@ body {
 }
 
 .bottom button:hover{
-    transform: scale(0.9);
+    transform: scale(1);
     background: #3390e6;
+}
+
+.bottom{
+    display: none;
 }

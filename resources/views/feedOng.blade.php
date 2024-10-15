@@ -8,6 +8,7 @@
    <link rel="stylesheet" href="/css/feedOng.css">
    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     
     <script>
         $(document).ready(function(){
@@ -102,8 +103,103 @@
                             </div>
                         
                         </div>
-                    </div>
-                </div>
+
+                    </div><!--card-->
+
+                    <div class="card">
+                        <div class="image">
+                            <img src="/img/campanha exemplo5.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="title">Campanha exemplo</div>
+                            <div class="sub-title">
+                                assunto da campanha
+                            </div>
+                            <div class="bottom">
+
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
+                                <button>Ver campanha</button>
+                            </div>
+                        
+                        </div>
+
+                    </div><!--card-->
+
+                    <div class="card">
+                        <div class="image">
+                            <img src="/img/campanha exemplo2.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="title">Campanha exemplo</div>
+                            <div class="sub-title">
+                                assunto da campanha
+                            </div>
+                            <div class="bottom">
+
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
+                                <button>Ver campanha</button>
+                            </div>
+                        
+                        </div>
+
+                    </div><!--card-->
+
+                    <div class="card">
+                        <div class="image">
+                            <img src="/img/campanha exemplo4.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="title">Campanha exemplo</div>
+                            <div class="sub-title">
+                                assunto da campanha
+                            </div>
+                            <div class="bottom">
+
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
+                                <button>Ver campanha</button>
+                            </div>
+                        
+                        </div>
+
+                    </div><!--card-->
+
+                     <div class="card">
+                        <div class="image">
+                            <img src="/img/campanha exemplo3.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="title">Campanha exemplo</div>
+                            <div class="sub-title">
+                                assunto da campanha
+                            </div>
+                            <div class="bottom">
+
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
+                                <button>Ver campanha</button>
+                            </div>
+                        
+                        </div>
+
+                    </div><!--card-->
+
+                </div><!--campanhas-->
             </div>
+
+            <script>
+                $('.card').hover(function(){
+                    var card = $(this);
+                    if(card.hasClass("active")){
+                        card.find('.bottom').slideUp(function(){
+                            card.removeClass("active");
+                        });
+                    } else {
+                        $('.card').removeClass("active"); // Remove a classe de todos os outros cards
+                        $('.card .bottom').slideUp(); // Fecha o conteúdo de todos os outros cards
+                        card.addClass("active");
+                        card.find('.bottom').stop().slideDown();
+                    }
+                });
+
+            </script>
 </body>
 </html>
