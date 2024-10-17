@@ -1,4 +1,4 @@
-@extends('layouts.app')
+
 
 @section('content')
     <h1>Cadastro de ONGs - Admin</h1>
@@ -17,9 +17,11 @@
         <button type="submit">Cadastrar</button>
     </form>
 
+    
+
     <h2>Cadastros Pendentes</h2>
     <ul>
-        @foreach($ongsPendentes as $ong)
+        @foreach($ongsPendentes = [] as $ong)
             <li>
                 {{ $ong->nome }} - {{ $ong->cnpj }}
                 <form action="{{ route('admin.ongs.authorize', $ong->id) }}" method="POST" style="display:inline;">
@@ -32,7 +34,7 @@
 
     <h2>Cadastros Autorizados</h2>
     <ul>
-        @foreach($ongsAutorizadas as $ong)
+        @foreach($ongsAutorizadas = [] as $ong)
             <li>{{ $ong->nome }} - {{ $ong->cnpj }}</li>
         @endforeach
     </ul>
