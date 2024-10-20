@@ -21,7 +21,7 @@ use App\Http\Controllers\adminController;
 */
 
 Route::get('/', function () {
-    return view('telaInicio');
+    return view('landingPage');
 });
 
 /*login-geral*/
