@@ -45,6 +45,9 @@ Route::get('/adm', [DashboardController::class, 'index'])->name('admin.dashboard
 Route::get('/adm/doadores', [DoadorController::class, 'index'])->name('admin.doadores');
 Route::get('/adm/ongs', [OngController::class, 'index'])->name('admin.ongs');
 Route::delete('/adm/doadores/delete{id}', [DoadorController::class, 'destroy'])->name('admin.doadores.delete');
+//admin autorização
+Route::post('/adm/ongs/store', [adminController::class, 'store'])->name('admin.ongs.store');
+
 Route::delete('/adm/ongs/delete{id}', [OngController::class, 'destroy'])->name('admin.ongs.delete');
 Route::get('/doadores/search', [DoadorController::class, 'search'])->name('doadores.search');
 Route::get('/ongs/search', [OngController::class, 'search'])->name('ongs.search');
