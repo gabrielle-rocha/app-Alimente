@@ -54,7 +54,7 @@
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 20px;
             position: relative;
             transition: all 0.3s ease;
         }
@@ -630,27 +630,27 @@
 <h2 class="features-title">Participe das nossas campanhas</h2>
     <div class="campanhas-container">
         <div class="card-campanha">
-            <img src="img/feed4.jpg" alt="Campanha 1">
+            <img src="img/alimento.jfif" alt="Campanha 1">
             <h3>Doação de alimento</h3>
-            <p>Contribua para a educação e bem-estar de crianças em situação vulnerável. Sua ajuda pode transformar vidas!</p>
+            <p>Doe um alimento para transformar vidas, levando esperança e dignidade para quem mais precisa.</p>
             <button>Doar Agora</button>
         </div>
         <div class="card-campanha">
-            <img src="img/feed4.jpg" alt="Campanha 2">
+            <img src="img/produto2.jfif" alt="Campanha 2">
             <h3>Produtos de higiene pessoal</h3>
-            <p>Doe para apoiar projetos que constroem um futuro melhor para comunidades carentes.</p>
+            <p> Doe produtos de higiene pessoal e faça a diferença na vida de muitas famílias.</p>
             <button>Doar Agora</button>
         </div>
         <div class="card-campanha">
-            <img src="img/feed4.jpg" alt="Campanha 3">
+            <img src="img/roupas2.jfif" alt="Campanha 3">
             <h3>Doação em roupas</h3>
-            <p>Junte-se a nós em uma campanha de impacto social e faça a diferença na vida de muitas pessoas.</p>
+            <p>Aqueça corações com sua solidariedade e faça a diferença na vida de quem precisa. </p>
             <button>Doar Agora</button>
         </div>
         <div class="card-campanha">
-            <img src="img/feed4.jpg" alt="Campanha 3">
+            <img src="img/pet2.jfif" alt="Campanha 3">
             <h3>Ajude um pet</h3>
-            <p>Junte-se a nós em uma campanha de impacto social e faça a diferença na vida de muitas pessoas.</p>
+            <p> Ajude um pet em necessidade, doando ração ou medicamentos.</p>
             <button>Doar Agora</button>
         </div>
     </div>
@@ -683,28 +683,28 @@
     <div class="colaboradores-container">
         <div class="colaborador">
             <div class="foto-perfil">
-                <img src="img/feed4.jpg" alt="Colaborador 1">
+                <img src="img/target.jfif" alt="Colaborador 1">
             </div>
             <h3>Target</h3>
             <p>Empresa de tecnologia</p>
         </div>
         <div class="colaborador">
             <div class="foto-perfil">
-                <img src="colaborador2.jpg" alt="Colaborador 2">
+                <img src="img/elysium.jfif" alt="Colaborador 2">
             </div>
             <h3>Elysium</h3>
             <p>Empresa de tecnologia</p>
         </div>
         <div class="colaborador">
             <div class="foto-perfil">
-                <img src="colaborador3.jpg" alt="Colaborador 3">
+                <img src="img/apex.jfif" alt="Colaborador 3">
             </div>
             <h3>Apex</h3>
             <p>Empresa de tecnologia</p>
         </div>
         <div class="colaborador">
             <div class="foto-perfil">
-                <img src="colaborador3.jpg" alt="Colaborador 3">
+                <img src="img/union.jfif" alt="Colaborador 3">
             </div>
             <h3>Union</h3>
             <p>Empresa de tecnologia</p>
