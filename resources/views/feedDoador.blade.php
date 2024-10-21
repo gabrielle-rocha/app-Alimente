@@ -94,91 +94,135 @@
             </div>
 
                 <div class="main_container">
-                <h2 class="campanhas">Campanhas para você</h2>
-                <div class="slide-container swiper">
-                <div class="slide-content">
-                    <div class="card-wrapper swiper-wrapper">
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
+                <h2 class="campanhas-title">Campanhas para você</h2>
 
-                                <div class="card-image">
-                                    <img src="/img/exemplo-perfil.jpg" alt="" class="card-img">
-                                </div>
-                            </div>
+                <div class="campanhas">
+                <div class="card">
+    <div class="image">
+        <img src="/img/campanha exemplo.jpg" alt="">
+    </div>
+    <div class="content">
+        <div class="perfilImgCampanha">
+            <img src="/img/exemplo-perfil.jpg" alt="Imagem de Perfil" class="perfil">
+        </div>
+        <div class="text-content">
+            <div class="title">Campanha exemplo</div>
+            <div class="sub-title">assunto da campanha</div>
+        </div>
+        <div class="bottom">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
+            <button id="openCampaignModalBtn">Ver campanha</button>
+        </div>
+    </div>
+</div><!--card-->
 
-                            <div class="card-content">
-                                <h3 class="name">Campanha</h3>
-                                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi error similique dignissimos, eveniet dolorem harum itaque quam molestiae assumenda nam consequatur, repudiandae</p>
-
-                                <button class="button">Ver campanha</button>
-                            </div>
-
+                    <div class="card">
+                        <div class="image">
+                            <img src="/img/campanha exemplo5.jpg" alt="">
                         </div>
+                        <div class="content">
+        <div class="perfilImgCampanha">
+            <img src="/img/exemplo-perfil.jpg" alt="Imagem de Perfil" class="perfil">
+        </div>
+        <div class="text-content">
+            <div class="title">Campanha exemplo</div>
+            <div class="sub-title">assunto da campanha</div>
+        </div>
+                            <div class="bottom">
 
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="/img/exemplo-perfil2.jpg" alt="" class="card-img">
-                                </div>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
+                                <button>Ver campanha</button>
                             </div>
-
-                            <div class="card-content">
-                                <h3 class="name">Campanha</h3>
-                                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi error similique dignissimos, eveniet dolorem harum itaque quam molestiae assumenda nam consequatur, repudiandae</p>
-
-                                <button class="button">Ver campanha</button>
-                            </div>
-
-                        </div>
-
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="/img/exemplo-perfil3.jpg" alt="" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <h3 class="name">Campanha</h3>
-                                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi error similique dignissimos, eveniet dolorem harum itaque quam molestiae assumenda nam consequatur, repudiandae</p>
-
-                                <button class="button">Ver campanha</button>
-                            </div>
-
-                        </div>
                         
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="/img/exemplo-perfil4.jpg" alt="" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <h3 class="name">Campanha</h3>
-                                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi error similique dignissimos, eveniet dolorem harum itaque quam molestiae assumenda nam consequatur, repudiandae</p>
-
-                                <button class="button">Ver campanha</button>
-                            </div>
-
                         </div>
 
-                    </div>
-                    
-</div>
-                <!--<div class="swiper-button-prev" style="margin-right: 80px;"></div>
-               <div class="swiper-button-next"></div>-->
-                <div class="swiper-pagination"></div>
-            </div>
+                    </div><!--card-->
 
-      
+                    <div class="card">
+                        <div class="image">
+                            <img src="/img/campanha exemplo2.jpg" alt="">
+                        </div>
+                        <div class="content">
+        <div class="perfilImgCampanha">
+            <img src="/img/exemplo-perfil.jpg" alt="Imagem de Perfil" class="perfil">
+        </div>
+        <div class="text-content">
+            <div class="title">Campanha exemplo</div>
+            <div class="sub-title">assunto da campanha</div>
+        </div>
+                            <div class="bottom">
+
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
+                                <button>Ver campanha</button>
+                            </div>
+                        
+                        </div>
+
+                    </div><!--card-->
+
+                    <div class="card">
+                        <div class="image">
+                            <img src="/img/campanha exemplo4.jpg" alt="">
+                        </div>
+                        <div class="content">
+        <div class="perfilImgCampanha">
+            <img src="/img/exemplo-perfil.jpg" alt="Imagem de Perfil" class="perfil">
+        </div>
+        <div class="text-content">
+            <div class="title">Campanha exemplo</div>
+            <div class="sub-title">assunto da campanha</div>
+        </div>
+                            <div class="bottom">
+
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
+                                <button>Ver campanha</button>
+                            </div>
+                        
+                        </div>
+
+                    </div><!--card-->
+
+                     <div class="card">
+                        <div class="image">
+                            <img src="/img/campanha exemplo3.jpg" alt="">
+                        </div>
+                        <div class="content">
+        <div class="perfilImgCampanha">
+            <img src="/img/exemplo-perfil.jpg" alt="Imagem de Perfil" class="perfil">
+        </div>
+        <div class="text-content">
+            <div class="title">Campanha exemplo</div>
+            <div class="sub-title">assunto da campanha</div>
+        </div>
+                            <div class="bottom">
+
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
+                                <button>Ver campanha</button>
+                            </div>
+                        
+                        </div>
+
+                    </div><!--card-->
+
+                </div><!--campanhas-->
+
+<!-- Modal de Campanha -->
+<div id="campaignModal" class="campaign-modal">
+  <div class="campaign-modal-content">
+    <div class="campaign-modal-left">
+      <img src="/img/campanha exemplo3.jpg" alt="Imagem da ONG" class="campaign-modal-img">
+      <button class="campaign-profile-btn">Visitar perfil da ONG autora</button>
+    </div>
+    <div class="campaign-modal-right">
+      <h1 class="campaign-modal-title">Título da Campanha</h1>
+      <h3 class="campaign-modal-subtitle">Subtítulo da Campanha</h3>
+      <p class="campaign-modal-description">Aqui vai um exemplo de descrição da campanha que pode ser um pouco mais longa.</p>
+      <h2 class="campaign-highlight-title">Período de Recolha</h2>
+      <p class="campaign-period">09/09/2024 a 30/09/2024</p>
+    </div>
+    <span class="campaign-close-btn">&times;</span>
+  </div>
+</div>
 
     <div class="feed-container">
     
@@ -314,8 +358,8 @@
 
 </div>
 
-    <script src="/js/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="/js/campanhaDoador.js"></script>
 
     <script>
         var swiper = new Swiper(".slide-content", {
@@ -399,5 +443,35 @@ heartIcons.forEach(icon => {
   });
 });
     </script>
+
+<script>
+$('.card').hover(function() {
+    var card = $(this);
+
+    // Se o card já está ativo, feche-o
+    if (card.hasClass("active")) {
+        card.find('.bottom').slideUp(function() {
+            card.removeClass("active");
+        });
+        card.find('.perfilImgCampanha').css({
+            transform: 'translateY(0)', /* Volta a imagem de perfil ao estado inicial */
+            transition: 'transform 0.3s ease'
+        });
+    } else {
+        // Feche todos os outros cards e suas animações
+        $('.card').removeClass("active");
+        $('.card .bottom').slideUp();
+
+        // Ative o card atual e faça a animação
+        card.addClass("active");
+        card.find('.bottom').stop().slideDown();
+        card.find('.perfilImgCampanha').css({
+            transform: 'translateY(-20px)', /* Move a imagem de perfil para cima */
+            transition: 'transform 0.3s ease'
+        });
+    }
+});
+</script>
+
 </body>
 </html>

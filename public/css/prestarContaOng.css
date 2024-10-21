@@ -1,0 +1,326 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: inherit;
+}
+.wrapper .top_navbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #ffffff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper .top_navbar .hamburguer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    background-color: #37518a;
+    padding: 10px;
+    border-top-right-radius: 20px;
+    cursor: pointer;
+}
+
+.wrapper .top_navbar .hamburguer div {
+    width: 30px;
+    height: 4px;
+    background: #8f9dbc;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.wrapper .top_navbar .top_menu {
+    width: calc(100% - 70px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.wrapper .top_navbar .top_menu .logo img {
+    width: 200px;
+    height: 50px;
+    margin-top: 5px;
+}
+
+.wrapper .top_navbar .top_menu .user img{
+    display: flex;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    border: 3px solid #8faff3;
+}
+
+.wrapper .top_navbar .top_menu ul {
+    display: flex;
+}
+
+.wrapper .top_navbar .top_menu ul li a {
+    display: block;
+    margin: 10px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #37518a;
+    text-align: center;
+    border-radius: 50%;
+    color: #37518a;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+.wrapper .top_navbar .top_menu ul li a:hover {
+    background: #37518a;
+    color: #fff;
+}
+
+.wrapper .sidebar{
+    position: fixed;
+    top: 60px;
+    left: 0px;
+    background: #37518a;
+    width: 210px;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.wrapper .sidebar ul li a{
+    display: block;
+    padding: 20px;
+    color: #fff;
+    position: relative;
+    margin-bottom: 1px;
+    color: #8f9dbc;
+    list-style: none;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.wrapper .sidebar ul li a::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0;
+    background: #8f9dbc;
+    display: none;
+}
+
+.wrapper .sidebar ul li a span.icon{
+    margin-right: 10px;
+    display: inline-block;
+
+}
+
+.wrapper .sidebar ul li a span.title{
+    display: inline-block;
+}
+
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active
+{
+    background: #8f9dbc;
+    color: #ffff;
+}
+
+.wrapper .sidebar ul li a:hover::before,
+.wrapper .sidebar ul li a.active::before
+{
+    display: block;
+}
+
+.wrapper.collapse .sidebar {
+    width: 70px;
+}
+
+.wrapper.collapse .main_container {
+    width: calc(100% - 220px);
+    margin-left: 220px;
+}
+
+.wrapper.collapse .sidebar ul li a{
+    text-align: center;
+}
+
+.wrapper.collapse .sidebar ul li a span.icon{
+    margin: 0;
+}
+
+.wrapper.collapse .sidebar ul li a span.title{
+    display: none;
+}
+
+.wrapper .container {
+    width: calc(100% - 210px);
+    margin-top: 55px;
+    margin-left: 210px;
+    background: #ffffff;
+    padding: 20px;
+}
+
+.container-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.container-left, .container-right {
+    width: 48%;
+    flex-direction: column;
+}
+
+.container-left h3, .container-right h3{
+    margin-bottom: 10px;
+}
+
+.file-upload {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Reduz o espaço entre os inputs */
+}
+
+.file-upload input[type="file"] {
+    padding: 8px 12px; /* Espaçamento interno padrão */
+    border: 2px solid #073e79; /* Azul */
+    border-radius: 5px;
+    background-color: #073e79; /* Cor de fundo azul */
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%; /* Faz o input preencher o container */
+}
+
+/* Remove o padding para o ícone e volta ao comportamento padrão */
+.file-upload input[type="file"]::-webkit-file-upload-button {
+    background-color: white;
+    color: #073e79;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo para o ícone de upload */
+.file-upload i {
+    position: absolute;
+    right: 10px;
+    color: white;
+    font-size: 18px;
+    pointer-events: none; /* O ícone não interfere na interação com o input */
+}
+
+/* Efeito de hover no botão de upload */
+.file-upload input[type="file"]:hover {
+    background-color: #365b83; /* Azul escuro ao passar o mouse */
+    border-color: #365b83;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
+}
+
+.container-fotos {
+    margin-bottom: 10px;
+}
+
+/* Alinhar os inputs em linha */
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Estilo para os containers de input */
+.input-wrapper {
+    width: 100px;
+    height: 105px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #ccc; /* Borda tracejada */
+    border-radius: 10px; /* Cantos levemente arredondados */
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Ocultar o input de arquivo */
+.input-wrapper input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    
+}
+
+/* Estilo para o ícone de upload */
+.input-wrapper i {
+    font-size: 30px;
+    color: #555; /* Cor neutra para o ícone */
+    pointer-events: none;
+    text-align: center;
+}
+
+/* Efeito de hover para o container */
+.input-wrapper:hover {
+    border-color: #007bff; /* Mudar a cor da borda ao passar o mouse */
+}
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    
+}
+
+.buttons button {
+    padding: 8px 20px;
+    border: none;
+    background-color: #37518a;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.buttons button.clear {
+    background-color: #ccc;
+}
