@@ -532,7 +532,7 @@
         <div class="text-box">
             <h1>Gerando Solidariedade</h1>
             <div class="underline"></div>
-            <p>Apoie as Ong's, transforme vidas</p>
+            <p>Apoie as Ong's, transforme vidas.</p>
         </div>
     </div>
 

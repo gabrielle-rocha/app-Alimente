@@ -123,3 +123,6 @@ Route::get('/perfilOng', function() {
     return view('perfilOng');
 });
 
+Route::get('/prestarContaOng', function() {
+    return view('prestarContaOng');
+});

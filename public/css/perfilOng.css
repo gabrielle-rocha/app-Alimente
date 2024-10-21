@@ -12,9 +12,6 @@ body {
     text-decoration: none;
     font-family: inherit;
 }
-
-
-
 .wrapper .top_navbar {
     width: 100%;
     height: 60px;
@@ -60,6 +57,18 @@ body {
     width: 200px;
     height: 50px;
     margin-top: 5px;
+}
+
+.wrapper .top_navbar .top_menu .user img{
+    display: flex;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    border: 3px solid #8faff3;
 }
 
 .wrapper .top_navbar .top_menu ul {
@@ -162,9 +171,9 @@ body {
 }
 
 .header__wrapper{
-    width: calc(100% - 200px);
+    width: calc(100% - 210px);
     margin-top: 50px;
-    margin-left: 200px;
+    margin-left: 210px;
     transition: all 0.3s ease;
     overflow: hidden;
     background: #ffffff;
@@ -183,9 +192,32 @@ a{
 }
 
 .header__wrapper header{
+    position: relative; /* Para posicionar o ícone */
     width: 100%;
-    background: url(../img/header.jpg) no-repeat 50% 20% / cover;
-    min-height: calc(100px + 15vh);
+    background-size: cover; /* Garante que a imagem cubra toda a área */
+    background-color: rgba(77, 75, 75, 0.8); /* Cor de fundo inicial */
+    transition: background-color 0.3s ease; /* Transição suave para o hover */
+    min-height: calc(100px + 16vh);
+}
+
+.header__wrapper header:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo ao passar o mouse */
+}
+
+.edit-icon {
+    position: absolute; /* Posiciona o ícone no centro */
+    top: 50%; /* Centro vertical */
+    left: 50%; /* Centro horizontal */
+    transform: translate(-50%, -50%); /* Centraliza o ícone */
+    font-size: 40px; /* Tamanho do ícone */
+    color: white; /* Cor do ícone */
+    cursor: pointer; /* Cursor de ponteiro */
+    z-index: 1; /* Para garantir que o ícone fique acima da imagem de fundo */
+    transition: color 0.3s ease; /* Transição suave para o hover do ícone */
+}
+
+.header__wrapper header:hover .edit-icon {
+    color: #2a6fee; /* Cor do ícone ao passar o mouse */
 }
 
 .header__wrapper .cols__container .left__col{

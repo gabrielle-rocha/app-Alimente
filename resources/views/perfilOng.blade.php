@@ -6,10 +6,19 @@
     <title>Ong | Alimente</title>
 
    <link rel="stylesheet" href="/css/perfilOng.css">
-   <link rel="stylesheet" href="/css/swiper-bundle.min.css">
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     
    <script>
+    function changeHeaderImage(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.querySelector('.header__wrapper header').style.backgroundImage = `url(${e.target.result})`;
+        };
+        reader.readAsDataURL(file);
+    }
+}
         $(document).ready(function(){
             $(".hamburguer").click(function(){
                 $(".wrapper").toggleClass("collapse");
@@ -61,7 +70,12 @@
                 <img src="/img/alimente.png" alt="">
                 </div>
 
+                <div class="user">
+                    <img src="/img/exemplo-perfil5.jpg" alt="">
+                </div>
+                
             </div>
+            
         </div>
         
             <div class="sidebar">
@@ -76,7 +90,7 @@
                     <span class="title">Perfil</span>
                     </a></li>
 
-                    <li><a href="#">
+                    <li><a href="/prestarContaOng">
                     <span class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></i></span>
                     <span class="title">Prestar Conta</span>
                     </a></li>
@@ -84,7 +98,10 @@
             </div>
 
             <div class="header__wrapper">
-                <header></header>
+            <header onclick="document.getElementById('fileInput').click();">
+            <i class="fas fa-edit edit-icon"></i>
+            </header>
+            <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="changeHeaderImage(event)">
                 <div class="cols__container">
                     <div class="left__col">
 

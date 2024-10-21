@@ -57,12 +57,16 @@
                 <img src="/img/alimente.png" alt="">
                 </div>
 
+                <div class="user">
+                    <img src="/img/exemplo-perfil5.jpg" alt="">
+                </div>
+
             </div>
         </div>
         
             <div class="sidebar">
                 <ul>
-                    <li><a href="#">
+                    <li><a href="/feedOng">
                         <span class="icon"><i class="fa-solid fa-house"></i></span>
                         <span class="title">Início</span>
                     </a></li>
@@ -72,7 +76,7 @@
                     <span class="title">Perfil</span>
                     </a></li>
 
-                    <li><a href="#">
+                    <li><a href="/prestarContaOng">
                     <span class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></i></span>
                     <span class="title">Prestar Conta</span>
                     </a></li>
