@@ -119,3 +119,7 @@ Route::get('/feedOng', function() {
     return view('feedOng');
 });
 
+Route::get('/perfilOng', function() {
+    return view('perfilOng');
+});
+

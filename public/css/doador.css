@@ -376,7 +376,7 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
 }
 
 .message span{
-    color: #32cd32;
+    color: #32a1cd;
     cursor: pointer;
 }
 
@@ -478,160 +478,204 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
 }
 
 /*slide de campanhas*/
+.header-campanhas {
+    display: flex;
+    justify-content: space-between; /* Empurra o botão para a direita */
+    align-items: center; /* Alinha o título e o botão verticalmente */
+    margin-bottom: 10px; /* Espaçamento inferior entre o título/botão e o restante da página */
+}
 
-.campanhas{
+.header-campanhas h3 {
+    margin: 0; 
+    font-size: 25px;/* Remove margens extras do título */
+}
+
+.header-campanhas button {
+    background-color: #28a745; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 5px;
+    padding: 10px 15px; /* Tamanho do botão */
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; /* Para alinhar o ícone e o texto dentro do botão */
+    align-items: center;
+}
+
+.header-campanhas button i {
+    margin-right: 5px; /* Espaçamento entre o ícone e o texto */
+}
+
+.header-campanhas button:hover {
+    background-color: #218838; /* Cor ao passar o mouse */
+}
+
+.campanhas {
+     margin-top: 20px;
+    max-height: auto;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0;
+    white-space: nowrap;
+    margin-left: 10%;  /* Ajuste a margem à esquerda de forma relativa */
+    margin-right: 10%; /* Ajuste a margem à direita de forma relativa */
+    
+    /* Defina a largura usando calc para somar o espaço das margens relativas */
+    width: calc(100% - 20%); /* 100% menos a soma das margens de ambos os lados */
+}
+
+.campanhas-title {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
-.card-image{
+
+/* Estiliza a scrollbar no Chrome, Edge, Safari */
+.campanhas::-webkit-scrollbar {
+    height: 0px; /* Altura da scrollbar */
+}
+
+/*
+.campanhas::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 10px; 
+}
+
+.campanhas::-webkit-scrollbar-thumb:hover {
+    background-color: #555; 
+}
+
+.campanhas::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor do fundo da scrollbar 
+}
+    */
+
+/* Itens dentro do container */
+.campanhas .card {
+    min-width: 300px; /* Define a largura mínima para os cards */
+    flex-shrink: 0; /* Impede que os cards diminuam de tamanho */
+    width: 300px;
+    display: block;
+    height: auto; /* Ajuste automático de altura para se adaptar ao conteúdo */
+    line-height: auto;
+    background: white;
+    margin-right: 10px;
     position: relative;
-    height: 100px;
-    width: 100px;
-  
-    padding: 3px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease; /* Transição suave para todas as propriedades */
+    overflow: hidden; /* Garante que o conteúdo que ultrapassa o card seja escondido */
+    box-sizing: border-box; /* Inclui padding e borda dentro da largura */
 }
 
-.image-content,
-.card-content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 14px;
+.card.active .image img{
+    opacity: 0.5;
+    transform: scale(1.05);
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Suavizar a transição */
 }
 
-.image-content{
-    row-gap: 5px;
-    position: relative;
-    padding: 25px 0;
-}
-
-.overlay{
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #2e8b57;
-    border-radius: 25px 25px 0 25px;
-    
-}
-
-.overlay::before,
-.overlay::after{
-    position: absolute;
-    content: '';
-    right: 0;
-    bottom: -40px;
-    height: 40px;
-    width: 40px;
-    background-color: #2e8b57;
-   
-}
-
-.overlay::after{
-    border-radius: 0 25px 0 0;
-    background-color: #fff;
-    
-}
-
-.slide-content{
+.card .image{
+    background: transparent;
+    height: 330px;
     overflow: hidden;
-    border-radius: 25px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
 }
 
-.card{
-    border-radius: 25px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    width: 100%; /* Para ocupar todo o espaço disponível */
-    max-width: 600px; /* Para não exceder o tamanho esperado */
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    background: #fff;   
-}
-
-.card-image .card-img{
+.image img{
     height: 100%;
     width: 100%;
     object-fit: cover;
+    object-position: center;
+    transition: all 0.5s ease; /* Transição suave para a imagem */
+}
+
+.perfilImgCampanha {
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    border: 4px solid #ffffff;
+    overflow: hidden;
+    margin-right: 10px;
+    margin: 0 auto; /* Centralizar */
+    transition: all 0.3s ease-in-out; /* Transição suave */
 }
 
-.slide-container {
+.perfilImgCampanha img {
     width: 100%;
-    max-width: 759px; /* Ajuste conforme necessário */
-    margin-left: 50px;
-    padding: 10px;
-    background-color: #fff;
-    
+    height: 100%;
+    object-fit: cover;
 }
 
-.name{
-    font-size: 18px;
-    font-weight: 500;
-    color: #333;
-}
-.description{
-    font-size: 13px;
+.card .content{
+    position: absolute;
+    bottom: 0px;
+    background: white;
+    width: 100%;
     text-align: center;
-    color: #39393a;
-    margin-top: 5px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column; /* Organiza os elementos verticalmente */
+    transition: all 0.5s ease-in-out; /* Suavizar a transição do conteúdo */
 }
 
-.button{
-    border: none;
-    font-size: 16px;
-    color: #fff;
-    padding: 8px 16px;
-    background-color: #2e8b57;
-    border-radius: 6px;
-    margin: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.content .text-content {
+    display: block;
+    align-items:center;
+    text-align: center;
+   
 }
 
-.button:hover{
-background: #8fbc8f;
-cursor: pointer;
+.content .title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
 }
 
-.swiper-navBtn{
-    color: #8fbc8f;
-    transition: color 0.3s ease;
+.content .sub-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #3c64e7;
+    margin-bottom: 5px;
 }
 
-.swiper-navBtn:hover{
-    color: #2e8b57;
+.bottom p{
+    color: #303030;
+    font-size: 13px;
+    text-align: justify;
+    line-height: 1em;
+    word-wrap: break-word; /* Permite a quebra de linha para palavras longas */
+    word-break: break-word; /* Garante que as palavras grandes também quebrem */
+    overflow-wrap: break-word; /* Garante que o conteúdo não "estoure" */
+    max-width: 100%; /* Garante que o parágrafo não ultrapasse a largura do card */
+    box-sizing: border-box;
+    overflow: hidden; /* Oculta qualquer parte do texto que ultrapasse o limite do card */
+    white-space: normal; /* Garante que o texto quebre em várias linhas */
+    text-overflow: ellipsis; /* Trunca o texto se for muito longo */
+    transition: all 0.4s ease;
 }
 
-.swiper-navBtn::before,
-.swiper-navBtn::after{
-    font-size: 40px;
+.bottom button{
+   float: left; 
+   padding: 7px 12px;
+   font-size: 15px;
+   background: #37518a;
+   color: white;
+   font-weight: 500;
+   border: none;
+   margin: 10px 0;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   border-radius: 5px;
 }
 
-.swiper-button-next{
-    right: 0;
+.bottom button:hover{
+    transform: scale(1.05);
+    background: #147cdd;
 }
 
-.swiper-button-prev{
-    left: 0;
-}
-
-.swiper-pagination.bullet{
-    background-color: #8fbc8f;
-    opacity: 1;
-}
-
-.swiper-pagination.bullet-active{
-    background-color: #2e8b57;
+.bottom{
+    display: none;
 }
 
 /* Estilo do modal */
@@ -788,6 +832,95 @@ cursor: pointer;
     background-color: #2e8b57;
     color: #fff;
 }
+
+/* Estilos básicos do modal de campanha */
+.campaign-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .campaign-modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+  }
+  
+  /* Estilo para o lado esquerdo do modal */
+  .campaign-modal-left {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .campaign-modal-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .campaign-profile-btn {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Estilo para o lado direito do modal */
+  .campaign-modal-right {
+    width: 55%;
+  }
+  
+  .campaign-modal-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .campaign-modal-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .campaign-modal-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .campaign-highlight-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .campaign-period {
+    font-size: 1rem;
+    font-style: italic;
+  }
+  
+  /* Estilo do botão de fechar */
+  .campaign-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
 /* Responsividade */
 @media (max-width: 768px) {
     .wrapper .top_navbar .top_menu .logo img {
