@@ -541,7 +541,7 @@
         <div class="about-content">
             <img src="img/somos1.png" alt="Sobre Nós">
             <div class="about-text">
-                <h2>Quem somos?</h2>
+                <h2>Quem Somos?</h2>
                 <div class="underline"></div>
                 <p>
                 Somos uma plataforma dedicada a promover e divulgar o trabalho de ONGs que atuam em diversas áreas, contribuindo para o bem-estar e desenvolvimento social das comunidades. Acreditamos firmemente que, juntos, podemos fazer a diferença e transformar vidas, criando um futuro mais justo e solidário para todos. Nossa missão é conectar doadores generosos às iniciativas que mais precisam de apoio, fortalecendo o impacto das ações sociais e promovendo uma cultura de solidariedade e engajamento.
@@ -555,7 +555,7 @@
         <div class="about-content">
             <img src="img/pessoas.png" alt="Nossa Missão">
             <div class="about-text">
-                <h2>Nossa missão</h2>
+                <h2>Nossa Missão</h2>
                 <div class="underline"></div>
                 <p>
                 Estamos comprometidos em desenvolver soluções inovadoras que conectem comunidades e promovam a transformação social por meio de projetos colaborativos. Acreditamos que a união de esforços pode gerar um impacto positivo significativo na sociedade, fortalecendo laços e empoderando indivíduos. Nosso objetivo é criar um ambiente onde todos possam contribuir para mudanças reais, construindo juntos um futuro mais inclusivo e sustentável.
@@ -568,7 +568,7 @@
 
 <br><br>
  <!--ESCOLHA O TIME ALIMENTE-->
-    <h2 class="features-title">Escolha o time Alimente</h2>
+    <h2 class="features-title">Escolha o Time Alimente</h2>
     <section class="card-section" id="porque">
     <div class="card">
         <img src="img/doacaoIcon.jpg" alt="Imagem 1" class="card-image">
@@ -627,29 +627,29 @@
 <br><br>
 <!-- PARTICIPE DAS NOSSAS CAMPANHAS-->
 <section id="causas">
-<h2 class="features-title">Participe das nossas campanhas</h2>
+<h2 class="features-title">Participe das Nossas Campanhas</h2>
     <div class="campanhas-container">
         <div class="card-campanha">
             <img src="img/alimento.jfif" alt="Campanha 1">
-            <h3>Doação de alimento</h3>
+            <h3>Doação de Alimento</h3>
             <p>Doe um alimento para transformar vidas, levando esperança e dignidade para quem mais precisa.</p>
             <button>Doar Agora</button>
         </div>
         <div class="card-campanha">
             <img src="img/produto2.jfif" alt="Campanha 2">
-            <h3>Produtos de higiene pessoal</h3>
+            <h3>Produtos de Higiene Pessoal</h3>
             <p> Doe produtos de higiene pessoal e faça a diferença na vida de muitas famílias.</p>
             <button>Doar Agora</button>
         </div>
         <div class="card-campanha">
             <img src="img/roupas2.jfif" alt="Campanha 3">
-            <h3>Doação em roupas</h3>
+            <h3>Doação em Roupas</h3>
             <p>Aqueça corações com sua solidariedade e faça a diferença na vida de quem precisa. </p>
             <button>Doar Agora</button>
         </div>
         <div class="card-campanha">
             <img src="img/pet2.jfif" alt="Campanha 3">
-            <h3>Ajude um pet</h3>
+            <h3>Ajude um Pet</h3>
             <p> Ajude um pet em necessidade, doando ração ou medicamentos.</p>
             <button>Doar Agora</button>
         </div>
