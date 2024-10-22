@@ -31,20 +31,40 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: transparent;
+            background: #fff;
             z-index: 100;
         }
 
         /* Estilo da logo */
         nav .logo {
-            height: 50px;
+            height: 55px;
         }
 
         /* Estilo dos links de navegação */
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 25px;
+            margin-top: 5px;
+        }
+
+        nav .button-nav{
+            padding: 6px 25px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #3c64e7;
+            border-radius: 5px;
+            border: none;
+            margin-left: 10px;
+        }
+
+        nav .button-nav:hover{
+            background-color: #3c64b8;
+        }
+
+        nav .button-nav a{
+            text-decoration: none;
+            color: #fff;
         }
 
         nav ul li {
@@ -52,7 +72,7 @@
         }
 
         nav ul li a {
-            color: white;
+            color: #333;
             text-decoration: none;
             font-size: 20px;
             position: relative;
@@ -65,7 +85,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            background-color: white;
+            background-color: #ccc;
             bottom: -5px;
             left: 0;
             transition: width 0.3s ease;
@@ -430,6 +450,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
         }
 
         .colaborador h3 {
@@ -524,7 +545,9 @@
             <li><a href="#porque">Por que utilizar?</a></li>
             <li><a href="#causas">Causas</a></li>
             <li><a href="#parceiros">Parceiros</a></li>
+            <button class="button-nav"><a href="/logindoador">Iniciar</a></button>
         </ul>
+        
     </nav>
 
     <!-- Conteúdo principal -->
