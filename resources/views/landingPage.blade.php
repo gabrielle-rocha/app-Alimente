@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--icon-->
+    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
     <title>Alimente</title>
     <style>
         /* Reset básico */
@@ -124,7 +126,7 @@
         .main-content .underline {
             width: 150px;
             height: 5px;
-            background-color: #58695f;
+            background-color: #fff;
             margin-bottom: 20px;
         }
 
@@ -582,8 +584,6 @@
                 <div class="underline"></div>
                 <p>
                 Estamos comprometidos em desenvolver soluções inovadoras que conectem comunidades e promovam a transformação social por meio de projetos colaborativos. Acreditamos que a união de esforços pode gerar um impacto positivo significativo na sociedade, fortalecendo laços e empoderando indivíduos. Nosso objetivo é criar um ambiente onde todos possam contribuir para mudanças reais, construindo juntos um futuro mais inclusivo e sustentável.
-
-
                 </p>
             </div>
         </div>
@@ -656,7 +656,7 @@
             <img src="img/alimento.jfif" alt="Campanha 1">
             <h3>Doação de Alimento</h3>
             <p>Doe um alimento para transformar vidas, levando esperança e dignidade para quem mais precisa.</p>
-            <button>Doar Agora</button>
+            <button id="campanhaModal">Doar Agora</button>
         </div>
         <div class="card-campanha">
             <img src="img/produto2.jfif" alt="Campanha 2">
@@ -678,6 +678,9 @@
         </div>
     </div>
 
+ <div class="modal" id="modal">
+    
+ </div>
 
 
     <!--IMAGENS CRIATIVAS-->
