@@ -37,7 +37,9 @@ class Ong extends Model implements AuthenticatableContract
         'cepOng',
         'bairroOng',
         'cidadeOng',
-        'estadoOng'
+        'estadoOng',
+        'latitude',  // Adicionando latitude
+        'longitude'  // Adicionando longitude
     ];
 
     protected $hidden = [

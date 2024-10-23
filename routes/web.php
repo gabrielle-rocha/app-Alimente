@@ -114,6 +114,10 @@ Route::get('/perfilDoador', function() {
     return view('perfilDoador');
 });
 
+Route::get('/busca-ongs', [OngController::class, 'buscar']);
+
+Route::get('/ongs', [OngController::class, 'apiBuscar']);
+
 /*feed ong*/
 Route::get('/feedOng', function() {
     return view('feedOng');

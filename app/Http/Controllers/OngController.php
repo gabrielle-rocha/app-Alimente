@@ -6,6 +6,34 @@ use Illuminate\Http\Request;
 
 class OngController extends Controller
 {
+
+    public function buscar(Request $request)
+    {
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+        $distanciaMaxima = 10; // Exemplo: 10 km
+
+        $ongs = Ong::selectRaw("*, ( 6371 * acos( cos( radians(?) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(?) ) + sin( radians(?) ) * sin( radians( latitude ) ) ) ) AS distance", [$latitude, $longitude, $latitude])
+            ->having("distance", "<", $distanciaMaxima)
+            ->get();
+
+        return view('ongs.busca', compact('ongs'));
+    }
+
+    public function apiBuscar(Request $request)
+{
+    $latitude = $request->input('latitude');
+    $longitude = $request->input('longitude');
+    $distanciaMaxima = 10; // Exemplo: 10 km
+
+    $ongs = Ong::selectRaw("*, ( 6371 * acos( cos( radians(?) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(?) ) + sin( radians(?) ) * sin( radians( latitude ) ) ) ) AS distance", [$latitude, $longitude, $latitude])
+        ->having("distance", "<", $distanciaMaxima)
+        ->get();
+
+    return response()->json($ongs);
+}
+
+
     public function index() {
         $search = request('search');
         $ongs = $search ? Ong::where('nomeOng', 'like', '%'.$search.'%')->get() : Ong::all();
