@@ -39,6 +39,14 @@
             </div>
             <div class="user">
                 <img src="/img/exemplo-perfil5.jpg" alt="">
+                <div class="dropdown-menu">
+                    <a href="/perfilOng">
+                    <i class="fa-solid fa-users"></i> Perfil
+                    </a>
+                    <a href="#logout">
+                    <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
+                    </a>
+                </div>
             </div>
         </div>
     </div>

@@ -59,6 +59,68 @@ body {
     padding: 0 10px;
 }
 
+.wrapper .top_navbar .top_menu .user{
+    position: relative;
+    /* Empurra a seção do usuário para a direita */
+    padding-right: 10px;
+}
+
+.wrapper .top_navbar .top_menu .user img{
+    display: flex;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    border: 3px solid #8faff3;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 105%; /* Exatamente abaixo do .user */
+    left: 50%; /* Centraliza o dropdown em relação à imagem */
+    transform: translateX(-80%); /* Ajusta para alinhar exatamente ao centro */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none; /* Inicialmente escondido */
+    flex-direction: column;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    min-width: 120px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.dropdown-menu a i {
+    margin-right: 12px;
+    font-size: 16px;
+    color: #37518a;
+    margin-left: 10px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.user:hover .dropdown-menu {
+    display: flex; /* Exibe o menu ao passar o mouse */
+    opacity: 1;
+}
+
 .wrapper .top_navbar .top_menu .logo img {
     width: 200px;
     height: 50px;
@@ -67,6 +129,8 @@ body {
 
 .wrapper .top_navbar .top_menu ul {
     display: flex;
+    margin-left: auto; /* Alinha os elementos ao final */
+    margin-right: 20px; /* Ajusta a margem à direita */
 }
 
 .wrapper .top_navbar .top_menu ul li a {
@@ -866,9 +930,10 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
   }
   
   .campaign-modal-img {
-    width: 100%;
-    height: auto;
+    width: 80%;
+    height: 320px;
     border-radius: 10px;
+    object-fit: cover;
   }
   
   .campaign-profile-btn {

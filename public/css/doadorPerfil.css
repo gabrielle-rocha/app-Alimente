@@ -279,7 +279,7 @@ body {
 }
 
 .menu-link:first-child.active {
-    background-color: #306346; /* Fundo azul ativo */
+    background-color: #4f6b51; /* Fundo azul ativo */
     color: #fff;
 }
 
@@ -343,7 +343,7 @@ body {
 }
 
 .btn-save:hover{
-    background-color: #37ac5a;
+    background-color: #306346ab;
 }
 
 .account-edit{

@@ -33,18 +33,15 @@ class CreateOngTable extends Migration
             $table->string('bairroOng', 100)->nullable();
             $table->string('cidadeOng', 100)->nullable();
             $table->string('estadoOng', 50)->nullable();
-            $table->decimal('latitude', 10, 8)->nullable();
-            $table->decimal('longitude', 11, 8)->nullable();
+            $table->decimal('latitude', 10, 7)->nullable();   // Adiciona latitude
+            $table->decimal('longitude', 10, 7)->nullable();  // Adiciona longitude
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        //Schema::dropIfExists('ong');
-        Schema::table('ong', function (Blueprint $table) {
-            $table->dropColumn(['latitude', 'longitude']);
-        });
+        Schema::dropIfExists('ong');
     }
 }
 

@@ -16,21 +16,12 @@
                 $(".wrapper").toggleClass("collapse");
                 
             });
+            document.querySelector('.user').addEventListener('click', function() {
+    const dropdownMenu = this.querySelector('.dropdown-menu');
+    dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+});
         });
 
-        $(document).ready(function(){
-    $(".search a").click(function(e){
-        e.preventDefault();  // Impede a ação padrão do link
-        $(this).parent().toggleClass("expanded");  // Alterna a classe 'expanded'
-        $(this).siblings('input[type="search"]').focus();  // Foca no input quando ele aparece
-    });
-
-
-    $(".filter a").click(function(e){
-        e.preventDefault();  // Impede a ação padrão do link
-        $(this).parent().toggleClass("expanded");  // Alterna a classe 'expanded'
-    });
-});
 
     </script>
 
@@ -58,8 +49,16 @@
                 </div>
 
                 <div class="user">
-                    <img src="/img/exemplo-perfil5.jpg" alt="">
+                <img src="/img/exemplo-perfil5.jpg" alt="Foto do perfil">
+                <div class="dropdown-menu">
+                    <a href="/perfilOng">
+                    <i class="fa-solid fa-users"></i> Perfil
+                    </a>
+                    <a href="#logout">
+                    <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
+                    </a>
                 </div>
+            </div>
 
             </div>
         </div>

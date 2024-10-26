@@ -8,6 +8,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\MapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,9 +115,7 @@ Route::get('/perfilDoador', function() {
     return view('perfilDoador');
 });
 
-Route::get('/busca-ongs', [OngController::class, 'buscar']);
-
-Route::get('/ongs', [OngController::class, 'apiBuscar']);
+Route::get('/geo', [MapController::class, 'index'])->name('mapa.index');
 
 /*feed ong*/
 Route::get('/feedOng', function() {

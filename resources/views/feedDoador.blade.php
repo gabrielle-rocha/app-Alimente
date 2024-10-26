@@ -6,7 +6,6 @@
     <title>Doador | Alimente</title>
 
    <link rel="stylesheet" href="/css/doador.css">
-   <link rel="stylesheet" href="/css/swiper-bundle.min.css">
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     
     <script>
@@ -29,6 +28,11 @@
         e.preventDefault();  // Impede a ação padrão do link
         $(this).parent().toggleClass("expanded");  // Alterna a classe 'expanded'
     });
+
+    document.querySelector('.user').addEventListener('click', function() {
+    const dropdownMenu = this.querySelector('.dropdown-menu');
+    dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+});
 });
 
     </script>
@@ -71,6 +75,19 @@
                 </div>
                 </li>
                 </ul>
+
+                <div class="user">
+                <img src="/img/perfil-exemplo.enc" alt="Foto do perfil">
+                <div class="dropdown-menu">
+                    <a href="/perfilDoador">
+                    <i class="fa-solid fa-users"></i> Perfil
+                    </a>
+                    <a href="#logout">
+                    <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
+                    </a>
+                </div>
+            </div>
+
             </div>
         </div>
         
@@ -86,7 +103,7 @@
                     <span class="title">Perfil</span>
                     </a></li>
 
-                    <li><a href="/buscar">
+                    <li><a href="/geo">
                     <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
                     <span class="title">Buscar</span>
                     </a></li>

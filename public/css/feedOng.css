@@ -65,6 +65,10 @@ body {
     margin-top: 5px;
 }
 
+.wrapper .top_navbar .top_menu .user{
+    position: relative;
+}
+
 .wrapper .top_navbar .top_menu .user img{
     display: flex;
     border-radius: 50%;
@@ -75,6 +79,49 @@ body {
     transition: background 0.3s ease;
     cursor: pointer;
     border: 3px solid #8faff3;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 105%; /* Exatamente abaixo do .user */
+    left: 50%; /* Centraliza o dropdown em relação à imagem */
+    transform: translateX(-80%); /* Ajusta para alinhar exatamente ao centro */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none; /* Inicialmente escondido */
+    flex-direction: column;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    min-width: 120px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.dropdown-menu a i {
+    margin-right: 8px;
+    font-size: 16px;
+    color: #37518a;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.user:hover .dropdown-menu {
+    display: flex; /* Exibe o menu ao passar o mouse */
+    opacity: 1;
 }
 
 .wrapper .top_navbar .top_menu ul {

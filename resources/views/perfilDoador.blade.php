@@ -87,7 +87,7 @@
                 <span class="icon"><i class="fa-solid fa-user"></i></span>
                 <span class="title">Perfil</span>
             </a></li>
-            <li><a href="/buscar">
+            <li><a href="/geo">
                 <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
                 <span class="title">Buscar</span>
             </a></li>
