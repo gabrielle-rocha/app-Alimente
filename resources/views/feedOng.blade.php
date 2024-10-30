@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Ong | Alimente</title>
 
    <link rel="stylesheet" href="/css/feedOng.css">
-   <link rel="stylesheet" href="/css/swiper-bundle.min.css">
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     
@@ -89,103 +89,27 @@
                 <button id="openModalBtn"><i class="fa fa-plus" aria-hidden="true"></i>Adicionar Uma Nova Campanha</button>
             </div>
 
-                <div class="campanhas">
-                    <div class="card">
-                        <div class="image">
-                            <img src="/img/campanha exemplo.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <div class="title">Campanha exemplo</div>
-                            <div class="sub-title">
-                                assunto da campanha
-                            </div>
-                            <div class="bottom">
+            <div class="campanhas">
+    @if($campanhas->count() === 0)
+        <p id="no-campaigns-message">Você ainda não possui campanhas na plataforma.</p>
+    @endif
 
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
-                                <button>Ver campanha</button>
-                            </div>
-                        
-                        </div>
-
-                    </div><!--card-->
-
-                    <div class="card">
-                        <div class="image">
-                            <img src="/img/campanha exemplo5.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <div class="title">Campanha exemplo</div>
-                            <div class="sub-title">
-                                assunto da campanha
-                            </div>
-                            <div class="bottom">
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
-                                <button>Ver campanha</button>
-                            </div>
-                        
-                        </div>
-
-                    </div><!--card-->
-
-                    <div class="card">
-                        <div class="image">
-                            <img src="/img/campanha exemplo2.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <div class="title">Campanha exemplo</div>
-                            <div class="sub-title">
-                                assunto da campanha
-                            </div>
-                            <div class="bottom">
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
-                                <button>Ver campanha</button>
-                            </div>
-                        
-                        </div>
-
-                    </div><!--card-->
-
-                    <div class="card">
-                        <div class="image">
-                            <img src="/img/campanha exemplo4.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <div class="title">Campanha exemplo</div>
-                            <div class="sub-title">
-                                assunto da campanha
-                            </div>
-                            <div class="bottom">
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
-                                <button>Ver campanha</button>
-                            </div>
-                        
-                        </div>
-
-                    </div><!--card-->
-
-                     <div class="card">
-                        <div class="image">
-                            <img src="/img/campanha exemplo3.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <div class="title">Campanha exemplo</div>
-                            <div class="sub-title">
-                                assunto da campanha
-                            </div>
-                            <div class="bottom">
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
-                                <button>Ver campanha</button>
-                            </div>
-                        
-                        </div>
-
-                    </div><!--card-->
-
-                </div><!--campanhas-->
+    @foreach ($campanhas as $campanha)
+        <div class="card">
+            <div class="image">
+                <img src="{{ asset('storage/' . $campanha->imagemCampanha) }}">
+            </div>
+            <div class="content">
+                <div class="title">{{ $campanha->nomeCampanha }}</div>
+                <div class="sub-title">{{ $campanha->assuntoCampanha }}</div>
+                <div class="bottom">
+                    <p>{{ $campanha->descricaoCampanha }}</p>
+                    <button data-id="{{ $campanha->idCampanha }}" class="edit-button"><i class="fa-regular fa-pen-to-square"></i>Editar campanha</button>
+                </div>
+            </div>
+        </div>
+    @endforeach
+</div><!--campanhas-->
 
                 <div class="post-convite">
                     <div class="titulo">Que tal publicar suas causas?</div>
@@ -196,45 +120,46 @@
 
 <!--modais-->
 
-<!--modal nova campanha-->
+<!-- Modal de campanha -->
 <div id="modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-left">
-                <h1>Atribua uma imagem a sua campanha</h1>
-                <p><span>*</span> atribua um banner, um post ou uma imagem referente ao objetivo da arrecadação.</p>
-                <label for="file-upload" class="file-label">
-                    <i class="fa fa-upload" aria-hidden="true"></i> Clique aqui para adicionar uma imagem
-                </label>
-                <input type="file" id="file-upload" class="file-input" accept="image/*">
-                <div id="image-preview" class="image-preview">
-                    <!-- A imagem será exibida aqui -->
+    <div class="modal-content">
+        <div class="modal-left">
+            <h1>Atribua uma imagem à sua campanha</h1>
+            <label for="imagemCampanha" class="file-label">
+                <i class="fa fa-upload" aria-hidden="true"></i> Clique aqui para adicionar uma imagem
+            </label>
+            <input type="file" id="imagemCampanha" name="imagemCampanha" class="imagemCampanha" accept="image/*">
+            <div id="image-preview" class="image-preview"></div>
+        </div>
+        <div class="modal-right">
+            <form id="campanhaForm" action="{{ route('campanha.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" id="idCampanha" name="idCampanha">
+                <input type="hidden" name="idOng" value="{{ auth()->user()->idOng }}">
+
+                <label for="campaign-name">Nome da Campanha:</label>
+                <input type="text" id="campaign-name" name="nomeCampanha" placeholder="Nome da Campanha" required>
+
+                <label for="campaign-subject">Assunto:</label>
+                <input type="text" id="campaign-subject" name="assuntoCampanha" placeholder="Assunto" required>
+
+                <label for="campaign-description">Descrição:</label>
+                <textarea id="campaign-description" name="descricaoCampanha" placeholder="Descrição da campanha" required></textarea>
+
+                <label for="start-date">Data de Início:</label>
+                <input type="date" id="start-date" name="dataInicioCampanha" required>
+
+                <label for="end-date">Data de Fim:</label>
+                <input type="date" id="end-date" name="dataFimCampanha" required>
+
+                <div class="modal-buttons">
+                    <button type="button" id="cancelBtn" class="cancel">Cancelar</button>
+                    <button type="submit" class="submit">Salvar</button>
                 </div>
-            </div>
-            <div class="modal-right">
-                <form>
-                    <label for="campaign-name">Nome da Campanha:</label>
-                    <input type="text" id="campaign-name" placeholder="Nome da Campanha">
-
-                    <label for="campaign-subject">Assunto:</label>
-                    <input type="text" id="campaign-subject" placeholder="Assunto">
-
-                    <label for="campaign-description">Descrição:</label>
-                    <textarea id="campaign-description" placeholder="Descrição da campanha"></textarea>
-
-                    <label for="start-date">Data de Início:</label>
-                    <input type="date" id="start-date">
-
-                    <label for="end-date">Data de Fim:</label>
-                    <input type="date" id="end-date">
-
-                    <div class="modal-buttons">
-                        <button type="button" id="cancelBtn" class="cancel">Cancelar</button>
-                        <button type="submit" class="submit">Enviar</button>
-                    </div>
-                </form>
-            </div>
+            </form>
         </div>
     </div>
+</div>
 
     <!-- Modal post-->
 <div id="postModal" class="post-modal">
@@ -296,5 +221,8 @@
                 });
 
             </script>
+            <script>
+    const csrfToken = "{{ csrf_token() }}";
+</script>
 </body>
 </html>

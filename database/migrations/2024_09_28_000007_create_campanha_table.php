@@ -9,14 +9,17 @@ class CreateCampanhaTable extends Migration
     public function up()
     {
         Schema::create('campanha', function (Blueprint $table) {
-            $table->id('idCampanha');
-            $table->unsignedBigInteger('idOng');
-            $table->string('nomeCampanha', 100);
+            $table->id('idCampanha'); // Certifique-se de que isso também seja o tipo correto
+            $table->unsignedBigInteger('idOng'); // Use unsignedBigInteger para corresponder ao tipo de idOng
+            $table->string('nomeCampanha', 100)->notNull();
             $table->text('descricaoCampanha')->nullable();
-            $table->dateTime('dataInicioCampanha')->nullable();
-            $table->dateTime('dataFimCampanha')->nullable();
-            $table->decimal('metaFinanceiraCampanha', 10, 2)->nullable();
-            
+            $table->string('imagemCampanha', 255)->nullable();
+            $table->string('assuntoCampanha', 255)->nullable();
+            $table->date('dataInicioCampanha')->nullable();
+            $table->date('dataFimCampanha')->nullable();
+            // Outros campos necessários
+
+            // Definindo a chave estrangeira
             $table->foreign('idOng')->references('idOng')->on('ong')->onDelete('cascade');
             $table->timestamps();
         });

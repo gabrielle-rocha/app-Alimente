@@ -312,20 +312,40 @@ body {
     margin-right: 10px;
     position: relative;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-    transition: 0.4s linear;
+    opacity: 1;
+    
+    transition: opacity 0.4s ease, transform 0.4s ease;
     overflow: hidden; /* Garante que o conteúdo que ultrapassa o card seja escondido */
     box-sizing: border-box; /* Inclui padding e borda dentro da largura */
 }
 
-.card.active .image img{
+/*.card.active .image img{
     opacity: 0.5;
     transform: scale(1.1);
-}
+}*/
 
 .card .image{
     background: transparent;
     height: 330px;
     overflow: hidden;
+}
+
+/* Estado final com a animação */
+.campanhas .card.active {
+    opacity: 1;
+    transform: scale(1) translateY(0); /* Estado final com escala e posição normal */
+}
+
+.campanhas .card.card-initial {
+    transform: scale(0.95) translateY(10px); /* Estado inicial com leve escala e deslocamento */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Atributos para a imagem quando o card é ativo */
+.card.active .image img {
+    opacity: 0.5;
+    transform: scale(1.05);
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .image img{
@@ -384,7 +404,12 @@ body {
    margin: 10px 0;
    cursor: pointer;
    transition: 0.3s ease;
+   align-self: center ;
    border-radius: 5px;
+}
+
+.bottom button i{
+    margin-right: 5px;
 }
 
 .bottom button:hover{
@@ -514,7 +539,7 @@ body {
     background-color: #bbbbbb48;
 }
 
-.file-input {
+.imagemCampanha {
     display: none;
 }
 

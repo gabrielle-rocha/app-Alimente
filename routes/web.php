@@ -9,6 +9,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\CampanhaController;
+use App\Http\Controllers\FeedOngController;
 
 /*
 |--------------------------------------------------------------------------
@@ -118,9 +120,8 @@ Route::get('/perfilDoador', function() {
 Route::get('/geo', [MapController::class, 'index'])->name('mapa.index');
 
 /*feed ong*/
-Route::get('/feedOng', function() {
-    return view('feedOng');
-});
+Route::get('/feedOng', [FeedOngController::class, 'index'])->name('feedOng.index');
+Route::put('/feedOng/{id}', [FeedOngController::class, 'update'])->name('feedOng.update');
 
 Route::get('/perfilOng', function() {
     return view('perfilOng');
@@ -129,3 +130,9 @@ Route::get('/perfilOng', function() {
 Route::get('/prestarContaOng', function() {
     return view('prestarContaOng');
 });
+
+Route::get('/campanhas', [CampanhaController::class, 'index'])->name('campanhas.index');
+Route::post('/campanha/store', [CampanhaController::class, 'store'])->name('campanha.store');
+Route::get('/campanha/{id}', [CampanhaController::class, 'show']);
+Route::put('/campanha/{id}', [CampanhaController::class, 'update']);
+

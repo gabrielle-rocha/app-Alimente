@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,22 +10,22 @@ class Campanha extends Model
 {
     use HasFactory;
 
-    protected $table = 'campanha'; // Nome da tabela
-
-    protected $primaryKey = 'idCampanha'; // Chave primária
+    protected $table = 'campanha';
+    protected $primaryKey = 'idCampanha';
 
     protected $fillable = [
         'idOng',
         'nomeCampanha',
         'descricaoCampanha',
+        'imagemCampanha',
+        'assuntoCampanha',
         'dataInicioCampanha',
         'dataFimCampanha',
-        'metaFinanceiraCampanha'
     ];
 
-    // Relacionamento com Ong
     public function ong()
     {
         return $this->belongsTo(Ong::class, 'idOng');
     }
 }
+

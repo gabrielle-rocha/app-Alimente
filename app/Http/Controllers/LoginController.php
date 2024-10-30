@@ -7,10 +7,9 @@ use App\Models\Ong;
 use App\Models\Adm;
 use Illuminate\Support\Facades\Auth;
 
-
 class LoginController extends Controller
 {
-    // Método para exibir a página de login do doador/ong
+    // Método para exibir a página de login do doador/ONG
     public function showLoginForm()
     {
         return view('logindoador');
@@ -31,45 +30,44 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
+        // Tenta autenticar como doador
         $doador = Doador::where('emailDoador', $credentials['email'])->first();
-        $ong = Ong::where('emailOng', $credentials['email'])->first();
-
         if ($doador && $doador->senhaDoador === $credentials['password']) {
             Auth::login($doador); // Login do doador
             return view('/feedDoador');
-        } elseif ($ong && $ong->senhaOng === $credentials['password']) {
-            Auth::login($ong); // Login da ONG
-            return view('feedOng');
         }
 
+        // Tenta autenticar como ONG
+        $ong = Ong::where('emailOng', $credentials['email'])->first();
+        if ($ong && $ong->senhaOng === $credentials['password']) {
+            Auth::login($ong); // Login da ONG
+            return redirect()->route('feedOng.index', ['idOng' => $ong->id]); // Redireciona com o ID da ONG
+        }
+
+        // Retorna com erro se as credenciais forem inválidas
         return back()->withErrors(['login' => 'Credenciais inválidas.'])->withInput();
     }
 
     // Método para processar o login do administrador
     public function loginAdmin(Request $request)
     {
-        // Validação dos dados do formulário
         $credentials = $request->only('email', 'password');
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|string',
         ]);
-    
-        // Verifica se o email é o do administrador
+
+        // Verifica as credenciais do administrador
         if ($credentials['email'] === 'adm@gmail.com' && $credentials['password'] === '123adm') {
-            // Login do administrador
-            Auth::loginUsingId(1); // Você pode definir um ID específico ou outro método para identificar o admin
-    
-            // Redireciona para a dashboard do admin
-            return redirect()->route('admin.dashboard'); // Aqui você deve redirecionar corretamente
+            Auth::loginUsingId(1); // Login como admin (ID específico)
+            return redirect()->route('admin.dashboard'); // Redireciona para o dashboard admin
         }
-    
-        // Se as credenciais forem inválidas, retorna um erro
+
+        // Retorna com erro se as credenciais forem inválidas
         return back()->withErrors([
             'login' => 'Credenciais inválidas.',
         ])->withInput();
     }
-    
 
     // Método para logout
     public function logout()
