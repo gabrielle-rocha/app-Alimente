@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class FeedOngController extends Controller
 {
+    
     public function index()
 {
     if (Auth::check() && Auth::user()->idOng) {

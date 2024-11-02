@@ -14,9 +14,12 @@ return new class extends Migration
     public function up()
 {
     Schema::table('users', function (Blueprint $table) {
-        $table->string('email')->unique()->after('id'); // Ajuste conforme necessário
+        if (!Schema::hasColumn('users', 'email')) {
+            $table->string('email')->after('id')->unique();
+        }
     });
 }
+
 
 public function down()
 {
