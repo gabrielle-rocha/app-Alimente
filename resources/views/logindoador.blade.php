@@ -133,6 +133,7 @@
     <div class="right-section">
         <img src="/img/alimente.png" alt="Alimente - Gerando Solidariedade">
         <img src="/img/slogan-alimente-cinza.png" alt="Alimente - Gerando Solidariedade">
+        <img src="/img/telainicio.png" alt="Alimente - Gerando Solidariedade">
     </div>
 </body>
 </html>

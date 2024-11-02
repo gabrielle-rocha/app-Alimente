@@ -23,6 +23,7 @@
     <!--gradiente-->
     <div class="grad">
     <img src="/img/normal.png" alt="">
+    <img src="/img/telainicio.png" alt="Alimente - Gerando Solidariedade">
     </div>
 
     <div class="container">

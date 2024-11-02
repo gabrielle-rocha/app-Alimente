@@ -211,6 +211,7 @@
     </div>
     <div class="right-section">
     <img src="/img/normal.png" alt="">
+    <img src="/img/telainicio.png" alt="Alimente - Gerando Solidariedade">
     </div>
 
     <!--js-->
