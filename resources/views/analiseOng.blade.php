@@ -20,8 +20,7 @@
     
     <!--gradiente-->
     <div class="grad">
-        <img src="/img/alimente.png" alt="">
-        <img src="/img/slogan-alimente-cinza.png" alt="">
+        <img src="/img/branco.png" alt="">
         <img src="/img/telainicio.png" alt="Alimente - Gerando Solidariedade">
     </div>
 

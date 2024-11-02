@@ -25,7 +25,7 @@
 
         /* Barra de navegação */
         nav {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -709,30 +709,23 @@
     <div class="colaboradores-container">
         <div class="colaborador">
             <div class="foto-perfil">
-                <img src="img/target.jfif" alt="Colaborador 1">
+                <img src="/img/Logo-Materna.png" alt="Colaborador 1">
             </div>
-            <h3>Target</h3>
+            <h3>Materna</h3>
             <p>Empresa de tecnologia</p>
         </div>
         <div class="colaborador">
             <div class="foto-perfil">
-                <img src="img/elysium.jfif" alt="Colaborador 2">
+                <img src="/img/amigodesangue.png" alt="Colaborador 2">
             </div>
-            <h3>Elysium</h3>
+            <h3>Amigo de Sangue</h3>
             <p>Empresa de tecnologia</p>
         </div>
         <div class="colaborador">
             <div class="foto-perfil">
-                <img src="img/apex.jfif" alt="Colaborador 3">
+                <img src="/img/iacademy.jpeg" alt="Colaborador 3">
             </div>
-            <h3>Apex</h3>
-            <p>Empresa de tecnologia</p>
-        </div>
-        <div class="colaborador">
-            <div class="foto-perfil">
-                <img src="img/union.jfif" alt="Colaborador 3">
-            </div>
-            <h3>Union</h3>
+            <h3>IAcademy</h3>
             <p>Empresa de tecnologia</p>
         </div>
     </div>
