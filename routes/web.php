@@ -11,6 +11,7 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\CampanhaController;
 use App\Http\Controllers\FeedOngController;
+use App\Http\Controllers\PostagemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -154,6 +155,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/campanha/{id}', [CampanhaController::class, 'destroy']); // Certifique-se de que esta linha está aqui
 
 });
+
+//postagem rotas
+
+Route::middleware('auth')->group(function () {
+    Route::post('/postagem', [PostagemController::class, 'store']);
+});
+
 
 /* Rotas para login
 

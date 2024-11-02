@@ -54,9 +54,12 @@
                     <a href="/perfilOng">
                     <i class="fa-solid fa-users"></i> Perfil
                     </a>
-                    <a href="#logout">
-                    <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
-                    </a>
+                    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+    @csrf
+    <button type="submit">
+        <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
+    </button>
+</form>
                 </div>
             </div>
 
@@ -206,14 +209,7 @@
     </div>
 </div>
 
-<!--modal de deletar campanha
-<div id="deleteModal" style="display: none;">
-    <div class="modal-content">
-        <p>Tem certeza de que deseja excluir esta campanha?</p>
-        <button id="confirmDeleteBtn">Excluir</button>
-        <button id="cancelDeleteBtn">Cancelar</button>
-    </div>
-</div>-->
+<!--modal de deletar campanha-->
 <div id="deleteModal" class="modal-delete">
     <div class="modal-content-delete">
         <h2>Tem certeza que deseja excluir esta campanha?</h2>
@@ -243,6 +239,8 @@
       <!-- Lado esquerdo - Upload da imagem -->
       <div class="post-left-section">
          <!-- Botão personalizado para upload -->
+         <input type="hidden" id="idOng" value="{{ Auth::user()->idOng }}">
+
          <label for="postUploadImage" class="post-image-label">
           <i class="fa fa-cloud-upload" aria-hidden="true"></i> Adicionar Foto
         </label>
@@ -278,7 +276,7 @@
 <script src="/js/postOng.js"></script>
 <script src="/js/novaCampanha.js"></script>
 
-
+<!--excluir campanha-->
 <script>
 $(document).ready(function() {
     // Abre o modal de exclusão quando o botão de excluir é clicado
@@ -413,7 +411,6 @@ $(document).ready(function() {
 });
 </script>
 
-
             <script>
                 $('.card').hover(function(){
                     var card = $(this);
@@ -422,8 +419,8 @@ $(document).ready(function() {
                             card.removeClass("active");
                         });
                     } else {
-                        $('.card').removeClass("active"); // Remove a classe de todos os outros cards
-                        $('.card .bottom').slideUp(); // Fecha o conteúdo de todos os outros cards
+                        $('.card').removeClass("active"); 
+                        $('.card .bottom').slideUp();
                         card.addClass("active");
                         card.find('.bottom').stop().slideDown();
                     }

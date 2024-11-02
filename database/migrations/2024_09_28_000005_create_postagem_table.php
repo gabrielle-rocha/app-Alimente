@@ -10,11 +10,13 @@ class CreatePostagemTable extends Migration
     {
         Schema::create('postagem', function (Blueprint $table) {
             $table->id('idPostagem');
-            $table->unsignedBigInteger('idOng'); // Certifique-se de que este tipo esteja correto
-            $table->text('conteudo');
+            $table->unsignedBigInteger('idOng');
+            $table->text('conteudo'); // Descrição do post
+            $table->string('imagem')->nullable(); // Caminho da imagem
+            $table->string('hashtags')->nullable(); // Hashtags usadas
             $table->timestamp('dataPostagem')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->integer('numeroCurtidas')->default(0);
-            $table->text('comentariosPostagem')->nullable(); // Nullable para evitar problemas se não houver comentários
+            $table->text('comentariosPostagem')->nullable();
             $table->foreign('idOng')->references('idOng')->on('ong')->onDelete('cascade');
         });
     }

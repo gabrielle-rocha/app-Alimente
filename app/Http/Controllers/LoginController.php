@@ -73,7 +73,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        session()->forget('isAdmin'); // Remove o login do admin da sessão
-        return redirect()->route('logindoador');
+        return redirect()->route('logindoador')->with('message', 'Logout realizado com sucesso!');
     }
 }
