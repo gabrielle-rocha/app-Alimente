@@ -11,7 +11,6 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\CampanhaController;
 use App\Http\Controllers\FeedOngController;
-use App\Http\Controllers\GeolocalizacaoController;
 
 /*
 |--------------------------------------------------------------------------
