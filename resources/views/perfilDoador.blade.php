@@ -53,6 +53,7 @@
 });
     </script>
 
+
     <!--icon-->
     <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -79,18 +80,20 @@
     
     <div class="sidebar">
         <ul>
-            <li><a href="/feedDoador">
-                <span class="icon"><i class="fa-solid fa-house"></i></span>
-                <span class="title">Início</span>
-            </a></li>
-            <li><a href="#">
+                <li><a href="#">
+                    <span class="icon"><i class="fa-solid fa-house"></i></span>
+                    <span class="title">Início</span>
+<                   </a></li>
+
+                <li><a href="/perfilDoador">
                 <span class="icon"><i class="fa-solid fa-user"></i></span>
                 <span class="title">Perfil</span>
-            </a></li>
-            <li><a href="/geo">
+                </a></li>
+
+                <li><a href="/geolocalizacao">
                 <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
                 <span class="title">Buscar</span>
-            </a></li>
+                </a></li>
         </ul>
     </div>
 

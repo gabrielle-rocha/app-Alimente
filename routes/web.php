@@ -11,6 +11,7 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\CampanhaController;
 use App\Http\Controllers\FeedOngController;
+use App\Http\Controllers\GeolocalizacaoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -117,7 +118,10 @@ Route::get('/perfilDoador', function() {
     return view('perfilDoador');
 });
 
-Route::get('/geo', [MapController::class, 'index'])->name('mapa.index');
+//rotas geolocalizaçao
+Route::get('/geolocalizacao', [GeolocalizacaoController::class, 'index'])->name('geolocalizacao.index');
+Route::get('/geolocalizacao/buscar', [GeolocalizacaoController::class, 'buscar'])->name('geolocalizacao.buscar');
+//Route::get('/geo', [MapController::class, 'index'])->name('mapa.index');
 
 /*feed ong*/
 Route::middleware('auth')->group(function () {
@@ -154,6 +158,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/campanha/{id}', [CampanhaController::class, 'destroy']); // Certifique-se de que esta linha está aqui
 
 });
+
 
 /* Rotas para login
 
