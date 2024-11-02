@@ -117,3 +117,4 @@ class OngController extends Controller
         return view('logindoador');
     }
 }
+    

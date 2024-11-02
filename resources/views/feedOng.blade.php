@@ -8,7 +8,7 @@
 
    <link rel="stylesheet" href="/css/feedOng.css">
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   <!--<script src="https://code.jquery.com/jquery-3.4.1.js"></script>-->
     
     <script>
         $(document).ready(function(){
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="user">
-                <img src="/img/exemplo-perfil5.jpg" alt="Foto do perfil">
+                <img src="{{ asset('storage/uploads/' . $ong->fotoOng) }}" alt="Imagem da ONG" />
                 <div class="dropdown-menu">
                     <a href="/perfilOng">
                     <i class="fa-solid fa-users"></i> Perfil
@@ -104,7 +104,10 @@
                 <div class="sub-title">{{ $campanha->assuntoCampanha }}</div>
                 <div class="bottom">
                     <p>{{ $campanha->descricaoCampanha }}</p>
+                    <div class="row">
                     <button data-id="{{ $campanha->idCampanha }}" class="edit-button"><i class="fa-regular fa-pen-to-square"></i>Editar campanha</button>
+                    <button data-id="{{ $campanha->idCampanha }}" class="delete-button"><i class="fa-solid fa-circle-xmark"></i>Excluir</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -161,6 +164,75 @@
     </div>
 </div>
 
+<!-- Modal de edição de campanha -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-left">
+            <h1>Atribua uma nova imagem à sua campanha</h1>
+            <label for="edit-imagemCampanha" class="file-label">
+                <i class="fa fa-upload" aria-hidden="true"></i> Clique aqui para adicionar uma nova imagem
+            </label>
+            <input type="file" id="edit-imagemCampanha" name="imagemCampanha" class="imagemCampanha" accept="image/*">
+            <div id="edit-image-preview" class="edit-image-preview"></div>
+        </div>
+        <div class="modal-right">
+        <form id="editCampanhaForm" method="POST" enctype="multipart/form-data">
+    @csrf
+    @method('PUT') <!-- Método para atualização -->
+                <input type="hidden" id="edit-idCampanha" name="idCampanha">
+                <input type="hidden" id="edit-idOng" name="idOng" value="{{ auth()->user()->idOng }}">
+
+                <label for="edit-campaign-name">Nome da Campanha:</label>
+                <input type="text" id="edit-campaign-name" name="nomeCampanha" placeholder="Nome da Campanha" required>
+
+                <label for="edit-campaign-subject">Assunto:</label>
+                <input type="text" id="edit-campaign-subject" name="assuntoCampanha" placeholder="Assunto" required>
+
+                <label for="edit-campaign-description">Descrição:</label>
+                <textarea id="edit-campaign-description" name="descricaoCampanha" placeholder="Descrição da campanha" required></textarea>
+
+                <label for="edit-start-date">Data de Início:</label>
+                <input type="date" id="edit-start-date" name="dataInicioCampanha" required>
+
+                <label for="edit-end-date">Data de Fim:</label>
+                <input type="date" id="edit-end-date" name="dataFimCampanha" required>
+
+                <div class="modal-buttons">
+                    <button type="button" id="editCancelBtn" class="cancel">Cancelar</button>
+                    <button type="submit" class="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--modal de deletar campanha
+<div id="deleteModal" style="display: none;">
+    <div class="modal-content">
+        <p>Tem certeza de que deseja excluir esta campanha?</p>
+        <button id="confirmDeleteBtn">Excluir</button>
+        <button id="cancelDeleteBtn">Cancelar</button>
+    </div>
+</div>-->
+<div id="deleteModal" class="modal-delete">
+    <div class="modal-content-delete">
+        <h2>Tem certeza que deseja excluir esta campanha?</h2>
+        <p id="delete-campaign-name">Nome da Campanha:</p>
+        <form id="deleteCampanhaForm" method="POST" action="">
+            @csrf
+            @method('DELETE')
+            <input type="hidden" id="delete-idCampanha" name="idCampanha">
+            <input type="hidden" id="delete-idOng" name="idOng" value="{{ auth()->user()->idOng }}">
+            <div class="modal-buttons-delete">
+                <button type="button" id="deleteCancelBtn" class="cancel">Cancelar</button>
+                <button type="submit" class="delete-campaign">Excluir</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="success-message"></div> <!-- Mensagem de sucesso -->
+
     <!-- Modal post-->
 <div id="postModal" class="post-modal">
   <div class="post-modal-content">
@@ -205,6 +277,143 @@
 
 <script src="/js/postOng.js"></script>
 <script src="/js/novaCampanha.js"></script>
+
+
+<script>
+$(document).ready(function() {
+    // Abre o modal de exclusão quando o botão de excluir é clicado
+    $(document).on('click', '.delete-button', function() {
+        const idCampanha = $(this).data('id');
+        $('#delete-campaign-name').text('Nome da Campanha: ' + $(this).closest('.content').find('.title').text());
+        $('#delete-idCampanha').val(idCampanha);
+        $('#deleteCampanhaForm').attr('action', `/campanha/${idCampanha}`); // Define a URL de ação
+        $('#deleteModal').show();
+    });
+
+    $('#deleteCampanhaForm').submit(function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: $(this).attr('action'),
+            type: 'POST', // O Laravel trata o método DELETE com um POST contendo o _method
+            data: $(this).serialize(), // Usa serialize para enviar os dados do formulário
+            success: function(response) {
+                $('.success-message').text('Campanha excluída com sucesso!').show();
+
+                // Oculta a mensagem após 3 segundos
+                setTimeout(function() {
+                    $('.success-message').fadeOut();
+                }, 3000);
+
+                $('#deleteModal').hide();
+                location.reload(); // Atualiza a página
+            },
+            error: function(response) {
+                const errorMessage = response.responseJSON ? response.responseJSON.message : 'Erro desconhecido';
+                alert('Erro ao excluir campanha: ' + errorMessage);
+            }
+        });
+    });
+
+    $('#deleteCancelBtn').click(function() {
+        $('#deleteModal').hide();
+    });
+
+    $(window).click(function(event) {
+        if ($(event.target).is('#deleteModal')) {
+            $('#deleteModal').hide();
+        }
+    });
+});
+</script>
+
+<!-- Código JavaScript e AJAX para atualização de campanha -->
+<script>
+$(document).ready(function() {
+    // Abrir o modal de edição com os dados da campanha
+    $('.edit-button').click(function() {
+        const id = $(this).data('id');
+        
+        // Preencher os dados do formulário de edição usando AJAX
+        $.get(`/campanha/${id}`, function(data) {
+            $('#edit-idCampanha').val(data.idCampanha);
+            $('#edit-campaign-name').val(data.nomeCampanha);
+            $('#edit-campaign-subject').val(data.assuntoCampanha);
+            $('#edit-campaign-description').val(data.descricaoCampanha);
+            $('#edit-start-date').val(data.dataInicioCampanha);
+            $('#edit-end-date').val(data.dataFimCampanha);
+            $('#editModal').css('display', 'flex');
+        });
+    });
+
+    $('#edit-imagemCampanha').on('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                $('#edit-image-preview').html(`<img src="${e.target.result}" alt="Pré-visualização da imagem" style="max-width: 100%; max-height: 300px;">`);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            $('#edit-image-preview').empty(); // Limpa a pré-visualização se nenhum arquivo for selecionado
+        }
+    });
+
+    // Submissão do formulário de edição via AJAX
+    $('#editCampanhaForm').submit(function(e) {
+        e.preventDefault();
+        const id = $('#edit-idCampanha').val();
+        const formData = new FormData(this);
+
+        $.ajax({
+            url: `/campanha/${id}`,
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            headers: {
+                'X-HTTP-Method-Override': 'PUT', // Método PUT simulado
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response) {
+                alert('Campanha atualizada com sucesso!');
+
+                // Atualizar a imagem no modal e fora dele com cache-busting
+                if (response.imagemCampanha) {
+                    const timestamp = new Date().getTime(); // Gera um timestamp
+                    const newImageSrc = `/storage/${response.imagemCampanha}?t=${timestamp}`;
+
+                    // Atualizar pré-visualização no modal
+                    $('#edit-image-preview').html(`<img src="${newImageSrc}" alt="Pré-visualização da imagem" style="max-width: 100%; max-height: 300px;">`);
+
+                    // Atualizar a imagem principal fora do modal
+                    $(`#campaign-image-${id}`).attr('src', newImageSrc);
+                }
+
+                // Fechar o modal após a atualização
+                $('#editModal').hide();
+            },
+            error: function(response) {
+                alert('Erro ao atualizar campanha.');
+            }
+        });
+    });
+
+    // Fechar o modal ao clicar no botão de cancelar
+    $('#editCancelBtn').click(function() {
+        $('#editModal').css('display', 'none'); // Ocultar o modal
+    });
+
+    // Fechar o modal ao clicar fora do conteúdo
+    $(window).click(function(event) {
+        if ($(event.target).is('#editModal')) {
+            $('#editModal').css('display', 'none');
+        }
+    });
+});
+</script>
+
+
             <script>
                 $('.card').hover(function(){
                     var card = $(this);

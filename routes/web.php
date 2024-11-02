@@ -91,12 +91,12 @@ Route::get('/ongs-view', function() {
 });
 
 /* Recuperação de senha */
-Route::get('/password-reset', [PasswordResetController::class, 'showEmailForm'])->name('password.reset');
-Route::post('/password-reset', [PasswordResetController::class, 'sendResetCode']);
-Route::get('/password-reset/code', [PasswordResetController::class, 'showCodeForm'])->name('password.reset.code');
-Route::post('/password-reset/code', [PasswordResetController::class, 'verifyCode']);
-Route::get('/password-reset/change', [PasswordResetController::class, 'showChangePasswordForm'])->name('password.reset.change');
-Route::post('/password-reset/change', [PasswordResetController::class, 'changePassword']);
+//Route::get('/password-reset', [PasswordResetController::class, 'showEmailForm'])->name('password.reset');
+//Route::post('/password-reset', [PasswordResetController::class, 'sendResetCode']);
+//Route::get('/password-reset/code', [PasswordResetController::class, 'showCodeForm'])->name('password.reset.code');
+//Route::post('/password-reset/code', [PasswordResetController::class, 'verifyCode']);
+//Route::get('/password-reset/change', [PasswordResetController::class, 'showChangePasswordForm'])->name('password.reset.change');
+//Route::post('/password-reset/change', [PasswordResetController::class, 'changePassword']);
 
 /*Autorização do adm para ong */
 Route::get('/admin', [adminController::class, 'index'])->name('admin.index');
@@ -120,8 +120,12 @@ Route::get('/perfilDoador', function() {
 Route::get('/geo', [MapController::class, 'index'])->name('mapa.index');
 
 /*feed ong*/
-Route::get('/feedOng', [FeedOngController::class, 'index'])->name('feedOng.index');
-Route::put('/feedOng/{id}', [FeedOngController::class, 'update'])->name('feedOng.update');
+Route::middleware('auth')->group(function () {
+    Route::get('/feedOng', [FeedOngController::class, 'index'])->name('feedOng.index');
+    Route::put('/feedOng/{id}', [FeedOngController::class, 'update'])->name('feedOng.update');
+    Route::get('/feedOng/{id}', [FeedOngController::class, 'show'])->name('feedOng.show');
+    Route::delete('/feedOng/{id}', [FeedOngController::class, 'destroy'])->name('feedOng.destroy');
+});
 
 Route::get('/perfilOng', function() {
     return view('perfilOng');
@@ -131,8 +135,41 @@ Route::get('/prestarContaOng', function() {
     return view('prestarContaOng');
 });
 
-Route::get('/campanhas', [CampanhaController::class, 'index'])->name('campanhas.index');
-Route::post('/campanha/store', [CampanhaController::class, 'store'])->name('campanha.store');
-Route::get('/campanha/{id}', [CampanhaController::class, 'show']);
-Route::put('/campanha/{id}', [CampanhaController::class, 'update']);
+// Rotas para campanhas
+Route::middleware('auth')->group(function () {
+    // Rota para exibir todas as campanhas
+    Route::get('/campanhas', [CampanhaController::class, 'index'])->name('campanha.index');
 
+    // Rota para armazenar uma nova campanha
+    Route::post('/campanha', [CampanhaController::class, 'store'])->name('campanha.store');
+
+    // Rota para mostrar os detalhes de uma campanha específica
+    Route::get('/campanha/{id}', [CampanhaController::class, 'show'])->name('campanha.show');
+
+    // Rota para atualizar uma campanha existente
+    Route::put('/campanha/{id}', [CampanhaController::class, 'update']);
+
+    // Rota para excluir uma campanha (opcional)
+    // Para rotas de API
+    Route::delete('/campanha/{id}', [CampanhaController::class, 'destroy']); // Certifique-se de que esta linha está aqui
+
+});
+
+/* Rotas para login
+
+// Página de Registro
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [RegisterController::class, 'register']);
+
+// Página de Redefinição de Senha
+Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+
+Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
+
+// Rota para o dashboard após o login
+Route::get('dashboard', function () {
+    return view('dashboard'); // Certifique-se de ter essa view criada
+})->middleware('auth');
+Auth::routes();*/
