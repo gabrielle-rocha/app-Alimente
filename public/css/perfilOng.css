@@ -118,6 +118,27 @@ body {
     opacity: 1;
 }
 
+.dropdown-menu button{
+    background-color: transparent;
+    border: none;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 8px 16px;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    transition: background 0.2s;
+    width: 100%;
+}
+
+.dropdown-menu button i {
+    margin-right: 8px;
+    font-size: 16px;
+    color: #37518a;
+}
+
+
 .wrapper .top_navbar .top_menu ul {
     display: flex;
 }
@@ -444,7 +465,7 @@ nav a.active {
 .header__wrapper .cols__container .right__col .photos img{
     max-width: 100%;
     display: block;
-    height: 100%;
+    height: 80%;
     object-fit: cover;
     border-radius: 5px;
 }

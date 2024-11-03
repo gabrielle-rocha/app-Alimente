@@ -13,6 +13,7 @@ class Campanha extends Model
     protected $table = 'campanha';
     protected $primaryKey = 'idCampanha';
 
+
     protected $fillable = [
         'idOng',
         'nomeCampanha',
@@ -27,5 +28,6 @@ class Campanha extends Model
     {
         return $this->belongsTo(Ong::class, 'idOng');
     }
+    
 }
 

@@ -10,6 +10,12 @@ class Postagem extends Model
 
     protected $table = 'postagem'; // Nome da tabela
     protected $primaryKey = 'idPostagem'; // Nome da chave primária
+    public function ong()
+    {
+        return $this->belongsTo(Ong::class, 'idOng', 'idOng');
+    }
+
+
     public $timestamps = false; // Se você não tiver as colunas created_at e updated_at
 
     protected $fillable = [

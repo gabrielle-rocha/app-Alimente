@@ -38,8 +38,8 @@
                 <img src="/img/alimente.png" alt="">
             </div>
             <div class="user">
-                <img src="/img/exemplo-perfil5.jpg" alt="">
-                <div class="dropdown-menu">
+            <img src="{{ asset('storage/uploads/' . $ong->fotoOng) }}" alt="Imagem da ONG" />
+            <div class="dropdown-menu">
                     <a href="/perfilOng">
                     <i class="fa-solid fa-users"></i> Perfil
                     </a>

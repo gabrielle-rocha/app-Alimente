@@ -1,12 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use App\Models\Doador;
+use App\Models\Ong;
+use App\Models\Campanha;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class DoadorController extends Controller
 {
+    public function feed()
+    {
+        $doador = auth()->user(); // Obtém o usuário autenticado
+        // Busca todas as campanhas, incluindo as informações das ONGs
+        $campanhas = Campanha::with('ong')->get(); // Certifique-se de que o relacionamento está definido
+        $postagens = Postagem::with('ong')->get();
+        
+        return view('feedDoador', [
+            'doador' => $doador,
+            'campanhas' => $campanhas,
+            'postagens' => $postagens
+        ]);
+    }
+    
+
 
     public function index() {
         $search = request('search');

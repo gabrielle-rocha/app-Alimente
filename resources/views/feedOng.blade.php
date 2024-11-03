@@ -20,6 +20,14 @@
     const dropdownMenu = this.querySelector('.dropdown-menu');
     dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
 });
+
+function showLogoutModal() {
+        document.getElementById('logoutModal').style.display = 'flex';
+    }
+
+    function closeLogoutModal() {
+        document.getElementById('logoutModal').style.display = 'none';
+    }
         });
 
 
@@ -54,12 +62,9 @@
                     <a href="/perfilOng">
                     <i class="fa-solid fa-users"></i> Perfil
                     </a>
-                    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-    @csrf
-    <button type="submit">
-        <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
-    </button>
-</form>
+                    <button type="button" onclick="showLogoutModal()" class="logout-button">
+    <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
+</button>
                 </div>
             </div>
 
@@ -125,7 +130,18 @@
             </div>
 
 <!--modais-->
-
+<!-- Modal de Confirmação -->
+<div id="logoutModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <h3>Confirmar Logout</h3>
+        <p>Você tem certeza de que deseja sair?</p>
+        <form action="{{ route('logout') }}" method="POST" id="logoutForm" style="display: inline;">
+            @csrf
+            <button type="submit" class="confirm-button">Confirmar</button>
+        </form>
+        <button type="button" onclick="closeLogoutModal()" class="cancel-button">Cancelar</button>
+    </div>
+</div>
 <!-- Modal de campanha -->
 <div id="modal" class="modal">
     <div class="modal-content">

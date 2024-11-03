@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Models\Doador;
 use App\Models\Ong;
 use App\Models\Adm;
+use App\Models\Postagem;
+use App\Models\Campanha;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -34,7 +36,9 @@ class LoginController extends Controller
         $doador = Doador::where('emailDoador', $credentials['email'])->first();
         if ($doador && $doador->senhaDoador === $credentials['password']) {
             Auth::login($doador); // Login do doador
-            return view('/feedDoador');
+            $campanhas = Campanha::with('ong')->get();
+            $postagens = Postagem::with('ong')->get();
+            return view('feedDoador', ['doador' => $doador, 'campanhas' => $campanhas, 'postagens' => $postagens]);
         }
 
         // Tenta autenticar como ONG
@@ -73,6 +77,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('logindoador')->with('message', 'Logout realizado com sucesso!');
+        return view('landingpage')->with('message', 'Logout realizado com sucesso!');
     }
 }

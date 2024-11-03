@@ -14,6 +14,17 @@ class Ong extends Model implements AuthenticatableContract
 
     protected $primaryKey = 'idOng'; // Chave primária
 
+    public function postagens()
+    {
+        return $this->hasMany(Postagem::class, 'idOng', 'idOng');
+    }
+
+    public function campanhas()
+    {
+        return $this->hasMany(Campanha::class, 'idOng');
+    }
+
+
     protected $fillable = [
         'nomeOng',
         'cnpjOng',

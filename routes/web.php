@@ -110,13 +110,13 @@ Route::get('/admin', function() {
 });
 
 /*feed doador*/ 
-Route::get('/feedDoador', function() {
-    return view('feedDoador');
-});
+
 
 Route::get('/perfilDoador', function() {
     return view('perfilDoador');
 });
+
+Route::get('/feedDoador', [DoadorController::class, 'feed'])->name('feedDoador')->middleware('auth');
 
 Route::get('/geo', [MapController::class, 'index'])->name('mapa.index');
 
@@ -128,13 +128,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/feedOng/{id}', [FeedOngController::class, 'destroy'])->name('feedOng.destroy');
 });
 
-Route::get('/perfilOng', function() {
-    return view('perfilOng');
-});
+Route::get('/perfilOng', [OngController::class, 'perfil'])->middleware('auth');
 
-Route::get('/prestarContaOng', function() {
-    return view('prestarContaOng');
-});
+Route::get('/prestarContaOng', [OngController::class, 'prestarConta'])->middleware('auth');
 
 // Rotas para campanhas
 Route::middleware('auth')->group(function () {

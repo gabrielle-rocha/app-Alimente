@@ -47,6 +47,16 @@
         });
 </script>
 
+<script>
+    function showLogoutModal() {
+        document.getElementById('logoutModal').style.display = 'flex';
+    }
+
+    function closeLogoutModal() {
+        document.getElementById('logoutModal').style.display = 'none';
+    }
+</script>
+
     <!--icon-->
     <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -71,11 +81,11 @@
                 </div>
 
                 <div class="user">
-                    <img src="/img/exemplo-perfil5.jpg" alt="">
+                <img src="{{ asset('storage/uploads/' . $ong->fotoOng) }}" alt="Imagem da ONG" />
                     <div class="dropdown-menu">
-                    <a href="#logout">
-                    <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
-                    </a>
+                    <button type="button" onclick="showLogoutModal()" class="logout-button">
+    <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
+</button>
                 </div>
                 </div>
                 
@@ -111,24 +121,24 @@
                     <div class="left__col">
 
                         <div class="img__container">
-                            <img src="/img/exemplo-perfil5.jpg" alt="">
+                        <img src="{{ asset('storage/uploads/' . $ong->fotoOng) }}" alt="Imagem da ONG" />
                             <span></span>
                         </div><!--img__container-->
-                        <h2>sempre_juntos</h2>
+                        <h2>{{ $ong->nomeUsuarioOng }}</h2>
                         <p>Organização Não Governamental</p>
-                        <p>ong@gmail.com</p>
+                        <p>{{ $ong->emailOng }}</p> 
 
                         <ul class="about">
-                            <li><span>0</span>postagens</li>
-                            <li><span>0</span>campanhas</li>
+                            <li><span>{{$numeroPostagens}}</span>postagens</li>
+                            <li><span>{{$numeroCampanhas}}</span>campanhas</li>
                             <li><span>0</span>seguidores</li>
                         </ul>
 
                         <div class="content">
                             <p>
-                               ONG fundada em 2008;<br>
-                               4 Representantes;<br>
-                                mais de mil famílias auxiliadas ao longo do tempo!
+
+                               {{$ong->biografiaOng}}
+
                             </p>
 
                             <ul>
@@ -152,22 +162,22 @@
                 <!-- Container de Causas -->
                 <div id="causas" class="content-container">
                     <div class="photos">
-                        <img src="/img/feed1.jpeg" alt="">
-                        <img src="/img/feed2.jpg" alt="">
-                        <img src="/img/feed3.jpeg" alt="">
-                        <img src="/img/feed4.jpg" alt="">
-                        <img src="/img/feed5.jpg" alt="">
+                    @foreach($postagens as $postagem)
+            @if($postagem->imagem)
+                <img src="{{ asset('storage/' . $postagem->imagem) }}" alt="Postagem">
+            @endif
+        @endforeach
                     </div>
                 </div>
 
                 <!-- Container de Campanhas -->
                 <div id="campanhas" class="content-container" style="display:none;">
                     <div class="photos">
-                        <img src="/img/campanha exemplo.jpg" alt="">
-                        <img src="/img/campanha exemplo2.jpg" alt="">
-                        <img src="/img/campanha exemplo3.jpg" alt="">
-                        <img src="/img/campanha exemplo4.jpg" alt="">
-                        <img src="/img/campanha exemplo5.jpg" alt="">
+                    @foreach($campanhas as $campanha)
+            @if($campanha->imagemCampanha)
+                <img src="{{ asset('storage/' . $campanha->imagemCampanha) }}" alt="Campanha">
+            @endif
+        @endforeach
                     </div>
                 </div>
 
@@ -181,6 +191,19 @@
                 </div><!--cols__container-->
             </div><!--header__wrapper-->
 
+
+<!-- Modal de Confirmação -->
+<div id="logoutModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <h3>Confirmar Logout</h3>
+        <p>Você tem certeza de que deseja sair?</p>
+        <form action="{{ route('logout') }}" method="POST" id="logoutForm" style="display: inline;">
+            @csrf
+            <button type="submit" class="confirm-button">Confirmar</button>
+        </form>
+        <button type="button" onclick="closeLogoutModal()" class="cancel-button">Cancelar</button>
+    </div>
+</div>
 
     <!-- Modal de confirmação de exclusão de conta -->
     <div id="modal-confirmacao" class="modal" style="display:none;">

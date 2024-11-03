@@ -5,6 +5,10 @@ var postSpan = document.getElementsByClassName("post-close")[0];
 var postUploadInput = document.getElementById('postUploadImage');
 var imagePreview = document.getElementById('imagePreview');
 var postTextarea = document.getElementById('postDescription');
+var hashtagsContainer = document.getElementById('hashtagsContainer'); // Container para exibir as hashtags
+
+// Array para armazenar as hashtags separadamente
+let hashtags = [];
 
 // Abrir o modal
 postBtn.onclick = function() {
@@ -35,15 +39,18 @@ postUploadInput.addEventListener('change', function() {
   }
 });
 
-// Função para adicionar hashtags à textarea
+// Função para adicionar hashtags sem exibir na textarea
 function insertHashtag(hashtag) {
-  var currentText = postTextarea.value;
-
-  // Verificar se a hashtag já existe
-  if (!currentText.includes(hashtag)) {
-    // Adicionar a hashtag ao final do texto
-    postTextarea.value = currentText + (currentText ? ' ' : '') + hashtag;
+  // Verificar se a hashtag já foi adicionada
+  if (!hashtags.includes(hashtag)) {
+    hashtags.push(hashtag); // Adiciona ao array de hashtags
+    displayHashtags(); // Atualiza a exibição das hashtags
   }
+}
+
+// Função para exibir as hashtags no container
+function displayHashtags() {
+  hashtagsContainer.innerHTML = hashtags.map(tag => `#${tag}`).join(' ');
 }
 
 // Listener para os botões de hashtags
@@ -59,6 +66,8 @@ document.querySelector('.post-cancel-btn').onclick = function() {
   postModal.style.display = "none";
   postTextarea.value = ''; // Limpar a textarea ao cancelar
   imagePreview.innerHTML = ''; // Limpar a pré-visualização da imagem
+  hashtags = []; // Limpar o array de hashtags
+  displayHashtags(); // Limpar a exibição das hashtags
 };
 
 // Botão de enviar
@@ -73,7 +82,7 @@ document.querySelector('.post-send-btn').onclick = function() {
   }
 
   formData.append('conteudo', conteudo);
-  formData.append('hashtags', conteudo.match(/#\w+/g)?.join(', ')); // Extrai hashtags da textarea
+  formData.append('hashtags', hashtags.join(', ')); // Adiciona as hashtags do array ao FormData
   formData.append('idOng', idOng); // Adiciona o ID da ONG ao FormData
 
   var fileInput = document.getElementById('postUploadImage');
@@ -90,21 +99,23 @@ document.querySelector('.post-send-btn').onclick = function() {
           'Accept': 'application/json'
       }
   })
-  .then(response => {
-      if (!response.ok) {
-          throw new Error('Network response was not ok');
-      }
-      return response.json();
-  })
+  .then(response => response.json()) // Extrair o JSON diretamente
   .then(data => {
-      alert(data.message);
-      postModal.style.display = "none"; // Fechar o modal após o envio
-      postTextarea.value = ''; // Limpar a textarea após o envio
-      imagePreview.innerHTML = ''; // Limpar a pré-visualização da imagem
-      // Aqui você pode adicionar código para atualizar a interface com a nova postagem, se necessário
+    if (data.success) { // Verifica se o backend envia uma chave "success" indicando sucesso
+      alert(data.message); // Exibe a mensagem de sucesso
+      postModal.style.display = "none";
+      postTextarea.value = ''; // Limpa a textarea
+      imagePreview.innerHTML = ''; // Limpa a pré-visualização da imagem
+      hashtags = []; // Limpa o array de hashtags
+      displayHashtags(); // Limpa a exibição das hashtags
+      // Atualizar a interface com a nova postagem, se necessário
+    } else {
+      // Se o backend indicar falha, lança o erro com a mensagem do backend
+      throw new Error(data.message || 'Erro desconhecido ao criar a postagem.');
+    }
   })
   .catch(error => {
-      console.error('Erro:', error);
-      alert('Erro ao enviar a publicação. Tente novamente.');
+    console.error('Erro:', error);
+    alert(error.message); // Mostra a mensagem de erro do backend (se houver)
   });
 };

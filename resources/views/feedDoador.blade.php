@@ -77,7 +77,7 @@
                 </ul>
 
                 <div class="user">
-                <img src="/img/perfil-exemplo.enc" alt="Foto do perfil">
+                <img src="{{ asset('storage/' . $doador->fotoDoador) }}" alt="Foto do Doador">                
                 <div class="dropdown-menu">
                     <a href="/perfilDoador">
                     <i class="fa-solid fa-users"></i> Perfil
@@ -114,174 +114,97 @@
                 <h2 class="campanhas-title">Campanhas para você</h2>
 
                 <div class="campanhas">
-                <div class="card">
-    <div class="image">
-        <img src="/img/campanha exemplo.jpg" alt="">
-    </div>
-    <div class="content">
-        <div class="perfilImgCampanha">
-            <img src="/img/exemplo-perfil.jpg" alt="Imagem de Perfil" class="perfil">
-        </div>
-        <div class="text-content">
-            <div class="title">Campanha exemplo</div>
-            <div class="sub-title">assunto da campanha</div>
-        </div>
-        <div class="bottom">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
-            <button id="openCampaignModalBtn">Ver campanha</button>
-        </div>
-    </div>
-</div><!--card-->
+                @foreach($campanhas as $index => $campanha)
+            <div class="card">
+            <div class="image">
+                <img src="{{ asset('storage/' . $campanha->imagemCampanha) }}" alt="{{ $campanha->nomeCampanha }}">
+            </div>
+            <div class="content">
+                <div class="perfilImgCampanha">
+                    @if($campanha->ong->fotoOng)  <!-- Supondo que a ONG tenha um campo fotoPerfil -->
+                    <img src="{{ asset('storage/uploads/' . $campanha->ong->fotoOng) }}" alt="Imagem da ONG" />                    @else
+                        <img src="/img/default-perfil.jpg" alt="Imagem de Perfil" class="perfil"> <!-- Imagem padrão se não houver -->
+                    @endif
+                </div>
+                <div class="text-content">
+                    <div class="title">{{ $campanha->nomeCampanha }}</div>
+                    <div class="sub-title">{{ $campanha->assuntoCampanha }}</div>
+                </div>
+                <div class="bottom">
+                    <p>{{ $campanha->descricaoCampanha }}</p>
+                    <button class="openCampaignModalBtn" data-index="{{ $index }}">Ver campanha</button>
+                </div>
+            </div>
+        </div><!--card-->
+    @endforeach
+</div><!--campanhas-->
 
-                    <div class="card">
-                        <div class="image">
-                            <img src="/img/campanha exemplo5.jpg" alt="">
-                        </div>
-                        <div class="content">
-        <div class="perfilImgCampanha">
-            <img src="/img/exemplo-perfil.jpg" alt="Imagem de Perfil" class="perfil">
-        </div>
-        <div class="text-content">
-            <div class="title">Campanha exemplo</div>
-            <div class="sub-title">assunto da campanha</div>
-        </div>
-                            <div class="bottom">
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
-                                <button>Ver campanha</button>
-                            </div>
-                        
-                        </div>
-
-                    </div><!--card-->
-
-                    <div class="card">
-                        <div class="image">
-                            <img src="/img/campanha exemplo2.jpg" alt="">
-                        </div>
-                        <div class="content">
-        <div class="perfilImgCampanha">
-            <img src="/img/exemplo-perfil.jpg" alt="Imagem de Perfil" class="perfil">
-        </div>
-        <div class="text-content">
-            <div class="title">Campanha exemplo</div>
-            <div class="sub-title">assunto da campanha</div>
-        </div>
-                            <div class="bottom">
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
-                                <button>Ver campanha</button>
-                            </div>
-                        
-                        </div>
-
-                    </div><!--card-->
-
-                    <div class="card">
-                        <div class="image">
-                            <img src="/img/campanha exemplo4.jpg" alt="">
-                        </div>
-                        <div class="content">
-        <div class="perfilImgCampanha">
-            <img src="/img/exemplo-perfil.jpg" alt="Imagem de Perfil" class="perfil">
-        </div>
-        <div class="text-content">
-            <div class="title">Campanha exemplo</div>
-            <div class="sub-title">assunto da campanha</div>
-        </div>
-                            <div class="bottom">
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
-                                <button>Ver campanha</button>
-                            </div>
-                        
-                        </div>
-
-                    </div><!--card-->
-
-                     <div class="card">
-                        <div class="image">
-                            <img src="/img/campanha exemplo3.jpg" alt="">
-                        </div>
-                        <div class="content">
-        <div class="perfilImgCampanha">
-            <img src="/img/exemplo-perfil.jpg" alt="Imagem de Perfil" class="perfil">
-        </div>
-        <div class="text-content">
-            <div class="title">Campanha exemplo</div>
-            <div class="sub-title">assunto da campanha</div>
-        </div>
-                            <div class="bottom">
-
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos architecto placeat officia recusandae vel odit facere deserunt sed laudantium possimus! Sapiente rerum animi incidunt excepturi soluta quam perferendis aut aspernatur.</p>
-                                <button>Ver campanha</button>
-                            </div>
-                        
-                        </div>
-
-                    </div><!--card-->
-
-                </div><!--campanhas-->
 
 <!-- Modal de Campanha -->
-<div id="campaignModal" class="campaign-modal">
+@foreach($campanhas as $index => $campanha)
+<div id="campaignModal{{ $index }}" class="campaign-modal" style="display:none;">
   <div class="campaign-modal-content">
     <div class="campaign-modal-left">
-      <img src="/img/campanha exemplo3.jpg" alt="Imagem da ONG" class="campaign-modal-img">
-      <button class="campaign-profile-btn">Visitar perfil da ONG autora</button>
+        <img src="{{ asset('storage/' . $campanha->imagemCampanha) }}" alt="{{ $campanha->nomeCampanha }}" class="campaign-modal-img">
+        <button class="campaign-profile-btn">Visitar perfil da ONG autora</button>
     </div>
     <div class="campaign-modal-right">
-      <h1 class="campaign-modal-title">Título da Campanha</h1>
-      <h3 class="campaign-modal-subtitle">Subtítulo da Campanha</h3>
-      <p class="campaign-modal-description">Aqui vai um exemplo de descrição da campanha que pode ser um pouco mais longa.</p>
-      <h2 class="campaign-highlight-title">Período de Recolha</h2>
-      <p class="campaign-period">09/09/2024 a 30/09/2024</p>
+        <h1 class="campaign-modal-title">{{ $campanha->nomeCampanha }}</h1>
+        <h3 class="campaign-modal-subtitle">{{ $campanha->assuntoCampanha }}</h3>
+        <p class="campaign-modal-description">{{ $campanha->descricaoCampanha }}</p>
+        <h2 class="campaign-highlight-title">Período de Recolha</h2>
+        <p class="campaign-period">{{$campanha->dataInicioCampanha}} a {{$campanha->dataFimCampanha}}</p>
     </div>
     <span class="campaign-close-btn">&times;</span>
   </div>
 </div>
-
+@endforeach
     <div class="feed-container">
     
-        <div class="card-postagem">
-            <div class="top">
-                <div class="userDetails">
-                    <div class="profileImg">
-                        <img src="/img/exemplo-perfil.jpg" alt="" class="cover">
-                    </div>
-                    <h3>patinha_do_amor<br>
-                        <span>Ong</span>
-                    </h3>
+    @foreach($postagens as $postagem)
+    <div class="card-postagem">
+        <div class="top">
+            <div class="userDetails">
+                <div class="profileImg">
+                @if($postagem->ong->fotoOng)  <!-- Supondo que a ONG tenha um campo fotoPerfil -->
+                    <img src="{{ asset('storage/uploads/' . $postagem->ong->fotoOng) }}" alt="Imagem da ONG" class="cover"/>                    @else
+                    @endif
                 </div>
-                <div class="dot">
-                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                </div>
+                <h3>{{ $postagem->ong->nomeUsuarioOng }}<br>
+                    <span>Ong</span>
+                </h3>
             </div>
-            <div class="imgBg">
-                <img src="/img/exemplo.jpg" alt="" class="cover">
+            <div class="dot">
+                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
             </div>
-            <div class="btns">
-                <div class="left">
-                    <img src="/img/coracao.png" alt="" class="heart" onclick="likeButton()">
-                    <img src="/img/comentario.webp" alt="">
-                    <img src="/img/dinheiro.png" alt="">
-                </div>
-            </div>
-            <h4 class="likes">0 curtidas</h4>
-            <h4 class="message">
-                <b>patinha_do_amor</b> URGENTE, RS! <span>#alimentos</span> <span>#animais</span>
-            </h4>
-            <h4 class="comments">Ver todos os 3 comentários</h4>
-            <div class="addComments">
-                <div class="userImg">
-                    <img src="/img/exemplo-perfil.jpg" alt="" class="cover">
-                </div>
-                <input type="text" class="text" placeholder="Adicionar um comentário...">
-            </div>
-            <div class="postTime">Há 5 horas</div>
         </div>
+        <div class="imgBg">
+        @if($postagem->imagem)
+                <img src="{{ asset('storage/' . $postagem->imagem) }}" alt="Postagem">
+            @endif        
+        </div>
+        <div class="btns">
+            <div class="left">
+                <img src="/img/coracao.png" alt="" class="heart" onclick="likeButton()">
+                <img src="/img/comentario.webp" alt="">
+                <img src="/img/dinheiro.png" alt="">
+            </div>
+        </div>
+        <h4 class="likes">0 curtidas</h4>
+        <h4 class="message">
+        <b>{{ $postagem->ong->nomeUsuario }}</b> {{ $postagem->conteudo }} <span>{{$postagem->hashtags}}</span>        
+        </h4>
+        <h4 class="comments">Ver todos os {{$postagem->comentariosPostagem}} comentários</h4>
+        <div class="addComments">
+            <div class="userImg">
+            <img src="{{ asset('storage/' . $doador->fotoDoador) }}" alt="Foto do Doador">                
+            </div>
+            <input type="text" class="text" placeholder="Adicionar um comentário...">
+        </div>
+        <div class="postTime">Há {{ $postagem->dataPostagem }}</div>
     </div>
-</div>
+@endforeach
+
 
 <!-- Modal para comentários -->
 <div id="commentModal" class="modal">
@@ -330,7 +253,7 @@
 
 <div class="container-right">
     <!-- Conteúdo da postagem ou outro tipo de conteúdo -->
-    <h2>Olá, Isabel</h2>
+    <h2>Olá, {{$doador->nomeDoador}}</h2>
     <h4>Quem vamos ajudar hoje?</h4>
      
     <div class="mini-card">

@@ -1,11 +1,34 @@
 <?php
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\Ong; // Certifique-se de que você tem o modelo Ong
 use Illuminate\Http\Request;
 
 class OngController extends Controller
 {
+
+    public function perfil()
+    {
+        $ong = auth()->user(); // ou o método que você está utilizando para obter a ONG logada
+        $numeroPostagens = $ong->postagens()->count(); // Contagem de postagens
+        $numeroCampanhas = $ong->campanhas()->count(); // Contagem de campanhas
+        $postagens = $ong->postagens; // Certifique-se de que você tem o relacionamento definido
+        $campanhas = $ong->campanhas;
+    
+        return view('perfilOng', compact('ong', 'numeroPostagens', 'numeroCampanhas', 'postagens', 'campanhas'));
+    
+    }
+
+    public function prestarConta()
+    {
+        $ong = auth()->user(); // ou o método que você está utilizando para obter a ONG logada
+        $numeroPostagens = $ong->postagens()->count(); // Contagem de postagens
+        $numeroCampanhas = $ong->campanhas()->count(); // Contagem de campanhas
+    
+        return view('prestarContaOng', compact('ong'));
+    
+    }
 
     public function index() {
         $search = request('search');

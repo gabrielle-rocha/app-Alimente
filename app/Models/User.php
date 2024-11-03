@@ -47,4 +47,9 @@ class User extends Authenticatable implements CanResetPassword
 {
     return $this->belongsTo(Ong::class); // Ajuste se necessário
 }
+
+public function doador()
+{
+    return $this->belongsTo(Doador::class); // Ajuste se necessário
+}
 }

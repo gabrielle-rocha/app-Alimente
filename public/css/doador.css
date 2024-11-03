@@ -405,6 +405,8 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
 
 .imgBg img{
     border-radius: 10px;
+    width: 100%;
+    height: 100%;
 }
 
 .btns{
