@@ -121,7 +121,7 @@
                     <input type="password" class="form-control" id="password" placeholder="Digite sua senha" name="password" required>
                 </div>
                 <div class="mb-3">
-                    <a href="">Esqueceu a senha? Clique aqui para redefinir.</a>
+                    <a href="">Esqueci a senha</a>
                 </div>
                 <button type="submit" class="btn login-btn w-100">Login</button>
                 <div class="mt-3 text-center">
@@ -135,5 +135,21 @@
         <img src="/img/slogan-alimente-cinza.png" alt="Alimente - Gerando Solidariedade">
         <img src="/img/telainicio.png" alt="Alimente - Gerando Solidariedade">
     </div>
+
+            <script>
+
+            public function login(Request $request)
+        {
+            $credentials = $request->only('email', 'password');
+
+            if (Auth::attempt($credentials)) {
+                // Redireciona para a página desejada após login bem-sucedido
+                return redirect()->intended('/home');
+            } else {
+                // Retorna para a página de login com a mensagem de erro
+                return redirect()->back()->withErrors(['password' => 'Senha incorreta.']);
+            }
+        }
+        </script>
 </body>
 </html>

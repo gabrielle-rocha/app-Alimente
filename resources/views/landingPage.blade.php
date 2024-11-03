@@ -532,6 +532,72 @@
             clip-path: polygon(0 100%, 100% 80%, 100% 100%, 0 100%); /* Forma geométrica */
             z-index: -1; /* Para ficar atrás do conteúdo */
         }
+
+        /*modal doar------------------------------*/
+        .modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1000;
+    inset: 0; /* Alinha o modal ao topo e laterais */
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 10px; /* Reduzido para um espaçamento mais compacto */
+    border-radius: 8px;
+    width: 70%; /* Largura reduzida */
+    max-width: 250px; /* Largura máxima ajustada */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 5px; /* Ajustado */
+    right: 5px; /* Ajustado */
+    font-size: 18px; /* Reduzido para um tamanho mais discreto */
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Espaçamento menor entre os elementos do formulário */
+    margin-top: 10px; /* Reduzido */
+}
+
+.modal-content form input,
+.modal-content form button {
+    padding: 6px; /* Reduzido */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 12px; /* Tamanho da fonte reduzido */
+}
+
+.modal-content form button {
+    background-color: #3c64e7;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-content form button:hover {
+    background-color: #3c64b8;
+}
+
+.modal-content img {
+    width: 100%; /* Ajusta a largura da imagem para ocupar toda a largura do modal */
+    max-width: 150px; /* Define um tamanho máximo para a imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-bottom: 10px; /* Espaçamento abaixo da imagem */
+}
     </style>
 
 
@@ -650,38 +716,63 @@
 <br><br>
 <!-- PARTICIPE DAS NOSSAS CAMPANHAS-->
 <section id="causas">
-<h2 class="features-title">Participe das Nossas Campanhas</h2>
+    <h2 class="features-title">Participe das Nossas Campanhas</h2>
     <div class="campanhas-container">
         <div class="card-campanha">
             <img src="img/alimento.jfif" alt="Campanha 1">
             <h3>Doação de Alimento</h3>
             <p>Doe um alimento para transformar vidas, levando esperança e dignidade para quem mais precisa.</p>
-            <button id="campanhaModal">Doar Agora</button>
+            <button class="button-nav" onclick="openModal('Escaneie o Código')">Doar Agora</button>
         </div>
         <div class="card-campanha">
             <img src="img/produto2.jfif" alt="Campanha 2">
             <h3>Produtos de Higiene Pessoal</h3>
-            <p> Doe produtos de higiene pessoal e faça a diferença na vida de muitas famílias.</p>
-            <button>Doar Agora</button>
+            <p>Doe produtos de higiene pessoal e faça a diferença na vida de muitas famílias.</p>
+            <button class="button-nav" onclick="openModal('Escaneie o Código')">Doar Agora</button>
         </div>
         <div class="card-campanha">
             <img src="img/roupas2.jfif" alt="Campanha 3">
             <h3>Doação em Roupas</h3>
-            <p>Aqueça corações com sua solidariedade e faça a diferença na vida de quem precisa. </p>
-            <button>Doar Agora</button>
+            <p>Aqueça corações com sua solidariedade e faça a diferença na vida de quem precisa.</p>
+            <button class="button-nav" onclick="openModal('Escaneie o Código')">Doar Agora</button>
         </div>
         <div class="card-campanha">
-            <img src="img/pet2.jfif" alt="Campanha 3">
+            <img src="img/pet2.jfif" alt="Campanha 4">
             <h3>Ajude um Pet</h3>
-            <p> Ajude um pet em necessidade, doando ração ou medicamentos.</p>
-            <button>Doar Agora</button>
+            <p>Ajude um pet em necessidade, doando ração ou medicamentos.</p>
+            <button class="button-nav" onclick="openModal('Escaneie o Código')">Doar Agora</button>
         </div>
     </div>
 
- <div class="modal" id="modal">
-    
- </div>
+    <!-- Modal único -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title"></h3>
+            <img src="/img/pix.jpeg" alt="">
+            <button type="submit" ><a href="/logindoador">Ver mais Campanhas</button>
+        </div>
+    </div>
+</section>
 
+<script>
+    function openModal(campaignTitle) {
+        document.getElementById("modal").style.display = "flex";
+        document.getElementById("modal-title").innerText = campaignTitle;
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+
+    // Fecha o modal se clicar fora dele
+    window.onclick = function(event) {
+        var modal = document.getElementById("modal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
     <!--IMAGENS CRIATIVAS-->
 <section id="imagens-criativas">
