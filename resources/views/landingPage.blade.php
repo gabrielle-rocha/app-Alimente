@@ -535,69 +535,85 @@
 
         /*modal doar------------------------------*/
         .modal {
-    display: none; /* Escondido por padrão */
-    position: fixed;
-    z-index: 1000;
-    inset: 0; /* Alinha o modal ao topo e laterais */
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
+            display: none; /* Escondido por padrão */
+            position: fixed;
+            z-index: 1000;
+            inset: 0; /* Alinha o modal ao topo e laterais */
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
 
-.modal-content {
-    background-color: #fff;
-    padding: 10px; /* Reduzido para um espaçamento mais compacto */
-    border-radius: 8px;
-    width: 70%; /* Largura reduzida */
-    max-width: 250px; /* Largura máxima ajustada */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
-    text-align: center;
-    position: relative;
-}
+        .modal-content {
+            background-color: #fff;
+            padding: 10px; /* Reduzido para um espaçamento mais compacto */
+            border-radius: 8px;
+            width: 70%; /* Largura reduzida */
+            max-width: 250px; /* Largura máxima ajustada */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
+            text-align: center;
+            position: relative;
+        }
 
-.close {
-    position: absolute;
-    top: 5px; /* Ajustado */
-    right: 5px; /* Ajustado */
-    font-size: 18px; /* Reduzido para um tamanho mais discreto */
-    font-weight: bold;
-    cursor: pointer;
-    color: #333;
-}
+        .close {
+            position: absolute;
+            top: 5px; /* Ajustado */
+            right: 5px; /* Ajustado */
+            font-size: 18px; /* Reduzido para um tamanho mais discreto */
+            font-weight: bold;
+            cursor: pointer;
+            color: #333;
+        }
 
-.modal-content form {
-    display: flex;
-    flex-direction: column;
-    gap: 4px; /* Espaçamento menor entre os elementos do formulário */
-    margin-top: 10px; /* Reduzido */
-}
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 4px; /* Espaçamento menor entre os elementos do formulário */
+            margin-top: 10px; /* Reduzido */
+        }
 
-.modal-content form input,
-.modal-content form button {
-    padding: 6px; /* Reduzido */
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 12px; /* Tamanho da fonte reduzido */
-}
+        .modal-content form input,
+        .modal-content form button {
+            padding: 6px; /* Reduzido */
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 12px; /* Tamanho da fonte reduzido */
+        }
 
-.modal-content form button {
-    background-color: #3c64e7;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+        .modal-content form button {
+            background-color: #3c64e7;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-.modal-content form button:hover {
-    background-color: #3c64b8;
-}
+        .modal-content form button:hover {
+            background-color: #3c64b8;
+        }
 
-.modal-content img {
-    width: 100%; /* Ajusta a largura da imagem para ocupar toda a largura do modal */
-    max-width: 150px; /* Define um tamanho máximo para a imagem */
-    height: auto; /* Mantém a proporção da imagem */
-    margin-bottom: 10px; /* Espaçamento abaixo da imagem */
-}
+        .modal-content img {
+            width: 100%; /* Ajusta a largura da imagem para ocupar toda a largura do modal */
+            max-width: 150px; /* Define um tamanho máximo para a imagem */
+            height: auto; /* Mantém a proporção da imagem */
+            margin-bottom: 10px; /* Espaçamento abaixo da imagem */
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Cor de fundo do botão */
+            color: white; /* Cor do texto */
+            text-align: center;
+            text-decoration: none; /* Remove o sublinhado */
+            border: none; /* Remove a borda */
+            border-radius: 5px; /* Cantos arredondados */
+            cursor: pointer; /* Muda o cursor ao passar o mouse */
+        }
+
+        .button:hover {
+            background-color: #45a049; /* Cor de fundo ao passar o mouse */
+        }
     </style>
 
 
@@ -746,13 +762,13 @@
 
     <!-- Modal único -->
     <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h3 id="modal-title"></h3>
-            <img src="/img/pix.jpeg" alt="">
-            <button type="submit" ><a href="/logindoador">Ver mais Campanhas</button>
-        </div>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="modal-title"></h3>
+        <img src="/img/pix.jpeg" alt="">
+        <a href="/logindoador" class="button">Ver mais Campanhas</a>
     </div>
+</div>
 </section>
 
 <script>
@@ -796,7 +812,7 @@
 <br><br>
 <!-- COLABORADORES-->
 <section id="parceiros">
-<h2 class="features-title">Conheça Nossos Colaboradores</h2>
+    <h2 class="features-title">Conheça Nossos Colaboradores</h2>
     <div class="colaboradores-container">
         <div class="colaborador">
             <div class="foto-perfil">
