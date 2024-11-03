@@ -103,7 +103,7 @@
                     <span class="title">Perfil</span>
                     </a></li>
 
-                    <li><a href="/geo">
+                    <li><a href="/geolocalizacao">
                     <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
                     <span class="title">Buscar</span>
                     </a></li>

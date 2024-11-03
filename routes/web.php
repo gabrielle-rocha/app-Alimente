@@ -12,6 +12,7 @@ use App\Http\Controllers\MapController;
 use App\Http\Controllers\CampanhaController;
 use App\Http\Controllers\FeedOngController;
 use App\Http\Controllers\PostagemController;
+use App\Http\Controllers\GeolocalizacaoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -118,7 +119,10 @@ Route::get('/perfilDoador', function() {
 
 Route::get('/feedDoador', [DoadorController::class, 'feed'])->name('feedDoador')->middleware('auth');
 
-Route::get('/geo', [MapController::class, 'index'])->name('mapa.index');
+//rotas geolocalizaçao
+Route::get('/geolocalizacao', [GeolocalizacaoController::class, 'index'])->name('geolocalizacao.index');
+Route::get('/geolocalizacao/buscar', [GeolocalizacaoController::class, 'buscar'])->name('geolocalizacao.buscar');
+//Route::get('/geo', [MapController::class, 'index'])->name('mapa.index');
 
 /*feed ong*/
 Route::middleware('auth')->group(function () {
@@ -150,12 +154,6 @@ Route::middleware('auth')->group(function () {
     // Para rotas de API
     Route::delete('/campanha/{id}', [CampanhaController::class, 'destroy']); // Certifique-se de que esta linha está aqui
 
-});
-
-//postagem rotas
-
-Route::middleware('auth')->group(function () {
-    Route::post('/postagem', [PostagemController::class, 'store']);
 });
 
 
