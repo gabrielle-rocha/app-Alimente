@@ -101,7 +101,7 @@
                         <span class="title">Início</span>
                     </a></li>
 
-                    <li><a href="/perfilDoador">
+                    <li><a href="{{route}}">
                     <span class="icon"><i class="fa-solid fa-user"></i></span>
                     <span class="title">Perfil</span>
                     </a></li>

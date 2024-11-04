@@ -63,5 +63,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'checkDoadorSession' => \App\Http\Middleware\CheckDoadorSession::class,
+        'doador.auth' => \App\Http\Middleware\DoadorAuth::class, // Verifique o caminho e o nome
     ];
 }

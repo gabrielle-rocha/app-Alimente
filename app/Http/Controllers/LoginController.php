@@ -38,6 +38,7 @@ class LoginController extends Controller
             Auth::login($doador); // Login do doador
             $campanhas = Campanha::with('ong')->orderBy('created_at', 'desc')->get(); // Certifique-se de que o relacionamento está definido
             $postagens = Postagem::with('ong')->orderBy('dataPostagem', 'desc')->get();
+            $request->session()->put('redirectToProfile', true);
             return view('feedDoador', ['doador' => $doador, 'campanhas' => $campanhas, 'postagens' => $postagens]);
         }
 
