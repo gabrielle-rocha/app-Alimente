@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 class OngController extends Controller
 {
 
+    public function searchDoador(Request $request)
+    {
+        $search = $request->input('search');
+        $ongs = Ong::where('nomeUsuarioOng', 'like', '%'.$search.'%')->get();
+
+        return response()->json($ongs);
+    }
+
     public function perfil()
     {
         $ong = auth()->user(); // ou o método que você está utilizando para obter a ONG logada

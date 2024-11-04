@@ -26,20 +26,46 @@ class DoadorController extends Controller
         ]);
     }
     
-public function adicionarComentario(Request $request)
+
+    public function adicionarComentario(Request $request)
+    {
+        $request->validate([
+            'idPostagem' => 'required|exists:postagem,idPostagem',
+            'conteudo' => 'required|string|max:255',
+        ]);
+    
+        $comentario = new Comentario();
+        $comentario->idPostagem = $request->idPostagem;
+        $comentario->idDoador = auth()->id(); // Obtém o ID do doador logado
+        $comentario->conteudo = $request->conteudo;
+        $comentario->save();
+    
+        // Obtém informações do doador
+        $doador = Doador::find(auth()->id());
+        
+        return response()->json([
+            'success' => true,
+            'comentario' => [
+                'fotoDoador' => $doador->fotoDoador,
+                'nomeDoador' => $doador->nomeDoador,
+                'conteudo' => $comentario->conteudo,
+            ]
+        ]);
+    }
+
+    public function obterComentarios($idPostagem)
 {
-    $request->validate([
-        'idPostagem' => 'required|exists:postagem,idPostagem',
-        'conteudo' => 'required|string|max:255',
+    $comentarios = Comentario::with('doador')->where('idPostagem', $idPostagem)->get();
+
+    return response()->json([
+        'comentarios' => $comentarios->map(function ($comentario) {
+            return [
+                'fotoDoador' => $comentario->doador->fotoDoador,
+                'nomeDoador' => $comentario->doador->nomeDoador,
+                'conteudo' => $comentario->conteudo,
+            ];
+        }),
     ]);
-
-    $comentario = new Comentario();
-    $comentario->idPostagem = $request->idPostagem;
-    $comentario->idDoador = auth()->id(); // Obtém o ID do doador logado
-    $comentario->conteudo = $request->conteudo;
-    $comentario->save();
-
-    return redirect()->back(); // Retorna para a página anterior, ou você pode retornar um JSON
 }
 
 

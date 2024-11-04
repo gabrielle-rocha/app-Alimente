@@ -292,6 +292,43 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
     align-items: center;
 }
 
+.results-container {
+    position: absolute; /* Permite que o container siga a barra de pesquisa */
+    top: 100%; /* Fica logo abaixo da barra de pesquisa */
+    right: 7%; /* Alinhado à esquerda do input */
+    width: 250px; /* A mesma largura do input de pesquisa quando expandido */
+    margin-top: 0; /* Espaço entre a barra de pesquisa e os resultados */
+    display: none; /* Oculto inicialmente */
+    background-color: #2d4c7c; /* Fundo branco para o container */
+    z-index: 1000; /* Certifique-se de que fique acima de outros elementos */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 12px;
+}
+
+.ong-card {
+    display: flex;
+    width: 100%;
+    align-items: center; /* Alinha a imagem e o texto verticalmente */
+    margin-bottom: 10px; /* Espaço entre os cards */
+    padding: 10px;
+    border-bottom: 1px solid #a39e9e; /* Borda para os cards */
+    background-color: #ffffff; /* Fundo dos cards */
+    cursor: pointer;
+}
+
+.ong-photo {
+    width: 30px; /* Tamanho da foto */
+    height: 30px; /* Tamanho da foto */
+    border-radius: 50%; /* Foto redonda */
+    margin-right: 10px; /* Espaço entre a foto e o texto */
+    object-fit: cover;
+    object-position: center;
+}
+
+.ong-card h3, .ong-card p {
+    margin: 0; /* Remove margens dos textos */
+}
+
 /* Estilo dos botões de filtro */
 .wrapper .top_navbar .top_menu ul li.filter .filter-buttons {
     display: flex;
@@ -485,6 +522,7 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
     font-weight: 500;
     color: #777;
 }
+
 
 /* Container que vai ocupar o espaço oposto à navbar */
 .container-right {
@@ -871,10 +909,16 @@ box-shadow: 0 2px 2px rgba(48, 47, 47, 0.2);
   .modal-left {
     flex: 1;
     display: flex;
-    justify-content: center;
     align-items: center;
     overflow: hidden;
+    flex-wrap: wrap; /* Permite que as imagens se ajustem */
+    justify-content: flex-start; /* Alinha à esquerda */
   }
+  .modal-image {
+    width: 100px; /* Defina um tamanho fixo ou máximo */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 5px; /* Espaço entre as imagens */
+}
   
   .modal-left img {
     width: 100%;

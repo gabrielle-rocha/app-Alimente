@@ -16,13 +16,6 @@
             });
         });
 
-        $(document).ready(function(){
-    $(".search a").click(function(e){
-        e.preventDefault();  // Impede a ação padrão do link
-        $(this).parent().toggleClass("expanded");  // Alterna a classe 'expanded'
-        $(this).siblings('input[type="search"]').focus();  // Foca no input quando ele aparece
-    });
-
 
     $(".filter a").click(function(e){
         e.preventDefault();  // Impede a ação padrão do link
@@ -32,8 +25,6 @@
     document.querySelector('.user').addEventListener('click', function() {
     const dropdownMenu = this.querySelector('.dropdown-menu');
     dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
-});
-
 });
 
     </script>
@@ -72,9 +63,10 @@
 
                 <ul>
                 <li class="search">
-                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    <input type="search" placeholder="Buscar...">
-                </li>
+    <a href="#" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></a>
+    <input type="search" id="search-input" placeholder="Buscar...">
+</li>
+                <div id="ong-results" class="results-container" style="display: none;"></div>
                 <li class="filter">
                 <a href="#"><i class="fa-solid fa-hashtag"></i></a>
                 <div class="filter-buttons">
@@ -232,36 +224,28 @@
     </div>
 </div>
 
-<!-- Modal para comentários -->
 <div id="commentModal" class="modal">
+    
   <div class="modal-content">
-    <!-- Botão de fechar dentro do modal -->
     <span class="close" onclick="closeModal()">&times;</span>
     
     <div class="modal-left">
-      <img src="/img/exemplo.jpg" alt="Postagem" class="post-image">
-    </div>
+    @foreach($postagens as $postagem)
+    @if($postagem->imagem)
+        <img src="{{ asset('storage/' . $postagem->imagem) }}" alt="Postagem">
+    @endif
+@endforeach
+            </div>
     
     <div class="modal-right">
       <h3>Comentários</h3>
-      <div class="comments-section">
-        <!-- Exemplo de comentário com opção de curtir e foto do usuário -->
-        <div class="comment">
-          <img src="/img/exemplo-perfil.jpg" alt="Foto de perfil" class="comment-profile-img">
-          <div class="comment-content">
-            <b>usuario_123:</b> Que legal essa postagem!
-            <div class="comment-actions">
-              <img src="/img/coracao.png" alt="Curtir" class="heart-comment" data-liked="false">
-              <span class="likes-count">0 curtidas</span>
-            </div>
-          </div>
-        </div>
+      <div class="comments-section" id="comments-section">
+        <!-- Comentários serão adicionados aqui -->
       </div>
       
-      <!-- Input de comentário do modal fixado no rodapé -->
       <div class="addComments-modal">
-        <input type="text" class="text-modal" placeholder="Adicionar um comentário...">
-        <button type="button" class="send-btn">Enviar</button>
+        <input type="text" class="text-modal" placeholder="Adicionar um comentário..." id="comment-input">
+        <button type="button" class="send-btn" onclick="addComment()">Enviar</button>
       </div>
     </div>
   </div>
@@ -318,42 +302,85 @@
     <script src="/js/campanhaDoador.js"></script>
     <script src="/js/curtida.js"></script>
     <script src="/js/hora.js"></script>
+    <script src="/js/busca.js"></script>
 
     <script>
-        // Abre o modal ao clicar no ícone de comentário
-document.querySelector(".btns .left img[src='/img/comentario.webp']").addEventListener("click", function () {
-  document.getElementById("commentModal").style.display = "block";
-});
+    const baseUrl = "{{ asset('storage/uploads') }}";
+</script>
 
-// Fecha o modal
-function closeModal() {
-  document.getElementById("commentModal").style.display = "none";
-}
+    <script>
+    // Abre o modal ao clicar no ícone de comentário
+    document.querySelector(".btns .left img[src='/img/comentario.webp']").addEventListener("click", function () {
+        document.getElementById("commentModal").style.display = "block";
+        loadComments(); // Carregar comentários ao abrir o modal
+    });
 
-// Fecha o modal ao clicar fora dele
-window.onclick = function (event) {
-  const modal = document.getElementById("commentModal");
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-// Função para curtir um comentário (apenas uma vez por comentário)
-const heartIcons = document.querySelectorAll(".heart-comment");
-
-heartIcons.forEach(icon => {
-  icon.addEventListener("click", function () {
-    const isLiked = this.getAttribute('data-liked') === 'true';
-
-    if (!isLiked) {
-      let likesCount = this.nextElementSibling;
-      let currentLikes = parseInt(likesCount.textContent);
-      likesCount.textContent = (currentLikes + 1) + ' curtidas';
-      this.classList.add("liked");
-      this.setAttribute('data-liked', 'true'); // Marca o comentário como curtido
+    // Fecha o modal
+    function closeModal() {
+        document.getElementById("commentModal").style.display = "none";
     }
-  });
-});
+
+    // Fecha o modal ao clicar fora dele
+    window.onclick = function (event) {
+        const modal = document.getElementById("commentModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Função para adicionar comentário
+    function addComment() {
+        const commentInput = document.getElementById('comment-input');
+        const commentText = commentInput.value.trim();
+        if (commentText) {
+            const doador = {
+                nome: '<?= auth()->user()->nomeUsuarioDoador ?>', // Substitua pela variável que contém o nome do doador logado
+                foto: '{{ asset('storage/' . auth()->user()->fotoDoador) }}' // Usa o mesmo método para obter a URL da foto
+            };
+            const commentSection = document.getElementById('comments-section');
+            
+            // Criar elemento de comentário
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'comment';
+            commentDiv.innerHTML = `
+                <img src="${doador.foto}" alt="Foto de perfil" class="comment-profile-img">
+                <div class="comment-content">
+                    <b>${doador.nome}:</b> ${commentText}
+                    <div class="comment-actions">
+                        <img src="/img/coracao.png" alt="Curtir" class="heart-comment" data-liked="false">
+                        <span class="likes-count">0 curtidas</span>
+                    </div>
+                </div>
+            `;
+            commentSection.appendChild(commentDiv);
+
+            // Limpar o input
+            commentInput.value = '';
+        }
+    }
+
+    // Função para curtir um comentário
+    document.addEventListener('click', function (event) {
+        if (event.target.classList.contains('heart-comment')) {
+            const icon = event.target;
+            const isLiked = icon.getAttribute('data-liked') === 'true';
+
+            if (!isLiked) {
+                let likesCount = icon.nextElementSibling;
+                let currentLikes = parseInt(likesCount.textContent);
+                likesCount.textContent = (currentLikes + 1) + ' curtidas';
+                icon.classList.add("liked");
+                icon.setAttribute('data-liked', 'true'); // Marca o comentário como curtido
+            }
+        }
+    });
+
+    // Função para carregar comentários (pode ser adaptada para carregar de um banco de dados)
+    function loadComments() {
+        // Aqui você pode implementar uma chamada AJAX para buscar comentários do banco de dados
+        // ou simplesmente renderizar comentários estáticos para demonstração.
+    }
+
     </script>
 
 <script>

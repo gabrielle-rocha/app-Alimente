@@ -156,6 +156,10 @@ Route::middleware('auth')->group(function () {
 
 });
 
+Route::get('/search-ongs', [OngController::class, 'searchDoador'])->name('search.ongs');
+
+Route::get('/postagem/{idPostagem}/comentarios', [DoadorController::class, 'obterComentarios']);
+
 Route::post('/postagem', [PostagemController::class, 'store']);
 // routes/web.php ou routes/api.php
 Route::post('/curtir-postagem', [PostagemController::class, 'curtirPostagem']);
