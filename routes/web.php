@@ -113,9 +113,7 @@ Route::get('/admin', function() {
 /*feed doador*/ 
 
 
-Route::get('/perfilDoador', function() {
-    return view('perfilDoador');
-});
+Route::get('/perfilDoador', [DoadorController::class, 'perfil'])->name('perfilDoador')->middleware('auth');
 
 Route::get('/feedDoador', [DoadorController::class, 'feed'])->name('feedDoador')->middleware('auth');
 
