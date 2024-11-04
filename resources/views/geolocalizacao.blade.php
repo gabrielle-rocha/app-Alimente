@@ -107,7 +107,7 @@
 </div>
 
 <!-- Carrega a API do Google Maps com async e defer -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4gF8YUPbDJr50pgrAZ7M-Z_S7WJkltVE&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8YyZUk2tSHm0ON3oPDGWKogkEepg2e00&callback=initMap" async defer></script>
 <script>
     let map;
     let markers = [];
