@@ -14,16 +14,22 @@ class GeolocalizacaoController extends Controller
     }
 
     // Método para buscar ONGs próximas ao CEP informado
-    public function buscar(Request $request)
-    {
-        try {
-            $cep = $request->input('cep');
-            $ongs = Ong::where('cepOng', 'LIKE', "{$cep}%")->get();
-    
-            return response()->json($ongs);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Erro ao buscar ONGs.'], 500);
+    public function buscarOngs()
+{
+    try {
+        // Teste básico para ver se a consulta está funcionando
+        $ongs = Ong::select(['nomeOng', 'cepOng', 'latitude', 'longitude', 'biografiaOng'])->get();
+
+        if ($ongs->isEmpty()) {
+            return response()->json(['message' => 'Nenhuma ONG encontrada.'], 200);
         }
+
+        return response()->json($ongs);
+    } catch (\Exception $e) {
+        \Log::error('Erro ao buscar ONGs: ' . $e->getMessage());
+        return response()->json(['error' => 'Erro ao buscar ONGs'], 500);
     }
+}
+    
     
 }

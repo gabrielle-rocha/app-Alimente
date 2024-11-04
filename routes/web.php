@@ -120,8 +120,10 @@ Route::get('/perfilDoador', function() {
 Route::get('/feedDoador', [DoadorController::class, 'feed'])->name('feedDoador')->middleware('auth');
 
 //rotas geolocalizaçao
+
 Route::get('/geolocalizacao', [GeolocalizacaoController::class, 'index'])->name('geolocalizacao.index');
-Route::get('/geolocalizacao/buscar', [GeolocalizacaoController::class, 'buscar'])->name('geolocalizacao.buscar');
+Route::get('/geolocalizacao/ongs', [GeolocalizacaoController::class, 'buscarOngs']);
+//Route::get('/geolocalizacao/buscar', [GeolocalizacaoController::class, 'buscar'])->name('geolocalizacao.buscar');
 //Route::get('/geo', [MapController::class, 'index'])->name('mapa.index');
 
 /*feed ong*/

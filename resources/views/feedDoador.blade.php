@@ -190,7 +190,7 @@
             <div class="left">
             <img class="heart" src="/img/coracao.png" onclick="likeButton()">
             <img src="/img/comentario.webp" alt="">
-                <img src="/img/dinheiro.png" alt="">
+                <img src="/img/dinheiro.png" alt="" onclick="showPixModal('{{ $postagem->id }}')">
             </div>
         </div>
         <h4 class="likes">{{$postagem->numeroCurtidas}} curtidas</h4>
@@ -210,6 +210,18 @@
 
 </div>
 @endforeach
+
+<!-- Modal -->
+<div id="pixModal" class="modal-pix">
+    <div class="modal-content-pix">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Chave Pix</h2>
+        <img id="qrcode" src="" alt="QR Code" style="width: 200px; height: 200px;"/>
+        <p id="pixKey"></p>
+        <button id="closeButton" onclick="closeModal()">Fechar</button> <!-- Botão de fechar -->
+
+    </div>
+</div>
 
 <!-- Modal de Confirmação de Logout -->
 <div id="logoutModal" class="modal-logout" style="display: none;">
@@ -303,6 +315,7 @@
     <script src="/js/curtida.js"></script>
     <script src="/js/hora.js"></script>
     <script src="/js/busca.js"></script>
+    <script src="/js/pix.js"></script>
 
     <script>
     const baseUrl = "{{ asset('storage/uploads') }}";
