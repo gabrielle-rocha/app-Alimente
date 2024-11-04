@@ -156,6 +156,9 @@ Route::middleware('auth')->group(function () {
 
 });
 
+Route::post('/postagem', [PostagemController::class, 'store']);
+// routes/web.php ou routes/api.php
+Route::post('/curtir-postagem', [PostagemController::class, 'curtirPostagem']);
 
 /* Rotas para login
 

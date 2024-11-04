@@ -27,5 +27,9 @@ class Postagem extends Model
         'numeroCurtidas',
         'comentariosPostagem'
     ];
+
+    protected $casts = [
+        'dataPostagem' => 'datetime',
+    ];
 }
 

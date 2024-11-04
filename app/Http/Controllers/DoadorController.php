@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Doador;
 use App\Models\Ong;
 use App\Models\Campanha;
+use App\Models\Postagem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,8 +16,8 @@ class DoadorController extends Controller
     {
         $doador = auth()->user(); // Obtém o usuário autenticado
         // Busca todas as campanhas, incluindo as informações das ONGs
-        $campanhas = Campanha::with('ong')->get(); // Certifique-se de que o relacionamento está definido
-        $postagens = Postagem::with('ong')->get();
+        $campanhas = Campanha::with('ong')->orderBy('created_at', 'desc')->get(); // Certifique-se de que o relacionamento está definido
+        $postagens = Postagem::with('ong')->orderBy('dataPostagem', 'desc')->get();
         
         return view('feedDoador', [
             'doador' => $doador,
@@ -25,6 +26,21 @@ class DoadorController extends Controller
         ]);
     }
     
+public function adicionarComentario(Request $request)
+{
+    $request->validate([
+        'idPostagem' => 'required|exists:postagem,idPostagem',
+        'conteudo' => 'required|string|max:255',
+    ]);
+
+    $comentario = new Comentario();
+    $comentario->idPostagem = $request->idPostagem;
+    $comentario->idDoador = auth()->id(); // Obtém o ID do doador logado
+    $comentario->conteudo = $request->conteudo;
+    $comentario->save();
+
+    return redirect()->back(); // Retorna para a página anterior, ou você pode retornar um JSON
+}
 
 
     public function index() {

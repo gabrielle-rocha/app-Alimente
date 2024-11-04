@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,8 +33,18 @@
     const dropdownMenu = this.querySelector('.dropdown-menu');
     dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
 });
+
 });
 
+    </script>
+
+<script>function showLogoutModal() {
+        document.getElementById('logoutModal').style.display = 'flex';
+    }
+
+    function closeLogoutModal() {
+        document.getElementById('logoutModal').style.display = 'none';
+    }
     </script>
 
     <!--icon-->
@@ -68,10 +78,11 @@
                 <li class="filter">
                 <a href="#"><i class="fa-solid fa-hashtag"></i></a>
                 <div class="filter-buttons">
-                    <button>Doenças</button>
-                    <button>Alimentação</button>
-                    <button>Vestimenta</button>
-                    <button>Animais</button>
+                    <button onclick="filterPosts('doenças')">Doenças</button>
+                    <button onclick="filterPosts('alimentação')">Alimentação</button>
+                    <button onclick="filterPosts('vestimenta')">Vestimenta</button>
+                    <button onclick="filterPosts('animais')">Animais</button>
+                    <button onclick="filterPosts('')">Todos</button>
                 </div>
                 </li>
                 </ul>
@@ -82,9 +93,9 @@
                     <a href="/perfilDoador">
                     <i class="fa-solid fa-users"></i> Perfil
                     </a>
-                    <a href="#logout">
-                    <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
-                    </a>
+                    <button type="button" onclick="showLogoutModal()" class="logout-button">
+    <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
+</button>
                 </div>
             </div>
 
@@ -162,7 +173,7 @@
     <div class="feed-container">
     
     @foreach($postagens as $postagem)
-    <div class="card-postagem">
+    <div class="card-postagem" data-hashtags="{{ strtolower($postagem->hashtags) }}">
         <div class="top">
             <div class="userDetails">
                 <div class="profileImg">
@@ -185,12 +196,12 @@
         </div>
         <div class="btns">
             <div class="left">
-                <img src="/img/coracao.png" alt="" class="heart" onclick="likeButton()">
-                <img src="/img/comentario.webp" alt="">
+            <img class="heart" src="/img/coracao.png" onclick="likeButton()">
+            <img src="/img/comentario.webp" alt="">
                 <img src="/img/dinheiro.png" alt="">
             </div>
         </div>
-        <h4 class="likes">0 curtidas</h4>
+        <h4 class="likes">{{$postagem->numeroCurtidas}} curtidas</h4>
         <h4 class="message">
         <b>{{ $postagem->ong->nomeUsuario }}</b> {{ $postagem->conteudo }} <span>{{$postagem->hashtags}}</span>        
         </h4>
@@ -201,10 +212,25 @@
             </div>
             <input type="text" class="text" placeholder="Adicionar um comentário...">
         </div>
-        <div class="postTime">Há {{ $postagem->dataPostagem }}</div>
-    </div>
+        <div class="postTime" data-post-time="{{ $postagem->dataPostagem }}">
+    Há {{ $postagem->dataPostagem->diffForHumans() }}
+</div>
+
+</div>
 @endforeach
 
+<!-- Modal de Confirmação de Logout -->
+<div id="logoutModal" class="modal-logout" style="display: none;">
+    <div class="modal-content-logout">
+        <h3>Confirmar Logout</h3>
+        <p>Você tem certeza de que deseja sair?</p>
+        <form action="{{ route('logout') }}" method="POST" id="logoutForm" style="display: inline;">
+            @csrf
+            <button type="submit" class="confirm-button">Confirmar</button>
+        </form>
+        <button type="button" onclick="closeLogoutModal()" class="cancel-button">Cancelar</button>
+    </div>
+</div>
 
 <!-- Modal para comentários -->
 <div id="commentModal" class="modal">
@@ -227,16 +253,6 @@
             <div class="comment-actions">
               <img src="/img/coracao.png" alt="Curtir" class="heart-comment" data-liked="false">
               <span class="likes-count">0 curtidas</span>
-            </div>
-          </div>
-        </div>
-        <div class="comment">
-          <img src="/img/exemplo-perfil.jpg" alt="Foto de perfil" class="comment-profile-img">
-          <div class="comment-content">
-            <b>pet_lover:</b> Parabéns pela iniciativa!
-            <div class="comment-actions">
-              <img src="/img/coracao.png" alt="Curtir" class="heart-comment" data-liked="false">
-              <span class="likes-count">2 curtidas</span>
             </div>
           </div>
         </div>
@@ -300,52 +316,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script src="/js/campanhaDoador.js"></script>
-
-    <script>
-        var swiper = new Swiper(".slide-content", {
-            slidesPerView: 3,
-            spaceBetween: 25,
-            loop: true,
-            centerSlide: 'true',
-            fade: 'true',
-            grabCursor: 'true',
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-                dynamicBullets: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-
-            breakpoints:{
-                0: {
-                    slidesPerView: 1,
-                },
-                520: {
-                    slidesPerView: 2,
-                },
-                950: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-    </script>
-
-    <script>
-        function likeButton(){
-            let heart = document.querySelector('.heart');
-            let likes = document.querySelector('.likes');
-            if(heart.src.match("/img/coracao.png")){
-                heart.src = "/img/coracao-vermelho.png";
-                likes.innerHTML = "1 curtidas";
-            } else {
-                heart.src = "/img/coracao.png";
-                likes.innerHTML = "0 curtidas";
-            }
-        }
-    </script>
+    <script src="/js/curtida.js"></script>
+    <script src="/js/hora.js"></script>
 
     <script>
         // Abre o modal ao clicar no ícone de comentário
@@ -412,6 +384,24 @@ $('.card').hover(function() {
     }
 });
 </script>
+
+<script>
+function filterPosts(hashtag) {
+    const posts = document.querySelectorAll('.card-postagem');
+    
+    posts.forEach(post => {
+        const postHashtags = post.getAttribute('data-hashtags');
+        
+        if (hashtag === "" || postHashtags.includes(hashtag.toLowerCase())) {
+            post.style.display = "block"; // Mostra a postagem
+        } else {
+            post.style.display = "none"; // Oculta a postagem
+        }
+    });
+}
+</script>
+
+
 
 </body>
 </html>

@@ -192,9 +192,9 @@
             </div><!--header__wrapper-->
 
 
-<!-- Modal de Confirmação -->
-<div id="logoutModal" class="modal" style="display: none;">
-    <div class="modal-content">
+<!-- Modal de Confirmação de Logout -->
+<div id="logoutModal" class="modal-logout" style="display: none;">
+    <div class="modal-content-logout">
         <h3>Confirmar Logout</h3>
         <p>Você tem certeza de que deseja sair?</p>
         <form action="{{ route('logout') }}" method="POST" id="logoutForm" style="display: inline;">

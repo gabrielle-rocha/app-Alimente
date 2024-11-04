@@ -8,6 +8,34 @@ use Illuminate\Support\Facades\Log;
 
 class PostagemController extends Controller
 {
+
+    public function curtirPostagem(Request $request)
+{
+    // Validação dos dados recebidos
+    $request->validate([
+        'idPostagem' => 'required|exists:postagens,id', // Certifique-se de que o id existe na tabela postagens
+        'curtida' => 'required|boolean', // True para curtir, false para descurtir
+    ]);
+
+    try {
+        $postagem = Postagem::find($request->idPostagem);
+
+        if ($request->curtida) {
+            $postagem->increment('numeroCurtidas'); // Incrementa a contagem de curtidas
+        } else {
+            $postagem->decrement('numeroCurtidas'); // Decrementa a contagem de curtidas
+        }
+
+        // Retornar uma resposta JSON de sucesso
+        return response()->json(['message' => 'Curtida registrada com sucesso!', 'curtidas' => $postagem->numeroCurtidas], 200);
+    } catch (\Exception $e) {
+        // Log do erro para diagnóstico
+        Log::error('Erro ao registrar curtida: ' . $e->getMessage());
+        return response()->json(['message' => 'Erro ao registrar a curtida.'], 500);
+    }
+}
+
+
     public function store(Request $request)
     {
         // Validação dos dados recebidos

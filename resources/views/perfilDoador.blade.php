@@ -80,10 +80,10 @@
     
     <div class="sidebar">
         <ul>
-                <li><a href="#">
+                <li><a href="feedDoador">
                     <span class="icon"><i class="fa-solid fa-house"></i></span>
                     <span class="title">Início</span>
-<                   </a></li>
+                  </a></li>
 
                 <li><a href="/perfilDoador">
                 <span class="icon"><i class="fa-solid fa-user"></i></span>
