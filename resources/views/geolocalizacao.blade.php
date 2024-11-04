@@ -185,13 +185,13 @@
 </script>
 <div class="info-cards">
     <div class="info-card">
-        <div class="card-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+        <div class="card-icon"><i class="fa-solid fa-question"></i></div>
         <h3>Como Utilizar</h3>
         <p class="card-content">Aprenda a navegar pelo mapa, localizar informações e utilizar as funções de busca de forma intuitiva e eficaz.</p>
         <div class="card-content-hover">Este mapa é fácil de usar! Para começar, escolha sua região de interesse para encontrar locais específicos. Explore as ferramentas de zoom e filtro para ajustar a visualização conforme sua necessidade.</div>
     </div>
     <div class="info-card">
-        <div class="card-icon"><i class="fa-solid fa-question"></i></div>
+        <div class="card-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
         <h3>Funcionalidades</h3>
         <p class="card-content">Conheça as principais funcionalidades do sistema, como filtros personalizados e visualizações avançadas.</p>
         <div class="card-content-hover">Aproveite filtros para ajustar resultados de acordo com sua localização e preferências. Com visualizações personalizáveis e atualizações em tempo real, você encontra o que precisa de forma rápida e precisa.</div>
