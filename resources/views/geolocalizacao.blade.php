@@ -13,6 +13,93 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+/* Container de Cards */
+.info-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+    padding: 10px;
+    max-width: 100%;
+}
+
+/* Card Individual */
+.info-card {
+    background: linear-gradient(135deg, #4b79a1, #283e51);
+    color: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de Hover no Card */
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Ícone no Topo do Card */
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 15px;
+    display: inline-block;
+    color: #ffffff;
+}
+
+/* Título e Texto Inicial do Card */
+.info-card h3 {
+    font-size: 1.75rem;
+    margin: 10px 0;
+    color: #fffa;
+    letter-spacing: 1px;
+}
+
+.card-content {
+    font-size: 1rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+    transition: opacity 0.3s ease;
+}
+
+/* Texto Extra ao Passar o Mouse */
+.card-content-hover {
+    font-size: 1rem;
+    color: #fff;
+    line-height: 1.6;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Garante que o hover funcione no card */
+}
+
+/* Mostrar Texto Extra e Ocultar o Texto Original ao Hover */
+.info-card:hover .card-content-hover {
+    opacity: 1;
+}
+
+.info-card:hover .card-content {
+    opacity: 0;
+}
+
+
+
     </style>
 
        <!--icon-->
@@ -96,5 +183,25 @@
         });
     }
 </script>
+<div class="info-cards">
+    <div class="info-card">
+        <div class="card-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+        <h3>Como Utilizar</h3>
+        <p class="card-content">Aprenda a navegar pelo mapa, localizar informações e utilizar as funções de busca de forma intuitiva e eficaz.</p>
+        <div class="card-content-hover">Este mapa é fácil de usar! Para começar, escolha sua região de interesse para encontrar locais específicos. Explore as ferramentas de zoom e filtro para ajustar a visualização conforme sua necessidade.</div>
+    </div>
+    <div class="info-card">
+        <div class="card-icon"><i class="fa-solid fa-question"></i></div>
+        <h3>Funcionalidades</h3>
+        <p class="card-content">Conheça as principais funcionalidades do sistema, como filtros personalizados e visualizações avançadas.</p>
+        <div class="card-content-hover">Aproveite filtros para ajustar resultados de acordo com sua localização e preferências. Com visualizações personalizáveis e atualizações em tempo real, você encontra o que precisa de forma rápida e precisa.</div>
+    </div>
+    <div class="info-card">
+        <div class="card-icon"><i class="fa-solid fa-star"></i></div>
+        <h3>Dicas Úteis</h3>
+        <p class="card-content">Receba dicas de uso para aproveitar ao máximo o sistema de localização e otimizar sua experiência.</p>
+        <div class="card-content-hover">Dica Pro: use o modo de visualização em tela cheia para uma experiência mais imersiva! Se precisar de ajuda, consulte nossa seção de FAQ ou entre em contato com o suporte.</div>
+    </div>
+</div>
 </body>
 </html>
