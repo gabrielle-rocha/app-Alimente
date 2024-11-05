@@ -9,19 +9,18 @@ class CreateCampanhaTable extends Migration
     public function up()
     {
         Schema::create('campanha', function (Blueprint $table) {
-            $table->id('idCampanha'); // Certifique-se de que isso também seja o tipo correto
-            $table->unsignedBigInteger('idOng'); // Use unsignedBigInteger para corresponder ao tipo de idOng
-            $table->string('nomeCampanha', 100)->notNull();
-            $table->text('descricaoCampanha')->nullable();
-            $table->string('imagemCampanha', 255)->nullable();
-            $table->string('assuntoCampanha', 255)->nullable();
-            $table->date('dataInicioCampanha')->nullable();
-            $table->date('dataFimCampanha')->nullable();
-            // Outros campos necessários
+            $table->id('idCampanha'); // Chave primária
+            $table->unsignedBigInteger('idOng'); // Tipo correspondente ao idOng
+            $table->string('nomeCampanha', 100)->nullable(false); // Nome da campanha obrigatório
+            $table->text('descricaoCampanha')->nullable(); // Descrição opcional
+            $table->string('imagemCampanha', 255)->nullable(); // Imagem opcional
+            $table->string('assuntoCampanha', 255)->nullable(); // Assunto opcional
+            $table->date('dataInicioCampanha')->nullable(); // Data de início opcional
+            $table->date('dataFimCampanha')->nullable(); // Data de fim opcional
 
             // Definindo a chave estrangeira
             $table->foreign('idOng')->references('idOng')->on('ong')->onDelete('cascade');
-            $table->timestamps();
+            $table->timestamps(); // Cria created_at e updated_at
         });
     }
 

@@ -2,7 +2,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Ong; // Certifique-se de que você tem o modelo Ong
+use App\Models\Ong; 
+use App\Models\PrestacaoConta;
 use Illuminate\Http\Request;
 
 class OngController extends Controller
@@ -29,14 +30,10 @@ class OngController extends Controller
     }
 
     public function prestarConta()
-    {
-        $ong = auth()->user(); // ou o método que você está utilizando para obter a ONG logada
-        $numeroPostagens = $ong->postagens()->count(); // Contagem de postagens
-        $numeroCampanhas = $ong->campanhas()->count(); // Contagem de campanhas
-    
-        return view('prestarContaOng', compact('ong'));
-    
-    }
+{
+    $ong = auth()->user(); // or however you retrieve the ONG
+    return view('prestarContaOng', compact('ong'));
+}
 
     public function index() {
         $search = request('search');

@@ -26,19 +26,17 @@ class DoadorController extends Controller
         ]);
     }
     
-    public function perfil()
-    {
-        $doador = auth()->user(); // Obtém o usuário autenticado
-    
-        // Se você precisar de dados adicionais, pode buscar aqui
-        // Exemplo: $doacoes = Doacao::where('doador_id', $doador->id)->get();
-    
-        // Retorna a view com o doador
-        return view('perfilDoador', [
-            'doador' => $doador,
-            // 'doacoes' => $doacoes, // Se necessário
-        ]);
+   public function perfil()
+{
+    $doador = auth()->user();
+
+    if (!$doador) {
+        return redirect()->route('login')->withErrors(['error' => 'Por favor, faça login para acessar o perfil.']);
     }
+
+    return view('perfilDoador', compact('doador'));
+}
+
 
     public function adicionarComentario(Request $request)
     {

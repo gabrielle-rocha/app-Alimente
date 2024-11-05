@@ -10,49 +10,59 @@
 
     <script>
     $(document).ready(function(){
-    // Esconde a tela de Configurações inicialmente
-    $(".account-settings").hide();
+        // Esconde a tela de Configurações inicialmente
+        $(".account-settings").hide();
 
-    // Exibe a seção de "Conta" e oculta a de "Configurações"
-    $("#accountLink").click(function(event){
-        event.preventDefault(); // Previne o comportamento padrão do link
-        $(".account").show(); // Mostra a tela de conta
-        $(".account-settings").hide(); // Esconde a tela de configurações
+        // Exibe a seção de "Conta" e oculta a de "Configurações"
+        $("#accountLink").click(function(event){
+            event.preventDefault();
+            $(".account").show();
+            $(".account-settings").hide();
+            $('.menu-link').removeClass('active');
+            $(this).addClass('active');
+        });
 
-        // Atualiza o menu com a barra azul animada
-        $('.menu-link').removeClass('active');
-        $(this).addClass('active');
+        // Exibe a seção de "Configurações" e oculta a de "Conta"
+        $("#configLink").click(function(event){
+            event.preventDefault();
+            $(".account").hide();
+            $(".account-settings").show();
+            $('.menu-link').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        // Alternar a classe "active" para os links ao clicar
+        $(".menu-link").click(function(event){
+            event.preventDefault();
+            $(".menu-link").removeClass("active");
+            $(this).addClass("active");
+        });
+
+        // Remover o estilo azul do first-child quando for clicado em outra página
+        $("ul li a").click(function() {
+            $("ul li a:first-child").removeClass("active");
+        });
+
+        $(".hamburguer").click(function(){
+            $(".wrapper").toggleClass("collapse");
+        });
+
+        // Modal de confirmação
+        $(".btn-save").click(function(event){
+            event.preventDefault(); // Previne o comportamento padrão do botão
+            $("#confirmationModal").show(); // Exibe o modal
+        });
+
+        // Fecha o modal ao clicar no botão "Fechar"
+        $("#closeModal").click(function(){
+            $("#confirmationModal").hide();
+        });
+
+        $("#cancelLogout").click(function() {
+        $("#logoutModal").hide(); // Esconde o modal de logout
     });
-
-    // Exibe a seção de "Configurações" e oculta a de "Conta"
-    $("#configLink").click(function(event){
-        event.preventDefault(); // Previne o comportamento padrão do link
-        $(".account").hide(); // Esconde a tela de conta
-        $(".account-settings").show(); // Mostra as configurações
-
-        // Atualiza o menu com a barra azul animada
-        $('.menu-link').removeClass('active');
-        $(this).addClass('active');
     });
-
-    // Alternar a classe "active" para os links ao clicar
-    $(".menu-link").click(function(event){
-        event.preventDefault(); // Previne comportamento padrão do link
-        $(".menu-link").removeClass("active");
-        $(this).addClass("active");
-    });
-
-    // Remover o estilo azul do first-child quando for clicado em outra página
-    $("ul li a").click(function() {
-        $("ul li a:first-child").removeClass("active");
-    });
-
-    $(".hamburguer").click(function(){
-        $(".wrapper").toggleClass("collapse");
-    });
-});
     </script>
-
 
     <!--icon-->
     <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
@@ -77,23 +87,23 @@
             </div>
         </div>
     </div>
-    
+
     <div class="sidebar">
         <ul>
-                <li><a href="feedDoador">
-                    <span class="icon"><i class="fa-solid fa-house"></i></span>
-                    <span class="title">Início</span>
-                  </a></li>
+            <li><a href="feedDoador">
+                <span class="icon"><i class="fa-solid fa-house"></i></span>
+                <span class="title">Início</span>
+            </a></li>
 
-                <li><a href="/perfilDoador">
+            <li><a href="/perfilDoador">
                 <span class="icon"><i class="fa-solid fa-user"></i></span>
                 <span class="title">Perfil</span>
-                </a></li>
+            </a></li>
 
-                <li><a href="/geolocalizacao">
+            <li><a href="/geolocalizacao">
                 <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
                 <span class="title">Buscar</span>
-                </a></li>
+            </a></li>
         </ul>
     </div>
 
@@ -102,73 +112,84 @@
         <div class="profile">
             <div class="profile-header">
                 <div class="user-img">
-                <img src="/img/perfil-exemplo.enc" id="photo" class="profile-img">
-                <input type="file" name="" id="file">
-                <label for="file" id="uploadbtn"><i class="fas fa-camera"></i></label>
+                    <img src="/img/foto malcon.jpeg" id="photo" class="profile-img">
+                    <input type="file" name="" id="file">
+                    <label for="file" id="uploadbtn"><i class="fas fa-camera"></i></label>
                 </div>
                 <div class="profile-text-container">
-                    <h1 class="profle-title">Isabel</h1>
-                    <p class="profile-email">isabelenicavalcantedasilva@gmail.com</p>
+                    <h1 class="profle-title">Mailcoln Rocha</h1>
+                    <p class="profile-email">maicon14@gmail.com</p>
                     <p class="status">Doador</p>
                 </div>
             </div>
             
             <div class="menu">
-    <a href="#" class="menu-link" id="accountLink">
-        <i class="fa-solid fa-circle-user menu-icon"></i> Conta
-    </a>
-    <a href="#" id="configLink" class="menu-link">
-        <i class="fa-solid fa-gear menu-icon"></i> Configurações
-    </a>
-    <a href="#" class="menu-link" id="logoutLink">
-        <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
-    </a>
-</div>
-</div>
-
-<!-- Modal de Confirmação de Logout -->
-<div id="logoutModal" class="modal">
-    <div class="modal-content">
-        <p>Deseja mesmo sair da sessão?</p>
-        <div class="modal-buttons">
-            <button id="confirmLogout">Sim</button>
-            <button id="cancelLogout">Não</button>
+                <a href="#" class="menu-link" id="accountLink">
+                    <i class="fa-solid fa-circle-user menu-icon"></i> Conta
+                </a>
+                <a href="#" id="configLink" class="menu-link">
+                    <i class="fa-solid fa-gear menu-icon"></i> Configurações
+                </a>
+                <a href="#" class="menu-link" id="logoutLink">
+                    <i class="fa-solid fa-right-from-bracket menu-icon"></i> Logout
+                </a>
+            </div>
         </div>
-    </div>
-</div>
+
+        <!-- Modal de Confirmação de Logout -->
+        <div id="logoutModal" class="modal">
+            <div class="modal-content">
+                <p>Deseja mesmo sair da sessão?</p>
+                <div class="modal-buttons">
+                    <form action="{{ route('logout') }}" method="POST" id="logoutForm" style="display: inline;">
+            @csrf
+            <button type="submit" class="confirm-button">Confirmar</button>
+        </form>
+                    <button id="cancelLogout">Não</button>
+                </div>
+            </div>
+        </div>
 
         <!-- Tela de Configurações de Conta (visível inicialmente) -->
         <form class="account">
             <div class="account-header">
-                <h1 class="account-tittle">Configurações de conta</h1>
+                <h1 class="account-tittle">Informações de conta</h1>
                 <div class="btn-container">
-                    <button class="btn-cancel">Cancelar</button>
-                    <button class="btn-save">Salvar</button>
+                    <button type="button" class="btn-cancel">Cancelar</button>
+                    <button type="submit" class="btn-save">Salvar</button>
                 </div>
             </div>
 
             <div class="account-edit">
                 <div class="input-container">
                     <label>Nome:</label>
-                    <input type="text" placeholder="Nome">
+                    <input type="text" placeholder="Nome" value="Mailcoln Rocha">
                 </div>
                 <div class="input-container">
                     <label>Nome de usuário:</label>
-                    <input type="text" placeholder="Nome de usuário">
+                    <input type="text" placeholder="Nome de usuário" value="Maicoln_7">
                 </div>
                 <div class="input-container">
                     <label>Email:</label>
-                    <input type="email" placeholder="Email">
+                    <input type="email" placeholder="Email" value="maicon14@gmail.com">
                 </div>
             </div>
 
             <div class="account-edit">
                 <div class="input-container">
                     <label>Bio:</label>
-                    <textarea name="" id="" placeholder="Biografia"></textarea>
+                    <textarea placeholder="Biografia">Doador com foco em alimentos e causas</textarea>
                 </div>
             </div>
         </form>
+
+        <!-- Modal de Confirmação -->
+        <div id="confirmationModal" class="modal-perfil" style="display:none;">
+            <div class="modal-content-perfil">
+                <p>Perfil editado com sucesso!</p>
+                <button id="closeModal" class="close-modal-perfil">Fechar</button>
+            </div>
+        </div>
 
         <!-- Tela de Configurações (inicialmente oculta) -->
         <form class="account-settings">
@@ -184,7 +205,6 @@
                 </div>
             </div>
         </form>
-
     </div>
 </div>
 

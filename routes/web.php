@@ -13,6 +13,7 @@ use App\Http\Controllers\CampanhaController;
 use App\Http\Controllers\FeedOngController;
 use App\Http\Controllers\PostagemController;
 use App\Http\Controllers\GeolocalizacaoController;
+use App\Http\Controllers\PrestacaoContasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -113,7 +114,9 @@ Route::get('/admin', function() {
 /*feed doador*/ 
 
 
-Route::get('/perfilDoador', [DoadorController::class, 'perfil'])->name('perfilDoador')->middleware('auth');
+Route::get('/perfilDoador', function() {
+    return view('perfilDoador');
+});
 
 Route::get('/feedDoador', [DoadorController::class, 'feed'])->name('feedDoador')->middleware('auth');
 
@@ -135,6 +138,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/perfilOng', [OngController::class, 'perfil'])->middleware('auth');
 
 Route::get('/prestarContaOng', [OngController::class, 'prestarConta'])->middleware('auth');
+Route::post('/prestar-conta', [PrestacaoContasController::class, 'store'])->middleware('auth')->name('prestar-conta.store');
+
 
 // Rotas para campanhas
 Route::middleware('auth')->group(function () {

@@ -67,86 +67,71 @@
 
         <div class="container-content">
             <div class="container-left">
-                <h3>Movimentações:</h3>
-                <label for="balanco">Balanço Patrimonial:</label>
-                <div class="file-upload">
-                    <input type="file" id="balanco">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                </div>
+            <form action="{{ route('prestar-conta.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
 
-                <label for="demonstracao">Demonstração de Resultados:</label>
-                <div class="file-upload">
-                    <input type="file" id="demonstracao">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-            </div>
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<div>
+    <label for="idOng">ID da ONG:</label>
+    <input type="text" name="idOng" id="idOng" required>
+</div>
 
-            <div class="container-right">
-                <h3>Receitas e Despesas:</h3>
-                <label for="receitas">Receitas Totais:</label>
-                <div class="file-upload">
-                    <input type="file" id="receitas">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-
-                <label for="despesas">Despesas Totais:</label>
-                <div class="file-upload">
-                    <input type="file" id="despesas">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-            </div>
+    <div class="container-left">
+        <h3>Movimentações:</h3>
+        <label for="balanco">Balanço Patrimonial:</label>
+        <div class="file-upload">
+            <input type="file" name="balanco" id="balanco" required>
+            <i class="fas fa-cloud-upload-alt"></i>
         </div>
 
-        <div class="container-fotos">
+        <label for="demonstracao">Demonstração de Resultados:</label>
+        <div class="file-upload">
+            <input type="file" name="demonstracao" id="demonstracao" required>
+            <i class="fas fa-cloud-upload-alt"></i>
+        </div>
+    </div>
+
+    <div class="container-right">
+        <h3>Receitas e Despesas:</h3>
+        <label for="receitas">Receitas Totais:</label>
+        <div class="file-upload">
+            <input type="file" name="receitas" id="receitas" required>
+            <i class="fas fa-cloud-upload-alt"></i>
+        </div>
+
+        <label for="despesas">Despesas Totais:</label>
+        <div class="file-upload">
+            <input type="file" name="despesas" id="despesas" required>
+            <i class="fas fa-cloud-upload-alt"></i>
+        </div>
+    </div>
+
+    <div class="container-fotos">
         <h3>Fotos tiradas referentes à instituição:</h3>
-            <div class="row">
+        <div class="row">
+            @for ($i = 0; $i < 10; $i++)
                 <div class="input-wrapper">
-                <input type="file" />
-                <i class="fas fa-cloud-upload-alt"></i>
+                    <input type="file" name="fotos[]" />
+                    <i class="fas fa-cloud-upload-alt"></i>
                 </div>
-                <div class="input-wrapper">
-                <input type="file" />
-                <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-                <div class="input-wrapper">
-                <input type="file" />
-                <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-                <div class="input-wrapper">
-                <input type="file" />
-                <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-                <div class="input-wrapper">
-                <input type="file" />
-                <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-                <div class="input-wrapper">
-                <input type="file" />
-                <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-                <div class="input-wrapper">
-                <input type="file" />
-                <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-                <div class="input-wrapper">
-                <input type="file" />
-                <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-                <div class="input-wrapper">
-                <input type="file" />
-                <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-                <div class="input-wrapper">
-                <input type="file" />
-                <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-            </div>
+            @endfor
         </div>
+    </div>
 
-        <div class="buttons">
-            <button class="send">Enviar</button>
-            <button class="clear">Limpar</button>
-        </div>
+    <div class="buttons">
+        <button type="submit" class="send">Enviar</button>
+        <button type="reset" class="clear">Limpar</button>
+    </div>
+</form>
+
     </div><!--container-->
 </div><!--wrapper-->
 </body>

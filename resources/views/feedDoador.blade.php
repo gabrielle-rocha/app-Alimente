@@ -9,18 +9,17 @@
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     
     <script>
-        $(document).ready(function(){
+         $(document).ready(function(){
             $(".hamburguer").click(function(){
                 $(".wrapper").toggleClass("collapse");
-                
+            });
+
+            
+            $(".filter a").click(function(e){
+                e.preventDefault();
+                $(this).parent().toggleClass("expanded");
             });
         });
-
-
-    $(".filter a").click(function(e){
-        e.preventDefault();  // Impede a ação padrão do link
-        $(this).parent().toggleClass("expanded");  // Alterna a classe 'expanded'
-    });
 
     document.querySelector('.user').addEventListener('click', function() {
     const dropdownMenu = this.querySelector('.dropdown-menu');
@@ -68,15 +67,16 @@
 </li>
                 <div id="ong-results" class="results-container" style="display: none;"></div>
                 <li class="filter">
-                <a href="#"><i class="fa-solid fa-hashtag"></i></a>
-                <div class="filter-buttons">
-                    <button onclick="filterPosts('doenças')">Doenças</button>
-                    <button onclick="filterPosts('alimentação')">Alimentação</button>
-                    <button onclick="filterPosts('vestimenta')">Vestimenta</button>
-                    <button onclick="filterPosts('animais')">Animais</button>
-                    <button onclick="filterPosts('')">Todos</button>
-                </div>
-                </li>
+    <a href="#"><i class="fa-solid fa-hashtag"></i></a>
+    <div class="filter-buttons">
+        <button onclick="filterPosts('doenças')">Doenças</button>
+        <button onclick="filterPosts('alimentação')">Alimentação</button>
+        <button onclick="filterPosts('vestimenta')">Vestimenta</button>
+        <button onclick="filterPosts('animais')">Animais</button>
+        <button onclick="filterPosts('')">Todos</button>
+    </div>
+</li>
+
                 </ul>
 
                 <div class="user">
@@ -101,7 +101,7 @@
                         <span class="title">Início</span>
                     </a></li>
 
-                    <li><a href="{{route}}">
+                    <li><a href="/perfilDoador">
                     <span class="icon"><i class="fa-solid fa-user"></i></span>
                     <span class="title">Perfil</span>
                     </a></li>
