@@ -876,7 +876,7 @@
 <style>
     /* Estilos para o botão */
     #admin-button {
-        position: fixed;
+        position: absolute;
         bottom: 20px;
         left: 20px;
         background-color: #007bff; /* Cor de fundo */
