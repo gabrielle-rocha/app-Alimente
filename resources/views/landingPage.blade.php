@@ -6,6 +6,7 @@
     <!--icon-->
     <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
     <title>Alimente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Reset básico */
         * {
@@ -866,6 +867,44 @@
             <p>&copy; 2024 Target. Todos os direitos reservados.</p>
         </div>
     </div>
+
+    <!-- Botão de Acesso no Canto Inferior Esquerdo -->
+<div id="admin-button" onclick="adminAccess()">
+    <i class="fas fa-user"></i>
+</div>
+
+<style>
+    /* Estilos para o botão */
+    #admin-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background-color: #007bff; /* Cor de fundo */
+        color: white; /* Cor do ícone */
+        padding: 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #admin-button:hover {
+        background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+    }
+</style>
+
+<script>
+    // Função para o clique no botão
+    function adminAccess() {
+        alert("Acesso de administrador!");
+        window.location.href = "/loginAdm";
+        // Coloque aqui o redirecionamento ou função para o acesso admin
+        // Por exemplo: window.location.href = "/admin-dashboard";
+    }
+</script>
 </footer>
 </body>
 </html>
