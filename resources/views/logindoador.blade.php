@@ -135,5 +135,21 @@
         <img src="/img/slogan-alimente-cinza.png" alt="Alimente - Gerando Solidariedade">
         <img src="/img/telainicio.png" alt="Alimente - Gerando Solidariedade">
     </div>
+
+            <script>
+
+            public function login(Request $request)
+        {
+            $credentials = $request->only('email', 'password');
+
+            if (Auth::attempt($credentials)) {
+                // Redireciona para a página desejada após login bem-sucedido
+                return redirect()->intended('/home');
+            } else {
+                // Retorna para a página de login com a mensagem de erro
+                return redirect()->back()->withErrors(['password' => 'Senha incorreta.']);
+            }
+        }
+        </script>
 </body>
 </html>

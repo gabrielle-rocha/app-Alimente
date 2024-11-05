@@ -830,7 +830,7 @@
         </div>
         <div class="colaborador">
             <div class="foto-perfil">
-                <img src="/img/Iacademy.jpeg" alt="Colaborador 3">
+                <img src="img/apex.jfif" alt="Colaborador 3">
             </div>
             <h3>IAcademy</h3>
             <p>Empresa de tecnologia</p>
