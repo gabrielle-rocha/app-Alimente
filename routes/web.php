@@ -187,3 +187,9 @@ Route::get('dashboard', function () {
     return view('dashboard'); // Certifique-se de ter essa view criada
 })->middleware('auth');
 Auth::routes();*/
+
+//listar ongs para a autorização
+Route::middleware('auth:sanctum')->get('/ongs', [OngController::class, 'index']);
+Route::middleware('auth:sanctum')->get('/ongs/pendentes', [OngController::class, 'ongPendentes']);
+Route::middleware('auth:sanctum')->put('/ongs/aceitar/{idOng}', [OngController::class, 'aceitar']);
+Route::middleware('auth:sanctum')->put('/ongs/arquivar/{idOng}', [OngController::class, 'arquivar']);

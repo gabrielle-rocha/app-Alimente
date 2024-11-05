@@ -90,6 +90,7 @@ class OngController extends Controller
             'cidadeOng' => $validatedData['cidadeOng'], // Corrigido para usar a validação
             'estadoOng' => $validatedData['estadoOng'], // Corrigido para usar a validação
             'dataCadastroOng' => now(), // Preencher a data de cadastro automaticamente
+            
         ]);
 
         $request->session()->put('ong_id', $ong->idOng);
@@ -144,5 +145,36 @@ class OngController extends Controller
         // Redirecionar ou retornar uma resposta após a atualização
         return view('logindoador');
     }
+
+
+      /**
+ * Autorização de login
+ */
+public function login(Request $request)
+{ 
+    //verificar se o usualio e uma ong
+    $ong = Ong::where('emailOng',$request->email)->first();
+
+    if ($ong){
+        $isPasswordValid = Hash::check($request->senha,$ong->senhaOng);
+
+        if ($isPasswordValid && $ong-->statusPrestacaoContas ==='ativo'){
+            $token = $ong->createToken('Ong') ->plainTextToken;
+            return response()->json([
+                'message' => 'Autentificado como Ong com sucesso!',
+                'token' => $token,
+                'tipoUsuario' => 'ong'
+            
+            ], 200 );
+        }else if ($ong->statusPrestacaoContas ==='pendente'){
+            return response()->json(['message'=> 'Ong pendente!'], 401);
+        }else if ($ong->statusPrestacaoContas === 'arquivado'){
+            return response ()->json(['message' =>'Ong arquivada!'], 401);
+        }else {
+            return response ()->json(['mensagem'=>'Credencías inválidas!'], 401);
+        }
+    }
+}
+
 }
     
