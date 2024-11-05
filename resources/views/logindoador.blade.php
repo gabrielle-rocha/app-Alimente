@@ -121,7 +121,7 @@
                     <input type="password" class="form-control" id="password" placeholder="Digite sua senha" name="password" required>
                 </div>
                 <div class="mb-3">
-                    <a href="">Esqueceu a senha? Clique aqui para redefinir.</a>
+                    <a href="">Esqueci a senha</a>
                 </div>
                 <button type="submit" class="btn login-btn w-100">Login</button>
                 <div class="mt-3 text-center">
@@ -133,6 +133,7 @@
     <div class="right-section">
         <img src="/img/alimente.png" alt="Alimente - Gerando Solidariedade">
         <img src="/img/slogan-alimente-cinza.png" alt="Alimente - Gerando Solidariedade">
+        <img src="/img/telainicio.png" alt="Alimente - Gerando Solidariedade">
     </div>
 </body>
 </html>
